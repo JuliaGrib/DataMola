@@ -5,3 +5,5 @@ I will be study **HTML CSS JavaScript** in detail.
 For two months, i will be do one task here every week.
 
 In the end of the course, i will create a **task-manager**.
+
+You can see my mockups [task-manager](https://www.figma.com/file/JVwm2V12WbrxkPvjHtnRUC/DATAMOLA-JS-FROM-ZERO-TO-HERO-2023-(Community)?node-id=2%3A5&t=uwLky8VG1Cd0dNX8-1)
