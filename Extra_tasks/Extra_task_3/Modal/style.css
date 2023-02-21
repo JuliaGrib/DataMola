@@ -6,10 +6,12 @@
 }
 
 :root {
-    --margin-l: 1.1rem;
-    --padding-s: 0.5rem;
-    --gap-l: 2.1rem;
-    --gap-xs: 0.4rem;
+    --margin: 1rem;
+    --padding-s: calc((var(--padding)/2));
+    --padding: 1rem;
+    --gap-s: calc((var(--gap)/2));
+    --gap: 1rem;
+    --gap-l: calc((var(--gap)*2));
     --elem-radius: 0.2rem;
     --elem-transition: 0.5s;
     --main-bg: rgba(0, 0, 0, 0.277);
@@ -44,7 +46,7 @@ html {
     display: flex;
     flex-direction: column;
     gap: var(--gap-l);
-    margin: var(--margin-l);
+    margin: var(--margin);
 }
 
 .modal__header {
@@ -59,6 +61,7 @@ html {
 
 .modal__close {
     text-decoration: none;
+    color: var(--color-secondary);
 }
 
 .modal__text {
@@ -69,7 +72,7 @@ html {
 .modal__btns {
     display: flex;
     justify-content: flex-end;
-    gap: var(--gap-xs);
+    gap: var(--gap-s);
 }
 
 .button {
