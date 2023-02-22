@@ -8,6 +8,8 @@
     --gap-s: calc(var(--gap)*0.75);  
     --gap: 1rem;
     --gap-m: calc(var(--gap)*1.25);
+    --gap-l: calc(var(--gap)*1.5);
+    --gap-xl: calc(var(--gap)*1.75);
 
 
 

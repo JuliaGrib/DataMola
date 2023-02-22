@@ -59,7 +59,7 @@
     display: none;
 }
 
-@media screen and (max-width: 425px) {
+@media screen and (max-width: 660px) {
     .header__wrapper {
         padding: var(--padding-l) 0;
     }

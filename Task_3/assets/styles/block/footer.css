@@ -1,0 +1,34 @@
+.footer__wrapper {
+    padding: var(--padding-xl) 0;
+}
+
+.footer__content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer__list {
+    display: flex;
+    gap: var(--gap-m);
+    list-style-type: none;
+}
+
+.footer__tools {
+    display: flex;
+    align-items: center;
+    gap: var(--gap-xl);
+}
+
+
+.language {
+    display: flex;
+    align-items: center;
+    gap: var(--gap-xs);
+}
+
+@media screen and (max-width: 660px) {
+    .footer {
+        display: none;
+    }
+}

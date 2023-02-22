@@ -3,11 +3,18 @@
 @import './base/_variables.css';
 
 @import './block/header.css';
+@import './block/footer.css';
 
 
 .container {
     width: 80vw;
     margin: 0 auto;
+}
+
+@media screen and (max-width: 768px) {
+    .container {
+        width: 90vw;
+    }
 }
 
 
