@@ -1,0 +1,5 @@
+.tickets__segment {
+    display: flex;
+    justify-content: space-between;
+    gap: var(--gap-l);
+}

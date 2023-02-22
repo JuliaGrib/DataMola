@@ -1,0 +1,55 @@
+.tickets__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.tickets__carrier {
+    display: flex;
+    gap: var(--gap-xs);
+}
+
+.tickets__carrier-logo {
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.tickets__icons {
+    display: flex;
+    gap: var(--gap-s);
+}
+
+.tickets__tags {
+    display: flex;
+    gap: var(--gap-xs);
+}
+
+.ticket__tags-elem {
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 50%;
+    box-shadow: var(--shadow-elem);
+    cursor: default;
+}
+
+.ticket__tags-svg {
+    color: var(--color-icons);
+}
+
+.tickets__subs {
+    display: flex;
+    align-items: center;
+    gap: var(--gap-xs);
+}
+
+.ticket__subs-svg {
+    color: var(--grey);
+    cursor: pointer;
+    transition: var(--animation);
+}
+
+.ticket__subs-svg:hover {
+    color: var(--color-secondary);
+}

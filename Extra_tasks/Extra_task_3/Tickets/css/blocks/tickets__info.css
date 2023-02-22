@@ -1,0 +1,7 @@
+.tickets__info {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: var(--padding-l);
+    gap: var(--gap-l); 
+}

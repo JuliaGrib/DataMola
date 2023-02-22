@@ -1,0 +1,10 @@
+.line-horizont {
+    width: 1px;
+    background-color: var(--grey);
+}
+
+.line-vertical {
+    width: 100%;
+    height: 1px;
+    background-color: var(--grey);
+}

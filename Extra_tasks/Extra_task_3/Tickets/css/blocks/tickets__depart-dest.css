@@ -1,0 +1,32 @@
+.tickets__segment {
+    display: flex;
+    justify-content: space-between;
+    gap: var(--gap-l);
+}
+
+.tickets__departure {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.tickets__time {
+    color: var(--black);
+    font-size: 1.6rem;
+    font-weight: var(--font-weight-normal);
+    line-height: 1.4;
+}
+
+.tickets__city,
+.tickets__date {
+    color: var(--grey);
+    font-size: 0.75rem;
+    line-height: 1.4;
+}
+
+
+.tickets__destination {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}

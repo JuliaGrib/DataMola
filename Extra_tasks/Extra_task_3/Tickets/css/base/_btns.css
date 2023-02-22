@@ -1,0 +1,18 @@
+.btn {
+    padding: var(--padding-s) var(--padding-m);
+    border: none;
+    border-radius: 0.62rem;
+    font-size: 1.06rem;
+    font-weight: var(--font-weight-bold);
+    transition: var(--animation);
+    cursor: pointer;
+}
+
+.btn_primary {
+    background-color: var(--color-primary);
+    color: var(--white);
+}
+
+.btn_primary:hover {
+    background-color: var(--color-primary-hover);
+}

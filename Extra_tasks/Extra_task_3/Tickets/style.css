@@ -1,0 +1,194 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', sans-serif;;
+}
+
+html {
+    font-size: 16px;
+}
+
+:root {
+    --margin: 1rem;
+    --margin-l: calc((var(--margin)*1.25));
+    --padding-s: calc((var(--padding)*0.87));
+    --padding: 1rem;
+    --padding-m: calc((var(--padding)*1.37));
+    --padding-l: calc((var(--margin)*1.25));
+    --gap-xs: calc((var(--gap)*0.62));
+    --gap-s: calc((var(--gap)*0.75));
+    --gap: 1rem;
+    --gap-l: calc((var(--gap)*1.25));
+    --main-bg: #eff1f4;
+    --white: #fff;
+    --grey: #cac1ca;
+    --black: #0c131d;
+    --color-primary: #ff6f32;
+    --color-secondary: #0c73fe;
+    --font-weight-normal: 400;
+    --font-weight-semi-bold: 600;
+    --font-weight-bold: 700;
+}
+
+.main {
+    width: 100vw;
+    height: 100vh;
+    background-color: #eff1f4;
+}
+
+.tickets {
+    width: 84vw;
+    border-radius: 0.62rem;
+    background-color: var(--white);
+}
+
+.tickets__content {
+    display: flex;
+}
+
+.tickets__side {
+    display: flex;
+    flex-shrink: 0;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--gap-s);
+    padding: var(--margin-l) var(--margin);
+}
+
+.tickets__price {
+    font-size: 1.4rem;
+    font-weight: var(--font-weight-bold);
+}
+
+.btn {
+    padding: var(--padding-s) var(--padding-m);
+    border: none;
+    border-radius: 0.62rem;
+    font-size: 1.06rem;
+    font-weight: var(--font-weight-bold);
+}
+
+.btn_primary {
+    background-color: var(--color-primary);
+    color: var(--white);
+}
+
+.tickets__info {
+    display: flex;
+    width: 100%;
+    margin: var(--padding-l);
+    flex-direction: column;
+    gap: var(--gap-l);
+}
+
+.tickets__header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.tickets__carrier {
+    display: flex;
+    gap: var(--gap-xs);
+}
+
+.tickets__logo {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.tickets__icons {
+    display: flex;
+    gap: var(--gap-xs);
+}
+
+
+
+.tickets__segment {
+    display: flex;
+    justify-content: space-between;
+    gap: var(--gap-l);
+}
+
+.tickets__departure {
+    text-align: left;
+}
+
+.tickets__time {
+    color: var(--black);
+    font-size: 1.6rem;
+    font-weight: var(--font-weight-normal);
+    line-height: 1.4;
+}
+
+.tickets__city,
+.tickets__date {
+    color: var(--grey);
+    font-size: 0.75rem;
+    line-height: 1.4;
+}
+
+.tickets__route {
+    display: flex;
+    width: 100%;
+}
+
+.start {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-content: space-between;
+    width: 25%;
+    height: 100%;
+}
+
+.line {
+    width: 100%;
+    height: 0.25rem;
+    border-radius: 2.5px;
+    background-color: var(--grey);
+}
+
+.center {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    width: 65%;
+    height: 100%;
+    gap: 14.4px;
+}
+
+.line-second {
+    width: 100%;
+    height: 1px;
+    background-color: var(--grey);
+}
+
+.end {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    width: 65%;
+    height: 100%;
+    gap: 13px;
+}
+
+
+
+
+
+
+
+
+
+
+
+.ticket__destination {
+    text-align: right;
+}
