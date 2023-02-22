@@ -1,20 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap');
 @import './base/_default.css';
 @import './base/_variables.css';
+@import './base/_headers.css';
+@import './base/_back.css';
+@import './base/_buttons.css';
+
+@import './block/container.css';
+@import './block/back.css';
+@import './block/headers.css';
+@import './block/form.css';
 
 @import './block/header.css';
 @import './block/footer.css';
+@import './block/user.css';
 
-
-.container {
-    width: 80vw;
-    margin: 0 auto;
-}
-
-@media screen and (max-width: 768px) {
-    .container {
-        width: 90vw;
-    }
-}
 
 

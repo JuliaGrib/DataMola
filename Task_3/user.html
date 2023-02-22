@@ -17,12 +17,12 @@
                     </a>
                     <nav class="header__nav">
                         <div class="header__user">
-                            <div class="user">
-                                <svg class="user__img" width="25" height="25" viewBox="0 0 25 25" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                            <div class="user-icon">
+                                <svg class="user-icon__img" width="25" height="25" viewBox="0 0 25 25" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M17 9.75C17 10.9435 16.5259 12.0881 15.682 12.932C14.8381 13.7759 13.6935 14.25 12.5 14.25C11.3065 14.25 10.1619 13.7759 9.31802 12.932C8.47411 12.0881 8 10.9435 8 9.75C8 8.55653 8.47411 7.41193 9.31802 6.56802C10.1619 5.72411 11.3065 5.25 12.5 5.25C13.6935 5.25 14.8381 5.72411 15.682 6.56802C16.5259 7.41193 17 8.55653 17 9.75Z"/>
                                     <path fill-rule="evenodd" clip-rule="evenodd" d="M0.5 12.75C0.5 9.5674 1.76428 6.51516 4.01472 4.26472C6.26516 2.01428 9.3174 0.75 12.5 0.75C15.6826 0.75 18.7348 2.01428 20.9853 4.26472C23.2357 6.51516 24.5 9.5674 24.5 12.75C24.5 15.9326 23.2357 18.9848 20.9853 21.2353C18.7348 23.4857 15.6826 24.75 12.5 24.75C9.3174 24.75 6.26516 23.4857 4.01472 21.2353C1.76428 18.9848 0.5 15.9326 0.5 12.75ZM12.5 2.25C10.5227 2.25011 8.58555 2.80854 6.9116 3.86104C5.23766 4.91354 3.89492 6.41732 3.03795 8.19929C2.18097 9.98127 1.84458 11.969 2.0675 13.9337C2.29042 15.8985 3.06358 17.7603 4.298 19.305C5.363 17.589 7.7075 15.75 12.5 15.75C17.2925 15.75 19.6355 17.5875 20.702 19.305C21.9364 17.7603 22.7096 15.8985 22.9325 13.9337C23.1554 11.969 22.819 9.98127 21.9621 8.19929C21.1051 6.41732 19.7623 4.91354 18.0884 3.86104C16.4145 2.80854 14.4773 2.25011 12.5 2.25Z"/>
                                 </svg>                                    
-                                <span class="user__name">Julia Grib</span>
+                                <span class="user-icon__name">Julia Grib</span>
                             </div>
                             <div class="settings">
                                 <a class="settings__link" href="#">
@@ -49,7 +49,75 @@
             </div>
         </div>
     </header>
-
+    <main class="main">
+        <div class="container">
+            <div class="main__content">
+                <div class="back">
+                    <svg class="back__icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M20 11H7.83L13.42 5.41L12 4L4 12L12 20L13.41 18.59L7.83 13H20V11Z" fill="#333333"/>
+                    </svg>
+                    <span class="back__desk">
+                        My tasks
+                    </span>
+                </div>
+                <h1 class="header-h1">Account settings</h1>
+                <section class="user">
+                    <aside class="user__photo">
+                        <div class="user__img">
+                            <svg width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M82.5 45C82.5 50.9674 80.1295 56.6903 75.9099 60.9099C71.6903 65.1295 65.9674 67.5 60 67.5C54.0326 67.5 48.3097 65.1295 44.0901 60.9099C39.8705 56.6903 37.5 50.9674 37.5 45C37.5 39.0326 39.8705 33.3097 44.0901 29.0901C48.3097 24.8705 54.0326 22.5 60 22.5C65.9674 22.5 71.6903 24.8705 75.9099 29.0901C80.1295 33.3097 82.5 39.0326 82.5 45Z" fill="#333333"/>
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M0 60C0 44.087 6.32141 28.8258 17.5736 17.5736C28.8258 6.32141 44.087 0 60 0C75.913 0 91.1742 6.32141 102.426 17.5736C113.679 28.8258 120 44.087 120 60C120 75.913 113.679 91.1742 102.426 102.426C91.1742 113.679 75.913 120 60 120C44.087 120 28.8258 113.679 17.5736 102.426C6.32141 91.1742 0 75.913 0 60ZM60 7.5C50.1133 7.50053 40.4277 10.2927 32.058 15.5552C23.6883 20.8177 16.9746 28.3366 12.6897 37.2465C8.40484 46.1563 6.7229 56.095 7.83749 65.9187C8.95208 75.7423 12.8179 85.0516 18.99 92.775C24.315 84.195 36.0375 75 60 75C83.9625 75 95.6775 84.1875 101.01 92.775C107.182 85.0516 111.048 75.7423 112.163 65.9187C113.277 56.095 111.595 46.1563 107.31 37.2465C103.025 28.3366 96.3117 20.8177 87.942 15.5552C79.5723 10.2927 69.8867 7.50053 60 7.5Z" fill="#333333"/>
+                            </svg>    
+                        </div>
+                        <div class="user__photo-tools">
+                            <a href="#" class="change-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M19.71 8.04L17.37 10.37L13.62 6.62L15.96 4.29C16.35 3.9 17 3.9 17.37 4.29L19.71 6.63C20.1 7 20.1 7.65 19.71 8.04ZM3 17.25L13.06 7.18L16.81 10.93L6.75 21H3V17.25ZM16.62 5.04L15.08 6.58L17.42 8.92L18.96 7.38L16.62 5.04ZM15.36 11L13 8.64L4 17.66V20H6.34L15.36 11Z" fill="black"/>
+                                </svg>
+                            </a>
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M18 19C18 19.7956 17.6839 20.5587 17.1213 21.1213C16.5587 21.6839 15.7956 22 15 22H8C7.20435 22 6.44129 21.6839 5.87868 21.1213C5.31607 20.5587 5 19.7956 5 19V7H4V4H8.5L9.5 3H13.5L14.5 4H19V7H18V19ZM6 7V19C6 19.5304 6.21071 20.0391 6.58579 20.4142C6.96086 20.7893 7.46957 21 8 21H15C15.5304 21 16.0391 20.7893 16.4142 20.4142C16.7893 20.0391 17 19.5304 17 19V7H6ZM18 6V5H14L13 4H10L9 5H5V6H18ZM8 9H9V19H8V9ZM14 9H15V19H14V9Z" fill="black"/>
+                            </svg>                                  
+                        </div>
+                    </aside>
+                    <div class="user__info">
+                        <div class="user__header">
+                            <h2 class="header-h2">General information</h2>
+                            <a href="#" class="change-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M19.71 8.04L17.37 10.37L13.62 6.62L15.96 4.29C16.35 3.9 17 3.9 17.37 4.29L19.71 6.63C20.1 7 20.1 7.65 19.71 8.04ZM3 17.25L13.06 7.18L16.81 10.93L6.75 21H3V17.25ZM16.62 5.04L15.08 6.58L17.42 8.92L18.96 7.38L16.62 5.04ZM15.36 11L13 8.64L4 17.66V20H6.34L15.36 11Z" fill="black"/>
+                                </svg>
+                            </a>
+                        </div>
+                        <form class="form" action="/">
+                            <div class="form__quarter">
+                                <div class="form__elem">
+                                    <label for="">Login*</label>
+                                    <input class="form__input" type="text" placeholder="Julia" disabled>
+                                </div>
+                                <div class="form__elem">
+                                    <label for="">Name*</label>
+                                    <input class="form__input" type="text" placeholder="Julia Grib" disabled>
+                                </div>
+                                <div class="form__elem">
+                                    <label for="">Password*</label>
+                                    <input class="form__input" type="password" placeholder="********" disabled>
+                                </div>
+                                <div class="form__elem">
+                                    <label for="">Repeat password*</label>
+                                    <input class="form__input" type="password" placeholder="********" disabled>
+                                </div>
+                            </div>
+                            <div class="form__btn">
+                                <button class="button button_disabled">Reset</button>
+                                <button class="button button_disabled">Save</button>
+                            </div>
+                        </form>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
     <footer class="footer">
         <div class="footer__wrapper">
             <div class="container">

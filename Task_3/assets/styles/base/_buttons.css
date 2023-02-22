@@ -1,0 +1,11 @@
+.button {
+    padding: 1rem 2rem;
+    border: none;
+    font-size: 1rem;
+}
+
+.button_disabled {
+    border-radius: var(--border-radius);
+    color: var(--color-white);
+    background-color: var(--color-secondary-dark);
+}

@@ -1,0 +1,35 @@
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-xxl);
+}
+
+.form__quarter {
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-row-gap: var(--gap-xxl);
+    width: 80%;
+}
+
+.form__elem {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    gap: var(--gap-xxs);
+}
+
+.form__input {
+    height: 3rem;
+    padding: 0 var(--padding);
+    border: none;
+    border-radius: var(--border-radius-s);
+}
+
+.form__input:disabled {
+    background-color: #eaecef;
+}
+
+.form__btn {
+    display: flex;
+    gap: var(--gap-s);
+}

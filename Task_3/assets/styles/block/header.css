@@ -1,5 +1,5 @@
 .header__wrapper {
-    padding: var(--padding-xl) 0;
+    padding: var(--padding-xxl) 0;
 }
 
 .header__content {
@@ -20,13 +20,13 @@
     gap: var(--gap);
 }
 
-.user {
+.user-icon {
     display: flex;
     align-items: center;
     gap: var(--gap-xs);
 }
 
-.user__img {
+.user-icon__img {
     color: var(--color-black);
 }
 
