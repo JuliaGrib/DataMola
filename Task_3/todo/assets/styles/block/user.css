@@ -20,7 +20,7 @@
     background-color: var(--color-secondary);
 }
 
-.user__img img {
+.user__img {
     max-width: 100%;
 }
 
@@ -55,12 +55,12 @@
         flex-direction: row;
         justify-content: center;
         width: 100%;
-        gap: var(--gap-xxs);
+        gap: var(--gap-m);
         border-radius: var(--border-radius) var(--border-radius) 0 0 ;
     }
 
-    .user__img img {
-        max-width: 50%;
+    .user__img {
+        max-width: 20%;
     }
 
     .user__info {
