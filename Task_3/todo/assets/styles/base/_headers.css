@@ -1,13 +1,13 @@
-.header {
+.title {
     color: var(--color-black);
     font-size: 1.5rem;
 }
 
-.header_h1 {
+.title_h1 {
     font-weight: var(--font-weight-bold);
 }
 
-.header_h2 {
+.title_h2 {
     font-weight: var(--font-weight-normal);
 }
 
