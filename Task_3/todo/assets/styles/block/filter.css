@@ -1,0 +1,27 @@
+.filter {
+    border-radius: var(--border-radius);
+    background-color: var(--color-secondary);
+}
+
+.filter__content {
+    display: flex;
+    padding: var(--padding) var(--padding-xxl);
+    
+}
+
+.filter__assignee,
+.filter__date,
+.filter__priority,
+.filter__privacy {
+    padding: 0 var(--padding-xl);
+}
+
+.search {
+    padding: var(--padding);
+    border-radius: var(--border-radius);
+    border: none;
+    background-color: var(--color-secondary);
+}
+.search:focus-visible {
+    outline: none;
+}

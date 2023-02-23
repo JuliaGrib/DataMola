@@ -1,5 +1,6 @@
 .icon {
     color: var(--color-black);
+    text-decoration: none;
     transition: var(--animation);
 }
 

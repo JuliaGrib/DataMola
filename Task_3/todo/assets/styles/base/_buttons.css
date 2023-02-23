@@ -1,11 +1,28 @@
 .button {
-    padding: 1rem 2rem;
+    padding: var(--padding) var(--padding-xxl);
     border: none;
+    border-radius: var(--border-radius);
     font-size: 1rem;
+    transition: var(--animation);
+    
+}
+
+.button_primary {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    cursor: pointer;
+}
+
+.button_primary:hover {
+    background-color: var(--color-primary-dark);
 }
 
 .button_disabled {
-    border-radius: var(--border-radius);
+    background-color: var(--color-secondary-dark);
     color: var(--color-white);
+}
+
+.button_reset-filter {
+    padding: var(--padding) var(--padding);
     background-color: var(--color-secondary-dark);
 }
