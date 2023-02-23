@@ -4,10 +4,8 @@
     --padding-l: calc(var(--padding)*1.5);
     --padding-xl: calc(var(--padding)*1.75);
     --padding-xxl: calc(var(--padding)*2);
-
     --border-radius: 0.5rem;
     --border-radius-s: 0.25rem;
-
     --gap-xxs: calc(var(--gap)*0.25); 
     --gap-xs: calc(var(--gap)*0.5); 
     --gap-s: calc(var(--gap)*0.75);  
@@ -17,18 +15,14 @@
     --gap-xl: calc(var(--gap)*1.75);
     --gap-xxl: calc(var(--gap)*2);
     --gap-xxxl: calc(var(--gap)*3);
-
     --color-primary: #9300ED;
     --color-secondary: #D9D9D9;
     --color-secondary-light: #F1F3F6;
     --color-secondary-dark: #808080;
     --color-white: #fff;
     --color-black: #333333;
-
     --font-weight-normal: 400;
     --font-weight-bold: 700;
-
     --box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.25);
-
     --animation: 0.5s all;
 }

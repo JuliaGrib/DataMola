@@ -13,7 +13,7 @@
             <div class="container">
                 <div class="header__content">
                     <a class="header__logo" href="#">
-                        <img class="header__logo-img" src="./assets/img/icons/logo.svg" alt="Logo">
+                        <img class="header__logo-img" src="./assets/img/icons/logo.svg" alt="Logo" loading="lazy">
                     </a>
                     <nav class="header__nav">
                         <div class="header__user">
@@ -60,10 +60,10 @@
                         My tasks
                     </span>
                 </div>
-                <h1 class="header-h1">Account settings</h1>
+                <h1 class="header header_h1">Account settings</h1>
                 <section class="user">
                     <aside class="user__photo">
-                            <img class="user__img" src="./assets/img/images/user.webp" alt="User photo">
+                            <img class="user__img" src="./assets/img/images/user.webp" alt="User photo" loading="lazy">
                         <div class="user__photo-tools">
                             <a href="#" class="change-icon icon">
                                 <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -79,7 +79,7 @@
                     </aside>
                     <div class="user__info">
                         <div class="user__header">
-                            <h2 class="header-h2">General information</h2>
+                            <h2 class="header header_h2">General information</h2>
                             <a href="#" class="change-icon icon">
                                 <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M19.71 8.04L17.37 10.37L13.62 6.62L15.96 4.29C16.35 3.9 17 3.9 17.37 4.29L19.71 6.63C20.1 7 20.1 7.65 19.71 8.04ZM3 17.25L13.06 7.18L16.81 10.93L6.75 21H3V17.25ZM16.62 5.04L15.08 6.58L17.42 8.92L18.96 7.38L16.62 5.04ZM15.36 11L13 8.64L4 17.66V20H6.34L15.36 11Z"/>
@@ -89,25 +89,25 @@
                         <form class="form" action="/">
                             <div class="form__quarter">
                                 <div class="form__elem">
-                                    <label for="">Login*</label>
-                                    <input class="form__input" type="text" placeholder="Julia" disabled>
+                                    <label for="login">Login*</label>
+                                    <input class="form__input" type="text" id="login" placeholder="Julia" disabled>
                                 </div>
                                 <div class="form__elem">
-                                    <label for="">Name*</label>
-                                    <input class="form__input" type="text" placeholder="Julia Grib" disabled>
+                                    <label for="name">Name*</label>
+                                    <input class="form__input" type="text" id="name" placeholder="Julia Grib" disabled>
                                 </div>
                                 <div class="form__elem">
-                                    <label for="">Password*</label>
-                                    <input class="form__input" type="password" placeholder="********" disabled>
+                                    <label for="password">Password*</label>
+                                    <input class="form__input" type="password" id="password" placeholder="********" disabled>
                                 </div>
                                 <div class="form__elem">
-                                    <label for="">Repeat password*</label>
-                                    <input class="form__input" type="password" placeholder="********" disabled>
+                                    <label for="password-repeat">Repeat password*</label>
+                                    <input class="form__input" type="password" id="password-repeat" placeholder="********" disabled>
                                 </div>
                             </div>
                             <div class="form__btn">
-                                <button class="button button_disabled">Reset</button>
-                                <button class="button button_disabled">Save</button>
+                                <button class="button button_disabled" type="reset">Reset</button>
+                                <button class="button button_disabled" type="submit">Save</button>
                             </div>
                         </form>
                     </div>
@@ -123,8 +123,8 @@
                         <ul class="footer__list">
                             <li class="footer__list-elem">do.</li>
                             <li class="footer__list-elem">Julia Grib</li>
-                            <li class="footer__list-elem">yulgrib@gmail.com</li>
-                            <li class="footer__list-elem">23.02.2023</li>
+                            <li class="footer__list-elem"><a class="link" href="mailto:yulgrib@gmail.com">yulgrib@gmail.com</a></li>
+                            <li class="footer__list-elem"><time>23.02.2023</time></li>
                         </ul>
                     </div>
                     <div class="footer__tools">
