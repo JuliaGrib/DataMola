@@ -1,0 +1,62 @@
+.tickets-mob {
+    display: none;
+    width: 80vw;
+    border-radius: 0.62rem;
+    background-color: var(--white); 
+}
+
+.tickets-mob__content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--padding);
+    padding: var(--padding) var(--padding-s);
+}
+
+.tickets-mob__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.tickets-mob__price {
+    color: var(--color-secondary);
+    font-size: 1.25rem;
+    font-weight: var(--font-weight-semi-bold);
+}
+
+.tickets-mob__time-top {
+    display: flex;
+}
+
+.tickets-mob__segment {
+    display: grid;
+    grid-template-columns: 40% 30% auto;
+    column-gap: var(--gap-xs);
+}
+
+.tickets-mob__time-departure,
+.tickets-mob__transplants,
+.tickets-mob__travel {
+    font-size: 0.80rem;
+}
+
+.tickets-mob__travel {
+    justify-self: end;
+}
+
+.tickets-mob__iata,
+.tickets-mob__transfer {
+    color: var(--grey);
+    font-size: 0.80rem;
+}
+
+.tickets-mob__iata {
+    display: flex;
+    gap: var(--gap-l);
+}
+
+@media screen and (max-width: 425px) {
+    .tickets-mob {
+        width: 95vw;
+    }
+}

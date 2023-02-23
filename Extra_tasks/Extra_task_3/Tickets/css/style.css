@@ -4,7 +4,7 @@
 @import './base/_lines.css';
 @import './base/_btns.css';
 @import './base/_routes.css';
-
+@import './blocks/tickets-mob.css';
 @import './blocks/main.css';
 @import './blocks/section.css';
 @import './blocks/tickets.css';
@@ -14,5 +14,6 @@
 @import './blocks/tickets__segment.css';
 @import './blocks/tickets__depart-dest.css';
 @import './blocks/tickets__route.css';
+
 
 
