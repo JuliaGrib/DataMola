@@ -1,4 +1,8 @@
 :root {
+    --margin: 1rem;
+    --margin-m: calc(var(--margin)*1.25);
+    --margin-l: calc(var(--margin)*1.5);
+    --margin-xl: calc(var(--margin)*1.75);
     --padding: 1rem;
     --padding-m: calc(var(--padding)*1.25);
     --padding-l: calc(var(--padding)*1.5);
