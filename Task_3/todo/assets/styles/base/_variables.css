@@ -16,6 +16,7 @@
     --gap-l: calc(var(--gap)*1.5);
     --gap-xl: calc(var(--gap)*1.75);
     --gap-xxl: calc(var(--gap)*2);
+    --gap-xxxl: calc(var(--gap)*3);
 
 
 

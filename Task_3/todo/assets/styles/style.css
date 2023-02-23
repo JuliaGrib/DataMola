@@ -5,6 +5,7 @@
 @import './base/_back.css';
 @import './base/_buttons.css';
 @import './base/_icons.css';
+@import './base/_theme.css';
 
 @import './block/container.css';
 @import './block/back.css';
