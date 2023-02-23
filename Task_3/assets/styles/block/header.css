@@ -30,14 +30,7 @@
     color: var(--color-black);
 }
 
-.settings__img {
-    color: var(--color-black);
-    transition: var(--animation);
-}
 
-.settings__img:hover {
-    color: var(--color-primary);
-}
 
 .header__line {
     width: 1.5px;

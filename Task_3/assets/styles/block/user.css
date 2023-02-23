@@ -20,6 +20,10 @@
     background-color: var(--color-secondary);
 }
 
+.user__img img {
+    max-width: 100%;
+}
+
 .user__photo-tools {
     display: flex;
     gap: var(--gap-s);
@@ -39,3 +43,29 @@
     display: flex;
     gap: var(--gap-s);
 }
+
+@media screen and (max-width: 475px) {
+    .user {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+    }
+    
+    .user__photo {
+        flex-direction: row;
+        justify-content: center;
+        width: 100%;
+        gap: var(--gap-xxs);
+        border-radius: var(--border-radius) var(--border-radius) 0 0 ;
+    }
+
+    .user__img img {
+        max-width: 50%;
+    }
+
+    .user__info {
+        width: 100%;
+        border-radius: 0 0 var(--border-radius) var(--border-radius);
+    }
+}
+
