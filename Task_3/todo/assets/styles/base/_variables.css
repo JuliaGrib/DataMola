@@ -3,6 +3,7 @@
     --margin-m: calc(var(--margin)*1.25);
     --margin-l: calc(var(--margin)*1.5);
     --margin-xl: calc(var(--margin)*1.75);
+    --padding-z: calc(var(--padding)*0); 
     --padding-xxs: calc(var(--padding)*0.25); 
     --padding-xs: calc(var(--padding)*0.5); 
     --padding-s: calc(var(--padding)*0.75); 
@@ -30,6 +31,8 @@
     --color-white: #fff;
     --color-black: #333333;
     --color-priority-hight: #FF6FBD;
+    --color-priority-medium: #a5a6f6;
+    --color-priority-low: #69bf8d;
     --font-weight-normal: 400;
     --font-weight-bold: 700;
     --box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.25);
