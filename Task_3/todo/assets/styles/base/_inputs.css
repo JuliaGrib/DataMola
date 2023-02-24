@@ -1,0 +1,13 @@
+.input {
+    border: none;
+}
+
+.input:focus-visible {
+    outline: none;
+}
+
+.input_search {
+    padding: var(--padding-s) var(--padding);
+    border-radius: var(--border-radius);
+    background-color: var(--color-secondary);
+}

@@ -1,0 +1,17 @@
+.main__tools {
+    /* background-color: rgb(255, 183, 183); */
+    display: flex;
+    justify-content: space-between;
+}
+
+.main__title {
+    display: flex;
+    align-items: center;
+    gap: var(--gap-xs);
+}
+
+.main__wrapper {
+    display: flex;
+    align-items: center;
+    gap: var(--gap-s);
+}

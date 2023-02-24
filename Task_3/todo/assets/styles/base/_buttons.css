@@ -1,5 +1,5 @@
 .button {
-    padding: var(--padding);
+    padding: var(--padding-xs) var(--padding);
     border: none;
     border-radius: var(--border-radius);
     font-size: 1rem;
@@ -17,13 +17,7 @@
     background-color: var(--color-primary-dark);
 }
 
-.button_disabled {
-    background-color: var(--color-secondary-dark);
-    color: var(--color-white);
-}
-
 .button_reset-filter {
-    padding: var(--padding) var(--padding);
     background-color: var(--color-secondary-dark);
 }
 
@@ -42,4 +36,16 @@
     border: 1px solid var(--color-primary);
     background-color: var(--color-primary);
     color: var(--color-white);
+}
+
+.button_icon {
+    display: flex;
+    align-items: center;
+    gap: var(--gap-xxs);
+}
+
+.button_disabled {
+    background-color: var(--color-secondary-dark);
+    color: var(--color-white);
+    cursor: default;
 }

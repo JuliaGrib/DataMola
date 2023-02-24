@@ -7,6 +7,7 @@
 @import './base/_icons.css';
 @import './base/_theme.css';
 @import './base/_language.css';
+@import './base/_inputs.css';
 
 @import './block/container.css';
 @import './block/back.css';
@@ -14,7 +15,7 @@
 @import './block/form.css';
 
 @import './block/main.css';
-@import './block/main__header.css';
+@import './block/main__tools.css';
 @import './block/card.css';
 @import './block/header.css';
 @import './block/footer.css';

@@ -4,17 +4,8 @@ body {
     height: 100vh;
 }
 
-/* header {
-    background-color: rgb(150, 150, 255)
-} */
-
 main {
-    /* background-color: rgb(246, 255, 194); */
     display: grid;
-    grid-template-rows: 8vh 78vh;
+    grid-template-rows: 11vh 75vh;
     height: 100%;
 }
-
-/* footer {
-    background-color: rgb(255, 148, 255)
-} */

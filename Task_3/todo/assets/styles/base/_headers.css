@@ -11,6 +11,10 @@
     font-weight: var(--font-weight-normal);
 }
 
+.title_main {
+    font-size: 2rem;
+}
+
 @media screen and (max-width: 375px) {
     .header_h2 {
         font-size: 1.25rem;
