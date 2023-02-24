@@ -1,5 +1,6 @@
 .main__top {
     display: flex;
+    display: none;
 }
 
 .desk-name {
@@ -9,6 +10,7 @@
 }
 
 .card {
+    display: none;
     width: 358px;
     padding: var(--padding) var(--padding-m);
     border-radius: var(--border-radius);
