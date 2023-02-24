@@ -13,11 +13,14 @@
 @import './block/headers.css';
 @import './block/form.css';
 
+@import './block/main.css';
+@import './block/main__header.css';
+@import './block/card.css';
 @import './block/header.css';
 @import './block/footer.css';
 @import './block/user.css';
 @import './block/desk.css';
 @import './block/filter.css';
-
+@import './block/row.css';
 
 

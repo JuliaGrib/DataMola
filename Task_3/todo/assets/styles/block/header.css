@@ -1,5 +1,10 @@
+.header {
+    align-self: center;
+}
+
 .header__wrapper {
-    padding: var(--padding-xxl) 0;
+    
+    /* padding: var(--padding-s) 0; */
 }
 
 .header__content {

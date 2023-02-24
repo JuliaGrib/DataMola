@@ -1,5 +1,5 @@
 .button {
-    padding: var(--padding) var(--padding-xxl);
+    padding: var(--padding);
     border: none;
     border-radius: var(--border-radius);
     font-size: 1rem;
