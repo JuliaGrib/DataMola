@@ -11,3 +11,15 @@
     gap: var(--gap-xs);
     padding: var(--padding-z) var(--padding-m);
 }
+
+@media screen and (max-width: 1439px) {
+    .filter {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .button__text {
+        display: none;
+    }
+}

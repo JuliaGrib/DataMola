@@ -17,8 +17,9 @@
     background-color: var(--color-primary-dark);
 }
 
-.button_reset-filter {
-    background-color: var(--color-secondary-dark);
+.button_filter {
+    display: none;
+    background-color: var(--color-secondary);
 }
 
 .button_show-more {
@@ -48,4 +49,20 @@
     background-color: var(--color-secondary-dark);
     color: var(--color-white);
     cursor: default;
+}
+
+.button_inactive {
+    display: none;
+}
+
+.button_active {
+    display: block;
+}
+
+
+@media screen and (max-width: 1439px) {
+    .button_filter {
+        display: block;
+        background-color: var(--color-secondary);
+    }
 }
