@@ -1,4 +1,5 @@
 .tickets-mob {
+    position: relative;
     display: none;
     width: 80vw;
     border-radius: 0.62rem;
