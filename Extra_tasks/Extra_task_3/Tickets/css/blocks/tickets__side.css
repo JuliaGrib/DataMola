@@ -12,11 +12,3 @@
     font-size: 1.4rem;
     font-weight: var(--font-weight-bold);
 }
-
-.ticket__subtext {
-    width: 90%;
-    color: var(--color-orange);
-    font-size: 0.75rem;
-    font-weight: var(--font-weight-semi-bold);
-    text-align: center;
-}
