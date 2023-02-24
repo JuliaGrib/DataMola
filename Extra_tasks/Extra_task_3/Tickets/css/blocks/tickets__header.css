@@ -13,7 +13,6 @@
     width: 2rem;
     height: 2rem;
     border-radius: 50%;
-    cursor: pointer;
 }
 
 .tickets__icons {
@@ -46,7 +45,6 @@
 
 .ticket__subs-svg {
     color: var(--grey);
-    cursor: pointer;
     transition: var(--animation);
 }
 

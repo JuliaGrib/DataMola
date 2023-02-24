@@ -2,7 +2,6 @@
     width: 47vw;
     border-radius: 0.62rem;
     background-color: var(--white); 
-    cursor: pointer;
     transition: var(--animation);
 }
 .tickets:hover {
