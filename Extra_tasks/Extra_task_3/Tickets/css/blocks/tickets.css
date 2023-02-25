@@ -1,0 +1,34 @@
+.tickets {
+    width: 47vw;
+    border-radius: 0.62rem;
+    background-color: var(--white); 
+    transition: var(--animation);
+}
+.tickets:hover {
+    box-shadow: var(--shadow-elem);
+}
+
+.tickets__content {
+    display: flex;
+} 
+
+@media screen and (max-width: 1260px) {
+    .tickets {
+        width: 70vw;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .tickets {
+        width: 90vw;
+    }
+}
+
+@media screen and (max-width: 660px) {
+    .tickets {
+        display: none;
+    }
+    .tickets-mob {
+        display: block;
+    }
+}
