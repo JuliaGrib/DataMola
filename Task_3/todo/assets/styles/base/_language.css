@@ -10,7 +10,7 @@
     color: var(--color-primary); 
 }
 
-.language__icon:hover + .language__list {
+.language__icon:hover + .list_language {
     display: flex;
 }
 
@@ -22,11 +22,11 @@
     color: var(--color-primary); 
 }
 
-.language__item:hover + .language__list {
+.language__item:hover + .list_language {
     display: flex;
 }
 
-.language__list {
+.list_language {
     position: absolute;
     top: -81px;
     left: -11px;
@@ -39,7 +39,7 @@
     background-color: var(--color-white);
 }
 
-.language__list-en:before {
+.list_language-en:before {
     content: "";
     position: absolute;
     top: 16px;
@@ -51,7 +51,7 @@
     background-repeat: no-repeat;
 }
 
-.language__line {
+.line_language {
     position: absolute;
     top: 37px;
     left: 9px;
