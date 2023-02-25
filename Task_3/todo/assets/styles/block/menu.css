@@ -1,5 +1,5 @@
 .menu {
-    width: 20vw;
+    width: 50vw;
     height: 70vh;
     background-color: var(--color-secondary-light);
 }
@@ -40,6 +40,16 @@
     list-style-type: none;
 }
 
-.link_logout {
-    color: var(--color-red);
+.menu__tools {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-l);
+}
+
+@media screen and (max-width: 475px){
+    .menu {
+        width: 65vw;
+        height: 70vh;
+    }
+    
 }

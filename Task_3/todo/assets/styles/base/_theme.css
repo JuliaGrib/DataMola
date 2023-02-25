@@ -76,3 +76,33 @@
 .theme__input:checked + .theme__label:after {
     opacity: 1;
 }
+
+.theme__label_white:after {
+    content: "";
+    display: block;
+    width: 0.75rem;
+    height: 0.75rem;
+    border-radius: 3rem;
+    background: var(--color-primary);
+    position: absolute;
+    top: -6.5px;
+    left: -6.5px;
+    z-index: 4;
+    opacity: 0;
+}
+
+.theme__label_menu-white:before {
+    left: 0px;
+}
+
+.theme__label_menu-white:after {
+    left: 4.5px;
+}
+
+.theme__label_menu-black:before {
+    left: 15px;
+}
+
+.theme__label_menu-black:after {
+    left: 19.5px;
+}

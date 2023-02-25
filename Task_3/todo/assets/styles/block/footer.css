@@ -8,28 +8,19 @@
     align-items: center;
 }
 
-.footer__list {
+.list {
     display: flex;
     gap: var(--gap-m);
     list-style-type: none;
 }
 
-.footer__list_menu {
+
+.list_menu {
     display: flex;
     flex-direction: column;
     gap: var(--gap-xxs);
     list-style-type: none;
     color: var(--color-secondary-dark)
-}
-
-.link {
-    color: var(--color-black);
-    text-decoration: none;
-    transition: var(--animation);
-}
-
-.link:hover {
-    color: var(--color-primary);
 }
 
 .footer__tools {
