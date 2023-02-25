@@ -65,13 +65,13 @@
 }
 
 .card__line {
-    width: 1px;
+    width: 0.1rem;
     height: 1rem;
     background-color: var(--color-black);
 }
 
 .line_dashed {
-    border: 1px dashed var(--color-secondary);
+    border: 0.1rem dashed var(--color-secondary);
 }
 
 .card__footer {

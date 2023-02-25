@@ -2,11 +2,6 @@
     align-self: center;
 }
 
-.header__wrapper {
-    
-    /* padding: var(--padding-s) 0; */
-}
-
 .header__content {
     display: flex;
     justify-content: space-between;
@@ -35,22 +30,10 @@
     color: var(--color-black);
 }
 
-
-
 .header__line {
-    width: 1.5px;
+    width: 0.1rem;
     height: 1.5rem;
     background-color: var(--color-black);
-}
-
-.logout__link {
-    color: var(--color-black);
-    text-decoration: none;
-    transition: var(--animation);
-}
-
-.logout__link:hover {
-    color: var(--color-primary);
 }
 
 .burger {

@@ -34,9 +34,9 @@
                                 </a>
                             </div>
                         </div>
-                        <div class="header__line"></div>
+                        <span class="header__line"></span>
                         <div class="logout">
-                            <a href="#" class="logout__link" >
+                            <a href="#" class="link" >
                                 Log out
                             </a>
                         </div>
@@ -55,7 +55,7 @@
             <div class="main__tools">
                 <div class="main__title">
                     <h1 class="title title_main">My tasks</h1>
-                    <a href="#" class="change-icon icon">
+                    <a href="#" class="icon icon_change">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                             <path d="M19.71 8.04L17.37 10.37L13.62 6.62L15.96 4.29C16.35 3.9 17 3.9 17.37 4.29L19.71 6.63C20.1 7 20.1 7.65 19.71 8.04ZM3 17.25L13.06 7.18L16.81 10.93L6.75 21H3V17.25ZM16.62 5.04L15.08 6.58L17.42 8.92L18.96 7.38L16.62 5.04ZM15.36 11L13 8.64L4 17.66V20H6.34L15.36 11Z"/>
                         </svg>
@@ -63,7 +63,7 @@
                 </div>
                 <div class="main__wrapper">
                     <div class="main__filter">
-                        <button class="button button_primary button_icon">
+                        <button class="button button_primary button_icon" type="button">
                             <span class="button__text">Add Task</span>
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M11 19V13H5V11H11V5H13V11H19V13H13V19H11Z" fill="white"/>
@@ -95,16 +95,16 @@
                                 </svg>
                             </div>
                         </div>
-                        <button class="button button_filter button_icon">
+                        <button class="button button_filter button_icon"  type="button">
                             <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M9.16704 16.6666C8.93093 16.6666 8.73287 16.5866 8.57287 16.4266C8.41287 16.2666 8.33315 16.0688 8.33371 15.8333V10.8333L3.50037 4.66659C3.29204 4.38881 3.26065 4.09714 3.40621 3.79159C3.55176 3.48603 3.80537 3.33325 4.16704 3.33325H15.8337C16.1948 3.33325 16.4484 3.48603 16.5945 3.79159C16.7407 4.09714 16.7093 4.38881 16.5004 4.66659L11.667 10.8333V15.8333C11.667 16.0694 11.587 16.2674 11.427 16.4274C11.267 16.5874 11.0693 16.6671 10.8337 16.6666H9.16704Z" fill="#333333"/>
                             </svg>   
-                        <button class="button button__filter-reset button_icon button_disabled">
+                        <button class="button button__filter-reset button_icon button_disabled" type="reset" disabled>
                             <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M12.3337 9.97909L5.68783 3.33325H15.8337C16.1809 3.33325 16.4309 3.48603 16.5837 3.79159C16.7364 4.09714 16.7087 4.38881 16.5003 4.66659L12.3337 9.97909ZM16.4795 18.8333L11.667 14.0208V15.8333C11.667 16.0694 11.587 16.2674 11.427 16.4274C11.267 16.5874 11.0692 16.6671 10.8337 16.6666H9.16699C8.93088 16.6666 8.73283 16.5866 8.57283 16.4266C8.41283 16.2666 8.3331 16.0688 8.33366 15.8333V10.6874L1.16699 3.52075L2.33366 2.33325L17.667 17.6666L16.4795 18.8333Z" fill="white"/>
                             </svg>                            
                         </button>
-                        <input class="input input_search" type="search" placeholder="Search">
+                        <input class="input input_search" type="search" placeholder="Search" id="search">
                     </div>
                     <div class="position">
                         <a href="#" class="icon icon_active">
@@ -136,12 +136,12 @@
                                         Hight
                                     </span>
                                     <div class="card__tools">
-                                        <a href="#" class="change-icon icon">
+                                        <a href="#" class="icon icon_change">
                                             <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                                 <path d="M19.71 8.04L17.37 10.37L13.62 6.62L15.96 4.29C16.35 3.9 17 3.9 17.37 4.29L19.71 6.63C20.1 7 20.1 7.65 19.71 8.04ZM3 17.25L13.06 7.18L16.81 10.93L6.75 21H3V17.25ZM16.62 5.04L15.08 6.58L17.42 8.92L18.96 7.38L16.62 5.04ZM15.36 11L13 8.64L4 17.66V20H6.34L15.36 11Z"/>
                                             </svg>
                                         </a>
-                                        <a href="#" class="change-icon icon">
+                                        <a href="#" class="icon icon_del">
                                             <svg width="25" height="24" viewBox="0 0 25 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                                 <path d="M18.8623 19C18.8623 19.7956 18.5462 20.5587 17.9836 21.1213C17.421 21.6839 16.658 22 15.8623 22H8.8623C8.06666 22 7.30359 21.6839 6.74098 21.1213C6.17838 20.5587 5.8623 19.7956 5.8623 19V7H4.8623V4H9.3623L10.3623 3H14.3623L15.3623 4H19.8623V7H18.8623V19ZM6.8623 7V19C6.8623 19.5304 7.07302 20.0391 7.44809 20.4142C7.82316 20.7893 8.33187 21 8.8623 21H15.8623C16.3927 21 16.9014 20.7893 17.2765 20.4142C17.6516 20.0391 17.8623 19.5304 17.8623 19V7H6.8623ZM18.8623 6V5H14.8623L13.8623 4H10.8623L9.8623 5H5.8623V6H18.8623ZM8.8623 9H9.8623V19H8.8623V9ZM14.8623 9H15.8623V19H14.8623V9Z"/>
                                             </svg>
@@ -177,7 +177,7 @@
                                 <hr class="line line_dashed">
                                 <div class="card__footer">
                                     <span class="card__date">
-                                        <time>10:15 12.02.2023</time>
+                                        <time datetime="23.02.12T10:15">10:15 12.02.2023</time>
                                     </span>
                                     <span class="card__status">
                                         To do
@@ -190,12 +190,12 @@
                                         Medium
                                     </span>
                                     <div class="card__tools">
-                                        <a href="#" class="change-icon icon">
+                                        <a href="#" class="icon icon_change">
                                             <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                                 <path d="M19.71 8.04L17.37 10.37L13.62 6.62L15.96 4.29C16.35 3.9 17 3.9 17.37 4.29L19.71 6.63C20.1 7 20.1 7.65 19.71 8.04ZM3 17.25L13.06 7.18L16.81 10.93L6.75 21H3V17.25ZM16.62 5.04L15.08 6.58L17.42 8.92L18.96 7.38L16.62 5.04ZM15.36 11L13 8.64L4 17.66V20H6.34L15.36 11Z"/>
                                             </svg>
                                         </a>
-                                        <a href="#" class="change-icon icon">
+                                        <a href="#" class="icon icon_del">
                                             <svg width="25" height="24" viewBox="0 0 25 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                                 <path d="M18.8623 19C18.8623 19.7956 18.5462 20.5587 17.9836 21.1213C17.421 21.6839 16.658 22 15.8623 22H8.8623C8.06666 22 7.30359 21.6839 6.74098 21.1213C6.17838 20.5587 5.8623 19.7956 5.8623 19V7H4.8623V4H9.3623L10.3623 3H14.3623L15.3623 4H19.8623V7H18.8623V19ZM6.8623 7V19C6.8623 19.5304 7.07302 20.0391 7.44809 20.4142C7.82316 20.7893 8.33187 21 8.8623 21H15.8623C16.3927 21 16.9014 20.7893 17.2765 20.4142C17.6516 20.0391 17.8623 19.5304 17.8623 19V7H6.8623ZM18.8623 6V5H14.8623L13.8623 4H10.8623L9.8623 5H5.8623V6H18.8623ZM8.8623 9H9.8623V19H8.8623V9ZM14.8623 9H15.8623V19H14.8623V9Z"/>
                                             </svg>
@@ -231,7 +231,7 @@
                                 <hr class="line line_dashed">
                                 <div class="card__footer">
                                     <span class="card__date">
-                                        <time>10:15 12.02.2023</time>
+                                        <time datetime="23.02.12T10:15">10:15 12.02.2023</time>
                                     </span>
                                     <span class="card__status">
                                         To do
@@ -244,12 +244,12 @@
                                         Low
                                     </span>
                                     <div class="card__tools">
-                                        <a href="#" class="change-icon icon">
+                                        <a href="#" class="icon icon_change">
                                             <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                                 <path d="M19.71 8.04L17.37 10.37L13.62 6.62L15.96 4.29C16.35 3.9 17 3.9 17.37 4.29L19.71 6.63C20.1 7 20.1 7.65 19.71 8.04ZM3 17.25L13.06 7.18L16.81 10.93L6.75 21H3V17.25ZM16.62 5.04L15.08 6.58L17.42 8.92L18.96 7.38L16.62 5.04ZM15.36 11L13 8.64L4 17.66V20H6.34L15.36 11Z"/>
                                             </svg>
                                         </a>
-                                        <a href="#" class="change-icon icon">
+                                        <a href="#" class="icon icon_del">
                                             <svg width="25" height="24" viewBox="0 0 25 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                                 <path d="M18.8623 19C18.8623 19.7956 18.5462 20.5587 17.9836 21.1213C17.421 21.6839 16.658 22 15.8623 22H8.8623C8.06666 22 7.30359 21.6839 6.74098 21.1213C6.17838 20.5587 5.8623 19.7956 5.8623 19V7H4.8623V4H9.3623L10.3623 3H14.3623L15.3623 4H19.8623V7H18.8623V19ZM6.8623 7V19C6.8623 19.5304 7.07302 20.0391 7.44809 20.4142C7.82316 20.7893 8.33187 21 8.8623 21H15.8623C16.3927 21 16.9014 20.7893 17.2765 20.4142C17.6516 20.0391 17.8623 19.5304 17.8623 19V7H6.8623ZM18.8623 6V5H14.8623L13.8623 4H10.8623L9.8623 5H5.8623V6H18.8623ZM8.8623 9H9.8623V19H8.8623V9ZM14.8623 9H15.8623V19H14.8623V9Z"/>
                                             </svg>
@@ -285,7 +285,7 @@
                                 <hr class="line line_dashed">
                                 <div class="card__footer">
                                     <span class="card__date">
-                                        <time>10:15 12.02.2023</time>
+                                        <time datetime="23.02.12T10:15">10:15 12.02.2023</time>
                                     </span>
                                     <span class="card__status">
                                         To do
@@ -298,12 +298,12 @@
                                         Hight
                                     </span>
                                     <div class="card__tools">
-                                        <a href="#" class="change-icon icon">
+                                        <a href="#" class="icon icon_change">
                                             <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                                 <path d="M19.71 8.04L17.37 10.37L13.62 6.62L15.96 4.29C16.35 3.9 17 3.9 17.37 4.29L19.71 6.63C20.1 7 20.1 7.65 19.71 8.04ZM3 17.25L13.06 7.18L16.81 10.93L6.75 21H3V17.25ZM16.62 5.04L15.08 6.58L17.42 8.92L18.96 7.38L16.62 5.04ZM15.36 11L13 8.64L4 17.66V20H6.34L15.36 11Z"/>
                                             </svg>
                                         </a>
-                                        <a href="#" class="change-icon icon">
+                                        <a href="#" class="icon icon_del">
                                             <svg width="25" height="24" viewBox="0 0 25 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                                 <path d="M18.8623 19C18.8623 19.7956 18.5462 20.5587 17.9836 21.1213C17.421 21.6839 16.658 22 15.8623 22H8.8623C8.06666 22 7.30359 21.6839 6.74098 21.1213C6.17838 20.5587 5.8623 19.7956 5.8623 19V7H4.8623V4H9.3623L10.3623 3H14.3623L15.3623 4H19.8623V7H18.8623V19ZM6.8623 7V19C6.8623 19.5304 7.07302 20.0391 7.44809 20.4142C7.82316 20.7893 8.33187 21 8.8623 21H15.8623C16.3927 21 16.9014 20.7893 17.2765 20.4142C17.6516 20.0391 17.8623 19.5304 17.8623 19V7H6.8623ZM18.8623 6V5H14.8623L13.8623 4H10.8623L9.8623 5H5.8623V6H18.8623ZM8.8623 9H9.8623V19H8.8623V9ZM14.8623 9H15.8623V19H14.8623V9Z"/>
                                             </svg>
@@ -339,7 +339,7 @@
                                 <hr class="line line_dashed">
                                 <div class="card__footer">
                                     <span class="card__date">
-                                        <time>10:15 12.02.2023</time>
+                                        <time datetime="23.02.12T10:15">10:15 12.02.2023</time>
                                     </span>
                                     <span class="card__status">
                                         To do
@@ -352,12 +352,12 @@
                                         Low
                                     </span>
                                     <div class="card__tools">
-                                        <a href="#" class="change-icon icon">
+                                        <a href="#" class="icon icon_change">
                                             <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                                 <path d="M19.71 8.04L17.37 10.37L13.62 6.62L15.96 4.29C16.35 3.9 17 3.9 17.37 4.29L19.71 6.63C20.1 7 20.1 7.65 19.71 8.04ZM3 17.25L13.06 7.18L16.81 10.93L6.75 21H3V17.25ZM16.62 5.04L15.08 6.58L17.42 8.92L18.96 7.38L16.62 5.04ZM15.36 11L13 8.64L4 17.66V20H6.34L15.36 11Z"/>
                                             </svg>
                                         </a>
-                                        <a href="#" class="change-icon icon">
+                                        <a href="#" class="icon icon_del">
                                             <svg width="25" height="24" viewBox="0 0 25 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                                 <path d="M18.8623 19C18.8623 19.7956 18.5462 20.5587 17.9836 21.1213C17.421 21.6839 16.658 22 15.8623 22H8.8623C8.06666 22 7.30359 21.6839 6.74098 21.1213C6.17838 20.5587 5.8623 19.7956 5.8623 19V7H4.8623V4H9.3623L10.3623 3H14.3623L15.3623 4H19.8623V7H18.8623V19ZM6.8623 7V19C6.8623 19.5304 7.07302 20.0391 7.44809 20.4142C7.82316 20.7893 8.33187 21 8.8623 21H15.8623C16.3927 21 16.9014 20.7893 17.2765 20.4142C17.6516 20.0391 17.8623 19.5304 17.8623 19V7H6.8623ZM18.8623 6V5H14.8623L13.8623 4H10.8623L9.8623 5H5.8623V6H18.8623ZM8.8623 9H9.8623V19H8.8623V9ZM14.8623 9H15.8623V19H14.8623V9Z"/>
                                             </svg>
@@ -393,7 +393,7 @@
                                 <hr class="line line_dashed">
                                 <div class="card__footer">
                                     <span class="card__date">
-                                        <time>10:15 12.02.2023</time>
+                                        <time datetime="23.02.12T10:15">10:15 12.02.2023</time>
                                     </span>
                                     <span class="card__status">
                                         To do
@@ -406,12 +406,12 @@
                                         Hight
                                     </span>
                                     <div class="card__tools">
-                                        <a href="#" class="change-icon icon">
+                                        <a href="#" class="icon icon_change">
                                             <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                                 <path d="M19.71 8.04L17.37 10.37L13.62 6.62L15.96 4.29C16.35 3.9 17 3.9 17.37 4.29L19.71 6.63C20.1 7 20.1 7.65 19.71 8.04ZM3 17.25L13.06 7.18L16.81 10.93L6.75 21H3V17.25ZM16.62 5.04L15.08 6.58L17.42 8.92L18.96 7.38L16.62 5.04ZM15.36 11L13 8.64L4 17.66V20H6.34L15.36 11Z"/>
                                             </svg>
                                         </a>
-                                        <a href="#" class="change-icon icon">
+                                        <a href="#" class="icon icon_del">
                                             <svg width="25" height="24" viewBox="0 0 25 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                                 <path d="M18.8623 19C18.8623 19.7956 18.5462 20.5587 17.9836 21.1213C17.421 21.6839 16.658 22 15.8623 22H8.8623C8.06666 22 7.30359 21.6839 6.74098 21.1213C6.17838 20.5587 5.8623 19.7956 5.8623 19V7H4.8623V4H9.3623L10.3623 3H14.3623L15.3623 4H19.8623V7H18.8623V19ZM6.8623 7V19C6.8623 19.5304 7.07302 20.0391 7.44809 20.4142C7.82316 20.7893 8.33187 21 8.8623 21H15.8623C16.3927 21 16.9014 20.7893 17.2765 20.4142C17.6516 20.0391 17.8623 19.5304 17.8623 19V7H6.8623ZM18.8623 6V5H14.8623L13.8623 4H10.8623L9.8623 5H5.8623V6H18.8623ZM8.8623 9H9.8623V19H8.8623V9ZM14.8623 9H15.8623V19H14.8623V9Z"/>
                                             </svg>
@@ -447,7 +447,7 @@
                                 <hr class="line line_dashed">
                                 <div class="card__footer">
                                     <span class="card__date">
-                                        <time>10:15 12.02.2023</time>
+                                        <time datetime="23.02.12T10:15">10:15 12.02.2023</time>
                                     </span>
                                     <span class="card__status">
                                         To do
@@ -460,12 +460,12 @@
                                         Medium
                                     </span>
                                     <div class="card__tools">
-                                        <a href="#" class="change-icon icon">
+                                        <a href="#" class="icon icon_change">
                                             <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                                 <path d="M19.71 8.04L17.37 10.37L13.62 6.62L15.96 4.29C16.35 3.9 17 3.9 17.37 4.29L19.71 6.63C20.1 7 20.1 7.65 19.71 8.04ZM3 17.25L13.06 7.18L16.81 10.93L6.75 21H3V17.25ZM16.62 5.04L15.08 6.58L17.42 8.92L18.96 7.38L16.62 5.04ZM15.36 11L13 8.64L4 17.66V20H6.34L15.36 11Z"/>
                                             </svg>
                                         </a>
-                                        <a href="#" class="change-icon icon">
+                                        <a href="#" class="icon icon_del">
                                             <svg width="25" height="24" viewBox="0 0 25 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                                 <path d="M18.8623 19C18.8623 19.7956 18.5462 20.5587 17.9836 21.1213C17.421 21.6839 16.658 22 15.8623 22H8.8623C8.06666 22 7.30359 21.6839 6.74098 21.1213C6.17838 20.5587 5.8623 19.7956 5.8623 19V7H4.8623V4H9.3623L10.3623 3H14.3623L15.3623 4H19.8623V7H18.8623V19ZM6.8623 7V19C6.8623 19.5304 7.07302 20.0391 7.44809 20.4142C7.82316 20.7893 8.33187 21 8.8623 21H15.8623C16.3927 21 16.9014 20.7893 17.2765 20.4142C17.6516 20.0391 17.8623 19.5304 17.8623 19V7H6.8623ZM18.8623 6V5H14.8623L13.8623 4H10.8623L9.8623 5H5.8623V6H18.8623ZM8.8623 9H9.8623V19H8.8623V9ZM14.8623 9H15.8623V19H14.8623V9Z"/>
                                             </svg>
@@ -501,7 +501,7 @@
                                 <hr class="line line_dashed">
                                 <div class="card__footer">
                                     <span class="card__date">
-                                        <time>10:15 12.02.2023</time>
+                                        <time datetime="23.02.12T10:15">10:15 12.02.2023</time>
                                     </span>
                                     <span class="card__status">
                                         To do
@@ -514,12 +514,12 @@
                                         Low
                                     </span>
                                     <div class="card__tools">
-                                        <a href="#" class="change-icon icon">
+                                        <a href="#" class="icon icon_change">
                                             <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                                 <path d="M19.71 8.04L17.37 10.37L13.62 6.62L15.96 4.29C16.35 3.9 17 3.9 17.37 4.29L19.71 6.63C20.1 7 20.1 7.65 19.71 8.04ZM3 17.25L13.06 7.18L16.81 10.93L6.75 21H3V17.25ZM16.62 5.04L15.08 6.58L17.42 8.92L18.96 7.38L16.62 5.04ZM15.36 11L13 8.64L4 17.66V20H6.34L15.36 11Z"/>
                                             </svg>
                                         </a>
-                                        <a href="#" class="change-icon icon">
+                                        <a href="#" class="icon icon_del">
                                             <svg width="25" height="24" viewBox="0 0 25 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                                 <path d="M18.8623 19C18.8623 19.7956 18.5462 20.5587 17.9836 21.1213C17.421 21.6839 16.658 22 15.8623 22H8.8623C8.06666 22 7.30359 21.6839 6.74098 21.1213C6.17838 20.5587 5.8623 19.7956 5.8623 19V7H4.8623V4H9.3623L10.3623 3H14.3623L15.3623 4H19.8623V7H18.8623V19ZM6.8623 7V19C6.8623 19.5304 7.07302 20.0391 7.44809 20.4142C7.82316 20.7893 8.33187 21 8.8623 21H15.8623C16.3927 21 16.9014 20.7893 17.2765 20.4142C17.6516 20.0391 17.8623 19.5304 17.8623 19V7H6.8623ZM18.8623 6V5H14.8623L13.8623 4H10.8623L9.8623 5H5.8623V6H18.8623ZM8.8623 9H9.8623V19H8.8623V9ZM14.8623 9H15.8623V19H14.8623V9Z"/>
                                             </svg>
@@ -555,7 +555,7 @@
                                 <hr class="line line_dashed">
                                 <div class="card__footer">
                                     <span class="card__date">
-                                        <time>10:15 12.02.2023</time>
+                                        <time datetime="23.02.12T10:15">10:15 12.02.2023</time>
                                     </span>
                                     <span class="card__status">
                                         To do
@@ -568,12 +568,12 @@
                                         Hight
                                     </span>
                                     <div class="card__tools">
-                                        <a href="#" class="change-icon icon">
+                                        <a href="#" class="icon icon_change">
                                             <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                                 <path d="M19.71 8.04L17.37 10.37L13.62 6.62L15.96 4.29C16.35 3.9 17 3.9 17.37 4.29L19.71 6.63C20.1 7 20.1 7.65 19.71 8.04ZM3 17.25L13.06 7.18L16.81 10.93L6.75 21H3V17.25ZM16.62 5.04L15.08 6.58L17.42 8.92L18.96 7.38L16.62 5.04ZM15.36 11L13 8.64L4 17.66V20H6.34L15.36 11Z"/>
                                             </svg>
                                         </a>
-                                        <a href="#" class="change-icon icon">
+                                        <a href="#" class="icon icon_del">
                                             <svg width="25" height="24" viewBox="0 0 25 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                                 <path d="M18.8623 19C18.8623 19.7956 18.5462 20.5587 17.9836 21.1213C17.421 21.6839 16.658 22 15.8623 22H8.8623C8.06666 22 7.30359 21.6839 6.74098 21.1213C6.17838 20.5587 5.8623 19.7956 5.8623 19V7H4.8623V4H9.3623L10.3623 3H14.3623L15.3623 4H19.8623V7H18.8623V19ZM6.8623 7V19C6.8623 19.5304 7.07302 20.0391 7.44809 20.4142C7.82316 20.7893 8.33187 21 8.8623 21H15.8623C16.3927 21 16.9014 20.7893 17.2765 20.4142C17.6516 20.0391 17.8623 19.5304 17.8623 19V7H6.8623ZM18.8623 6V5H14.8623L13.8623 4H10.8623L9.8623 5H5.8623V6H18.8623ZM8.8623 9H9.8623V19H8.8623V9ZM14.8623 9H15.8623V19H14.8623V9Z"/>
                                             </svg>
@@ -609,7 +609,7 @@
                                 <hr class="line line_dashed">
                                 <div class="card__footer">
                                     <span class="card__date">
-                                        <time>10:15 12.02.2023</time>
+                                        <time datetime="23.02.12T10:15">10:15 12.02.2023</time>
                                     </span>
                                     <span class="card__status">
                                         To do
@@ -622,12 +622,12 @@
                                         Low
                                     </span>
                                     <div class="card__tools">
-                                        <a href="#" class="change-icon icon">
+                                        <a href="#" class="icon icon_change">
                                             <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                                 <path d="M19.71 8.04L17.37 10.37L13.62 6.62L15.96 4.29C16.35 3.9 17 3.9 17.37 4.29L19.71 6.63C20.1 7 20.1 7.65 19.71 8.04ZM3 17.25L13.06 7.18L16.81 10.93L6.75 21H3V17.25ZM16.62 5.04L15.08 6.58L17.42 8.92L18.96 7.38L16.62 5.04ZM15.36 11L13 8.64L4 17.66V20H6.34L15.36 11Z"/>
                                             </svg>
                                         </a>
-                                        <a href="#" class="change-icon icon">
+                                        <a href="#" class="icon icon_del">
                                             <svg width="25" height="24" viewBox="0 0 25 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                                 <path d="M18.8623 19C18.8623 19.7956 18.5462 20.5587 17.9836 21.1213C17.421 21.6839 16.658 22 15.8623 22H8.8623C8.06666 22 7.30359 21.6839 6.74098 21.1213C6.17838 20.5587 5.8623 19.7956 5.8623 19V7H4.8623V4H9.3623L10.3623 3H14.3623L15.3623 4H19.8623V7H18.8623V19ZM6.8623 7V19C6.8623 19.5304 7.07302 20.0391 7.44809 20.4142C7.82316 20.7893 8.33187 21 8.8623 21H15.8623C16.3927 21 16.9014 20.7893 17.2765 20.4142C17.6516 20.0391 17.8623 19.5304 17.8623 19V7H6.8623ZM18.8623 6V5H14.8623L13.8623 4H10.8623L9.8623 5H5.8623V6H18.8623ZM8.8623 9H9.8623V19H8.8623V9ZM14.8623 9H15.8623V19H14.8623V9Z"/>
                                             </svg>
@@ -663,7 +663,7 @@
                                 <hr class="line line_dashed">
                                 <div class="card__footer">
                                     <span class="card__date">
-                                        <time>10:15 12.02.2023</time>
+                                        <time datetime="23.02.12T10:15">10:15 12.02.2023</time>
                                     </span>
                                     <span class="card__status">
                                         To do
@@ -672,7 +672,7 @@
                             </article>
                         </div>
                     </div>
-                    <button class="button button_show-more">Show more</button>
+                    <button class="button button_show-more"  type="button">Show more</button>
                 </section>
                 <section class="col">
                     <h2 class="title title_col">
@@ -686,12 +686,12 @@
                                         Medium
                                     </span>
                                     <div class="card__tools">
-                                        <a href="#" class="change-icon icon">
+                                        <a href="#" class="icon icon_change">
                                             <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                                 <path d="M19.71 8.04L17.37 10.37L13.62 6.62L15.96 4.29C16.35 3.9 17 3.9 17.37 4.29L19.71 6.63C20.1 7 20.1 7.65 19.71 8.04ZM3 17.25L13.06 7.18L16.81 10.93L6.75 21H3V17.25ZM16.62 5.04L15.08 6.58L17.42 8.92L18.96 7.38L16.62 5.04ZM15.36 11L13 8.64L4 17.66V20H6.34L15.36 11Z"/>
                                             </svg>
                                         </a>
-                                        <a href="#" class="change-icon icon">
+                                        <a href="#" class="icon icon_del">
                                             <svg width="25" height="24" viewBox="0 0 25 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                                 <path d="M18.8623 19C18.8623 19.7956 18.5462 20.5587 17.9836 21.1213C17.421 21.6839 16.658 22 15.8623 22H8.8623C8.06666 22 7.30359 21.6839 6.74098 21.1213C6.17838 20.5587 5.8623 19.7956 5.8623 19V7H4.8623V4H9.3623L10.3623 3H14.3623L15.3623 4H19.8623V7H18.8623V19ZM6.8623 7V19C6.8623 19.5304 7.07302 20.0391 7.44809 20.4142C7.82316 20.7893 8.33187 21 8.8623 21H15.8623C16.3927 21 16.9014 20.7893 17.2765 20.4142C17.6516 20.0391 17.8623 19.5304 17.8623 19V7H6.8623ZM18.8623 6V5H14.8623L13.8623 4H10.8623L9.8623 5H5.8623V6H18.8623ZM8.8623 9H9.8623V19H8.8623V9ZM14.8623 9H15.8623V19H14.8623V9Z"/>
                                             </svg>
@@ -727,7 +727,7 @@
                                 <hr class="line line_dashed">
                                 <div class="card__footer">
                                     <span class="card__date">
-                                        <time>10:15 12.02.2023</time>
+                                        <time datetime="23.02.12T10:15">10:15 12.02.2023</time>
                                     </span>
                                     <span class="card__status">
                                         In progress
@@ -740,12 +740,12 @@
                                         Low
                                     </span>
                                     <div class="card__tools">
-                                        <a href="#" class="change-icon icon">
+                                        <a href="#" class="icon icon_change">
                                             <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                                 <path d="M19.71 8.04L17.37 10.37L13.62 6.62L15.96 4.29C16.35 3.9 17 3.9 17.37 4.29L19.71 6.63C20.1 7 20.1 7.65 19.71 8.04ZM3 17.25L13.06 7.18L16.81 10.93L6.75 21H3V17.25ZM16.62 5.04L15.08 6.58L17.42 8.92L18.96 7.38L16.62 5.04ZM15.36 11L13 8.64L4 17.66V20H6.34L15.36 11Z"/>
                                             </svg>
                                         </a>
-                                        <a href="#" class="change-icon icon">
+                                        <a href="#" class="icon icon_del">
                                             <svg width="25" height="24" viewBox="0 0 25 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                                 <path d="M18.8623 19C18.8623 19.7956 18.5462 20.5587 17.9836 21.1213C17.421 21.6839 16.658 22 15.8623 22H8.8623C8.06666 22 7.30359 21.6839 6.74098 21.1213C6.17838 20.5587 5.8623 19.7956 5.8623 19V7H4.8623V4H9.3623L10.3623 3H14.3623L15.3623 4H19.8623V7H18.8623V19ZM6.8623 7V19C6.8623 19.5304 7.07302 20.0391 7.44809 20.4142C7.82316 20.7893 8.33187 21 8.8623 21H15.8623C16.3927 21 16.9014 20.7893 17.2765 20.4142C17.6516 20.0391 17.8623 19.5304 17.8623 19V7H6.8623ZM18.8623 6V5H14.8623L13.8623 4H10.8623L9.8623 5H5.8623V6H18.8623ZM8.8623 9H9.8623V19H8.8623V9ZM14.8623 9H15.8623V19H14.8623V9Z"/>
                                             </svg>
@@ -781,7 +781,7 @@
                                 <hr class="line line_dashed">
                                 <div class="card__footer">
                                     <span class="card__date">
-                                        <time>10:15 12.02.2023</time>
+                                        <time datetime="23.02.12T10:15">10:15 12.02.2023</time>
                                     </span>
                                     <span class="card__status">
                                         In progress
@@ -794,12 +794,12 @@
                                         Low
                                     </span>
                                     <div class="card__tools">
-                                        <a href="#" class="change-icon icon">
+                                        <a href="#" class="icon icon_change">
                                             <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                                 <path d="M19.71 8.04L17.37 10.37L13.62 6.62L15.96 4.29C16.35 3.9 17 3.9 17.37 4.29L19.71 6.63C20.1 7 20.1 7.65 19.71 8.04ZM3 17.25L13.06 7.18L16.81 10.93L6.75 21H3V17.25ZM16.62 5.04L15.08 6.58L17.42 8.92L18.96 7.38L16.62 5.04ZM15.36 11L13 8.64L4 17.66V20H6.34L15.36 11Z"/>
                                             </svg>
                                         </a>
-                                        <a href="#" class="change-icon icon">
+                                        <a href="#" class="icon icon_del">
                                             <svg width="25" height="24" viewBox="0 0 25 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                                 <path d="M18.8623 19C18.8623 19.7956 18.5462 20.5587 17.9836 21.1213C17.421 21.6839 16.658 22 15.8623 22H8.8623C8.06666 22 7.30359 21.6839 6.74098 21.1213C6.17838 20.5587 5.8623 19.7956 5.8623 19V7H4.8623V4H9.3623L10.3623 3H14.3623L15.3623 4H19.8623V7H18.8623V19ZM6.8623 7V19C6.8623 19.5304 7.07302 20.0391 7.44809 20.4142C7.82316 20.7893 8.33187 21 8.8623 21H15.8623C16.3927 21 16.9014 20.7893 17.2765 20.4142C17.6516 20.0391 17.8623 19.5304 17.8623 19V7H6.8623ZM18.8623 6V5H14.8623L13.8623 4H10.8623L9.8623 5H5.8623V6H18.8623ZM8.8623 9H9.8623V19H8.8623V9ZM14.8623 9H15.8623V19H14.8623V9Z"/>
                                             </svg>
@@ -835,7 +835,7 @@
                                 <hr class="line line_dashed">
                                 <div class="card__footer">
                                     <span class="card__date">
-                                        <time>10:15 12.02.2023</time>
+                                        <time datetime="23.02.12T10:15">10:15 12.02.2023</time>
                                     </span>
                                     <span class="card__status">
                                         In progress
@@ -848,12 +848,12 @@
                                         Hight
                                     </span>
                                     <div class="card__tools">
-                                        <a href="#" class="change-icon icon">
+                                        <a href="#" class="icon icon_change">
                                             <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                                 <path d="M19.71 8.04L17.37 10.37L13.62 6.62L15.96 4.29C16.35 3.9 17 3.9 17.37 4.29L19.71 6.63C20.1 7 20.1 7.65 19.71 8.04ZM3 17.25L13.06 7.18L16.81 10.93L6.75 21H3V17.25ZM16.62 5.04L15.08 6.58L17.42 8.92L18.96 7.38L16.62 5.04ZM15.36 11L13 8.64L4 17.66V20H6.34L15.36 11Z"/>
                                             </svg>
                                         </a>
-                                        <a href="#" class="change-icon icon">
+                                        <a href="#" class="icon icon_del">
                                             <svg width="25" height="24" viewBox="0 0 25 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                                 <path d="M18.8623 19C18.8623 19.7956 18.5462 20.5587 17.9836 21.1213C17.421 21.6839 16.658 22 15.8623 22H8.8623C8.06666 22 7.30359 21.6839 6.74098 21.1213C6.17838 20.5587 5.8623 19.7956 5.8623 19V7H4.8623V4H9.3623L10.3623 3H14.3623L15.3623 4H19.8623V7H18.8623V19ZM6.8623 7V19C6.8623 19.5304 7.07302 20.0391 7.44809 20.4142C7.82316 20.7893 8.33187 21 8.8623 21H15.8623C16.3927 21 16.9014 20.7893 17.2765 20.4142C17.6516 20.0391 17.8623 19.5304 17.8623 19V7H6.8623ZM18.8623 6V5H14.8623L13.8623 4H10.8623L9.8623 5H5.8623V6H18.8623ZM8.8623 9H9.8623V19H8.8623V9ZM14.8623 9H15.8623V19H14.8623V9Z"/>
                                             </svg>
@@ -889,7 +889,7 @@
                                 <hr class="line line_dashed">
                                 <div class="card__footer">
                                     <span class="card__date">
-                                        <time>10:15 12.02.2023</time>
+                                        <time datetime="23.02.12T10:15">10:15 12.02.2023</time>
                                     </span>
                                     <span class="card__status">
                                         In progress
@@ -902,12 +902,12 @@
                                         Low
                                     </span>
                                     <div class="card__tools">
-                                        <a href="#" class="change-icon icon">
+                                        <a href="#" class="icon icon_change">
                                             <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                                 <path d="M19.71 8.04L17.37 10.37L13.62 6.62L15.96 4.29C16.35 3.9 17 3.9 17.37 4.29L19.71 6.63C20.1 7 20.1 7.65 19.71 8.04ZM3 17.25L13.06 7.18L16.81 10.93L6.75 21H3V17.25ZM16.62 5.04L15.08 6.58L17.42 8.92L18.96 7.38L16.62 5.04ZM15.36 11L13 8.64L4 17.66V20H6.34L15.36 11Z"/>
                                             </svg>
                                         </a>
-                                        <a href="#" class="change-icon icon">
+                                        <a href="#" class="icon icon_del">
                                             <svg width="25" height="24" viewBox="0 0 25 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                                 <path d="M18.8623 19C18.8623 19.7956 18.5462 20.5587 17.9836 21.1213C17.421 21.6839 16.658 22 15.8623 22H8.8623C8.06666 22 7.30359 21.6839 6.74098 21.1213C6.17838 20.5587 5.8623 19.7956 5.8623 19V7H4.8623V4H9.3623L10.3623 3H14.3623L15.3623 4H19.8623V7H18.8623V19ZM6.8623 7V19C6.8623 19.5304 7.07302 20.0391 7.44809 20.4142C7.82316 20.7893 8.33187 21 8.8623 21H15.8623C16.3927 21 16.9014 20.7893 17.2765 20.4142C17.6516 20.0391 17.8623 19.5304 17.8623 19V7H6.8623ZM18.8623 6V5H14.8623L13.8623 4H10.8623L9.8623 5H5.8623V6H18.8623ZM8.8623 9H9.8623V19H8.8623V9ZM14.8623 9H15.8623V19H14.8623V9Z"/>
                                             </svg>
@@ -943,7 +943,7 @@
                                 <hr class="line line_dashed">
                                 <div class="card__footer">
                                     <span class="card__date">
-                                        <time>10:15 12.02.2023</time>
+                                        <time datetime="23.02.12T10:15">10:15 12.02.2023</time>
                                     </span>
                                     <span class="card__status">
                                         In progress
@@ -956,12 +956,12 @@
                                         Medium
                                     </span>
                                     <div class="card__tools">
-                                        <a href="#" class="change-icon icon">
+                                        <a href="#" class="icon icon_change">
                                             <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                                 <path d="M19.71 8.04L17.37 10.37L13.62 6.62L15.96 4.29C16.35 3.9 17 3.9 17.37 4.29L19.71 6.63C20.1 7 20.1 7.65 19.71 8.04ZM3 17.25L13.06 7.18L16.81 10.93L6.75 21H3V17.25ZM16.62 5.04L15.08 6.58L17.42 8.92L18.96 7.38L16.62 5.04ZM15.36 11L13 8.64L4 17.66V20H6.34L15.36 11Z"/>
                                             </svg>
                                         </a>
-                                        <a href="#" class="change-icon icon">
+                                        <a href="#" class="icon icon_del">
                                             <svg width="25" height="24" viewBox="0 0 25 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                                 <path d="M18.8623 19C18.8623 19.7956 18.5462 20.5587 17.9836 21.1213C17.421 21.6839 16.658 22 15.8623 22H8.8623C8.06666 22 7.30359 21.6839 6.74098 21.1213C6.17838 20.5587 5.8623 19.7956 5.8623 19V7H4.8623V4H9.3623L10.3623 3H14.3623L15.3623 4H19.8623V7H18.8623V19ZM6.8623 7V19C6.8623 19.5304 7.07302 20.0391 7.44809 20.4142C7.82316 20.7893 8.33187 21 8.8623 21H15.8623C16.3927 21 16.9014 20.7893 17.2765 20.4142C17.6516 20.0391 17.8623 19.5304 17.8623 19V7H6.8623ZM18.8623 6V5H14.8623L13.8623 4H10.8623L9.8623 5H5.8623V6H18.8623ZM8.8623 9H9.8623V19H8.8623V9ZM14.8623 9H15.8623V19H14.8623V9Z"/>
                                             </svg>
@@ -997,7 +997,7 @@
                                 <hr class="line line_dashed">
                                 <div class="card__footer">
                                     <span class="card__date">
-                                        <time>10:15 12.02.2023</time>
+                                        <time datetime="23.02.12T10:15">10:15 12.02.2023</time>
                                     </span>
                                     <span class="card__status">
                                         In progress
@@ -1010,12 +1010,12 @@
                                         Low
                                     </span>
                                     <div class="card__tools">
-                                        <a href="#" class="change-icon icon">
+                                        <a href="#" class="icon icon_change">
                                             <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                                 <path d="M19.71 8.04L17.37 10.37L13.62 6.62L15.96 4.29C16.35 3.9 17 3.9 17.37 4.29L19.71 6.63C20.1 7 20.1 7.65 19.71 8.04ZM3 17.25L13.06 7.18L16.81 10.93L6.75 21H3V17.25ZM16.62 5.04L15.08 6.58L17.42 8.92L18.96 7.38L16.62 5.04ZM15.36 11L13 8.64L4 17.66V20H6.34L15.36 11Z"/>
                                             </svg>
                                         </a>
-                                        <a href="#" class="change-icon icon">
+                                        <a href="#" class="icon icon_del">
                                             <svg width="25" height="24" viewBox="0 0 25 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                                 <path d="M18.8623 19C18.8623 19.7956 18.5462 20.5587 17.9836 21.1213C17.421 21.6839 16.658 22 15.8623 22H8.8623C8.06666 22 7.30359 21.6839 6.74098 21.1213C6.17838 20.5587 5.8623 19.7956 5.8623 19V7H4.8623V4H9.3623L10.3623 3H14.3623L15.3623 4H19.8623V7H18.8623V19ZM6.8623 7V19C6.8623 19.5304 7.07302 20.0391 7.44809 20.4142C7.82316 20.7893 8.33187 21 8.8623 21H15.8623C16.3927 21 16.9014 20.7893 17.2765 20.4142C17.6516 20.0391 17.8623 19.5304 17.8623 19V7H6.8623ZM18.8623 6V5H14.8623L13.8623 4H10.8623L9.8623 5H5.8623V6H18.8623ZM8.8623 9H9.8623V19H8.8623V9ZM14.8623 9H15.8623V19H14.8623V9Z"/>
                                             </svg>
@@ -1051,7 +1051,7 @@
                                 <hr class="line line_dashed">
                                 <div class="card__footer">
                                     <span class="card__date">
-                                        <time>10:15 12.02.2023</time>
+                                        <time datetime="23.02.12T10:15">10:15 12.02.2023</time>
                                     </span>
                                     <span class="card__status">
                                         In progress
@@ -1064,12 +1064,12 @@
                                         Low
                                     </span>
                                     <div class="card__tools">
-                                        <a href="#" class="change-icon icon">
+                                        <a href="#" class="icon icon_change">
                                             <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                                 <path d="M19.71 8.04L17.37 10.37L13.62 6.62L15.96 4.29C16.35 3.9 17 3.9 17.37 4.29L19.71 6.63C20.1 7 20.1 7.65 19.71 8.04ZM3 17.25L13.06 7.18L16.81 10.93L6.75 21H3V17.25ZM16.62 5.04L15.08 6.58L17.42 8.92L18.96 7.38L16.62 5.04ZM15.36 11L13 8.64L4 17.66V20H6.34L15.36 11Z"/>
                                             </svg>
                                         </a>
-                                        <a href="#" class="change-icon icon">
+                                        <a href="#" class="icon icon_del">
                                             <svg width="25" height="24" viewBox="0 0 25 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                                 <path d="M18.8623 19C18.8623 19.7956 18.5462 20.5587 17.9836 21.1213C17.421 21.6839 16.658 22 15.8623 22H8.8623C8.06666 22 7.30359 21.6839 6.74098 21.1213C6.17838 20.5587 5.8623 19.7956 5.8623 19V7H4.8623V4H9.3623L10.3623 3H14.3623L15.3623 4H19.8623V7H18.8623V19ZM6.8623 7V19C6.8623 19.5304 7.07302 20.0391 7.44809 20.4142C7.82316 20.7893 8.33187 21 8.8623 21H15.8623C16.3927 21 16.9014 20.7893 17.2765 20.4142C17.6516 20.0391 17.8623 19.5304 17.8623 19V7H6.8623ZM18.8623 6V5H14.8623L13.8623 4H10.8623L9.8623 5H5.8623V6H18.8623ZM8.8623 9H9.8623V19H8.8623V9ZM14.8623 9H15.8623V19H14.8623V9Z"/>
                                             </svg>
@@ -1105,7 +1105,7 @@
                                 <hr class="line line_dashed">
                                 <div class="card__footer">
                                     <span class="card__date">
-                                        <time>10:15 12.02.2023</time>
+                                        <time datetime="23.02.12T10:15">10:15 12.02.2023</time>
                                     </span>
                                     <span class="card__status">
                                         In progress
@@ -1118,12 +1118,12 @@
                                         Hight
                                     </span>
                                     <div class="card__tools">
-                                        <a href="#" class="change-icon icon">
+                                        <a href="#" class="icon icon_change">
                                             <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                                 <path d="M19.71 8.04L17.37 10.37L13.62 6.62L15.96 4.29C16.35 3.9 17 3.9 17.37 4.29L19.71 6.63C20.1 7 20.1 7.65 19.71 8.04ZM3 17.25L13.06 7.18L16.81 10.93L6.75 21H3V17.25ZM16.62 5.04L15.08 6.58L17.42 8.92L18.96 7.38L16.62 5.04ZM15.36 11L13 8.64L4 17.66V20H6.34L15.36 11Z"/>
                                             </svg>
                                         </a>
-                                        <a href="#" class="change-icon icon">
+                                        <a href="#" class="icon icon_del">
                                             <svg width="25" height="24" viewBox="0 0 25 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                                 <path d="M18.8623 19C18.8623 19.7956 18.5462 20.5587 17.9836 21.1213C17.421 21.6839 16.658 22 15.8623 22H8.8623C8.06666 22 7.30359 21.6839 6.74098 21.1213C6.17838 20.5587 5.8623 19.7956 5.8623 19V7H4.8623V4H9.3623L10.3623 3H14.3623L15.3623 4H19.8623V7H18.8623V19ZM6.8623 7V19C6.8623 19.5304 7.07302 20.0391 7.44809 20.4142C7.82316 20.7893 8.33187 21 8.8623 21H15.8623C16.3927 21 16.9014 20.7893 17.2765 20.4142C17.6516 20.0391 17.8623 19.5304 17.8623 19V7H6.8623ZM18.8623 6V5H14.8623L13.8623 4H10.8623L9.8623 5H5.8623V6H18.8623ZM8.8623 9H9.8623V19H8.8623V9ZM14.8623 9H15.8623V19H14.8623V9Z"/>
                                             </svg>
@@ -1159,7 +1159,7 @@
                                 <hr class="line line_dashed">
                                 <div class="card__footer">
                                     <span class="card__date">
-                                        <time>10:15 12.02.2023</time>
+                                        <time datetime="23.02.12T10:15">10:15 12.02.2023</time>
                                     </span>
                                     <span class="card__status">
                                         In progress
@@ -1172,12 +1172,12 @@
                                         Low
                                     </span>
                                     <div class="card__tools">
-                                        <a href="#" class="change-icon icon">
+                                        <a href="#" class="icon icon_change">
                                             <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                                 <path d="M19.71 8.04L17.37 10.37L13.62 6.62L15.96 4.29C16.35 3.9 17 3.9 17.37 4.29L19.71 6.63C20.1 7 20.1 7.65 19.71 8.04ZM3 17.25L13.06 7.18L16.81 10.93L6.75 21H3V17.25ZM16.62 5.04L15.08 6.58L17.42 8.92L18.96 7.38L16.62 5.04ZM15.36 11L13 8.64L4 17.66V20H6.34L15.36 11Z"/>
                                             </svg>
                                         </a>
-                                        <a href="#" class="change-icon icon">
+                                        <a href="#" class="icon icon_del">
                                             <svg width="25" height="24" viewBox="0 0 25 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                                 <path d="M18.8623 19C18.8623 19.7956 18.5462 20.5587 17.9836 21.1213C17.421 21.6839 16.658 22 15.8623 22H8.8623C8.06666 22 7.30359 21.6839 6.74098 21.1213C6.17838 20.5587 5.8623 19.7956 5.8623 19V7H4.8623V4H9.3623L10.3623 3H14.3623L15.3623 4H19.8623V7H18.8623V19ZM6.8623 7V19C6.8623 19.5304 7.07302 20.0391 7.44809 20.4142C7.82316 20.7893 8.33187 21 8.8623 21H15.8623C16.3927 21 16.9014 20.7893 17.2765 20.4142C17.6516 20.0391 17.8623 19.5304 17.8623 19V7H6.8623ZM18.8623 6V5H14.8623L13.8623 4H10.8623L9.8623 5H5.8623V6H18.8623ZM8.8623 9H9.8623V19H8.8623V9ZM14.8623 9H15.8623V19H14.8623V9Z"/>
                                             </svg>
@@ -1213,7 +1213,7 @@
                                 <hr class="line line_dashed">
                                 <div class="card__footer">
                                     <span class="card__date">
-                                        <time>10:15 12.02.2023</time>
+                                        <time datetime="23.02.12T10:15">10:15 12.02.2023</time>
                                     </span>
                                     <span class="card__status">
                                         In progress
@@ -1222,7 +1222,7 @@
                             </article>
                         </div>
                     </div>
-                    <button class="button button_show-more">Show more</button>
+                    <button class="button button_show-more"  type="button">Show more</button>
                 </section>
                 <section class="col">
                     <h2 class="title title_col">
@@ -1236,12 +1236,12 @@
                                         Medium
                                     </span>
                                     <div class="card__tools">
-                                        <a href="#" class="change-icon icon">
+                                        <a href="#" class="icon icon_change">
                                             <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                                 <path d="M19.71 8.04L17.37 10.37L13.62 6.62L15.96 4.29C16.35 3.9 17 3.9 17.37 4.29L19.71 6.63C20.1 7 20.1 7.65 19.71 8.04ZM3 17.25L13.06 7.18L16.81 10.93L6.75 21H3V17.25ZM16.62 5.04L15.08 6.58L17.42 8.92L18.96 7.38L16.62 5.04ZM15.36 11L13 8.64L4 17.66V20H6.34L15.36 11Z"/>
                                             </svg>
                                         </a>
-                                        <a href="#" class="change-icon icon">
+                                        <a href="#" class="icon icon_del">
                                             <svg width="25" height="24" viewBox="0 0 25 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                                 <path d="M18.8623 19C18.8623 19.7956 18.5462 20.5587 17.9836 21.1213C17.421 21.6839 16.658 22 15.8623 22H8.8623C8.06666 22 7.30359 21.6839 6.74098 21.1213C6.17838 20.5587 5.8623 19.7956 5.8623 19V7H4.8623V4H9.3623L10.3623 3H14.3623L15.3623 4H19.8623V7H18.8623V19ZM6.8623 7V19C6.8623 19.5304 7.07302 20.0391 7.44809 20.4142C7.82316 20.7893 8.33187 21 8.8623 21H15.8623C16.3927 21 16.9014 20.7893 17.2765 20.4142C17.6516 20.0391 17.8623 19.5304 17.8623 19V7H6.8623ZM18.8623 6V5H14.8623L13.8623 4H10.8623L9.8623 5H5.8623V6H18.8623ZM8.8623 9H9.8623V19H8.8623V9ZM14.8623 9H15.8623V19H14.8623V9Z"/>
                                             </svg>
@@ -1277,7 +1277,7 @@
                                 <hr class="line line_dashed">
                                 <div class="card__footer">
                                     <span class="card__date">
-                                        <time>10:15 12.02.2023</time>
+                                        <time datetime="23.02.12T10:15">10:15 12.02.2023</time>
                                     </span>
                                     <span class="card__status">
                                         Complete
@@ -1290,12 +1290,12 @@
                                         Hight
                                     </span>
                                     <div class="card__tools">
-                                        <a href="#" class="change-icon icon">
+                                        <a href="#" class="icon icon_change">
                                             <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                                 <path d="M19.71 8.04L17.37 10.37L13.62 6.62L15.96 4.29C16.35 3.9 17 3.9 17.37 4.29L19.71 6.63C20.1 7 20.1 7.65 19.71 8.04ZM3 17.25L13.06 7.18L16.81 10.93L6.75 21H3V17.25ZM16.62 5.04L15.08 6.58L17.42 8.92L18.96 7.38L16.62 5.04ZM15.36 11L13 8.64L4 17.66V20H6.34L15.36 11Z"/>
                                             </svg>
                                         </a>
-                                        <a href="#" class="change-icon icon">
+                                        <a href="#" class="icon icon_del">
                                             <svg width="25" height="24" viewBox="0 0 25 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                                 <path d="M18.8623 19C18.8623 19.7956 18.5462 20.5587 17.9836 21.1213C17.421 21.6839 16.658 22 15.8623 22H8.8623C8.06666 22 7.30359 21.6839 6.74098 21.1213C6.17838 20.5587 5.8623 19.7956 5.8623 19V7H4.8623V4H9.3623L10.3623 3H14.3623L15.3623 4H19.8623V7H18.8623V19ZM6.8623 7V19C6.8623 19.5304 7.07302 20.0391 7.44809 20.4142C7.82316 20.7893 8.33187 21 8.8623 21H15.8623C16.3927 21 16.9014 20.7893 17.2765 20.4142C17.6516 20.0391 17.8623 19.5304 17.8623 19V7H6.8623ZM18.8623 6V5H14.8623L13.8623 4H10.8623L9.8623 5H5.8623V6H18.8623ZM8.8623 9H9.8623V19H8.8623V9ZM14.8623 9H15.8623V19H14.8623V9Z"/>
                                             </svg>
@@ -1331,7 +1331,7 @@
                                 <hr class="line line_dashed">
                                 <div class="card__footer">
                                     <span class="card__date">
-                                        <time>10:15 12.02.2023</time>
+                                        <time datetime="23.02.12T10:15">10:15 12.02.2023</time>
                                     </span>
                                     <span class="card__status">
                                         Complete
@@ -1344,12 +1344,12 @@
                                         Medium
                                     </span>
                                     <div class="card__tools">
-                                        <a href="#" class="change-icon icon">
+                                        <a href="#" class="icon icon_change">
                                             <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                                 <path d="M19.71 8.04L17.37 10.37L13.62 6.62L15.96 4.29C16.35 3.9 17 3.9 17.37 4.29L19.71 6.63C20.1 7 20.1 7.65 19.71 8.04ZM3 17.25L13.06 7.18L16.81 10.93L6.75 21H3V17.25ZM16.62 5.04L15.08 6.58L17.42 8.92L18.96 7.38L16.62 5.04ZM15.36 11L13 8.64L4 17.66V20H6.34L15.36 11Z"/>
                                             </svg>
                                         </a>
-                                        <a href="#" class="change-icon icon">
+                                        <a href="#" class="icon icon_del">
                                             <svg width="25" height="24" viewBox="0 0 25 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                                 <path d="M18.8623 19C18.8623 19.7956 18.5462 20.5587 17.9836 21.1213C17.421 21.6839 16.658 22 15.8623 22H8.8623C8.06666 22 7.30359 21.6839 6.74098 21.1213C6.17838 20.5587 5.8623 19.7956 5.8623 19V7H4.8623V4H9.3623L10.3623 3H14.3623L15.3623 4H19.8623V7H18.8623V19ZM6.8623 7V19C6.8623 19.5304 7.07302 20.0391 7.44809 20.4142C7.82316 20.7893 8.33187 21 8.8623 21H15.8623C16.3927 21 16.9014 20.7893 17.2765 20.4142C17.6516 20.0391 17.8623 19.5304 17.8623 19V7H6.8623ZM18.8623 6V5H14.8623L13.8623 4H10.8623L9.8623 5H5.8623V6H18.8623ZM8.8623 9H9.8623V19H8.8623V9ZM14.8623 9H15.8623V19H14.8623V9Z"/>
                                             </svg>
@@ -1385,7 +1385,7 @@
                                 <hr class="line line_dashed">
                                 <div class="card__footer">
                                     <span class="card__date">
-                                        <time>10:15 12.02.2023</time>
+                                        <time datetime="23.02.12T10:15">10:15 12.02.2023</time>
                                     </span>
                                     <span class="card__status">
                                         Complete
@@ -1398,12 +1398,12 @@
                                         Low
                                     </span>
                                     <div class="card__tools">
-                                        <a href="#" class="change-icon icon">
+                                        <a href="#" class="icon icon_change">
                                             <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                                 <path d="M19.71 8.04L17.37 10.37L13.62 6.62L15.96 4.29C16.35 3.9 17 3.9 17.37 4.29L19.71 6.63C20.1 7 20.1 7.65 19.71 8.04ZM3 17.25L13.06 7.18L16.81 10.93L6.75 21H3V17.25ZM16.62 5.04L15.08 6.58L17.42 8.92L18.96 7.38L16.62 5.04ZM15.36 11L13 8.64L4 17.66V20H6.34L15.36 11Z"/>
                                             </svg>
                                         </a>
-                                        <a href="#" class="change-icon icon">
+                                        <a href="#" class="icon icon_del">
                                             <svg width="25" height="24" viewBox="0 0 25 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                                 <path d="M18.8623 19C18.8623 19.7956 18.5462 20.5587 17.9836 21.1213C17.421 21.6839 16.658 22 15.8623 22H8.8623C8.06666 22 7.30359 21.6839 6.74098 21.1213C6.17838 20.5587 5.8623 19.7956 5.8623 19V7H4.8623V4H9.3623L10.3623 3H14.3623L15.3623 4H19.8623V7H18.8623V19ZM6.8623 7V19C6.8623 19.5304 7.07302 20.0391 7.44809 20.4142C7.82316 20.7893 8.33187 21 8.8623 21H15.8623C16.3927 21 16.9014 20.7893 17.2765 20.4142C17.6516 20.0391 17.8623 19.5304 17.8623 19V7H6.8623ZM18.8623 6V5H14.8623L13.8623 4H10.8623L9.8623 5H5.8623V6H18.8623ZM8.8623 9H9.8623V19H8.8623V9ZM14.8623 9H15.8623V19H14.8623V9Z"/>
                                             </svg>
@@ -1439,7 +1439,7 @@
                                 <hr class="line line_dashed">
                                 <div class="card__footer">
                                     <span class="card__date">
-                                        <time>10:15 12.02.2023</time>
+                                        <time datetime="23.02.12T10:15">10:15 12.02.2023</time>
                                     </span>
                                     <span class="card__status">
                                         Complete
@@ -1452,12 +1452,12 @@
                                         Low
                                     </span>
                                     <div class="card__tools">
-                                        <a href="#" class="change-icon icon">
+                                        <a href="#" class="icon icon_change">
                                             <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                                 <path d="M19.71 8.04L17.37 10.37L13.62 6.62L15.96 4.29C16.35 3.9 17 3.9 17.37 4.29L19.71 6.63C20.1 7 20.1 7.65 19.71 8.04ZM3 17.25L13.06 7.18L16.81 10.93L6.75 21H3V17.25ZM16.62 5.04L15.08 6.58L17.42 8.92L18.96 7.38L16.62 5.04ZM15.36 11L13 8.64L4 17.66V20H6.34L15.36 11Z"/>
                                             </svg>
                                         </a>
-                                        <a href="#" class="change-icon icon">
+                                        <a href="#" class="icon icon_del">
                                             <svg width="25" height="24" viewBox="0 0 25 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                                 <path d="M18.8623 19C18.8623 19.7956 18.5462 20.5587 17.9836 21.1213C17.421 21.6839 16.658 22 15.8623 22H8.8623C8.06666 22 7.30359 21.6839 6.74098 21.1213C6.17838 20.5587 5.8623 19.7956 5.8623 19V7H4.8623V4H9.3623L10.3623 3H14.3623L15.3623 4H19.8623V7H18.8623V19ZM6.8623 7V19C6.8623 19.5304 7.07302 20.0391 7.44809 20.4142C7.82316 20.7893 8.33187 21 8.8623 21H15.8623C16.3927 21 16.9014 20.7893 17.2765 20.4142C17.6516 20.0391 17.8623 19.5304 17.8623 19V7H6.8623ZM18.8623 6V5H14.8623L13.8623 4H10.8623L9.8623 5H5.8623V6H18.8623ZM8.8623 9H9.8623V19H8.8623V9ZM14.8623 9H15.8623V19H14.8623V9Z"/>
                                             </svg>
@@ -1493,7 +1493,7 @@
                                 <hr class="line line_dashed">
                                 <div class="card__footer">
                                     <span class="card__date">
-                                        <time>10:15 12.02.2023</time>
+                                        <time datetime="23.02.12T10:15">10:15 12.02.2023</time>
                                     </span>
                                     <span class="card__status">
                                         Complete
@@ -1506,12 +1506,12 @@
                                         Medium
                                     </span>
                                     <div class="card__tools">
-                                        <a href="#" class="change-icon icon">
+                                        <a href="#" class="icon icon_change">
                                             <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                                 <path d="M19.71 8.04L17.37 10.37L13.62 6.62L15.96 4.29C16.35 3.9 17 3.9 17.37 4.29L19.71 6.63C20.1 7 20.1 7.65 19.71 8.04ZM3 17.25L13.06 7.18L16.81 10.93L6.75 21H3V17.25ZM16.62 5.04L15.08 6.58L17.42 8.92L18.96 7.38L16.62 5.04ZM15.36 11L13 8.64L4 17.66V20H6.34L15.36 11Z"/>
                                             </svg>
                                         </a>
-                                        <a href="#" class="change-icon icon">
+                                        <a href="#" class="icon icon_del">
                                             <svg width="25" height="24" viewBox="0 0 25 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                                 <path d="M18.8623 19C18.8623 19.7956 18.5462 20.5587 17.9836 21.1213C17.421 21.6839 16.658 22 15.8623 22H8.8623C8.06666 22 7.30359 21.6839 6.74098 21.1213C6.17838 20.5587 5.8623 19.7956 5.8623 19V7H4.8623V4H9.3623L10.3623 3H14.3623L15.3623 4H19.8623V7H18.8623V19ZM6.8623 7V19C6.8623 19.5304 7.07302 20.0391 7.44809 20.4142C7.82316 20.7893 8.33187 21 8.8623 21H15.8623C16.3927 21 16.9014 20.7893 17.2765 20.4142C17.6516 20.0391 17.8623 19.5304 17.8623 19V7H6.8623ZM18.8623 6V5H14.8623L13.8623 4H10.8623L9.8623 5H5.8623V6H18.8623ZM8.8623 9H9.8623V19H8.8623V9ZM14.8623 9H15.8623V19H14.8623V9Z"/>
                                             </svg>
@@ -1547,7 +1547,7 @@
                                 <hr class="line line_dashed">
                                 <div class="card__footer">
                                     <span class="card__date">
-                                        <time>10:15 12.02.2023</time>
+                                        <time datetime="23.02.12T10:15">10:15 12.02.2023</time>
                                     </span>
                                     <span class="card__status">
                                         Complete
@@ -1560,12 +1560,12 @@
                                         Hight
                                     </span>
                                     <div class="card__tools">
-                                        <a href="#" class="change-icon icon">
+                                        <a href="#" class="icon icon_change">
                                             <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                                 <path d="M19.71 8.04L17.37 10.37L13.62 6.62L15.96 4.29C16.35 3.9 17 3.9 17.37 4.29L19.71 6.63C20.1 7 20.1 7.65 19.71 8.04ZM3 17.25L13.06 7.18L16.81 10.93L6.75 21H3V17.25ZM16.62 5.04L15.08 6.58L17.42 8.92L18.96 7.38L16.62 5.04ZM15.36 11L13 8.64L4 17.66V20H6.34L15.36 11Z"/>
                                             </svg>
                                         </a>
-                                        <a href="#" class="change-icon icon">
+                                        <a href="#" class="icon icon_del">
                                             <svg width="25" height="24" viewBox="0 0 25 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                                 <path d="M18.8623 19C18.8623 19.7956 18.5462 20.5587 17.9836 21.1213C17.421 21.6839 16.658 22 15.8623 22H8.8623C8.06666 22 7.30359 21.6839 6.74098 21.1213C6.17838 20.5587 5.8623 19.7956 5.8623 19V7H4.8623V4H9.3623L10.3623 3H14.3623L15.3623 4H19.8623V7H18.8623V19ZM6.8623 7V19C6.8623 19.5304 7.07302 20.0391 7.44809 20.4142C7.82316 20.7893 8.33187 21 8.8623 21H15.8623C16.3927 21 16.9014 20.7893 17.2765 20.4142C17.6516 20.0391 17.8623 19.5304 17.8623 19V7H6.8623ZM18.8623 6V5H14.8623L13.8623 4H10.8623L9.8623 5H5.8623V6H18.8623ZM8.8623 9H9.8623V19H8.8623V9ZM14.8623 9H15.8623V19H14.8623V9Z"/>
                                             </svg>
@@ -1601,7 +1601,7 @@
                                 <hr class="line line_dashed">
                                 <div class="card__footer">
                                     <span class="card__date">
-                                        <time>10:15 12.02.2023</time>
+                                        <time datetime="23.02.12T10:15">10:15 12.02.2023</time>
                                     </span>
                                     <span class="card__status">
                                         Complete
@@ -1614,12 +1614,12 @@
                                         Medium
                                     </span>
                                     <div class="card__tools">
-                                        <a href="#" class="change-icon icon">
+                                        <a href="#" class="icon icon_change">
                                             <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                                 <path d="M19.71 8.04L17.37 10.37L13.62 6.62L15.96 4.29C16.35 3.9 17 3.9 17.37 4.29L19.71 6.63C20.1 7 20.1 7.65 19.71 8.04ZM3 17.25L13.06 7.18L16.81 10.93L6.75 21H3V17.25ZM16.62 5.04L15.08 6.58L17.42 8.92L18.96 7.38L16.62 5.04ZM15.36 11L13 8.64L4 17.66V20H6.34L15.36 11Z"/>
                                             </svg>
                                         </a>
-                                        <a href="#" class="change-icon icon">
+                                        <a href="#" class="icon icon_del">
                                             <svg width="25" height="24" viewBox="0 0 25 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                                 <path d="M18.8623 19C18.8623 19.7956 18.5462 20.5587 17.9836 21.1213C17.421 21.6839 16.658 22 15.8623 22H8.8623C8.06666 22 7.30359 21.6839 6.74098 21.1213C6.17838 20.5587 5.8623 19.7956 5.8623 19V7H4.8623V4H9.3623L10.3623 3H14.3623L15.3623 4H19.8623V7H18.8623V19ZM6.8623 7V19C6.8623 19.5304 7.07302 20.0391 7.44809 20.4142C7.82316 20.7893 8.33187 21 8.8623 21H15.8623C16.3927 21 16.9014 20.7893 17.2765 20.4142C17.6516 20.0391 17.8623 19.5304 17.8623 19V7H6.8623ZM18.8623 6V5H14.8623L13.8623 4H10.8623L9.8623 5H5.8623V6H18.8623ZM8.8623 9H9.8623V19H8.8623V9ZM14.8623 9H15.8623V19H14.8623V9Z"/>
                                             </svg>
@@ -1655,7 +1655,7 @@
                                 <hr class="line line_dashed">
                                 <div class="card__footer">
                                     <span class="card__date">
-                                        <time>10:15 12.02.2023</time>
+                                        <time datetime="23.02.12T10:15">10:15 12.02.2023</time>
                                     </span>
                                     <span class="card__status">
                                         Complete
@@ -1668,12 +1668,12 @@
                                         Low
                                     </span>
                                     <div class="card__tools">
-                                        <a href="#" class="change-icon icon">
+                                        <a href="#" class="icon icon_change">
                                             <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                                 <path d="M19.71 8.04L17.37 10.37L13.62 6.62L15.96 4.29C16.35 3.9 17 3.9 17.37 4.29L19.71 6.63C20.1 7 20.1 7.65 19.71 8.04ZM3 17.25L13.06 7.18L16.81 10.93L6.75 21H3V17.25ZM16.62 5.04L15.08 6.58L17.42 8.92L18.96 7.38L16.62 5.04ZM15.36 11L13 8.64L4 17.66V20H6.34L15.36 11Z"/>
                                             </svg>
                                         </a>
-                                        <a href="#" class="change-icon icon">
+                                        <a href="#" class="icon icon_del">
                                             <svg width="25" height="24" viewBox="0 0 25 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                                 <path d="M18.8623 19C18.8623 19.7956 18.5462 20.5587 17.9836 21.1213C17.421 21.6839 16.658 22 15.8623 22H8.8623C8.06666 22 7.30359 21.6839 6.74098 21.1213C6.17838 20.5587 5.8623 19.7956 5.8623 19V7H4.8623V4H9.3623L10.3623 3H14.3623L15.3623 4H19.8623V7H18.8623V19ZM6.8623 7V19C6.8623 19.5304 7.07302 20.0391 7.44809 20.4142C7.82316 20.7893 8.33187 21 8.8623 21H15.8623C16.3927 21 16.9014 20.7893 17.2765 20.4142C17.6516 20.0391 17.8623 19.5304 17.8623 19V7H6.8623ZM18.8623 6V5H14.8623L13.8623 4H10.8623L9.8623 5H5.8623V6H18.8623ZM8.8623 9H9.8623V19H8.8623V9ZM14.8623 9H15.8623V19H14.8623V9Z"/>
                                             </svg>
@@ -1709,7 +1709,7 @@
                                 <hr class="line line_dashed">
                                 <div class="card__footer">
                                     <span class="card__date">
-                                        <time>10:15 12.02.2023</time>
+                                        <time datetime="23.02.12T10:15">10:15 12.02.2023</time>
                                     </span>
                                     <span class="card__status">
                                         Complete
@@ -1722,12 +1722,12 @@
                                         Low
                                     </span>
                                     <div class="card__tools">
-                                        <a href="#" class="change-icon icon">
+                                        <a href="#" class="icon icon_change">
                                             <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                                 <path d="M19.71 8.04L17.37 10.37L13.62 6.62L15.96 4.29C16.35 3.9 17 3.9 17.37 4.29L19.71 6.63C20.1 7 20.1 7.65 19.71 8.04ZM3 17.25L13.06 7.18L16.81 10.93L6.75 21H3V17.25ZM16.62 5.04L15.08 6.58L17.42 8.92L18.96 7.38L16.62 5.04ZM15.36 11L13 8.64L4 17.66V20H6.34L15.36 11Z"/>
                                             </svg>
                                         </a>
-                                        <a href="#" class="change-icon icon">
+                                        <a href="#" class="icon icon_del">
                                             <svg width="25" height="24" viewBox="0 0 25 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                                 <path d="M18.8623 19C18.8623 19.7956 18.5462 20.5587 17.9836 21.1213C17.421 21.6839 16.658 22 15.8623 22H8.8623C8.06666 22 7.30359 21.6839 6.74098 21.1213C6.17838 20.5587 5.8623 19.7956 5.8623 19V7H4.8623V4H9.3623L10.3623 3H14.3623L15.3623 4H19.8623V7H18.8623V19ZM6.8623 7V19C6.8623 19.5304 7.07302 20.0391 7.44809 20.4142C7.82316 20.7893 8.33187 21 8.8623 21H15.8623C16.3927 21 16.9014 20.7893 17.2765 20.4142C17.6516 20.0391 17.8623 19.5304 17.8623 19V7H6.8623ZM18.8623 6V5H14.8623L13.8623 4H10.8623L9.8623 5H5.8623V6H18.8623ZM8.8623 9H9.8623V19H8.8623V9ZM14.8623 9H15.8623V19H14.8623V9Z"/>
                                             </svg>
@@ -1763,7 +1763,7 @@
                                 <hr class="line line_dashed">
                                 <div class="card__footer">
                                     <span class="card__date">
-                                        <time>10:15 12.02.2023</time>
+                                        <time datetime="23.02.12T10:15">10:15 12.02.2023</time>
                                     </span>
                                     <span class="card__status">
                                         Complete
@@ -1772,7 +1772,7 @@
                             </article>
                         </div>
                     </div>
-                    <button class="button button_show-more">Show more</button>
+                    <button class="button button_show-more" type="button">Show more</button>
                 </section>
             </div>
         </div>
@@ -1787,8 +1787,8 @@
                         <ul class="list list_footer">
                             <li class="list__elem">do.</li>
                             <li class="list__elem">Julia Grib</li>
-                            <li class="list__elem"><a class="link link_menu" href="mailto:yulgrib@gmail.com">yulgrib@gmail.com</a></li>
-                            <li class="list__elem"><time>23.02.2023</time></li>
+                            <li class="list__elem"><a class="link" href="mailto:yulgrib@gmail.com">yulgrib@gmail.com</a></li>
+                            <li class="list__elem"><time datetime="2023.02.23">23.02.2023</time></li>
                         </ul>
                     </div>
                     <div class="footer__tools">
