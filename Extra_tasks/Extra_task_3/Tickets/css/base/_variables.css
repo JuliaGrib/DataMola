@@ -26,9 +26,10 @@
     --color-orange: #f54759;
     --color-green: #35c768;
     --color-violet: #b983f1;
-    --shadow-elem: 0 1px 5px rgb(0 0 0 / 15%);
+    --shadow-elem: 0 0.1rem 0.25rem rgb(0 0 0 / 15%);
     --font-weight-normal: 400;
     --font-weight-semi-bold: 600;
     --font-weight-bold: 700;
     --animation: 0.5s all;
+    --border-radius: 0.75rem;
 }

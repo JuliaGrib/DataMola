@@ -1,6 +1,6 @@
 .tag {
     position: absolute;
-    top: -0.75rem;
+    top: calc(var(--padding-s)*-1);
     padding: var(--padding-xxs) var(--padding-xs);
     border-radius: 1.25rem;
     color: var(--white);
@@ -8,7 +8,7 @@
     font-weight: var(--font-weight-semi-bold);
 }
 .tag_mob {
-    left: 10px;
+    left: 0.625rem;
 }
 
 .tag_cheap {

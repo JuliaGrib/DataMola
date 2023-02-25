@@ -1,7 +1,7 @@
 .btn {
     padding: var(--padding-s) var(--padding-m);
     border: none;
-    border-radius: 0.62rem;
+    border-radius: var(--border-radius);
     font-size: 1.06rem;
     font-weight: var(--font-weight-bold);
     transition: var(--animation);

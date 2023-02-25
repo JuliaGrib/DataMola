@@ -2,7 +2,7 @@
     position: relative;
     display: none;
     width: 80vw;
-    border-radius: 0.62rem;
+    border-radius: var(--border-radius);
     background-color: var(--white); 
 }
 
