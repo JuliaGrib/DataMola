@@ -62,48 +62,50 @@
                     </a>
                 </div>
                 <div class="main__wrapper">
-                    <button class="button button_primary button_icon">
-                        <span class="button__text">Add Task</span>
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M11 19V13H5V11H11V5H13V11H19V13H13V19H11Z" fill="white"/>
-                        </svg>
-                    </button>
-                    <div class="filter">
-                        <div class="filter__elem">
-                            <span class="flter__text">Assignee</span>
+                    <div class="main__filter">
+                        <button class="button button_primary button_icon">
+                            <span class="button__text">Add Task</span>
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M7.41 8.59009L12 13.1701L16.59 8.59009L18 10.0001L12 16.0001L6 10.0001L7.41 8.59009Z" fill="#333333"/>
+                                <path d="M11 19V13H5V11H11V5H13V11H19V13H13V19H11Z" fill="white"/>
                             </svg>
+                        </button>
+                        <div class="filter">
+                            <div class="filter__elem">
+                                <span class="flter__text">Assignee</span>
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M7.41 8.59009L12 13.1701L16.59 8.59009L18 10.0001L12 16.0001L6 10.0001L7.41 8.59009Z" fill="#333333"/>
+                                </svg>
+                            </div>
+                            <div class="filter__elem">
+                                <span class="flter__text">Date</span>
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M7.41 8.59009L12 13.1701L16.59 8.59009L18 10.0001L12 16.0001L6 10.0001L7.41 8.59009Z" fill="#333333"/>
+                                </svg>
+                            </div>
+                            <div class="filter__elem">
+                                <span class="flter__text">Priority</span>
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M7.41 8.59009L12 13.1701L16.59 8.59009L18 10.0001L12 16.0001L6 10.0001L7.41 8.59009Z" fill="#333333"/>
+                                </svg>
+                            </div>
+                            <div class="filter__elem">
+                                <span class="flter__text">Privacy</span>
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M7.41 8.59009L12 13.1701L16.59 8.59009L18 10.0001L12 16.0001L6 10.0001L7.41 8.59009Z" fill="#333333"/>
+                                </svg>
+                            </div>
                         </div>
-                        <div class="filter__elem">
-                            <span class="flter__text">Date</span>
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M7.41 8.59009L12 13.1701L16.59 8.59009L18 10.0001L12 16.0001L6 10.0001L7.41 8.59009Z" fill="#333333"/>
-                            </svg>
-                        </div>
-                        <div class="filter__elem">
-                            <span class="flter__text">Priority</span>
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M7.41 8.59009L12 13.1701L16.59 8.59009L18 10.0001L12 16.0001L6 10.0001L7.41 8.59009Z" fill="#333333"/>
-                            </svg>
-                        </div>
-                        <div class="filter__elem">
-                            <span class="flter__text">Privacy</span>
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M7.41 8.59009L12 13.1701L16.59 8.59009L18 10.0001L12 16.0001L6 10.0001L7.41 8.59009Z" fill="#333333"/>
-                            </svg>
-                        </div>
+                        <button class="button button_filter button_icon">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M9.16704 16.6666C8.93093 16.6666 8.73287 16.5866 8.57287 16.4266C8.41287 16.2666 8.33315 16.0688 8.33371 15.8333V10.8333L3.50037 4.66659C3.29204 4.38881 3.26065 4.09714 3.40621 3.79159C3.55176 3.48603 3.80537 3.33325 4.16704 3.33325H15.8337C16.1948 3.33325 16.4484 3.48603 16.5945 3.79159C16.7407 4.09714 16.7093 4.38881 16.5004 4.66659L11.667 10.8333V15.8333C11.667 16.0694 11.587 16.2674 11.427 16.4274C11.267 16.5874 11.0693 16.6671 10.8337 16.6666H9.16704Z" fill="#333333"/>
+                            </svg>   
+                        <button class="button button__filter-reset button_icon button_disabled">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12.3337 9.97909L5.68783 3.33325H15.8337C16.1809 3.33325 16.4309 3.48603 16.5837 3.79159C16.7364 4.09714 16.7087 4.38881 16.5003 4.66659L12.3337 9.97909ZM16.4795 18.8333L11.667 14.0208V15.8333C11.667 16.0694 11.587 16.2674 11.427 16.4274C11.267 16.5874 11.0692 16.6671 10.8337 16.6666H9.16699C8.93088 16.6666 8.73283 16.5866 8.57283 16.4266C8.41283 16.2666 8.3331 16.0688 8.33366 15.8333V10.6874L1.16699 3.52075L2.33366 2.33325L17.667 17.6666L16.4795 18.8333Z" fill="white"/>
+                            </svg>                            
+                        </button>
+                        <input class="input input_search" type="search" placeholder="Search">
                     </div>
-                    <button class="button button_filter">
-                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M9.16704 16.6666C8.93093 16.6666 8.73287 16.5866 8.57287 16.4266C8.41287 16.2666 8.33315 16.0688 8.33371 15.8333V10.8333L3.50037 4.66659C3.29204 4.38881 3.26065 4.09714 3.40621 3.79159C3.55176 3.48603 3.80537 3.33325 4.16704 3.33325H15.8337C16.1948 3.33325 16.4484 3.48603 16.5945 3.79159C16.7407 4.09714 16.7093 4.38881 16.5004 4.66659L11.667 10.8333V15.8333C11.667 16.0694 11.587 16.2674 11.427 16.4274C11.267 16.5874 11.0693 16.6671 10.8337 16.6666H9.16704Z" fill="#333333"/>
-                        </svg>   
-                    <button class="button button__filter-reset button_disabled">
-                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M12.3337 9.97909L5.68783 3.33325H15.8337C16.1809 3.33325 16.4309 3.48603 16.5837 3.79159C16.7364 4.09714 16.7087 4.38881 16.5003 4.66659L12.3337 9.97909ZM16.4795 18.8333L11.667 14.0208V15.8333C11.667 16.0694 11.587 16.2674 11.427 16.4274C11.267 16.5874 11.0692 16.6671 10.8337 16.6666H9.16699C8.93088 16.6666 8.73283 16.5866 8.57283 16.4266C8.41283 16.2666 8.3331 16.0688 8.33366 15.8333V10.6874L1.16699 3.52075L2.33366 2.33325L17.667 17.6666L16.4795 18.8333Z" fill="white"/>
-                        </svg>                            
-                    </button>
-                    <input class="input input_search" type="search" placeholder="Search">
                     <div class="position">
                         <a href="#" class="icon icon_active">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">

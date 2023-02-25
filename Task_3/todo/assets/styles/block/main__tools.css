@@ -1,7 +1,7 @@
 .main__tools {
-    /* background-color: rgb(255, 183, 183); */
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
 
 .main__title {
@@ -14,4 +14,22 @@
     display: flex;
     align-items: center;
     gap: var(--gap-s);
+}
+
+.main__filter {
+    display: flex;
+    align-items: center;
+    gap: var(--gap-s);
+}
+
+@media screen and (max-width: 660px) {
+    .main__tools {
+        align-items: baseline;
+    }
+    .main__wrapper {
+        flex-direction: column;
+        align-items: end;
+        gap: var(--gap-xs);
+    }
+
 }

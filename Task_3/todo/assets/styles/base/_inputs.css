@@ -11,3 +11,9 @@
     border-radius: var(--border-radius);
     background-color: var(--color-secondary);
 }
+
+@media screen and (max-width: 575px) {
+    .input_search {
+        display: none;
+    }
+}

@@ -66,3 +66,9 @@
         background-color: var(--color-secondary);
     }
 }
+
+@media screen and (max-width: 660px) {
+    .button_icon {
+        padding: var(--padding-xs);
+    }
+}
