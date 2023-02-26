@@ -39,6 +39,14 @@
     padding: var(--padding);
 }
 
+.table__header {
+    font-weight: 600;
+    padding: var(--padding-z) var(--padding-z) var(--padding-m) var(--padding-z);
+}
+
+.table__elem {
+    padding: var(--padding-z) var(--padding-z) var(--padding) var(--padding-z);
+}
 
 @media screen and (max-width: 1050px) {
     .table__content {

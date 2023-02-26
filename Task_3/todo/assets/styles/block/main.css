@@ -20,7 +20,7 @@ body {
 .main_autorization {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    align-items: center;
+    height: 86vh;
 }
 
 @media screen and (max-width: 930px) {
@@ -30,3 +30,4 @@ body {
         align-items: center;
     }
 }
+
