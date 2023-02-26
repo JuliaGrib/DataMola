@@ -53,10 +53,6 @@
     border-radius: var(--border-radius-s);
 }
 
-.form__input:disabled {
-    background-color: #eaecef;
-}
-
 .form__btn {
     display: flex;
     gap: var(--gap-s);

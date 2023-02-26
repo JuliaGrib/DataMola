@@ -1,7 +1,7 @@
 .body_components {
     display: block;
     padding: var(--padding-xxl);
-    background-color: beige;
+    background-color: var(--color-beige);
 }
 
 .wrap {

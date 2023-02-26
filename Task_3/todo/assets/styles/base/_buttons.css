@@ -55,7 +55,7 @@
 .button_disabled {
     background-color: var(--color-secondary-dark);
     color: var(--color-white);
-    cursor: default;
+    pointer-events: default;
 }
 
 .button_inactive {

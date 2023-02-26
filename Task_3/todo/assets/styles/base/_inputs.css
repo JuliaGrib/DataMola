@@ -57,11 +57,11 @@
 .input_search::before {
     content: '';
     position: absolute;
-    top: 0px;
-    left: 0px;
+    top: 0rem;
+    left: 0rem;
     display: block;
-    width: 20px;
-    height: 20px;
+    width: 1.25rem;
+    height: 1.25rem;
     z-index: 1000;
     background-image: url(../../img/icons/current.svg);
 }
