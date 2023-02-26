@@ -20,6 +20,10 @@
     width: 100%;
 }
 
+.input_user {
+    background-color: var(--color-white);
+}
+
 .editor_grey {
     background-color: var(--color-secondary-light);
 }

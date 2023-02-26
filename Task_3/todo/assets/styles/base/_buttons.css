@@ -23,7 +23,7 @@
     background-color: var(--color-secondary);
 }
 
-.button_reset {
+.button_secondary {
     background-color: var(--color-secondary);
     cursor: pointer;
 }

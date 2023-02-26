@@ -24,6 +24,10 @@
     align-self: flex-start;
 }
 
+.form-elem_user {
+    grid-template-columns: 1fr;
+}
+
 .form-elem_icon {
     align-self: flex-start;
 }
