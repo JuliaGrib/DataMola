@@ -27,6 +27,10 @@
     overflow-x: hidden;
 }
 
+.enter__text {
+    width: 30vw;
+}
+
 .enter::-webkit-scrollbar {
     width: 0.25rem;
 }
@@ -75,12 +79,18 @@
     .main__descr {
         display: none;
     }
+    .enter__text {
+        width: 60vw;
+    }
 }
 
 @media screen and (max-width: 700px) {
     .enter {
         justify-content: start;
         padding: var(--padding-l) var(--padding-z) var(--padding-z) var(--padding-z);
+    }
+    .enter_login {
+        justify-content: center;
     }
     .form {
         gap: var(--gap);
@@ -90,5 +100,12 @@
 @media screen and (max-width: 660px) {
     .enter {
         height: 88vh;
+    }
+    .enter_login {
+        justify-content: center;
+        height: 100%;
+    }
+    .enter__text {
+        width: 100%;
     }
 }

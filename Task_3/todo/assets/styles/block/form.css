@@ -11,6 +11,14 @@
     grid-row-gap: var(--gap-xxl);
 }
 
+.form__half {
+    display: inline-grid;
+    grid-template-columns: minmax(200px, 60%);
+    grid-template-rows: 1fr;
+    grid-column-gap: var(--gap-xxl);
+    grid-row-gap: var(--gap-xxl);
+}
+
 .form__elem {
     display: flex;
     flex-direction: column;
@@ -54,10 +62,23 @@
     gap: var(--gap-s);
 }
 
+@media screen and (max-width: 930px) {
+    .form__half {
+        display: grid;
+        grid-template-columns: minmax(200px, 60%);
+        grid-template-rows: 1fr;
+        grid-column-gap: var(--gap-xxl);
+        grid-row-gap: var(--gap-xxl);
+    }
+}
+
 @media screen and (max-width: 700px) {
     .form__quarter {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(200px, 100%));
+    }
+    .form__half {
+        grid-template-columns: minmax(200px, 100%);
     }
 }
 
