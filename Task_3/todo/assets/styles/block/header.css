@@ -42,6 +42,12 @@
     display: none;
 }
 
+.header__login {
+    display: flex;
+    align-items: center;
+    gap: var(--gap);
+}
+
 @media screen and (max-width: 660px) {
     .header__wrapper {
         padding: var(--padding-l) 0;
