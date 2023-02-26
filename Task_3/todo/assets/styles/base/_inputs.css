@@ -29,6 +29,7 @@
     height: 15vh;
     padding: var(--padding-s) var(--padding);
     border: none;
+    border-radius: var(--border-radius-s);
     resize: none;
 }
 

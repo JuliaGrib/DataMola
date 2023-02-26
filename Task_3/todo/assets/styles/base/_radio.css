@@ -37,3 +37,9 @@
     padding: var(--padding-xs);
     background-color: var(--color-secondary-light);
 }
+
+.selection_edit {
+    padding: var(--padding-xxs);
+    border: 0.1rem solid var(--color-black);
+    border-radius: var(--border-radius);
+}

@@ -23,6 +23,11 @@
     background-color: var(--color-secondary);
 }
 
+.button_reset {
+    background-color: var(--color-secondary);
+    cursor: pointer;
+}
+
 .button_show-more {
     margin: 0 auto;
     padding: var(--padding-xxs) var(--padding);
@@ -66,6 +71,7 @@
         background-color: var(--color-secondary);
     }
 }
+
 
 @media screen and (max-width: 660px) {
     .button_icon {
