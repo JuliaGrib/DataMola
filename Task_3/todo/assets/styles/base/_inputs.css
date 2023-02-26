@@ -61,6 +61,11 @@
     background-image: url(../../img/icons/current.svg);
 }
 
+.input_send {
+    padding: var(--padding-xs) var(--padding);
+    border-radius: var(--border-radius);
+}
+
 .form-elem_icon {
     position: relative;
 }

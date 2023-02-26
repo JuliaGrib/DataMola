@@ -1,11 +1,29 @@
 .task-block {
+    display: grid;
+    grid-template-rows: 62vh 10vh;
+    width: 100%;
+    padding: var(--padding-m);
+    background-color: var(--color-secondary-light);
+    border-radius: var(--border-radius);
+    
+}
+
+.task-block__content {
     display: flex;
     flex-direction: column;
     gap: var(--gap-m);
-    width: 100%;
-    height: 75vh;
-    padding: var(--padding-xxl);
-    background-color: var(--color-secondary-light);
+    height: 100%;
+    padding: var(--padding-s);
+    overflow: scroll;
+    overflow-x: hidden;
+}
+
+.task-block__content::-webkit-scrollbar {
+    width: 0.25rem;
+}
+
+.task-block__content::-webkit-scrollbar-thumb {
+    background-color: var(--color-secondary);
     border-radius: var(--border-radius);
 }
 
@@ -31,15 +49,19 @@
     gap: var(--gap-s);
 }
 
-.comment {
-
+.file {
+    display: flex;
+    align-items: center;
+    gap: var(--gap-xs);
+    padding: var(--padding-xxs);
+    border: 0.1rem solid var(--color-black);
+    border-radius: var(--border-radius);
 }
 
 .task-block__comment-wrap {
     display: flex;
     flex-direction: column;
     gap: var(--gap-m);
-    overflow: scroll;
 }
 
 .comment__header {
@@ -54,4 +76,11 @@
 
 .comment__message {
     padding: 0 0 0 var(--padding-xxl);
+}
+
+.task-block__send {
+    display: flex;
+    align-self: end;
+    gap: var(--gap-xs);
+    padding: var(--padding-s);
 }

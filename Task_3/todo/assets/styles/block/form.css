@@ -21,6 +21,11 @@
     display: inline-grid;
     grid-template-columns: minmax(250px, 20vw);
     row-gap: var(--gap-xs);
+    align-self: flex-start;
+}
+
+.form-elem_icon {
+    align-self: flex-start;
 }
 
 .editor {

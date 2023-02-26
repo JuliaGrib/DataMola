@@ -6,13 +6,27 @@ body {
 }
 
 .main__template_task {
-    display: grid;
+    display: inline-grid;
     grid-template-rows: 11vh 75vh;
+    height: 100%;
+}
+
+.main__template_task-page {
+    display: inline-grid;
+    grid-template-rows: 6vh 78vh;
     height: 100%;
 }
 
 .main_autorization {
     display: grid;
-    grid-template-columns: 45% 1fr;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
 }
 
+@media screen and (max-width: 930px) {
+    .main_autorization {
+        grid-template-columns: 1fr;
+        justify-content: center;
+        align-items: center;
+    }
+}

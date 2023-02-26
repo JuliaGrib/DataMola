@@ -1,6 +1,9 @@
-.enter {
-    position: relative;
-    z-index: 1;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
+.enter__form {
+    display: inline-flex;
+    flex-direction: column;
+    gap: var(--gap);
+}
+
+.enter__text {
+    width: 55%;
 }
