@@ -23,6 +23,13 @@
     row-gap: var(--gap-m);
 }
 
+.popup__btns {
+    display: flex;
+    gap: var(--gap);
+    justify-content: center;
+    padding: var(--padding) var(--padding-z) var(--padding-z) var(--padding-z);
+}
+
 @media screen and (max-width: 1370px) {
     .popup {
         width: 50vw;

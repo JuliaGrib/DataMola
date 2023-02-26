@@ -7,6 +7,7 @@
 }
 
 .filter__elem {
+    position: relative;
     display: flex;
     align-items: center;
     gap: var(--gap-xs);

@@ -22,7 +22,6 @@
 @import './block/footer.css';
 @import './block/user.css';
 @import './block/desk.css';
-@import './block/filter.css';
 @import './block/row.css';
 @import './block/menu.css';
 @import './block/background.css';
@@ -32,4 +31,5 @@
 @import './block/enter.css';
 @import './block/desk-list.css';
 @import './block/registration.css';
+@import './block/filter.css';
 
