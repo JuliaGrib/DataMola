@@ -31,6 +31,9 @@
 .priority_low {
     background-color: var(--color-priority-low);
 }
+.priority_task {
+    align-self: flex-start;
+}
 
 .card__tools {
     display: flex;

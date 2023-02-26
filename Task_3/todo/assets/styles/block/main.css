@@ -1,12 +1,18 @@
 body {
+    position: relative;
     display: grid;
     grid-template-rows: 8vh 1fr 6vh;
     height: 100vh;
 }
 
-main {
+.main__template_task {
     display: grid;
     grid-template-rows: 11vh 75vh;
     height: 100%;
+}
+
+.main_autorization {
+    display: grid;
+    grid-template-columns: 45% 1fr;
 }
 

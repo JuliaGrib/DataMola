@@ -10,7 +10,7 @@
     color: var(--color-primary); 
 }
 
-.language__icon:hover + .list_language {
+.language__icon:hover + .list_block {
     display: flex;
 }
 
@@ -22,11 +22,11 @@
     color: var(--color-primary); 
 }
 
-.language__item:hover + .list_language {
+.language__item:hover + .list_block {
     display: flex;
 }
 
-.list_language {
+.list_block {
     position: absolute;
     top: -81px;
     left: -11px;

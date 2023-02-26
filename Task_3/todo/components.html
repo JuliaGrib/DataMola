@@ -8,8 +8,9 @@
     <link rel="stylesheet" href="./assets/styles/style.css">
     <title>Components</title>
 </head>
-<body>
+<body class="body_components">
 
+    <h3 class="title title_component">burger menu</h3>
     <div class="menu">
         <div class="menu__content">
             <div class="menu__info">
@@ -80,8 +81,234 @@
                 </div>
             </div>
         </div>
-        
     </div>
+
+    <div class="wrap">
+        <hr class="wrap__line">
+        <h3 class="title title_component">Inputs</h3>
+        <h4 class="title title_subtitle">Input default</h4>
+        <div class="form-elem">
+            <label class="label" for="name">Name*</label>
+            <input class="input input_default" type="text" id="name" placeholder="Enter your name" required>
+        </div>
+        <h4 class="title title_subtitle">Input disabled</h4>
+        <div class="form-elem">
+            <label class="label" for="name">Name</label>
+            <input class="input input_disabled" type="text" id="name" placeholder="Julia" disabled>
+        </div>
+        <h4 class="title title_subtitle">Input editor title</h4>
+        <div class="editor">
+            <label class="label" for="name">Task name*</label>
+            <input class="input input_editor" type="text" id="name" required>
+            <span class="editor__subtext">0/100</span>
+        </div>
+        <h4 class="title title_subtitle">Input editor text</h4>
+        <div class="editor">
+            <label class="label" for="description">Description*</label>
+            <textarea class="editor__text" name="description" id="description"></textarea>
+            <span class="editor__subtext">0/280</span>
+        </div>
+        <h4 class="title title_subtitle">Input search</h4>
+        <div class="form-elem">
+            <input class="input input_search" type="search" id="search" placeholder="Search">
+        </div>
     
+        <h4 class="title title_subtitle">Input info</h4>
+        <div class="form-elem form-elem_icon">
+            <label class="label" for="name">Name*</label>
+            <input class="input input_default" type="text" id="name" placeholder="Enter your name" required>
+            <span class="input_icon-svg">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M9 5H11V7H9V5ZM10 15C10.55 15 11 14.55 11 14V10C11 9.45 10.55 9 10 9C9.45 9 9 9.45 9 10V14C9 14.55 9.45 15 10 15ZM10 0C4.48 0 0 4.48 0 10C0 15.52 4.48 20 10 20C15.52 20 20 15.52 20 10C20 4.48 15.52 0 10 0ZM10 18C5.59 18 2 14.41 2 10C2 5.59 5.59 2 10 2C14.41 2 18 5.59 18 10C18 14.41 14.41 18 10 18Z" fill="#808080"/>
+                </svg>                
+            </span>
+        </div>
+    
+        <h4 class="title title_subtitle">Input password</h4>
+        <div class="form-elem form-elem_icon">
+            <label class="label" for="password">Password*</label>
+            <input class="input input_default" type="password" id="password" value="11051994" required>
+            <span class="input_icon-svg">
+                <svg width="21" height="18" viewBox="0 0 21 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M1.54014 0.71L2.25014 0L19.0001 16.75L18.2901 17.46L14.9501 14.11C13.5801 14.68 12.0801 15 10.5001 15C5.94014 15 2.00014 12.35 0.140137 8.5C1.11014 6.5 2.63014 4.83 4.50014 3.68L1.54014 0.71ZM10.5001 14C11.7901 14 13.0301 13.77 14.1701 13.34L13.0501 12.21C12.3201 12.71 11.4501 13 10.5001 13C8.00014 13 6.00014 11 6.00014 8.5C6.00014 7.55 6.29014 6.68 6.79014 5.95L5.24014 4.41C3.56578 5.38547 2.18961 6.79968 1.26014 8.5C3.04014 11.78 6.50014 14 10.5001 14ZM19.7401 8.5C17.9601 5.22 14.5001 3 10.5001 3C9.35014 3 8.23014 3.19 7.19014 3.53L6.41014 2.75C7.68014 2.26 9.06014 2 10.5001 2C15.0601 2 19.0001 4.65 20.8601 8.5C19.9514 10.3858 18.5439 11.987 16.7901 13.13L16.0701 12.4C17.6001 11.44 18.8701 10.1 19.7401 8.5ZM10.5001 4C13.0001 4 15.0001 6 15.0001 8.5C15.0001 9.32 14.7801 10.08 14.4001 10.74L13.6601 10C13.8801 9.54 14.0001 9.04 14.0001 8.5C14.0001 7.57174 13.6314 6.6815 12.975 6.02513C12.3186 5.36875 11.4284 5 10.5001 5C9.96014 5 9.46014 5.12 9.00014 5.34L8.26014 4.6C8.92014 4.22 9.68014 4 10.5001 4ZM7.00014 8.5C7.00014 9.42826 7.36889 10.3185 8.02526 10.9749C8.68164 11.6313 9.57188 12 10.5001 12C11.1701 12 11.7901 11.81 12.3201 11.5L7.50014 6.68C7.19014 7.21 7.00014 7.83 7.00014 8.5Z" fill="#808080"/>
+                </svg>                             
+            </span>
+        </div>
+    
+        <h4 class="title title_subtitle">Input password disabled</h4>
+        <div class="form-elem form-elem_icon">
+            <label class="label" for="password">Password*</label>
+            <input class="input input_disabled" type="password" id="password" value="11051994" disabled>
+            <span class="input_icon-svg">
+                <svg width="21" height="18" viewBox="0 0 21 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M1.54014 0.71L2.25014 0L19.0001 16.75L18.2901 17.46L14.9501 14.11C13.5801 14.68 12.0801 15 10.5001 15C5.94014 15 2.00014 12.35 0.140137 8.5C1.11014 6.5 2.63014 4.83 4.50014 3.68L1.54014 0.71ZM10.5001 14C11.7901 14 13.0301 13.77 14.1701 13.34L13.0501 12.21C12.3201 12.71 11.4501 13 10.5001 13C8.00014 13 6.00014 11 6.00014 8.5C6.00014 7.55 6.29014 6.68 6.79014 5.95L5.24014 4.41C3.56578 5.38547 2.18961 6.79968 1.26014 8.5C3.04014 11.78 6.50014 14 10.5001 14ZM19.7401 8.5C17.9601 5.22 14.5001 3 10.5001 3C9.35014 3 8.23014 3.19 7.19014 3.53L6.41014 2.75C7.68014 2.26 9.06014 2 10.5001 2C15.0601 2 19.0001 4.65 20.8601 8.5C19.9514 10.3858 18.5439 11.987 16.7901 13.13L16.0701 12.4C17.6001 11.44 18.8701 10.1 19.7401 8.5ZM10.5001 4C13.0001 4 15.0001 6 15.0001 8.5C15.0001 9.32 14.7801 10.08 14.4001 10.74L13.6601 10C13.8801 9.54 14.0001 9.04 14.0001 8.5C14.0001 7.57174 13.6314 6.6815 12.975 6.02513C12.3186 5.36875 11.4284 5 10.5001 5C9.96014 5 9.46014 5.12 9.00014 5.34L8.26014 4.6C8.92014 4.22 9.68014 4 10.5001 4ZM7.00014 8.5C7.00014 9.42826 7.36889 10.3185 8.02526 10.9749C8.68164 11.6313 9.57188 12 10.5001 12C11.1701 12 11.7901 11.81 12.3201 11.5L7.50014 6.68C7.19014 7.21 7.00014 7.83 7.00014 8.5Z" fill="#808080"/>
+                </svg>                             
+            </span>
+        </div>
+    
+        <h4 class="title title_subtitle">Input password error</h4>
+        <div class="form-elem form-elem_icon">
+            <label class="label label_error" for="password">Password*</label>
+            <input class="input input_error" type="password" id="password" value="11051994">
+            <span class="input_icon-svg input_icon-error-svg">
+                <svg width="21" height="18" viewBox="0 0 21 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M1.53965 0.71L2.24965 0L18.9996 16.75L18.2896 17.46L14.9496 14.11C13.5796 14.68 12.0796 15 10.4996 15C5.93965 15 1.99965 12.35 0.139648 8.5C1.10965 6.5 2.62965 4.83 4.49965 3.68L1.53965 0.71ZM10.4996 14C11.7896 14 13.0296 13.77 14.1696 13.34L13.0496 12.21C12.3196 12.71 11.4496 13 10.4996 13C7.99965 13 5.99965 11 5.99965 8.5C5.99965 7.55 6.28965 6.68 6.78965 5.95L5.23965 4.41C3.56529 5.38547 2.18912 6.79968 1.25965 8.5C3.03965 11.78 6.49965 14 10.4996 14ZM19.7396 8.5C17.9596 5.22 14.4996 3 10.4996 3C9.34965 3 8.22965 3.19 7.18965 3.53L6.40965 2.75C7.67965 2.26 9.05965 2 10.4996 2C15.0596 2 18.9996 4.65 20.8596 8.5C19.9509 10.3858 18.5434 11.987 16.7896 13.13L16.0696 12.4C17.5996 11.44 18.8696 10.1 19.7396 8.5ZM10.4996 4C12.9996 4 14.9996 6 14.9996 8.5C14.9996 9.32 14.7796 10.08 14.3996 10.74L13.6596 10C13.8796 9.54 13.9996 9.04 13.9996 8.5C13.9996 7.57174 13.6309 6.6815 12.9745 6.02513C12.3181 5.36875 11.4279 5 10.4996 5C9.95965 5 9.45965 5.12 8.99965 5.34L8.25965 4.6C8.91965 4.22 9.67965 4 10.4996 4ZM6.99965 8.5C6.99965 9.42826 7.3684 10.3185 8.02478 10.9749C8.68115 11.6313 9.57139 12 10.4996 12C11.1696 12 11.7896 11.81 12.3196 11.5L7.49965 6.68C7.18965 7.21 6.99965 7.83 6.99965 8.5Z" fill="#FB8F8F"/>
+                </svg>                            
+            </span>
+            <span class="input__message">Error message</span>
+        </div>
+    
+        <h4 class="title title_subtitle">Input password validate</h4>
+        <div class="form-elem form-elem_icon">
+            <label class="label label_validate" for="password">Password*</label>
+            <input class="input input_validate" type="password" id="password" value="11051994">
+            <span class="input_icon-svg">
+                <svg width="21" height="18" viewBox="0 0 21 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M1.53965 0.71L2.24965 0L18.9996 16.75L18.2896 17.46L14.9496 14.11C13.5796 14.68 12.0796 15 10.4996 15C5.93965 15 1.99965 12.35 0.139648 8.5C1.10965 6.5 2.62965 4.83 4.49965 3.68L1.53965 0.71ZM10.4996 14C11.7896 14 13.0296 13.77 14.1696 13.34L13.0496 12.21C12.3196 12.71 11.4496 13 10.4996 13C7.99965 13 5.99965 11 5.99965 8.5C5.99965 7.55 6.28965 6.68 6.78965 5.95L5.23965 4.41C3.56529 5.38547 2.18912 6.79968 1.25965 8.5C3.03965 11.78 6.49965 14 10.4996 14ZM19.7396 8.5C17.9596 5.22 14.4996 3 10.4996 3C9.34965 3 8.22965 3.19 7.18965 3.53L6.40965 2.75C7.67965 2.26 9.05965 2 10.4996 2C15.0596 2 18.9996 4.65 20.8596 8.5C19.9509 10.3858 18.5434 11.987 16.7896 13.13L16.0696 12.4C17.5996 11.44 18.8696 10.1 19.7396 8.5ZM10.4996 4C12.9996 4 14.9996 6 14.9996 8.5C14.9996 9.32 14.7796 10.08 14.3996 10.74L13.6596 10C13.8796 9.54 13.9996 9.04 13.9996 8.5C13.9996 7.57174 13.6309 6.6815 12.9745 6.02513C12.3181 5.36875 11.4279 5 10.4996 5C9.95965 5 9.45965 5.12 8.99965 5.34L8.25965 4.6C8.91965 4.22 9.67965 4 10.4996 4ZM6.99965 8.5C6.99965 9.42826 7.3684 10.3185 8.02478 10.9749C8.68115 11.6313 9.57139 12 10.4996 12C11.1696 12 11.7896 11.81 12.3196 11.5L7.49965 6.68C7.18965 7.21 6.99965 7.83 6.99965 8.5Z" fill="#1AC18F"/>
+                </svg>                       
+            </span>
+        </div>
+    
+    </div>
+
+    <div class="wrap">
+        <hr class="wrap__line">
+        <h3 class="title title_component">Tasks elements</h3>
+
+        <div class="task-tools">
+            <span class="task-tools__title">Privacy</span>
+            <div class="task-tools__wrapper">
+                <input class="task-tools__elem" type="radio" name="Privacy" id="piblic" checked>
+                <label for="piblic" class="task-tools__elem task-tools__default task-tools__default_checked">Public</label>
+                <input class="task-tools__elem" type="radio" name="Privacy" id="privacy">
+                <label for="privacy" class="task-tools__elem task-tools__default">Privacy</label>
+            </div>
+        </div>
+
+        <div class="task-tools">
+            <span class="task-tools__title">Status</span>
+            <div class="task-tools__wrapper">
+                <input class="task-tools__elem" type="radio" name="Privacy" id="piblic" checked>
+                <label for="piblic" class="task-tools__elem task-tools__default task-tools__default_checked">To do</label>
+                <input class="task-tools__elem" type="radio" name="Privacy" id="privacy">
+                <label for="privacy" class="task-tools__elem task-tools__default">In progress</label>
+                <input class="task-tools__elem" type="radio" name="Privacy" id="privacy">
+                <label for="privacy" class="task-tools__elem task-tools__default">Complete</label>
+            </div>
+        </div>
+        <div class="task-tools">
+            <span class="task-tools__title">Priority*</span>
+            <div class="task-tools__wrapper">
+                <span class="priority priority_hight">
+                    Hight
+                </span>
+                <span class="priority priority_medium">
+                    Medium
+                </span>
+                <span class="priority priority_low">
+                    Low
+                </span>
+            </div>
+        </div>
+        <div class="task-tools">
+            <span class="task-tools__title">Assignee*</span>
+            <div class="task-tools__wrapper">
+                <div class="selection">
+                    <div class="user-icon">
+                        <svg class="user-icon__img" width="25" height="25" viewBox="0 0 25 25" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M17 9.75C17 10.9435 16.5259 12.0881 15.682 12.932C14.8381 13.7759 13.6935 14.25 12.5 14.25C11.3065 14.25 10.1619 13.7759 9.31802 12.932C8.47411 12.0881 8 10.9435 8 9.75C8 8.55653 8.47411 7.41193 9.31802 6.56802C10.1619 5.72411 11.3065 5.25 12.5 5.25C13.6935 5.25 14.8381 5.72411 15.682 6.56802C16.5259 7.41193 17 8.55653 17 9.75Z"/>
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M0.5 12.75C0.5 9.5674 1.76428 6.51516 4.01472 4.26472C6.26516 2.01428 9.3174 0.75 12.5 0.75C15.6826 0.75 18.7348 2.01428 20.9853 4.26472C23.2357 6.51516 24.5 9.5674 24.5 12.75C24.5 15.9326 23.2357 18.9848 20.9853 21.2353C18.7348 23.4857 15.6826 24.75 12.5 24.75C9.3174 24.75 6.26516 23.4857 4.01472 21.2353C1.76428 18.9848 0.5 15.9326 0.5 12.75ZM12.5 2.25C10.5227 2.25011 8.58555 2.80854 6.9116 3.86104C5.23766 4.91354 3.89492 6.41732 3.03795 8.19929C2.18097 9.98127 1.84458 11.969 2.0675 13.9337C2.29042 15.8985 3.06358 17.7603 4.298 19.305C5.363 17.589 7.7075 15.75 12.5 15.75C17.2925 15.75 19.6355 17.5875 20.702 19.305C21.9364 17.7603 22.7096 15.8985 22.9325 13.9337C23.1554 11.969 22.819 9.98127 21.9621 8.19929C21.1051 6.41732 19.7623 4.91354 18.0884 3.86104C16.4145 2.80854 14.4773 2.25011 12.5 2.25Z"/>
+                        </svg>                                    
+                        <span class="user-icon__name">Julia Grib</span>
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M7.41 8.59009L12 13.1701L16.59 8.59009L18 10.0001L12 16.0001L6 10.0001L7.41 8.59009Z" fill="#333333"/>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="wrap">
+        <hr class="wrap__line">
+        <h3 class="title title_component">Add task</h3>
+        <div class="popup">
+            <div class="popup__header">
+                <h4 class="title title_popup">Add task</h4>
+                <a class="settings__link" href="#">
+                    <svg class="icon" width="37" height="38" viewBox="0 0 37 38" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M29.7307 28.1773C29.9478 28.3968 30.0696 28.6933 30.0696 29.0022C30.0696 29.3112 29.9478 29.6077 29.7307 29.8272C29.5097 30.0412 29.2143 30.1608 28.9069 30.1608C28.5995 30.1608 28.3041 30.0412 28.0831 29.8272L18.5006 20.2171L8.91822 29.8272C8.69722 30.0412 8.40182 30.1608 8.09439 30.1608C7.78697 30.1608 7.49157 30.0412 7.27057 29.8272C7.05344 29.6077 6.93164 29.3112 6.93164 29.0022C6.93164 28.6933 7.05344 28.3968 7.27057 28.1773L16.8674 18.5817L7.27057 8.98611C7.08619 8.76115 6.99196 8.47555 7.00622 8.18487C7.02048 7.8942 7.14219 7.61922 7.3477 7.41343C7.55321 7.20764 7.82781 7.08576 8.11808 7.07148C8.40836 7.0572 8.69357 7.15156 8.91822 7.33619L18.5006 16.9462L28.0831 7.33619C28.3077 7.15156 28.5929 7.0572 28.8832 7.07148C29.1735 7.08576 29.4481 7.20764 29.6536 7.41343C29.8591 7.61922 29.9808 7.8942 29.9951 8.18487C30.0093 8.47555 29.9151 8.76115 29.7307 8.98611L20.1338 18.5817L29.7307 28.1773Z"/>
+                    </svg> 
+                </a>                
+            </div>
+            <hr class="line line_dashed">
+            <div class="popup__text">
+                <div class="editor">
+                    <label class="label" for="name">Task name*</label>
+                    <input class="input input_editor editor_grey" type="text" id="name" required>
+                    <span class="editor__subtext">0/100</span>
+                </div>
+                <div class="editor">
+                    <label class="label" for="description">Description*</label>
+                    <textarea class="editor__text editor_grey" name="description" id="description"></textarea>
+                    <span class="editor__subtext">0/280</span>
+                </div>
+            </div>
+            <div class="popup__tools">
+                <div class="task-tools">
+                    <span class="task-tools__title">Assignee*</span>
+                    <div class="task-tools__wrapper">
+                        <div class="selection">
+                            <div class="user-icon">
+                                <svg class="user-icon__img" width="25" height="25" viewBox="0 0 25 25" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M17 9.75C17 10.9435 16.5259 12.0881 15.682 12.932C14.8381 13.7759 13.6935 14.25 12.5 14.25C11.3065 14.25 10.1619 13.7759 9.31802 12.932C8.47411 12.0881 8 10.9435 8 9.75C8 8.55653 8.47411 7.41193 9.31802 6.56802C10.1619 5.72411 11.3065 5.25 12.5 5.25C13.6935 5.25 14.8381 5.72411 15.682 6.56802C16.5259 7.41193 17 8.55653 17 9.75Z"/>
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M0.5 12.75C0.5 9.5674 1.76428 6.51516 4.01472 4.26472C6.26516 2.01428 9.3174 0.75 12.5 0.75C15.6826 0.75 18.7348 2.01428 20.9853 4.26472C23.2357 6.51516 24.5 9.5674 24.5 12.75C24.5 15.9326 23.2357 18.9848 20.9853 21.2353C18.7348 23.4857 15.6826 24.75 12.5 24.75C9.3174 24.75 6.26516 23.4857 4.01472 21.2353C1.76428 18.9848 0.5 15.9326 0.5 12.75ZM12.5 2.25C10.5227 2.25011 8.58555 2.80854 6.9116 3.86104C5.23766 4.91354 3.89492 6.41732 3.03795 8.19929C2.18097 9.98127 1.84458 11.969 2.0675 13.9337C2.29042 15.8985 3.06358 17.7603 4.298 19.305C5.363 17.589 7.7075 15.75 12.5 15.75C17.2925 15.75 19.6355 17.5875 20.702 19.305C21.9364 17.7603 22.7096 15.8985 22.9325 13.9337C23.1554 11.969 22.819 9.98127 21.9621 8.19929C21.1051 6.41732 19.7623 4.91354 18.0884 3.86104C16.4145 2.80854 14.4773 2.25011 12.5 2.25Z"/>
+                                </svg>                                    
+                                <span class="user-icon__name">Julia Grib</span>
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M7.41 8.59009L12 13.1701L16.59 8.59009L18 10.0001L12 16.0001L6 10.0001L7.41 8.59009Z" fill="#333333"/>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="task-tools">
+                    <span class="task-tools__title">Privacy</span>
+                    <div class="task-tools__wrapper">
+                        <input class="task-tools__elem" type="radio" name="Privacy" id="piblic" checked>
+                        <label for="piblic" class="task-tools__elem task-tools__default task-tools__default_checked">Public</label>
+                        <input class="task-tools__elem" type="radio" name="Privacy" id="privacy">
+                        <label for="privacy" class="task-tools__elem task-tools__default">Privacy</label>
+                    </div>
+                </div>
+                <div class="task-tools">
+                    <span class="task-tools__title">Priority*</span>
+                    <div class="task-tools__wrapper">
+                        <span class="priority priority_hight">
+                            Hight
+                        </span>
+                        <span class="priority priority_medium">
+                            Medium
+                        </span>
+                        <span class="priority priority_low">
+                            Low
+                        </span>
+                    </div>
+                </div>
+                <div class="task-tools">
+                    <span class="task-tools__title">Status</span>
+                    <div class="task-tools__wrapper">
+                        <input class="task-tools__elem" type="radio" name="Privacy" id="piblic" checked>
+                        <label for="piblic" class="task-tools__elem task-tools__default task-tools__default_checked">To do</label>
+                        <input class="task-tools__elem" type="radio" name="Privacy" id="privacy">
+                        <label for="privacy" class="task-tools__elem task-tools__default">In progress</label>
+                        <input class="task-tools__elem" type="radio" name="Privacy" id="privacy">
+                        <label for="privacy" class="task-tools__elem task-tools__default">Complete</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
 </body>
 </html>

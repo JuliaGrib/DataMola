@@ -50,106 +50,35 @@
             </div>
         </div>
     </header>
-    <main class="main">
-        <div class="container">
-            <div class="main__content">
-                <div class="back">
-                    <svg class="back__icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M20 11H7.83L13.42 5.41L12 4L4 12L12 20L13.41 18.59L7.83 13H20V11Z" fill="#333333"/>
-                    </svg>
-                    <span class="back__text">
-                        My tasks
-                    </span>
-                </div>
-                <section class="task-block">
-                    <div class="task-block__header">
-                        <h1 class="title title_h1">Technical documentation</h1>
-                        <div class="task-block__tools">
-                            <a href="#" class="icon icon_change">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M19.71 8.04L17.37 10.37L13.62 6.62L15.96 4.29C16.35 3.9 17 3.9 17.37 4.29L19.71 6.63C20.1 7 20.1 7.65 19.71 8.04ZM3 17.25L13.06 7.18L16.81 10.93L6.75 21H3V17.25ZM16.62 5.04L15.08 6.58L17.42 8.92L18.96 7.38L16.62 5.04ZM15.36 11L13 8.64L4 17.66V20H6.34L15.36 11Z"/>
-                                </svg>
-                            </a>
-                            <a href="#" class="icon icon_del">
-                                <svg width="25" height="24" viewBox="0 0 25 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M18.8623 19C18.8623 19.7956 18.5462 20.5587 17.9836 21.1213C17.421 21.6839 16.658 22 15.8623 22H8.8623C8.06666 22 7.30359 21.6839 6.74098 21.1213C6.17838 20.5587 5.8623 19.7956 5.8623 19V7H4.8623V4H9.3623L10.3623 3H14.3623L15.3623 4H19.8623V7H18.8623V19ZM6.8623 7V19C6.8623 19.5304 7.07302 20.0391 7.44809 20.4142C7.82316 20.7893 8.33187 21 8.8623 21H15.8623C16.3927 21 16.9014 20.7893 17.2765 20.4142C17.6516 20.0391 17.8623 19.5304 17.8623 19V7H6.8623ZM18.8623 6V5H14.8623L13.8623 4H10.8623L9.8623 5H5.8623V6H18.8623ZM8.8623 9H9.8623V19H8.8623V9ZM14.8623 9H15.8623V19H14.8623V9Z"/>
-                                </svg>
-                            </a>
-                        </div>
-                    </div>
-                    <span class="priority priority_hight priority_task">
-                        Hight
-                    </span>
-                    <span class="task-block__date">
-                        <time datetime="2023.01.14">14.02.2023</time>
-                    </span>
-                    <p class="task-block__text">
-                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
+    <main class="main main_autorization">
+        <div class="background"></div>
+            <div class="enter">
+                <div class="enter__descr"></div>
+                <div class="enter__form">
+                    <h1 class="title title_enter">
+                        Log in
+                    </h1>
+                    <p class="enter__text">
+                        Don’t have account? Create your account or continue without authorization
                     </p>
-                    <div class="task-block__options">
-                        <div class="task-block__options-elem">
-                            <span class="task-block__subtitle">Privacy</span>
-                            <span class="task-block__descr">Public</span>
+                    <form action="/" class="form">
+                        <div class="form-elem">
+                            <label class="label" for="name">Login*</label>
+                            <input class="input input_default" type="text" id="name" placeholder="Enter your login" required>
                         </div>
-                        <div class="task-block__options-elem">
-                            <span class="task-block__subtitle">Status</span>
-                            <span class="task-block__descr">To do</span>
+                        <div class="form-elem form-elem_icon">
+                            <label class="label" for="password">Password*</label>
+                            <input class="input input_default" type="password" id="password" value="11051994" required>
+                            <span class="input_icon-svg">
+                                <svg width="21" height="18" viewBox="0 0 21 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M1.54014 0.71L2.25014 0L19.0001 16.75L18.2901 17.46L14.9501 14.11C13.5801 14.68 12.0801 15 10.5001 15C5.94014 15 2.00014 12.35 0.140137 8.5C1.11014 6.5 2.63014 4.83 4.50014 3.68L1.54014 0.71ZM10.5001 14C11.7901 14 13.0301 13.77 14.1701 13.34L13.0501 12.21C12.3201 12.71 11.4501 13 10.5001 13C8.00014 13 6.00014 11 6.00014 8.5C6.00014 7.55 6.29014 6.68 6.79014 5.95L5.24014 4.41C3.56578 5.38547 2.18961 6.79968 1.26014 8.5C3.04014 11.78 6.50014 14 10.5001 14ZM19.7401 8.5C17.9601 5.22 14.5001 3 10.5001 3C9.35014 3 8.23014 3.19 7.19014 3.53L6.41014 2.75C7.68014 2.26 9.06014 2 10.5001 2C15.0601 2 19.0001 4.65 20.8601 8.5C19.9514 10.3858 18.5439 11.987 16.7901 13.13L16.0701 12.4C17.6001 11.44 18.8701 10.1 19.7401 8.5ZM10.5001 4C13.0001 4 15.0001 6 15.0001 8.5C15.0001 9.32 14.7801 10.08 14.4001 10.74L13.6601 10C13.8801 9.54 14.0001 9.04 14.0001 8.5C14.0001 7.57174 13.6314 6.6815 12.975 6.02513C12.3186 5.36875 11.4284 5 10.5001 5C9.96014 5 9.46014 5.12 9.00014 5.34L8.26014 4.6C8.92014 4.22 9.68014 4 10.5001 4ZM7.00014 8.5C7.00014 9.42826 7.36889 10.3185 8.02526 10.9749C8.68164 11.6313 9.57188 12 10.5001 12C11.1701 12 11.7901 11.81 12.3201 11.5L7.50014 6.68C7.19014 7.21 7.00014 7.83 7.00014 8.5Z" fill="#808080"/>
+                                </svg>                             
+                            </span>
                         </div>
-                        <div class="task-block__options-elem">
-                            <span class="task-block__subtitle">Assignee</span>
-                            <div class="user-icon">
-                                <svg class="user-icon__img" width="25" height="25" viewBox="0 0 25 25" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M17 9.75C17 10.9435 16.5259 12.0881 15.682 12.932C14.8381 13.7759 13.6935 14.25 12.5 14.25C11.3065 14.25 10.1619 13.7759 9.31802 12.932C8.47411 12.0881 8 10.9435 8 9.75C8 8.55653 8.47411 7.41193 9.31802 6.56802C10.1619 5.72411 11.3065 5.25 12.5 5.25C13.6935 5.25 14.8381 5.72411 15.682 6.56802C16.5259 7.41193 17 8.55653 17 9.75Z"/>
-                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M0.5 12.75C0.5 9.5674 1.76428 6.51516 4.01472 4.26472C6.26516 2.01428 9.3174 0.75 12.5 0.75C15.6826 0.75 18.7348 2.01428 20.9853 4.26472C23.2357 6.51516 24.5 9.5674 24.5 12.75C24.5 15.9326 23.2357 18.9848 20.9853 21.2353C18.7348 23.4857 15.6826 24.75 12.5 24.75C9.3174 24.75 6.26516 23.4857 4.01472 21.2353C1.76428 18.9848 0.5 15.9326 0.5 12.75ZM12.5 2.25C10.5227 2.25011 8.58555 2.80854 6.9116 3.86104C5.23766 4.91354 3.89492 6.41732 3.03795 8.19929C2.18097 9.98127 1.84458 11.969 2.0675 13.9337C2.29042 15.8985 3.06358 17.7603 4.298 19.305C5.363 17.589 7.7075 15.75 12.5 15.75C17.2925 15.75 19.6355 17.5875 20.702 19.305C21.9364 17.7603 22.7096 15.8985 22.9325 13.9337C23.1554 11.969 22.819 9.98127 21.9621 8.19929C21.1051 6.41732 19.7623 4.91354 18.0884 3.86104C16.4145 2.80854 14.4773 2.25011 12.5 2.25Z"/>
-                                </svg>                                    
-                                <span class="user-icon__name">Julia Grib</span>
-                            </div>
-                        </div>
-                        <div class="task-block__options-elem">
-                            <span class="task-block__subtitle">Files</span>
-                        </div>
-                    </div>
-                    <hr class="line line_dashed">
-                    <span class="task-block__comments">Comments</span>
-                    <div class="task-block__comment-wrap">
-                        <div class="comment">
-                            <div class="comment__header">
-                                <div class="user-icon">
-                                    <svg class="user-icon__img" width="25" height="25" viewBox="0 0 25 25" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M17 9.75C17 10.9435 16.5259 12.0881 15.682 12.932C14.8381 13.7759 13.6935 14.25 12.5 14.25C11.3065 14.25 10.1619 13.7759 9.31802 12.932C8.47411 12.0881 8 10.9435 8 9.75C8 8.55653 8.47411 7.41193 9.31802 6.56802C10.1619 5.72411 11.3065 5.25 12.5 5.25C13.6935 5.25 14.8381 5.72411 15.682 6.56802C16.5259 7.41193 17 8.55653 17 9.75Z"/>
-                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M0.5 12.75C0.5 9.5674 1.76428 6.51516 4.01472 4.26472C6.26516 2.01428 9.3174 0.75 12.5 0.75C15.6826 0.75 18.7348 2.01428 20.9853 4.26472C23.2357 6.51516 24.5 9.5674 24.5 12.75C24.5 15.9326 23.2357 18.9848 20.9853 21.2353C18.7348 23.4857 15.6826 24.75 12.5 24.75C9.3174 24.75 6.26516 23.4857 4.01472 21.2353C1.76428 18.9848 0.5 15.9326 0.5 12.75ZM12.5 2.25C10.5227 2.25011 8.58555 2.80854 6.9116 3.86104C5.23766 4.91354 3.89492 6.41732 3.03795 8.19929C2.18097 9.98127 1.84458 11.969 2.0675 13.9337C2.29042 15.8985 3.06358 17.7603 4.298 19.305C5.363 17.589 7.7075 15.75 12.5 15.75C17.2925 15.75 19.6355 17.5875 20.702 19.305C21.9364 17.7603 22.7096 15.8985 22.9325 13.9337C23.1554 11.969 22.819 9.98127 21.9621 8.19929C21.1051 6.41732 19.7623 4.91354 18.0884 3.86104C16.4145 2.80854 14.4773 2.25011 12.5 2.25Z"/>
-                                    </svg>                                    
-                                    <span class="user-icon__name">Julia Grib</span>
-                                </div>
-                                <div class="comment__time">
-                                    <time datetime="2023.02.25Т23:22">25.02.2023 23:22</time>
-                                </div>
-                            </div>
-                            <div class="comment__message">
-                                Deadline Is Coming
-                            </div>
-                        </div>
-                        <div class="comment">
-                            <div class="comment__header">
-                                <div class="user-icon">
-                                    <svg class="user-icon__img" width="25" height="25" viewBox="0 0 25 25" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M17 9.75C17 10.9435 16.5259 12.0881 15.682 12.932C14.8381 13.7759 13.6935 14.25 12.5 14.25C11.3065 14.25 10.1619 13.7759 9.31802 12.932C8.47411 12.0881 8 10.9435 8 9.75C8 8.55653 8.47411 7.41193 9.31802 6.56802C10.1619 5.72411 11.3065 5.25 12.5 5.25C13.6935 5.25 14.8381 5.72411 15.682 6.56802C16.5259 7.41193 17 8.55653 17 9.75Z"/>
-                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M0.5 12.75C0.5 9.5674 1.76428 6.51516 4.01472 4.26472C6.26516 2.01428 9.3174 0.75 12.5 0.75C15.6826 0.75 18.7348 2.01428 20.9853 4.26472C23.2357 6.51516 24.5 9.5674 24.5 12.75C24.5 15.9326 23.2357 18.9848 20.9853 21.2353C18.7348 23.4857 15.6826 24.75 12.5 24.75C9.3174 24.75 6.26516 23.4857 4.01472 21.2353C1.76428 18.9848 0.5 15.9326 0.5 12.75ZM12.5 2.25C10.5227 2.25011 8.58555 2.80854 6.9116 3.86104C5.23766 4.91354 3.89492 6.41732 3.03795 8.19929C2.18097 9.98127 1.84458 11.969 2.0675 13.9337C2.29042 15.8985 3.06358 17.7603 4.298 19.305C5.363 17.589 7.7075 15.75 12.5 15.75C17.2925 15.75 19.6355 17.5875 20.702 19.305C21.9364 17.7603 22.7096 15.8985 22.9325 13.9337C23.1554 11.969 22.819 9.98127 21.9621 8.19929C21.1051 6.41732 19.7623 4.91354 18.0884 3.86104C16.4145 2.80854 14.4773 2.25011 12.5 2.25Z"/>
-                                    </svg>                                    
-                                    <span class="user-icon__name">Andrei Shynkarou</span>
-                                </div>
-                                <div class="comment__time">
-                                    <time datetime="2023.02.25Т23:22">26.02.2023 12:22</time>
-                                </div>
-                            </div>
-                            <div class="comment__message">
-                                use rem
-                            </div>
-                        </div>
-                    </div>
-                </section>
+                        <button class="button button_disabled" type="submit">Log in</button>
+                    </form>
+                </div>
             </div>
-        </div>
     </main>
     <footer class="footer">
         <div class="footer__wrapper">
@@ -181,7 +110,7 @@
                             <span class="language__item">
                                 English
                             </span>
-                            <ul class="list list_block">
+                            <ul class="list list_language">
                                 <li class="list_language-en">English</li>
                                 <li class="list_language-ru">Русский</li>
                             </ul>                         

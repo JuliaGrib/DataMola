@@ -17,6 +17,18 @@
     gap: var(--gap-xxs);
 }
 
+.form-elem {
+    display: inline-grid;
+    grid-template-columns: minmax(250px, 20vw);
+    row-gap: var(--gap-xs);
+}
+
+.editor {
+    display: grid;
+    grid-template-columns: 1fr;
+    row-gap: var(--gap-xs);
+}
+
 .form__input {
     height: 3rem;
     padding: 0 var(--padding);
