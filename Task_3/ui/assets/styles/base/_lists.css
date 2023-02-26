@@ -1,0 +1,14 @@
+.list {
+    display: flex;
+    gap: var(--gap-m);
+    list-style-type: none;
+}
+
+
+.list_menu {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-xxs);
+    list-style-type: none;
+    color: var(--color-secondary-dark)
+}
