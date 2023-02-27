@@ -1,0 +1,19 @@
+.route_xs {
+    width: var(--route-xs);
+}
+
+.route_s {
+    width: var(--route-s);
+}
+
+.route_m {
+    width: var(--route-m);
+}
+
+.route_l {
+    width: var(--route-l);
+}
+
+.route_full {
+    width: var(--route);
+}

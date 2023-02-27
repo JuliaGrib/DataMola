@@ -1,0 +1,81 @@
+.route {
+    position: relative;
+    display: flex;
+    width: 100%;
+}
+
+.route::before {
+    content: '';
+    position: absolute;
+    top: 2.44rem;
+    display: block;
+    width: 100%;
+    height: 0.1rem;
+    background-color: var(--grey);
+}
+
+.route__descr {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    color: var(--grey);
+    font-size: 0.75rem;
+    font-weight: var(--font-weight-normal);
+}
+
+.route__start {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-content: space-between;
+    height: 100%;
+}
+
+.route__svg {
+    color: var(--grey);
+}
+
+.route__line {
+    width: 100%;
+    height: 0.25rem;
+    border-radius: var(--border-radius);
+    background-color: var(--grey);
+    transition: var(--animation);
+}
+
+.route__line:hover {
+    background-color: var(--white);
+    border: 0.1rem solid var(--color-primary);
+}
+
+.route__iata {
+    color: var(--color-secondary);
+    font-size: 0.62rem;
+    font-weight: var( --font-weight-semi-bold);
+}
+
+.route__svg:hover ~ .route__iata,
+.route__svg:hover {
+    color: var(--color-primary);
+}
+
+.route__iata:hover ~ .route__svg,
+.route__iata:hover {
+    color: var(--color-primary);
+}
+
+.route__center {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    height: 100%;
+}
+
+.route__end {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    height: 100%;
+    gap: 0.87rem;
+}

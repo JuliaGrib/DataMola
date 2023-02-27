@@ -1,0 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+@import './base/_fonts.css';
+@import './base/_default.css';
+@import './base/_variables.css';
+@import './base/_lines.css';
+@import './base/_btns.css';
+@import './base/_routes.css';
+@import './base/_subtext.css';
+@import './blocks/tickets-mob.css';
+@import './blocks/main.css';
+@import './blocks/section.css';
+@import './blocks/tickets.css';
+@import './blocks/tickets__side.css';
+@import './blocks/tickets__info.css';
+@import './blocks/tickets__header.css';
+@import './blocks/tickets__segment.css';
+@import './blocks/tickets__depart-dest.css';
+@import './blocks/tickets__route.css';
+
+
+
+

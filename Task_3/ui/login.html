@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="./assets/img/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="./assets/styles/style.css">
+    <title>User info</title>
+</head>
+<body>
+    <div class="background"></div>
+    <header class="header">
+        <div class="header__wrapper">
+            <div class="container">
+                <div class="header__content">
+                    <a class="header__logo" href="#">
+                        <img class="header__logo-img" src="./assets/img/icons/logo.svg" alt="Logo" loading="lazy">
+                    </a>
+                    <div class="header__login">
+                        <a class="link" href="#">Sign up</a>
+                        <button class="button button_primary" type="button">Log in</button>  
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main class="main">
+        <div class="container">
+            <div class="main__wrap main_autorization">
+                <div class="main__descr">
+                    <h1 class="title title_autorization">
+                        Kanban
+                    </h1>
+                    <p class="title subtitle_autorization">
+                        for task will done
+                    </p>
+                </div>
+                <section class="enter enter_login">
+                    <div class="enter__header">
+                        <h2 class="title title_enter">
+                            Log in
+                        </h2>
+                        <p class="enter__text">
+                            Don’t have an account? <a class="link link_enter" href="login.html">Create your account</a> or <a class="link link_enter" href="main.html">continue</a> without authorization
+                        </p>
+                    </div>
+                    <form class="form" action="/">
+                        <div class="form__half">
+                            <div class="form-elem form-elem_user form-elem_icon">
+                                <label class="label" for="login">Login*</label>
+                                <input class="input input_default" type="text" id="login" placeholder="Enter your login" required>
+                                <span class="input_icon-svg">
+                                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M9 5H11V7H9V5ZM10 15C10.55 15 11 14.55 11 14V10C11 9.45 10.55 9 10 9C9.45 9 9 9.45 9 10V14C9 14.55 9.45 15 10 15ZM10 0C4.48 0 0 4.48 0 10C0 15.52 4.48 20 10 20C15.52 20 20 15.52 20 10C20 4.48 15.52 0 10 0ZM10 18C5.59 18 2 14.41 2 10C2 5.59 5.59 2 10 2C14.41 2 18 5.59 18 10C18 14.41 14.41 18 10 18Z" fill="#808080"/>
+                                    </svg>                
+                                </span>
+                            </div>
+                            <div class="form-elem form-elem_user form-elem_icon">
+                                <label class="label" for="password">Password*</label>
+                                <input class="input input_default" type="password" id="password" placeholder="Enter your password" required>
+                                <span class="input_icon-svg">
+                                    <svg width="21" height="18" viewBox="0 0 21 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M1.54014 0.71L2.25014 0L19.0001 16.75L18.2901 17.46L14.9501 14.11C13.5801 14.68 12.0801 15 10.5001 15C5.94014 15 2.00014 12.35 0.140137 8.5C1.11014 6.5 2.63014 4.83 4.50014 3.68L1.54014 0.71ZM10.5001 14C11.7901 14 13.0301 13.77 14.1701 13.34L13.0501 12.21C12.3201 12.71 11.4501 13 10.5001 13C8.00014 13 6.00014 11 6.00014 8.5C6.00014 7.55 6.29014 6.68 6.79014 5.95L5.24014 4.41C3.56578 5.38547 2.18961 6.79968 1.26014 8.5C3.04014 11.78 6.50014 14 10.5001 14ZM19.7401 8.5C17.9601 5.22 14.5001 3 10.5001 3C9.35014 3 8.23014 3.19 7.19014 3.53L6.41014 2.75C7.68014 2.26 9.06014 2 10.5001 2C15.0601 2 19.0001 4.65 20.8601 8.5C19.9514 10.3858 18.5439 11.987 16.7901 13.13L16.0701 12.4C17.6001 11.44 18.8701 10.1 19.7401 8.5ZM10.5001 4C13.0001 4 15.0001 6 15.0001 8.5C15.0001 9.32 14.7801 10.08 14.4001 10.74L13.6601 10C13.8801 9.54 14.0001 9.04 14.0001 8.5C14.0001 7.57174 13.6314 6.6815 12.975 6.02513C12.3186 5.36875 11.4284 5 10.5001 5C9.96014 5 9.46014 5.12 9.00014 5.34L8.26014 4.6C8.92014 4.22 9.68014 4 10.5001 4ZM7.00014 8.5C7.00014 9.42826 7.36889 10.3185 8.02526 10.9749C8.68164 11.6313 9.57188 12 10.5001 12C11.1701 12 11.7901 11.81 12.3201 11.5L7.50014 6.68C7.19014 7.21 7.00014 7.83 7.00014 8.5Z" fill="#808080"/>
+                                    </svg>                             
+                                </span>
+                            </div>
+                        </div>
+                        <div class="form__btn">
+                            <button class="button button_secondary" type="submit">Log in</button>
+                        </div>
+                    </form>
+                </section>
+            </div>
+        </div>
+    </main>
+    <footer class="footer">
+        <div class="footer__wrapper">
+            <div class="container">
+                <div class="footer__content">
+                    <div class="footer__info">
+                        <ul class="list list_footer">
+                            <li class="list__elem">do.</li>
+                            <li class="list__elem">Julia Grib</li>
+                            <li class="list__elem"><a class="link" href="mailto:yulgrib@gmail.com">yulgrib@gmail.com</a></li>
+                            <li class="list__elem"><time datetime="2023.02.23">23.02.2023</time></li>
+                        </ul>
+                    </div>
+                    <div class="footer__tools">
+                        <div class="theme">
+                            <div class="theme__radio">
+                                <input class="theme__input" type="radio" name="theme" id="white" checked>
+                                <label for="white" class="theme__label theme__label_white"> </label>
+                            </div>
+                            <div class="theme__radio">
+                                <input class="theme__input" type="radio" name="theme" id="black">
+                                <label for="black" class="theme__label  theme__label_black"> </label>
+                            </div>
+                        </div>
+                        <div class="language">
+                            <svg class="language__icon" width="16" height="15" viewBox="0 0 16 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M8 14.375C11.7969 14.375 14.875 11.2969 14.875 7.5C14.875 3.70313 11.7969 0.625 8 0.625M8 14.375C4.20313 14.375 1.125 11.2969 1.125 7.5C1.125 3.70313 4.20313 0.625 8 0.625M8 14.375C9.875 14.375 10.5 11.25 10.5 7.5C10.5 3.75 9.875 0.625 8 0.625M8 14.375C6.125 14.375 5.5 11.25 5.5 7.5C5.5 3.75 6.125 0.625 8 0.625M1.75 10H14.25M1.75 5H14.25" stroke="currentColor"/>
+                            </svg> 
+                            <span class="language__item">
+                                English
+                            </span>
+                            <ul class="list list_block">
+                                <li class="list_language-en">English</li>
+                                <li class="list_language-ru">Русский</li>
+                            </ul>                         
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,9 @@
+.section {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-l);
+    transform: translate(-50%, -50%);
+}

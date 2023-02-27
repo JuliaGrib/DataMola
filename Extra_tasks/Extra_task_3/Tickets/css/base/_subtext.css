@@ -1,0 +1,20 @@
+.tag {
+    position: absolute;
+    top: calc(var(--padding-s)*-1);
+    padding: var(--padding-xxs) var(--padding-xs);
+    border-radius: 1.25rem;
+    color: var(--white);
+    font-size: 0.75rem;
+    font-weight: var(--font-weight-semi-bold);
+}
+.tag_mob {
+    left: 0.625rem;
+}
+
+.tag_cheap {
+    background-color: var(--color-green);
+}
+
+.tag_fast {
+    background-color: var(--color-violet);
+}
