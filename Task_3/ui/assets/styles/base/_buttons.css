@@ -71,13 +71,11 @@
 
 .button_filter {
     display: none;
-    background-color: var(--color-secondary);
 }
 
 @media screen and (max-width: 1280px) {
     .button_filter {
-        display: block;
-        background-color: var(--color-secondary);
+        display: flex;
     }
 }
 

@@ -54,6 +54,7 @@
 .input_search {
     position: relative;
     padding: var(--padding-xs) var(--padding);
+    border: 0.01rem solid var(--color-secondary);
     border-radius: var(--border-radius-s);
     background-color: var(--color-secondary);
 }
