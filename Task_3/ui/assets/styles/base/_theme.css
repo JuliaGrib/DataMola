@@ -1,109 +1,38 @@
 .theme {
     display: flex; 
-    gap: var(--gap);
+    gap: var(--gap-l);
 }
 
 .theme__radio {
     position: relative;
+    width: 0.1rem;
+    height: 0.1rem;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    padding-left: 1.4rem;
 }
 
-.theme__input {
+.theme__cirle {
     position: absolute;
-    appearance: none;
-}
-
-.theme__label {
+    width: 1.14rem;
+    height: 1.14rem;
+    border: 0.14rem solid var(--color-black);
+    border-radius: 50%;
     cursor: pointer;
 }
 
-.theme__label_white:before {
-    content: "";
+.theme__cirle_black {
+    background-color: var(--color-black);
+}
+  
+.theme__radio:checked + .theme__cirle::before {
+    content: '';
+    width: 0.57rem;
+    height: 0.57rem;
+    background-color: var(--color-primary);
     position: absolute;
-    top: -0.75rem;
-    left: -0.75rem;
-    z-index: 1;
-    display: block;
-    width: 1.25rem;
-    height: 1.25rem;
-    border: 0.1rem solid var(--color-black);
-    border-radius: 3rem;
-    background: var(--color-white);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
 }
-
-.theme__label_black:before {
-    content: "";
-    position: absolute;
-    top: -0.75rem;
-    left: 0rem;
-    z-index: 1;
-    display: block;
-    width: 1.25rem;
-    height: 1.25rem;
-    border: 0.1rem solid var(--color-black);
-    border-radius: 3rem;
-    background: var(--color-black);;
-
-}
-
-.theme__label_white:after {
-    content: "";
-    display: block;
-    width: 0.75rem;
-    height: 0.75rem;
-    border-radius: 3rem;
-    background: var(--color-primary);
-    position: absolute;
-    top: -0.4rem;
-    left: -0.39rem;
-    z-index: 4;
-    opacity: 0;
-}
-
-.theme__label_black:after {
-    content: "";
-    position: absolute;
-    top: -0.4rem;
-    left: 0.35rem;
-    z-index: 4;
-    display: block;
-    width: 0.75rem;
-    height: 0.75rem;
-    border-radius: 3rem;
-    background: var(--color-primary);
-    opacity: 0;
-}
-
-.theme__input:checked + .theme__label:after {
-    opacity: 1;
-}
-
-.theme__label_white:after {
-    content: "";
-    display: block;
-    width: 0.75rem;
-    height: 0.75rem;
-    border-radius: 3rem;
-    background: var(--color-primary);
-    position: absolute;
-    top: -6.5px;
-    left: -6.5px;
-    z-index: 4;
-    opacity: 0;
-}
-
-.theme__label_menu-white:before {
-    left: 0px;
-}
-
-.theme__label_menu-white:after {
-    left: 4.5px;
-}
-
-.theme__label_menu-black:before {
-    left: 15px;
-}
-
-.theme__label_menu-black:after {
-    left: 19.5px;
-}
-
