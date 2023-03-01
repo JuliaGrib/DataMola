@@ -27,14 +27,14 @@
 
 .form-elem {
     display: inline-grid;
-    grid-template-columns: minmax(250px, 20vw);
+    grid-template-columns: minmax(220px, 20vw);
     row-gap: var(--gap-xs);
     align-self: flex-start;
 }
 
-.form-elem_user {
+/* .form-elem_user {
     grid-template-columns: 1fr;
-}
+} */
 
 .form-elem_icon {
     align-self: flex-start;
@@ -59,22 +59,8 @@
 }
 
 @media screen and (max-width: 930px) {
-    .form__half {
-        display: grid;
-        grid-template-columns: minmax(200px, 60%);
-        grid-template-rows: 1fr;
-        grid-column-gap: var(--gap-xxl);
-        grid-row-gap: var(--gap-xxl);
-    }
-}
-
-@media screen and (max-width: 700px) {
-    .form__quarter {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(200px, 100%));
-    }
-    .form__half {
-        grid-template-columns: minmax(200px, 100%);
+    .form-elem {
+        grid-template-columns: minmax(230px, 40vw);
     }
 }
 

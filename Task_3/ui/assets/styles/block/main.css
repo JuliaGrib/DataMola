@@ -20,6 +20,7 @@ body {
 .main_autorization {
     display: grid;
     grid-template-columns: 1fr 1fr;
+    align-items: center;
     height: 86vh;
 }
 
@@ -27,7 +28,13 @@ body {
     .main_autorization {
         grid-template-columns: 1fr;
         justify-content: center;
-        align-items: center;
+        justify-items: center;
     }
 }
 
+@media screen and (max-width: 660px) {
+    body {
+        grid-template-rows: 8vh 1fr;
+
+    }
+}

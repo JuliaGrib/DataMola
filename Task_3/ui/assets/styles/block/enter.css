@@ -18,17 +18,19 @@
 }
 
 .enter {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: var(--gap-xxl);
-    height: 80vh;
-    overflow: scroll;
-    overflow-x: hidden;
+    display: grid;
+    row-gap: 2rem;
+}
+
+.enter__header {
+    display: inline-grid;
+    
+    row-gap: 1rem;
 }
 
 .enter__text {
-    width: 30vw;
+    font-size: 12px;
+    width: max(250px, 20vw);
 }
 
 .enter::-webkit-scrollbar {
@@ -79,16 +81,9 @@
     .main__descr {
         display: none;
     }
-    .enter__text {
-        width: 60vw;
-    }
 }
 
 @media screen and (max-width: 700px) {
-    .enter {
-        justify-content: start;
-        padding: var(--padding-l) var(--padding-z) var(--padding-z) var(--padding-z);
-    }
     .enter_login {
         justify-content: center;
     }
@@ -98,14 +93,14 @@
 }
 
 @media screen and (max-width: 660px) {
-    .enter {
-        height: 88vh;
-    }
     .enter_login {
         justify-content: center;
         height: 100%;
     }
-    .enter__text {
-        width: 100%;
+}
+
+@media screen and (max-width: 560px) {
+    .enter {
+        padding: var(--padding-l) var(--padding-z);
     }
 }
