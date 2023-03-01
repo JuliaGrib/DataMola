@@ -28,8 +28,8 @@
 
 .list_block {
     position: absolute;
-    top: -81px;
-    left: -11px;
+    top: -5.06rem;
+    left: -0.68rem;
     display: none;
     flex-direction: column;
     gap: var(--gap);

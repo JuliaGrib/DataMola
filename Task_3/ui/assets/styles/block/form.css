@@ -6,14 +6,14 @@
 
 .form__quarter {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 40%));
+    grid-template-columns: repeat(auto-fit, minmax(14rem, 40%));
     grid-column-gap: var(--gap-xxl);
     grid-row-gap: var(--gap-xxl);
 }
 
 .form__half {
     display: inline-grid;
-    grid-template-columns: minmax(200px, 60%);
+    grid-template-columns: minmax(14rem, 60%);
     grid-template-rows: 1fr;
     grid-column-gap: var(--gap-xxl);
     grid-row-gap: var(--gap-xxl);
@@ -27,7 +27,7 @@
 
 .form-elem {
     display: inline-grid;
-    grid-template-columns: minmax(220px, 20vw);
+    grid-template-columns: minmax(15.5rem, 20vw);
     row-gap: var(--gap-xs);
     align-self: flex-start;
 }
@@ -60,7 +60,7 @@
 
 @media screen and (max-width: 930px) {
     .form-elem {
-        grid-template-columns: minmax(230px, 40vw);
+        grid-template-columns: minmax(16rem, 40vw);
     }
 }
 

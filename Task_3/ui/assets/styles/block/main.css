@@ -28,10 +28,10 @@ body {
     display: grid;
     grid-template-columns: 1fr 1fr;
     align-items: center;
-    height: 86vh;
+    height: 84vh;
 }
 
-.main__wrap {
+.main__wrap_user {
     display: flex;
     flex-direction: column;
     gap: var(--gap-xxs);

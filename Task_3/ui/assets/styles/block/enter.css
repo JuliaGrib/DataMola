@@ -29,8 +29,8 @@
 }
 
 .enter__text {
-    font-size: 12px;
-    width: max(250px, 20vw);
+    font-size: var(--font-size-s);
+    width: max(14rem, 20vw);
 }
 
 .enter::-webkit-scrollbar {

@@ -5,17 +5,15 @@
 
 .container__form-two {
     display: inline-grid;
-    row-gap: 20px;
+    row-gap: var(--gap-l);
 }
 
 .container__form-four {
     display: inline-grid;
     grid-template-columns: repeat(2, auto);
-    column-gap: 20px;
-    row-gap: 20px;
+    row-gap: var(--gap-l);
+    row-gap: var(--gap-l);
 }
-
-
 
 @media screen and (max-width: 1160px) {
     .container {

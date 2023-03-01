@@ -31,7 +31,7 @@
 
 .table__content {
     display: grid;
-    grid-template-columns: minmax(100px, auto) minmax(200px, 280px) repeat(7, auto);
+    grid-template-columns: minmax(7rem, auto) minmax(14rem, 20rem) repeat(7, auto);
     grid-template-rows: repeat(3, 1fr);
     grid-column-gap: var(--gap);
     grid-row-gap: var(--gap);
@@ -51,7 +51,7 @@
 @media screen and (max-width: 1050px) {
     .table__content {
         display: grid;
-        grid-template-columns: minmax(100px, auto) minmax(200px, 280px) repeat(4, auto);
+        grid-template-columns: minmax(7rem, auto) minmax(14rem, 20rem) repeat(4, auto);
     }
     .table__status,
     .table__comments,
@@ -63,7 +63,7 @@
 @media screen and (max-width: 700px) {
     .table__content {
         display: grid;
-        grid-template-columns: minmax(100px, auto) repeat(4, auto);
+        grid-template-columns: minmax(7rem, auto) repeat(4, auto);
     }
     .table__description{
         display: none;
@@ -73,7 +73,7 @@
 @media screen and (max-width: 475px) {
     .table__content {
         display: grid;
-        grid-template-columns: minmax(100px, auto) repeat(2, auto);
+        grid-template-columns: minmax(7rem, auto) repeat(2, auto);
     }
     .table__assignee,
     .table__date {
