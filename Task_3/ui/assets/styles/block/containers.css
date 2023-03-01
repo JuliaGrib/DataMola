@@ -11,7 +11,7 @@
 .container__form-four {
     display: inline-grid;
     grid-template-columns: repeat(2, auto);
-    row-gap: var(--gap-l);
+    column-gap: var(--gap-l);
     row-gap: var(--gap-l);
 }
 
