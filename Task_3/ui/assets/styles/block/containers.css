@@ -15,9 +15,17 @@
     row-gap: 20px;
 }
 
+
+
 @media screen and (max-width: 1160px) {
     .container {
         width: 95vw;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .container__form_user {
+        grid-template-columns: 1fr;
     }
 }
 
@@ -30,5 +38,8 @@
 @media screen and (max-width: 475px) {
     .container {
         width: 90vw;
+    }
+    .user__info {
+        align-items: center;
     }
 }
