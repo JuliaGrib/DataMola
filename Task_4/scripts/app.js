@@ -3,8 +3,10 @@ const moduleTasks = (function(){
 
     function getTask(id) {
         const num = parseInt(id);
-        if(Array.isArray(id) || !num) throw new Error(`Некорректное значение`);
-        return tasks.find(item => item.id == num) || 'Таск не найден';
+        if(Array.isArray(id) || !num) {
+            throw new Error(errors.invalidValue);
+        };
+        return tasks.find(task => task.id === num) || 'Таск не найден';
     }
 
     return {
