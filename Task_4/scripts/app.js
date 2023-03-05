@@ -14,10 +14,10 @@ const moduleTasks = (function(){
             return new Error(errors.invalidValue);
         };
         const task = hasTasksId(id);
-        if(!hasTasksId(id)) {
-            return new Error(errors.taskNotFound);
+        if(task) {
+            return task;
         };
-        return task;
+        return new Error(errors.taskNotFound);
     }
 
     function removeTask(id){
