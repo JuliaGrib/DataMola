@@ -40,9 +40,28 @@ const moduleTasks = (function(){
         return delTask ? true : false;
     }
 
+    function validateTask(task){
+        const validateObjKeys = Object.keys(validateObj);
+
+        for(key of validateObjKeys){
+            if (!(key in task)){
+                return new Error(errors.keyNotFound);
+            }
+        }
+
+        for(key in task){
+            if (!(validateObj[key](task[key]))) {
+                return false;
+            }
+        }
+        return true;
+
+    }
+
     return {
         getTask,
         removeTask,
+        validateTask,
     }
 }());
 
