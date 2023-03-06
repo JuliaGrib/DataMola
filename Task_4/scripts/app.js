@@ -13,7 +13,7 @@ const moduleTasks = (function(){
         if(!isValidateId(id)) {
             return new Error(errors.invalidValue);
         };
-        
+
         const task = findTaskById(id);
         if(task) {
             return task;
@@ -34,9 +34,7 @@ const moduleTasks = (function(){
         tasks = tasks.filter((task) => {
             if(!(task.id === id && task.assignee === user)){
                 return true;
-            } else {
-                delTask = task;
-            }
+            }  delTask = task;
         });
 
         return delTask ? true : false;
