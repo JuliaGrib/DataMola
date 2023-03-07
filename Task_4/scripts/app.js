@@ -1,8 +1,8 @@
 const moduleTasks = (function(){
     const user = 'Julia Grib';
 
-    function isValidateId(id){
-        return typeof id === 'string' ? true : false;
+    function isValidTypeId(id){
+        return typeof id === 'string';
     }
 
     function findTaskById(id){
@@ -10,20 +10,17 @@ const moduleTasks = (function(){
     }
 
     function getTask(id) {
-        if(!isValidateId(id)) {
+        if(!isValidTypeId(id)) {
             return new Error(errors.invalidValue);
         };
 
         const task = findTaskById(id);
-        if(task) {
-            return task;
-        };
 
-        return new Error(errors.taskNotFound);
+        return task ? task : new Error(errors.taskNotFound);
     }
 
     function removeTask(id){
-        if(!isValidateId(id)) {
+        if(!isValidTypeId(id)) {
             return new Error(errors.invalidValue);
         };
         if(!findTaskById(id)) {
@@ -48,8 +45,9 @@ const moduleTasks = (function(){
             return false;
         }
 
+        //forEach не остановится и будет мне возвращать false несколько раз
         for(let i = 0; i < validateObjKeys.length; i++){
-            if(!(validateObjKeys[i] === taskKeys[i])){
+            if(validateObjKeys[i] !== taskKeys[i]) {
                 return false;
             }
         }
