@@ -1,70 +1,102 @@
-const moduleTasks = (function(){
-    const user = 'Julia Grib';
+const moduleTasks = (function () {
+  const user = "Julia Grib";
 
-    function isValidTypeId(id){
-        return typeof id === 'string';
+  function isValidTypeId(id) {
+    return typeof id === "string";
+  }
+
+  function findTaskById(id) {
+    return tasks.find((task) => task.id === id);
+  }
+
+  function getTask(id) {
+    try {
+      if (!isValidTypeId(id)) {
+        throw new Error(ERRORS.invalidValue);
+      }
+
+      const task = findTaskById(id);
+
+      if (!task) {
+        throw new Error(ERRORS.taskNotFound);
+      }
+
+      return task;
+    } catch (error) {
+      console.error(error);
+
+      return false;
     }
+  }
 
-    function findTaskById(id){
-        return tasks.find(task => task.id === id);
-    }
+  function removeTask(taskId) {
+    try {
+      if (!isValidTypeId(taskId)) {
+        throw new Error(ERRORS.invalidValue);
+      }
 
-    function getTask(id) {
-        if(!isValidTypeId(id)) {
-            return new Error(errors.invalidValue);
-        };
+      if (!findTaskById(taskId)) {
+        throw new Error(ERRORS.taskNotFound);
+      }
 
-        const task = findTaskById(id);
-
-        return task ? task : new Error(errors.taskNotFound);
-    }
-
-    function removeTask(id){
-        if(!isValidTypeId(id)) {
-            return new Error(errors.invalidValue);
-        };
-        if(!findTaskById(id)) {
-            return new Error(errors.taskNotFound);
-        };
-
-        let delTask;
-        tasks = tasks.filter((task) => {
-            if(!(task.id === id && task.assignee === user)){
-                return true;
-            }  delTask = task;
-        });
-
-        return delTask ? true : false;
-    }
-
-    function validateTask(task){
-        const validateObjKeys = Object.keys(validateObj).sort();
-        const taskKeys =  Object.keys(task).sort();
-
-        if(validateObjKeys.length !== taskKeys.length) {
-            return false;
+      const initLength = tasks.length;
+      tasks = tasks.filter(({ id, assignee }) => {
+        if (!(taskId === id && assignee === user)) {
+          return true;
         }
+      });
 
-        //forEach не остановится и будет мне возвращать false несколько раз
-        for(let i = 0; i < validateObjKeys.length; i++){
-            if(validateObjKeys[i] !== taskKeys[i]) {
-                return false;
-            }
-        }
+      if (initLength === tasks.length) {
+        throw new Error(ERRORS.taskNotDel);
+      }
 
-        for(key in task){
-            if (!(validateObj[key](task[key]))) {
-                return false;
-            }
-        }
-        return true;
-
+      return true;
+    } catch (error) {
+      console.error(error);
+      return false;
     }
+  }
 
-    return {
-        getTask,
-        removeTask,
-        validateTask,
+  function validateTask(task) {
+    try {
+      if (
+        !(typeof task === "object" && task !== null && !Array.isArray(task))
+      ) {
+        throw new Error(ERRORS.taskNotObject);
+      }
+
+      if (Object.keys(task).length === 0) {
+        throw new Error(ERRORS.emptyObject);
+      }
+
+      const validateObjKeys = Object.keys(validateObj).sort();
+      const taskKeys = Object.keys(task).sort();
+
+      if (validateObjKeys.length !== taskKeys.length) {
+        return false;
+      }
+
+      for (let i = 0; i < validateObjKeys.length; i++) {
+        if (validateObjKeys[i] !== taskKeys[i]) {
+          return false;
+        }
+      }
+
+      for (key in task) {
+        if (!validateObj[key](task[key])) {
+          return false;
+        }
+      }
+      return true;
+    } catch (error) {
+      console.error(error);
+      return false;
     }
-}());
+  }
 
+  return {
+    getTask,
+    removeTask,
+    validateTask,
+  };
+})();
