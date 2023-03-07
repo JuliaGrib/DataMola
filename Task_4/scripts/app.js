@@ -41,11 +41,16 @@ const moduleTasks = (function(){
     }
 
     function validateTask(task){
-        const validateObjKeys = Object.keys(validateObj);
+        const validateObjKeys = Object.keys(validateObj).sort();
+        const taskKeys =  Object.keys(task).sort();
 
-        for(key of validateObjKeys){
-            if (!(key in task)){
-                return new Error(errors.keyNotFound);
+        if(validateObjKeys.length !== taskKeys.length) {
+            return false;
+        }
+
+        for(let i = 0; i < validateObjKeys.length; i++){
+            if(!(validateObjKeys[i] === taskKeys[i])){
+                return false;
             }
         }
 
