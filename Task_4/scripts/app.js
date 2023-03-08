@@ -220,11 +220,27 @@ const moduleTasks = (function () {
     }
   }
 
+  function getTasks(filterConfig) {
+    let result = [...tasks];
+
+    for (key in filterConfig) {
+      result = result.filter((elem) => {
+        if (key === "name" || key === "description") {
+          return elem[key].includes(filterConfig[key]);
+        }
+        return elem[key] === filterConfig[key];
+      });
+    }
+
+    return result;
+  }
+
   return {
     getTask,
     removeTask,
     validateTask,
     addTask,
     editTask,
+    getTasks,
   };
 })();

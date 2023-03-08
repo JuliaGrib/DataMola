@@ -21,7 +21,7 @@ let tasks = [
     createdAt: new Date("2023-03-02T15:00:00"),
     assignee: "Andrei",
     status: "Complete",
-    priority: "Hight",
+    priority: "Low",
     isPrivate: false,
     comments: [],
   },
