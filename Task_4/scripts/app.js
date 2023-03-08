@@ -59,32 +59,30 @@ const moduleTasks = (function () {
 
   function validateTask(task) {
     try {
-      if (
-        !(typeof task === "object" && task !== null && !Array.isArray(task))
-      ) {
+      if (typeof task !== "object" && task === null && Array.isArray(task)) {
         throw new Error(ERRORS.taskNotObject);
-      }
-
-      if (Object.keys(task).length === 0) {
-        throw new Error(ERRORS.emptyObject);
       }
 
       const validateObjKeys = Object.keys(validateObj).sort();
       const taskKeys = Object.keys(task).sort();
 
+      if (!taskKeys.length) {
+        throw new Error(ERRORS.emptyObject);
+      }
+
       if (validateObjKeys.length !== taskKeys.length) {
-        return false;
+        throw new Error(ERRORS.lengthNotValidate);
       }
 
       for (let i = 0; i < validateObjKeys.length; i++) {
         if (validateObjKeys[i] !== taskKeys[i]) {
-          return false;
+          throw new Error(ERRORS.keysNotValidate);
         }
       }
 
       for (key in task) {
         if (!validateObj[key](task[key])) {
-          return false;
+          throw new Error(ERRORS.valuesNotValidate);
         }
       }
       return true;

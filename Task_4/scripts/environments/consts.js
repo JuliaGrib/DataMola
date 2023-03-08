@@ -1,16 +1,22 @@
 const ERRORS = {
   invalidValue: "Некорректное значение",
-  taskNotFound: `Таск не найден`,
-  keyNotFound: `Отсутствует обязательное значение`,
-  taskNotDel: `Таск не удалился`,
-  taskNotObject: `Переданное значение не объект`,
-  emptyObject: `Передан пустой объект`,
-  nameNotValidate: `Название таска должно быть больше нуля и меньше или ровно 100 символов`,
-  descriptionNotValidate: `Описание таска должно быть больше нуля и меньше или ровно 280 символов`,
-  assigneeEmpty: `Исполнитель не может быть пустым`,
-  statusNotValidate: `Статус неверный`,
-  priorityNotValidate: `Приоритет неверный`,
-  isPrivateNotValidate: `приватность неверная`,
+  taskNotFound: "Таск не найден",
+  keyNotFound: "Отсутствует обязательное значение",
+  taskNotDel: "Таск не удалился",
+  taskNotObject: "Переданное значение не объект",
+  emptyObject: "Объект не может быть пустым",
+  nameNotValidate:
+    "Название таска должно быть больше нуля и меньше или ровно 100 символов",
+  descriptionNotValidate:
+    "Описание таска должно быть больше нуля и меньше или ровно 280 символов",
+  assigneeEmpty: "Исполнитель не может быть пустым",
+  statusNotValidate: "Статус неверный",
+  priorityNotValidate: "Приоритет неверный",
+  isPrivateNotValidate: "Приватность неверная",
+  lengthNotValidate:
+    "Количество свойств в объекте не совпадает с ожидаемым (9шт)",
+  keysNotValidate: "Свойства не прошли валидацию",
+  valuesNotValidate: "Значения не прошли валидацию",
 };
 
 const TASK_STATUS = {
