@@ -220,7 +220,7 @@ const moduleTasks = (function () {
     }
   }
 
-  function getTasks(filterConfig) {
+  function getTasks(skip = 0, top = 10, filterConfig) {
     let result = [...tasks];
 
     for (key in filterConfig) {
@@ -232,7 +232,7 @@ const moduleTasks = (function () {
       });
     }
 
-    return result;
+    return result.splice(skip, top);
   }
 
   return {
