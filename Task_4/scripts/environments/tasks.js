@@ -1,5 +1,20 @@
 let tasks = [
     {
+        id: '23',
+        name: 'Начать пересматривать Наруто',
+        description: '10-раз уже, но все равно тянет и мотивирует',
+        createdAt: new Date('2023-02-16T21:00:00'),
+        assignee: 'Julia Grib',
+        status: 'In progress',
+        priority: 'Low',
+        isPrivate: false,
+        assignee2: 'Julia Grib',
+        status2: 'In progress',
+        priority2: 'Low',
+        isPrivate2: false,
+        comments: [],
+    },
+    {
         id: '1',
         name: 'Сделать ветку Task_4',
         description: 'Сделать ветку для следующего таска',
@@ -237,20 +252,6 @@ let tasks = [
         isPrivate: false,
         comments: [],
     },
-    {
-        id: '23',
-        name: 'Начать пересматривать Наруто',
-        description: '10-раз уже, но все равно тянет и мотивирует',
-        createdAt: new Date('2023-02-16T21:00:00'),
-        assignee: 'Julia Grib',
-        status: 'In progress',
-        priority: 'Low',
-        isPrivate: false,
-        assignee2: 'Julia Grib',
-        status2: 'In progress',
-        priority2: 'Low',
-        isPrivate2: false,
-        comments: [],
-    },
+
 ];
 

@@ -94,9 +94,68 @@ const moduleTasks = (function () {
     }
   }
 
+  function CreateTask(
+    name,
+    description,
+    assignee,
+    status,
+    priority,
+    isPrivate
+  ) {
+    (this.id = "55"),
+      (this.name = name),
+      (this.description = description),
+      (this.assignee = assignee),
+      (this.createdAt = new Date()),
+      (this.status = status),
+      (this.priority = priority),
+      (this.isPrivate = isPrivate),
+      (this.comments = []);
+  }
+
+  function addTask(name, description, assignee, status, priority, isPrivate) {
+    try {
+      if (!validateObj.name(name)) {
+        throw new Error(ERRORS.nameNotValidate);
+      }
+      if (!validateObj.description(description)) {
+        throw new Error(ERRORS.descriptionNotValidate);
+      }
+      if (!assignee) {
+        throw new Error(ERRORS.assigneeEmpty);
+      }
+      if (!validateObj.status(status)) {
+        throw new Error(ERRORS.statusNotValidate);
+      }
+      if (!validateObj.priority(priority)) {
+        throw new Error(ERRORS.priorityNotValidate);
+      }
+      if (!validateObj.isPrivate(isPrivate)) {
+        throw new Error(ERRORS.isPrivateNotValidate);
+      }
+
+      let task = new CreateTask(
+        name,
+        description,
+        assignee,
+        status,
+        priority,
+        isPrivate
+      );
+
+      tasks.push(Object.assign({}, task));
+
+      return true;
+    } catch (error) {
+      console.error(error);
+      false;
+    }
+  }
+
   return {
     getTask,
     removeTask,
     validateTask,
+    addTask,
   };
 })();
