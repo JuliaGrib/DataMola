@@ -17,6 +17,7 @@ const ERRORS = {
     "Количество свойств в объекте не совпадает с ожидаемым (9шт)",
   keysNotValidate: "Свойства не прошли валидацию",
   valuesNotValidate: "Значения не прошли валидацию",
+  countAgrumentsNotValidate: "Ожидается минимум два аргумента",
 };
 
 const TASK_STATUS = {

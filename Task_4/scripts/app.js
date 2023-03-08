@@ -143,12 +143,12 @@ const moduleTasks = (function () {
 
   function editTask(
     id,
-    description,
     name,
-    assignee,
-    status,
-    priority,
-    isPrivate
+    description = null,
+    assignee = null,
+    status = null,
+    priority = null,
+    isPrivate = null
   ) {
     try {
       if (!isValidTypeId(id)) {
@@ -157,6 +157,10 @@ const moduleTasks = (function () {
 
       if (!findTaskById(id)) {
         throw new Error(ERRORS.taskNotFound);
+      }
+
+      if (arguments.length < 2) {
+        throw new Error(ERRORS.countAgrumentsNotValidate);
       }
 
       const task = getTask(id);
