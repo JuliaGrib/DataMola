@@ -141,10 +141,86 @@ const moduleTasks = (function () {
     }
   }
 
+  function editTask(
+    id,
+    description,
+    name,
+    assignee,
+    status,
+    priority,
+    isPrivate
+  ) {
+    try {
+      if (!isValidTypeId(id)) {
+        throw new Error(ERRORS.invalidValue);
+      }
+
+      if (!findTaskById(id)) {
+        throw new Error(ERRORS.taskNotFound);
+      }
+
+      const task = getTask(id);
+
+      if (name !== null) {
+        if (!validateObj.name(name)) {
+          throw new Error(ERRORS.nameNotValidate);
+        } else {
+          task.name = name;
+        }
+      }
+
+      if (description !== null) {
+        if (!validateObj.description(description)) {
+          throw new Error(ERRORS.descriptionNotValidate);
+        } else {
+          task.description = description;
+        }
+      }
+
+      if (assignee !== null) {
+        if (!validateObj.description(assignee)) {
+          throw new Error(ERRORS.assigneeEmpty);
+        } else {
+          task.assignee = assignee;
+        }
+      }
+
+      if (status !== null) {
+        if (!validateObj.description(status)) {
+          throw new Error(ERRORS.statusNotValidate);
+        } else {
+          task.status = status;
+        }
+      }
+
+      if (priority !== null) {
+        if (!validateObj.description(priority)) {
+          throw new Error(ERRORS.priorityNotValidate);
+        } else {
+          task.priority = priority;
+        }
+      }
+
+      if (isPrivate !== null) {
+        if (!validateObj.description(isPrivate)) {
+          throw new Error(ERRORS.isPrivateNotValidate);
+        } else {
+          task.isPrivate = isPrivate;
+        }
+      }
+
+      return true;
+    } catch (error) {
+      console.error(error);
+      return false;
+    }
+  }
+
   return {
     getTask,
     removeTask,
     validateTask,
     addTask,
+    editTask,
   };
 })();
