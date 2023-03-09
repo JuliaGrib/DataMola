@@ -15,9 +15,10 @@ const ERRORS = {
   isPrivateNotValidate: "Приватность неверная",
   lengthNotValidate:
     "Количество свойств в объекте не совпадает с ожидаемым (9шт)",
-  keysNotValidate: "Свойства не прошли валидацию",
+  keysNotValidate: "Свойства не найдены",
   valuesNotValidate: "Значения не прошли валидацию",
   countAgrumentsNotValidate: "Ожидается минимум два аргумента",
+  onlyInteger: "Вводимое значение не число",
 };
 
 const TASK_STATUS = {

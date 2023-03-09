@@ -9,6 +9,13 @@ const moduleTasks = (function () {
     return tasks.find((task) => task.id === id);
   }
 
+  function generateId() {
+    let result = [];
+    tasks.forEach(({ id }) => result.push(Number(id)));
+    result = result.map((elem) => Number(elem)).sort((a, b) => a - b);
+    return String(result.at(-1) + 1);
+  }
+
   function getTask(id) {
     try {
       if (!isValidTypeId(id)) {
@@ -113,26 +120,19 @@ const moduleTasks = (function () {
         throw new Error(ERRORS.isPrivateNotValidate);
       }
 
-      function generateId() {
-        let result = [];
-        tasks.forEach(({ id }) => result.push(id));
-        result = result.map((elem) => Number(elem)).sort((a, b) => a - b);
-        return String(++result.length);
-      }
-
       const task = {
         id: generateId(),
         name,
         description,
-        assignee,
         createdAt: new Date(),
+        assignee,
         status,
         priority,
         isPrivate,
         comments: [],
       };
 
-      tasks.push(Object.assign({}, task));
+      tasks.push(task);
 
       return true;
     } catch (error) {
@@ -151,6 +151,10 @@ const moduleTasks = (function () {
     isPrivate = null
   ) {
     try {
+      if (arguments.length < 2) {
+        throw new Error(ERRORS.countAgrumentsNotValidate);
+      }
+
       if (!isValidTypeId(id)) {
         throw new Error(ERRORS.invalidValue);
       }
@@ -159,18 +163,13 @@ const moduleTasks = (function () {
         throw new Error(ERRORS.taskNotFound);
       }
 
-      if (arguments.length < 2) {
-        throw new Error(ERRORS.countAgrumentsNotValidate);
-      }
-
       const task = getTask(id);
 
       if (name !== null) {
         if (!validateObj.name(name)) {
           throw new Error(ERRORS.nameNotValidate);
-        } else {
-          task.name = name;
         }
+        task.name = name;
       }
 
       if (description !== null) {
@@ -223,12 +222,21 @@ const moduleTasks = (function () {
   function getTasks(skip = 0, top = 10, filterConfig) {
     let result = [...tasks];
 
+    result.sort((a, b) => Date.parse(a.createdAt) - Date.parse(b.createdAt));
+
     for (key in filterConfig) {
       result = result.filter((elem) => {
         if (key === "name" || key === "description") {
           return elem[key].includes(filterConfig[key]);
         }
-        return elem[key] === filterConfig[key];
+        if (
+          key === "assignee" ||
+          key === "status" ||
+          key === "priority" ||
+          key === "isPrivate"
+        ) {
+          return elem[key] === filterConfig[key];
+        }
       });
     }
 
