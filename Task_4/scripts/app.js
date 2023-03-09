@@ -248,6 +248,13 @@ const moduleTasks = (function () {
           ) {
             return elem[key] === filterConfig[key];
           }
+          if (key === "dateFrom") {
+            console.log(elem[key]);
+            return Date.parse(elem.createdAt) >= Date.parse(filterConfig[key]);
+          }
+          if (key === "dateTo") {
+            return Date.parse(elem.createdAt) <= Date.parse(filterConfig[key]);
+          }
         });
       }
 
