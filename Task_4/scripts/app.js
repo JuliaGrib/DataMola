@@ -10,10 +10,8 @@ const moduleTasks = (function () {
   }
 
   function generateId() {
-    let result = [];
-    tasks.forEach(({ id }) => result.push(Number(id)));
-    result = result.map((elem) => Number(elem)).sort((a, b) => a - b);
-    return String(result.at(-1) + 1);
+    const taskIds = tasks.map((task) => Number(task.id)).sort((a, b) => a - b);
+    return String(taskIds.at(-1) + 1);
   }
 
   function getTask(id) {
@@ -143,7 +141,7 @@ const moduleTasks = (function () {
 
   function editTask(
     id,
-    name,
+    name = null,
     description = null,
     assignee = null,
     status = null,
@@ -151,7 +149,8 @@ const moduleTasks = (function () {
     isPrivate = null
   ) {
     try {
-      if (arguments.length < 2) {
+      console.log(arguments);
+      if (arguments.length <= 1) {
         throw new Error(ERRORS.countAgrumentsNotValidate);
       }
 
@@ -220,27 +219,43 @@ const moduleTasks = (function () {
   }
 
   function getTasks(skip = 0, top = 10, filterConfig) {
-    let result = [...tasks];
+    try {
+      if (
+        typeof skip !== "number" ||
+        typeof top !== "number" ||
+        !isFinite(skip) ||
+        !isFinite(top)
+      ) {
+        throw new Error(ERRORS.invalidValue);
+      }
 
-    result.sort((a, b) => Date.parse(a.createdAt) - Date.parse(b.createdAt));
+      let result = [...tasks];
 
-    for (key in filterConfig) {
-      result = result.filter((elem) => {
-        if (key === "name" || key === "description") {
-          return elem[key].includes(filterConfig[key]);
-        }
-        if (
-          key === "assignee" ||
-          key === "status" ||
-          key === "priority" ||
-          key === "isPrivate"
-        ) {
-          return elem[key] === filterConfig[key];
-        }
-      });
+      result.sort((a, b) => Date.parse(a.createdAt) - Date.parse(b.createdAt));
+
+      for (key in filterConfig) {
+        result = result.filter((elem) => {
+          if (key === "name" || key === "description") {
+            return elem[key]
+              .toLowerCase()
+              .includes(filterConfig[key].toLowerCase());
+          }
+          if (
+            key === "assignee" ||
+            key === "status" ||
+            key === "priority" ||
+            key === "isPrivate"
+          ) {
+            return elem[key] === filterConfig[key];
+          }
+        });
+      }
+
+      return result.splice(skip, top);
+    } catch (error) {
+      console.error(error);
+      return false;
     }
-
-    return result.splice(skip, top);
   }
 
   return {
