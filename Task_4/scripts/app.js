@@ -1,5 +1,5 @@
 const moduleTasks = (function () {
-  const user = "Julia Grib";
+  let user = "Julia Grib";
 
   function isValidTypeId(id) {
     return typeof id === "string";
@@ -265,6 +265,21 @@ const moduleTasks = (function () {
     }
   }
 
+  function changeUser(usr) {
+    try {
+      if (typeof usr !== "string" || usr.trim().length === 0) {
+        throw new Error(ERRORS.invalidValue);
+      }
+
+      user = usr;
+
+      return true;
+    } catch (error) {
+      console.error(error);
+      return false;
+    }
+  }
+
   return {
     getTask,
     removeTask,
@@ -272,5 +287,6 @@ const moduleTasks = (function () {
     addTask,
     editTask,
     getTasks,
+    changeUser,
   };
 })();
