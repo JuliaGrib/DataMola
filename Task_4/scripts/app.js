@@ -311,6 +311,32 @@ const moduleTasks = (function () {
     }
   }
 
+  function addComment(idTask, text) {
+    try {
+      if (!isValidTypeId(idTask) || !findTaskById(idTask)) {
+        throw new Error(ERRORS.taskNotFound);
+      }
+
+      if (!validateObj.description(text)) {
+        throw new Error(ERRORS.descriptionNotValidate);
+      }
+
+      const com = {
+        id: String(new Date().valueOf()),
+        text,
+        createdAt: new Date(),
+        author: user,
+      };
+
+      tasks.find((task) => task.id === idTask).comments.push(com);
+
+      return true;
+    } catch (error) {
+      console.error(error);
+      return false;
+    }
+  }
+
   return {
     getTask,
     removeTask,
@@ -320,5 +346,6 @@ const moduleTasks = (function () {
     getTasks,
     changeUser,
     validateComment,
+    addComment,
   };
 })();
