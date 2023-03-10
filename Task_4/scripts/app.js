@@ -1,3 +1,5 @@
+"use sctict";
+
 const moduleTasks = (function () {
   let user = "Julia Grib";
 
@@ -149,7 +151,6 @@ const moduleTasks = (function () {
     isPrivate = null
   ) {
     try {
-      console.log(arguments);
       if (arguments.length <= 1) {
         throw new Error(ERRORS.countAgrumentsNotValidate);
       }
@@ -280,6 +281,36 @@ const moduleTasks = (function () {
     }
   }
 
+  function validateComment(com) {
+    try {
+      if (typeof com !== "object" || com === null || Array.isArray(com)) {
+        throw new Error(ERRORS.invalidValue);
+      }
+
+      if (Object.keys(com).length === 0) {
+        return true;
+      }
+
+      if (Object.keys(com).length !== 4) {
+        throw new Error(ERRORS.lengthNotValidate);
+      }
+
+      if (
+        !validateObj.id(com.id) ||
+        !validateObj.description(com.text) ||
+        !validateObj.createdAt(com.createdAt) ||
+        !validateObj.assignee(com.author)
+      ) {
+        throw new Error(ERRORS.valuesNotValidate);
+      }
+
+      return true;
+    } catch (error) {
+      console.error(error);
+      return false;
+    }
+  }
+
   return {
     getTask,
     removeTask,
@@ -288,5 +319,6 @@ const moduleTasks = (function () {
     editTask,
     getTasks,
     changeUser,
+    validateComment,
   };
 })();

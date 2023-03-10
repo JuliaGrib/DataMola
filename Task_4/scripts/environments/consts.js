@@ -13,8 +13,7 @@ const ERRORS = {
   statusNotValidate: "Статус неверный",
   priorityNotValidate: "Приоритет неверный",
   isPrivateNotValidate: "Приватность неверная",
-  lengthNotValidate:
-    "Количество свойств в объекте не совпадает с ожидаемым (9шт)",
+  lengthNotValidate: "Количество свойств в объекте не совпадает с ожидаемым",
   keysNotValidate: "Свойства не найдены",
   valuesNotValidate: "Значения не прошли валидацию",
   countAgrumentsNotValidate: "Ожидается три аргумента",

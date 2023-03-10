@@ -23,7 +23,20 @@ let tasks = [
     status: "Complete",
     priority: "Low",
     isPrivate: false,
-    comments: [],
+    comments: [
+      {
+        id: "912",
+        text: "Будет сделано!",
+        createdAt: new Date("2023-03-09T23:00:05"),
+        author: "Иванов Иван",
+      },
+      {
+        id: "913",
+        text: "Будет сделано!",
+        createdAt: new Date("2023-03-09T23:00:05"),
+        author: "Иванов Иван",
+      },
+    ],
   },
   {
     id: "2",
