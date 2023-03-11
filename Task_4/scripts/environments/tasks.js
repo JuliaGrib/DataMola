@@ -90,7 +90,7 @@ let tasks = [
     assignee: "Julia Grib",
     status: "To Do",
     priority: "Hight",
-    isPrivate: false,
+    isPrivate: true,
     comments: [],
   },
   {
@@ -113,7 +113,7 @@ let tasks = [
     assignee: "Julia Grib",
     status: "In progress",
     priority: "Hight",
-    isPrivate: false,
+    isPrivate: true,
     comments: [],
   },
   {
@@ -249,13 +249,6 @@ let tasks = [
     priority: "Low",
     isPrivate: false,
     comments: [],
-  },
-  {
-    id: "21",
-    name: "Покормить Кота на улице",
-    description: "Ежедневно кормить хромого Кота на улице",
-    createdAt: new Date("2023-02-01T09:10:00"),
-    assignee: "Julia Grib",
   },
   {
     id: "22",

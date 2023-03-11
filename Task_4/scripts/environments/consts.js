@@ -40,6 +40,12 @@ const MAX_LENGTH = {
 const KEYS = {
   name: "name",
   description: "description",
+  assignee: "assignee",
+  status: "status",
+  priority: "priority",
+  isPrivate: "isPrivate",
+  dateFrom: "dateFrom",
+  dateTo: "dateTo",
 };
 
 const validateObj = {

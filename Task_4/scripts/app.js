@@ -252,17 +252,19 @@ const moduleTasks = (function () {
               .includes(filterConfig[key].toLowerCase());
           }
           if (
-            key === "assignee" ||
-            key === "status" ||
-            key === "priority" ||
-            key === "isPrivate"
+            key === KEYS.assignee ||
+            key === KEYS.status ||
+            key === KEYS.priority
           ) {
+            return elem[key].toLowerCase() === filterConfig[key].toLowerCase();
+          }
+          if (key === KEYS.isPrivate) {
             return elem[key] === filterConfig[key];
           }
-          if (key === "dateFrom") {
+          if (key === KEYS.dateFrom) {
             return Date.parse(elem.createdAt) >= Date.parse(filterConfig[key]);
           }
-          if (key === "dateTo") {
+          if (key === KEYS.dateTo) {
             return Date.parse(elem.createdAt) <= Date.parse(filterConfig[key]);
           }
         });
