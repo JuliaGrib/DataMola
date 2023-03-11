@@ -18,6 +18,7 @@ const ERRORS = {
   valuesNotValidate: "Значения не прошли валидацию",
   countAgrumentsNotValidate: "Количество ожидаемых аргументов не совпадает",
   sameName: "Введенное имя не должно совпадать с предыдущим",
+  userValidation: "Нет прав для редактирования (Пользователь не совпадает)",
 };
 
 const TASK_STATUS = {

@@ -158,7 +158,7 @@ const moduleTasks = (function () {
     assignee = null,
     status = null,
     priority = null,
-    isPrivate = null
+    isPrivate = false
   ) {
     try {
       if (arguments.length <= 1) {
@@ -174,6 +174,10 @@ const moduleTasks = (function () {
       }
 
       const task = getTask(id);
+
+      if (task.assignee !== user.name) {
+        throw new Error(ERRORS.userValidation);
+      }
 
       if (name) {
         if (!validateObj.name(name)) {
