@@ -1,7 +1,17 @@
 "use sctict";
 
 const moduleTasks = (function () {
-  let user = "Julia Grib";
+  const user = {
+    _name: "Julia Grib",
+
+    get name() {
+      return this._name;
+    },
+
+    set setName(value) {
+      this._name = value;
+    },
+  };
 
   function isValidTypeId(id) {
     return typeof id === "string";
@@ -48,7 +58,7 @@ const moduleTasks = (function () {
 
       const initLength = tasks.length;
       tasks = tasks.filter(({ id, assignee }) => {
-        if (!(taskId === id && assignee === user)) {
+        if (!(taskId === id && assignee === user.name)) {
           return true;
         }
       });
@@ -267,14 +277,14 @@ const moduleTasks = (function () {
 
   function changeUser(usr) {
     try {
-      if (usr === user) {
+      if (usr === user.name) {
         throw new Error(ERRORS.sameName);
       }
       if (typeof usr !== "string" || usr.trim().length === 0) {
         throw new Error(ERRORS.invalidValue);
       }
 
-      user = usr;
+      user.setName = usr;
 
       return true;
     } catch (error) {
@@ -327,7 +337,7 @@ const moduleTasks = (function () {
         id: String(new Date().valueOf()),
         text,
         createdAt: new Date(),
-        author: user,
+        author: user.name,
       };
 
       findTaskById(idTask).comments.push(com);
@@ -337,10 +347,6 @@ const moduleTasks = (function () {
       console.error(error);
       return false;
     }
-  }
-
-  function showUser() {
-    return user;
   }
 
   return {
@@ -353,6 +359,5 @@ const moduleTasks = (function () {
     changeUser,
     validateComment,
     addComment,
-    showUser,
   };
 })();
