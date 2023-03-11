@@ -165,14 +165,14 @@ const moduleTasks = (function () {
 
       const task = getTask(id);
 
-      if (name !== null) {
+      if (name) {
         if (!validateObj.name(name)) {
           throw new Error(ERRORS.nameNotValidate);
         }
         task.name = name;
       }
 
-      if (description !== null) {
+      if (description) {
         if (!validateObj.description(description)) {
           throw new Error(ERRORS.descriptionNotValidate);
         } else {
@@ -180,7 +180,7 @@ const moduleTasks = (function () {
         }
       }
 
-      if (assignee !== null) {
+      if (assignee) {
         if (!validateObj.description(assignee)) {
           throw new Error(ERRORS.assigneeEmpty);
         } else {
@@ -188,7 +188,7 @@ const moduleTasks = (function () {
         }
       }
 
-      if (status !== null) {
+      if (status) {
         if (!validateObj.description(status)) {
           throw new Error(ERRORS.statusNotValidate);
         } else {
@@ -196,7 +196,7 @@ const moduleTasks = (function () {
         }
       }
 
-      if (priority !== null) {
+      if (priority) {
         if (!validateObj.description(priority)) {
           throw new Error(ERRORS.priorityNotValidate);
         } else {
@@ -204,7 +204,7 @@ const moduleTasks = (function () {
         }
       }
 
-      if (isPrivate !== null) {
+      if (isPrivate) {
         if (!validateObj.description(isPrivate)) {
           throw new Error(ERRORS.isPrivateNotValidate);
         } else {
@@ -230,13 +230,13 @@ const moduleTasks = (function () {
         throw new Error(ERRORS.invalidValue);
       }
 
-      let result = [...tasks];
-
-      result.sort((a, b) => Date.parse(a.createdAt) - Date.parse(b.createdAt));
+      let result = [...tasks].sort(
+        (a, b) => Date.parse(a.createdAt) - Date.parse(b.createdAt)
+      );
 
       for (key in filterConfig) {
         result = result.filter((elem) => {
-          if (key === "name" || key === "description") {
+          if (key === KEYS.name || key === KEYS.description) {
             return elem[key]
               .toLowerCase()
               .includes(filterConfig[key].toLowerCase());
@@ -250,7 +250,6 @@ const moduleTasks = (function () {
             return elem[key] === filterConfig[key];
           }
           if (key === "dateFrom") {
-            console.log(elem[key]);
             return Date.parse(elem.createdAt) >= Date.parse(filterConfig[key]);
           }
           if (key === "dateTo") {
@@ -268,6 +267,9 @@ const moduleTasks = (function () {
 
   function changeUser(usr) {
     try {
+      if (usr === user) {
+        throw new Error(ERRORS.sameName);
+      }
       if (typeof usr !== "string" || usr.trim().length === 0) {
         throw new Error(ERRORS.invalidValue);
       }
@@ -287,7 +289,7 @@ const moduleTasks = (function () {
         throw new Error(ERRORS.invalidValue);
       }
 
-      if (Object.keys(com).length === 0) {
+      if (!Object.keys(com).length) {
         return true;
       }
 
@@ -328,13 +330,17 @@ const moduleTasks = (function () {
         author: user,
       };
 
-      tasks.find((task) => task.id === idTask).comments.push(com);
+      findTaskById(idTask).comments.push(com);
 
       return true;
     } catch (error) {
       console.error(error);
       return false;
     }
+  }
+
+  function showUser() {
+    return user;
   }
 
   return {
@@ -347,5 +353,6 @@ const moduleTasks = (function () {
     changeUser,
     validateComment,
     addComment,
+    showUser,
   };
 })();

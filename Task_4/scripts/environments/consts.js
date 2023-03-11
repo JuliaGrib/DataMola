@@ -17,6 +17,7 @@ const ERRORS = {
   keysNotValidate: "Свойства не найдены",
   valuesNotValidate: "Значения не прошли валидацию",
   countAgrumentsNotValidate: "Количество ожидаемых аргументов не совпадает",
+  sameName: "Введенное имя не должно совпадать с предыдущим",
 };
 
 const TASK_STATUS = {
@@ -34,6 +35,11 @@ const TASK_PRIORITY = {
 const MAX_LENGTH = {
   name: 100,
   description: 280,
+};
+
+const KEYS = {
+  name: "name",
+  description: "description",
 };
 
 const validateObj = {
