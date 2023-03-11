@@ -13,6 +13,10 @@ const moduleTasks = (function () {
     },
   };
 
+  function isValidUser(id) {
+    return getTask(id).assignee === user.name;
+  }
+
   function isValidTypeId(id) {
     return typeof id === "string";
   }
@@ -54,6 +58,10 @@ const moduleTasks = (function () {
 
       if (!findTaskById(taskId)) {
         throw new Error(ERRORS.taskNotFound);
+      }
+
+      if (!isValidUser(taskId)) {
+        throw new Error(ERRORS.userValidation);
       }
 
       const initLength = tasks.length;
@@ -173,11 +181,11 @@ const moduleTasks = (function () {
         throw new Error(ERRORS.taskNotFound);
       }
 
-      const task = getTask(id);
-
-      if (task.assignee !== user.name) {
+      if (!isValidUser(id)) {
         throw new Error(ERRORS.userValidation);
       }
+
+      const task = getTask(id);
 
       if (name) {
         if (!validateObj.name(name)) {
