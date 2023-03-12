@@ -37,6 +37,7 @@ const TASK_PRIORITY = {
 const MAX_LENGTH = {
   name: 100,
   description: 280,
+  com: 4,
 };
 
 const KEYS = {

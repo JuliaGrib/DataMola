@@ -317,7 +317,7 @@ const moduleTasks = (function () {
         return true;
       }
 
-      if (Object.keys(com).length !== 4) {
+      if (Object.keys(com).length !== MAX_LENGTH.com) {
         throw new Error(ERRORS.lengthNotValidate);
       }
 
