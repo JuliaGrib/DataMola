@@ -11,7 +11,7 @@ const maxProfit = (arr) => {
   try {
     if (arr.length <= LENGTH_VAL.minArr || arr.length >= LENGTH_VAL.maxArr) {
       throw new Error(
-        `Длина массива должна быть больше 1 и меньше 30 000. Сейчас длина массива составляет ${arr.length}`
+        `Длина массива должна быть больше ${LENGTH_VAL.minArr} и меньше ${LENGTH_VAL.maxArr}. Сейчас длина массива составляет ${arr.length}`
       );
     }
 
@@ -20,7 +20,7 @@ const maxProfit = (arr) => {
     for (let i = 0; i < arr.length; i++) {
       if (arr[i] <= LENGTH_VAL.minElem || arr[i] >= LENGTH_VAL.maxElem) {
         throw new Error(
-          `Элемент массива может быть больше нуля и меньше 10 000. Элемент массива равен ${arr[i]}`
+          `Элемент массива может быть больше ${LENGTH_VAL.minElem} и меньше ${LENGTH_VAL.maxElem}. Элемент массива равен ${arr[i]}`
         );
       }
       if (arr[i] < arr[i + 1]) {
