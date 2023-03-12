@@ -57,6 +57,8 @@ const HTML_ELEMENTS = {
   h3: "h3",
   p: "p",
   a: "a",
+  hr: "hr",
+  time: "time",
 };
 
 const ICONS = {

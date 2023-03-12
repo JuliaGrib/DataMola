@@ -26,6 +26,11 @@ function makeCard(obj, parent) {
   const cardCom = document.createElement(HTML_ELEMENTS.div);
   const cardComIcon = document.createElement(HTML_ELEMENTS.span);
   const cardComCount = document.createElement(HTML_ELEMENTS.span);
+  const line = document.createElement(HTML_ELEMENTS.hr);
+  const cardFooter = document.createElement(HTML_ELEMENTS.div);
+  const cardTime = document.createElement(HTML_ELEMENTS.span);
+  const time = document.createElement(HTML_ELEMENTS.time);
+  const cardStatus = document.createElement(HTML_ELEMENTS.span);
 
   priority.innerHTML = obj.priority;
   cardIconChange.innerHTML = ICONS.icon_change;
@@ -38,6 +43,9 @@ function makeCard(obj, parent) {
   cardPrivacy.innerHTML = isPrivate(obj.isPrivate);
   cardComIcon.innerHTML = ICONS.icon_com;
   cardComCount.innerHTML = obj.comments.length;
+  time.innerHTML = String(obj.createdAt).slice(0, 15);
+  time.setAttribute("datetime", obj.createdAt);
+  cardStatus.innerHTML = obj.status;
 
   card.classList.add("card");
   cardHeader.classList.add("card__header");
@@ -55,6 +63,10 @@ function makeCard(obj, parent) {
   cardPrivacy.classList.add("card__privacy");
   cardCom.classList.add("card__comments");
   cardComCount.classList.add("card__comment-count");
+  line.classList.add("line", "line_dashed");
+  cardFooter.classList.add("card__footer");
+  cardTime.classList.add("card__date");
+  cardStatus.classList.add("card__status");
 
   parent.appendChild(card);
   card.appendChild(cardHeader);
@@ -73,6 +85,11 @@ function makeCard(obj, parent) {
   cardAdditional.appendChild(cardCom);
   cardCom.appendChild(cardComIcon);
   cardCom.appendChild(cardComCount);
+  card.appendChild(line);
+  card.appendChild(cardFooter);
+  cardFooter.appendChild(cardTime);
+  cardTime.appendChild(time);
+  cardFooter.appendChild(cardStatus);
 }
 
 cols.forEach((elem) => {
