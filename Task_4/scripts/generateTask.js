@@ -5,9 +5,19 @@ function findValue(elem) {
 }
 
 function makeCard(obj, parent) {
-  const card = document.createElement("div");
+  const card = document.createElement("article");
+  const cardHeader = document.createElement("div");
+  const priority = document.createElement("span");
+
+  priority.innerHTML = obj.priority;
+
   card.classList.add("card");
+  cardHeader.classList.add("card__header");
+  priority.classList.add("priority", `priority_${obj.priority.toLowerCase()}`);
+
   parent.appendChild(card);
+  card.appendChild(cardHeader);
+  cardHeader.appendChild(priority);
 }
 
 cols.forEach((elem) => {
