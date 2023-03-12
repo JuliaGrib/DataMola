@@ -11,12 +11,17 @@ function makeCard(obj, parent) {
   const cardTools = document.createElement("div");
   const cardIconChange = document.createElement("a");
   const cardIconDel = document.createElement("a");
+  const cardInfo = document.createElement("div");
+  const cardTitle = document.createElement("h3");
+  const cardDescr = document.createElement("p");
 
   priority.innerHTML = obj.priority;
   cardIconChange.innerHTML = ICONS.icon_change;
   cardIconDel.innerHTML = ICONS.icon_del;
   cardIconChange.href = LINKS.empty;
   cardIconDel.href = LINKS.empty;
+  cardTitle.innerHTML = obj.name;
+  cardDescr.innerHTML = obj.description;
 
   card.classList.add("card");
   cardHeader.classList.add("card__header");
@@ -24,6 +29,9 @@ function makeCard(obj, parent) {
   cardTools.classList.add("card__tools");
   cardIconChange.classList.add("icon", "icon_change");
   cardIconDel.classList.add("icon", "icon_del");
+  cardInfo.classList.add("card__info");
+  cardTitle.classList.add("title", "title_card");
+  cardDescr.classList.add("card__descr");
 
   parent.appendChild(card);
   card.appendChild(cardHeader);
@@ -31,6 +39,9 @@ function makeCard(obj, parent) {
   cardHeader.appendChild(cardTools);
   cardTools.appendChild(cardIconChange);
   cardTools.appendChild(cardIconDel);
+  card.appendChild(cardInfo);
+  cardInfo.appendChild(cardTitle);
+  cardInfo.appendChild(cardDescr);
 }
 
 cols.forEach((elem) => {
