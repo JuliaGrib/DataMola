@@ -47,26 +47,29 @@ function makeCard(obj, parent) {
   time.setAttribute("datetime", obj.createdAt);
   cardStatus.innerHTML = obj.status;
 
-  card.classList.add("card");
-  cardHeader.classList.add("card__header");
-  priority.classList.add("priority", `priority_${obj.priority.toLowerCase()}`);
-  cardTools.classList.add("card__tools");
+  card.classList.add(HTML_CLASS.card.card);
+  cardHeader.classList.add(HTML_CLASS.card.header);
+  priority.classList.add(
+    HTML_CLASS.priority,
+    `${HTML_CLASS.priority}_${obj.priority.toLowerCase()}`
+  );
+  cardTools.classList.add(HTML_CLASS.card.tools);
   cardIconChange.classList.add("icon", "icon_change");
   cardIconDel.classList.add("icon", "icon_del");
-  cardInfo.classList.add("card__info");
-  cardTitle.classList.add("title", "title_card");
-  cardDescr.classList.add("card__descr");
-  cardAdditional.classList.add("card__additional");
-  cardAssignee.classList.add("card__assignee");
-  cardLine.classList.add("card__line");
-  cardLine2.classList.add("card__line");
-  cardPrivacy.classList.add("card__privacy");
-  cardCom.classList.add("card__comments");
-  cardComCount.classList.add("card__comment-count");
-  line.classList.add("line", "line_dashed");
-  cardFooter.classList.add("card__footer");
-  cardTime.classList.add("card__date");
-  cardStatus.classList.add("card__status");
+  cardInfo.classList.add(HTML_CLASS.card.info);
+  cardTitle.classList.add(HTML_CLASS.title.title, HTML_CLASS.title.card);
+  cardDescr.classList.add(HTML_CLASS.card.descr);
+  cardAdditional.classList.add(HTML_CLASS.card.additional);
+  cardAssignee.classList.add(HTML_CLASS.card.assignee);
+  cardLine.classList.add(HTML_CLASS.card.line);
+  cardLine2.classList.add(HTML_CLASS.card.line);
+  cardPrivacy.classList.add(HTML_CLASS.card.privacy);
+  cardCom.classList.add(HTML_CLASS.card.com);
+  cardComCount.classList.add(HTML_CLASS.comCount);
+  line.classList.add(HTML_CLASS.line.line, HTML_CLASS.line.dashed);
+  cardFooter.classList.add(HTML_CLASS.card.footer);
+  cardTime.classList.add(HTML_CLASS.card.date);
+  cardStatus.classList.add(HTML_CLASS.card.status);
 
   parent.appendChild(card);
   card.appendChild(cardHeader);

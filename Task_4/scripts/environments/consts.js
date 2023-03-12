@@ -71,6 +71,39 @@ const LINKS = {
   empty: "#",
 };
 
+const HTML_CLASS = {
+  title: {
+    title: "title",
+    card: "title_card",
+  },
+  card: {
+    card: "card",
+    header: "card__header",
+    tools: "card__tools",
+    info: "card__info",
+    descr: "card__descr",
+    additional: "card__additional",
+    assignee: "card__assignee",
+    line: "card__line",
+    privacy: "card__privacy",
+    com: "card__comments",
+    comCount: "card__comment-count",
+    footer: "card__footer",
+    date: "card__date",
+    status: "card__status",
+  },
+  priority: "priority",
+  icon: {
+    icon: "icon",
+    change: "icon_change",
+    del: "icon_del",
+  },
+  line: {
+    line: "line",
+    dashed: "line_dashed",
+  },
+};
+
 const validateObj = {
   id: (value) => typeof value === "string" && value.length !== 0,
   name: (value) =>
