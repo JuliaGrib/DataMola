@@ -54,8 +54,8 @@ function makeCard(obj, parent) {
     `${HTML_CLASS.priority}_${obj.priority.toLowerCase()}`
   );
   cardTools.classList.add(HTML_CLASS.card.tools);
-  cardIconChange.classList.add("icon", "icon_change");
-  cardIconDel.classList.add("icon", "icon_del");
+  cardIconChange.classList.add(HTML_CLASS.icon.icon, HTML_CLASS.icon.change);
+  cardIconDel.classList.add(HTML_CLASS.icon.icon, HTML_CLASS.icon.del);
   cardInfo.classList.add(HTML_CLASS.card.info);
   cardTitle.classList.add(HTML_CLASS.title.title, HTML_CLASS.title.card);
   cardDescr.classList.add(HTML_CLASS.card.descr);
