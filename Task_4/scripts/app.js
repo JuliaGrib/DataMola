@@ -2,7 +2,7 @@
 
 const moduleTasks = (function () {
   const user = {
-    _name: "Julia Grib",
+    _name: "Julia",
 
     get name() {
       return this._name;
