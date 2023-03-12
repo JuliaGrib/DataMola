@@ -1,24 +1,25 @@
 const ERRORS = {
-  invalidValue: "Некорректное значение",
-  taskNotFound: "Таск не найден",
-  keyNotFound: "Отсутствует обязательное значение",
-  taskNotDel: "Таск не удалился",
-  taskNotObject: "Переданное значение не объект",
-  emptyObject: "Объект не может быть пустым",
+  invalidValue: "Invalid value",
+  taskNotFound: "Task not found",
+  keyNotFound: "Missing required value",
+  taskNotDel: "Task not removed",
+  taskNotObject: "Value is not an object",
+  emptyObject: "Object cannot be empty",
   nameNotValidate:
-    "Название должно быть больше нуля и меньше или ровно 100 символов",
+    "The name must be greater than zero and less than or exactly 100 characters",
   descriptionNotValidate:
-    "Описание должно быть больше нуля и меньше или ровно 280 символов",
-  assigneeEmpty: "Исполнитель не может быть пустым",
-  statusNotValidate: "Статус неверный",
-  priorityNotValidate: "Приоритет неверный",
-  isPrivateNotValidate: "Приватность неверная",
-  lengthNotValidate: "Количество свойств в объекте не совпадает с ожидаемым",
-  keysNotValidate: "Свойства не найдены",
-  valuesNotValidate: "Значения не прошли валидацию",
-  countAgrumentsNotValidate: "Количество ожидаемых аргументов не совпадает",
-  sameName: "Введенное имя не должно совпадать с предыдущим",
-  userValidation: "Нет прав для редактирования (Пользователь не совпадает)",
+    "Description must be greater than zero and less than or exactly 280 characters",
+  assigneeEmpty: "Assignee cannot be empty",
+  statusNotValidate: "Invalid status",
+  priorityNotValidate: "Invalid priority",
+  isPrivateNotValidate: "Invalid private",
+  lengthNotValidate:
+    "The number of properties in the object is not as expected",
+  keysNotValidate: "Properties not found",
+  valuesNotValidate: "Values not validated",
+  countAgrumentsNotValidate: "Number of expected arguments does not match",
+  sameName: "The entered name must not be the same as the previous one.",
+  userValidation: "No rights to edit (User does not match)",
 };
 
 const TASK_STATUS = {
