@@ -1,0 +1,26 @@
+.filter {
+    display: flex;
+    gap: var(--gap-l);
+    padding: var(--padding-xs) var(--padding);
+    border-radius: var(--border-radius-s);
+    background-color: var(--color-secondary);
+}
+
+.filter__elem {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: var(--gap-xs);
+}
+
+@media screen and (max-width: 1280px) {
+    .filter {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .button__text {
+        display: none;
+    }
+}

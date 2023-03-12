@@ -1,0 +1,9 @@
+.body_components {
+    display: block;
+    padding: var(--padding-xxl);
+    background-color: var(--color-beige);
+}
+
+.wrap {
+    padding: var(--padding-xxl) var(--padding-z);
+}
