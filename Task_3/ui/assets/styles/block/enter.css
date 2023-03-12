@@ -1,106 +1,105 @@
 .main__descr {
-    position: relative;
-    top: -10vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    width: 30vw;
+  position: relative;
+  top: -10vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 30vw;
 }
 
 .title_autorization {
-    color: var(--color-white);
-    font-size: 5rem;
+  color: var(--color-white);
+  font-size: 5rem;
 }
 
 .subtitle_autorization {
-    color: var(--color-white);
-    font-size: 2rem;
+  color: var(--color-white);
+  font-size: 2rem;
 }
 
 .enter {
-    display: grid;
-    row-gap: 2rem;
+  display: grid;
+  row-gap: 2rem;
 }
 
 .enter__header {
-    display: inline-grid;
-    
-    row-gap: 1rem;
+  display: inline-grid;
+  row-gap: 1rem;
 }
 
 .enter__text {
-    font-size: var(--font-size-s);
-    width: max(14rem, 20vw);
+  font-size: var(--font-size-s);
+  width: max(14rem, 20vw);
 }
 
 .enter::-webkit-scrollbar {
-    width: 0.25rem;
+  width: 0.25rem;
 }
 
 .enter__header {
-    display: flex;
-    flex-direction: column;
-    gap: var(--gap);
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap);
 }
 
 .link_enter {
-    color: var(--color-primary);
+  color: var(--color-primary);
 }
 
 .link_enter:hover {
-    color: var(--color-primary-dark);
+  color: var(--color-primary-dark);
 }
 
 .enter__avatar {
-    display: flex;
-    flex-direction: column;
-    gap: var(--gap-s);
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-s);
 }
 
 .enter__wrap {
-    display: flex;
-    cursor: pointer;
+  display: flex;
+  cursor: pointer;
 }
 
 .enter__avatar-elem {
-    padding: var(--padding-xxs);
-    border: 0.1rem solid var(--color-white);
-    border-radius: var(--border-radius);
-    transition: var(--animation);
+  padding: var(--padding-xxs);
+  border: 0.1rem solid var(--color-white);
+  border-radius: var(--border-radius);
+  transition: var(--animation);
 }
 
 .enter__avatar-elem_checked {
-    border: 0.1rem solid var(--color-black);
+  border: 0.1rem solid var(--color-black);
 }
 
 .enter__avatar-elem:hover {
-    border: 0.1rem solid var(--color-primary);
+  border: 0.1rem solid var(--color-primary);
 }
 
 @media screen and (max-width: 930px) {
-    .main__descr {
-        display: none;
-    }
+  .main__descr {
+    display: none;
+  }
 }
 
 @media screen and (max-width: 700px) {
-    .enter_login {
-        justify-content: center;
-    }
-    .form {
-        gap: var(--gap);
-    }
+  .enter_login {
+    justify-content: center;
+  }
+  .form {
+    gap: var(--gap);
+  }
 }
 
 @media screen and (max-width: 660px) {
-    .enter_login {
-        justify-content: center;
-        height: 100%;
-    }
+  .enter_login {
+    justify-content: center;
+    height: 100%;
+  }
 }
 
 @media screen and (max-width: 560px) {
-    .enter {
-        padding: var(--padding-l) var(--padding-z);
-    }
+  .enter {
+    padding: var(--padding-l) var(--padding-z);
+  }
 }

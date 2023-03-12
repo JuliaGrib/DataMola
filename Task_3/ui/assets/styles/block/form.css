@@ -1,72 +1,68 @@
 .form {
-    display: flex;
-    flex-direction: column;
-    gap: var(--gap-xxl);
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-xxl);
 }
 
 .form__quarter {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(14rem, 40%));
-    grid-column-gap: var(--gap-xxl);
-    grid-row-gap: var(--gap-xxl);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(14rem, 40%));
+  grid-column-gap: var(--gap-xxl);
+  grid-row-gap: var(--gap-xxl);
 }
 
 .form__half {
-    display: inline-grid;
-    grid-template-columns: minmax(14rem, 60%);
-    grid-template-rows: 1fr;
-    grid-column-gap: var(--gap-xxl);
-    grid-row-gap: var(--gap-xxl);
+  display: inline-grid;
+  grid-template-columns: minmax(14rem, 60%);
+  grid-template-rows: 1fr;
+  grid-column-gap: var(--gap-xxl);
+  grid-row-gap: var(--gap-xxl);
 }
 
 .form__elem {
-    display: flex;
-    flex-direction: column;
-    gap: var(--gap-xxs);
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-xxs);
 }
 
 .form-elem {
-    display: inline-grid;
-    grid-template-columns: minmax(15.5rem, 20vw);
-    row-gap: var(--gap-xs);
-    align-self: flex-start;
+  display: inline-grid;
+  grid-template-columns: minmax(15.5rem, 20vw);
+  row-gap: var(--gap-xs);
+  align-self: flex-start;
 }
 
-/* .form-elem_user {
-    grid-template-columns: 1fr;
-} */
-
 .form-elem_icon {
-    align-self: flex-start;
+  align-self: flex-start;
 }
 
 .editor {
-    display: grid;
-    grid-template-columns: 1fr;
-    row-gap: var(--gap-xs);
+  display: grid;
+  grid-template-columns: 1fr;
+  row-gap: var(--gap-xs);
 }
 
 .form__input {
-    height: 3rem;
-    padding: 0 var(--padding);
-    border: none;
-    border-radius: var(--border-radius-s);
+  height: 3rem;
+  padding: 0 var(--padding);
+  border: none;
+  border-radius: var(--border-radius-s);
 }
 
 .form__btn {
-    display: flex;
-    gap: var(--gap-s);
+  display: flex;
+  gap: var(--gap-s);
 }
 
 @media screen and (max-width: 930px) {
-    .form-elem {
-        grid-template-columns: minmax(16rem, 40vw);
-    }
+  .form-elem {
+    grid-template-columns: minmax(16rem, 40vw);
+  }
 }
 
 @media screen and (max-width: 475px) {
-    .form__btn {
-        display: flex;
-        justify-content: center;
-    }
+  .form__btn {
+    display: flex;
+    justify-content: center;
+  }
 }
