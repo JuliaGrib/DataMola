@@ -4,16 +4,28 @@ function findValue(elem) {
   return elem.innerHTML;
 }
 
+function isPrivate(value) {
+  return value ? "Private" : "Public";
+}
+
 function makeCard(obj, parent) {
-  const card = document.createElement("article");
-  const cardHeader = document.createElement("div");
-  const priority = document.createElement("span");
-  const cardTools = document.createElement("div");
-  const cardIconChange = document.createElement("a");
-  const cardIconDel = document.createElement("a");
-  const cardInfo = document.createElement("div");
-  const cardTitle = document.createElement("h3");
-  const cardDescr = document.createElement("p");
+  const card = document.createElement(HTML_ELEMENTS.article);
+  const cardHeader = document.createElement(HTML_ELEMENTS.div);
+  const priority = document.createElement(HTML_ELEMENTS.span);
+  const cardTools = document.createElement(HTML_ELEMENTS.div);
+  const cardIconChange = document.createElement(HTML_ELEMENTS.a);
+  const cardIconDel = document.createElement(HTML_ELEMENTS.a);
+  const cardInfo = document.createElement(HTML_ELEMENTS.div);
+  const cardTitle = document.createElement(HTML_ELEMENTS.h3);
+  const cardDescr = document.createElement(HTML_ELEMENTS.p);
+  const cardAdditional = document.createElement(HTML_ELEMENTS.div);
+  const cardAssignee = document.createElement(HTML_ELEMENTS.span);
+  const cardLine = document.createElement(HTML_ELEMENTS.span);
+  const cardLine2 = document.createElement(HTML_ELEMENTS.span);
+  const cardPrivacy = document.createElement(HTML_ELEMENTS.span);
+  const cardCom = document.createElement(HTML_ELEMENTS.div);
+  const cardComIcon = document.createElement(HTML_ELEMENTS.span);
+  const cardComCount = document.createElement(HTML_ELEMENTS.span);
 
   priority.innerHTML = obj.priority;
   cardIconChange.innerHTML = ICONS.icon_change;
@@ -22,6 +34,10 @@ function makeCard(obj, parent) {
   cardIconDel.href = LINKS.empty;
   cardTitle.innerHTML = obj.name;
   cardDescr.innerHTML = obj.description;
+  cardAssignee.innerHTML = obj.assignee;
+  cardPrivacy.innerHTML = isPrivate(obj.isPrivate);
+  cardComIcon.innerHTML = ICONS.icon_com;
+  cardComCount.innerHTML = obj.comments.length;
 
   card.classList.add("card");
   cardHeader.classList.add("card__header");
@@ -32,6 +48,13 @@ function makeCard(obj, parent) {
   cardInfo.classList.add("card__info");
   cardTitle.classList.add("title", "title_card");
   cardDescr.classList.add("card__descr");
+  cardAdditional.classList.add("card__additional");
+  cardAssignee.classList.add("card__assignee");
+  cardLine.classList.add("card__line");
+  cardLine2.classList.add("card__line");
+  cardPrivacy.classList.add("card__privacy");
+  cardCom.classList.add("card__comments");
+  cardComCount.classList.add("card__comment-count");
 
   parent.appendChild(card);
   card.appendChild(cardHeader);
@@ -42,6 +65,14 @@ function makeCard(obj, parent) {
   card.appendChild(cardInfo);
   cardInfo.appendChild(cardTitle);
   cardInfo.appendChild(cardDescr);
+  cardInfo.appendChild(cardAdditional);
+  cardAdditional.appendChild(cardAssignee);
+  cardAdditional.appendChild(cardLine);
+  cardAdditional.appendChild(cardPrivacy);
+  cardAdditional.appendChild(cardLine2);
+  cardAdditional.appendChild(cardCom);
+  cardCom.appendChild(cardComIcon);
+  cardCom.appendChild(cardComCount);
 }
 
 cols.forEach((elem) => {
