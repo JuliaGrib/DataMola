@@ -1,0 +1,53 @@
+.language {
+    position: relative;
+}
+
+.language__icon {
+    cursor: pointer;
+}
+
+.language__icon:hover {
+    color: var(--color-primary); 
+}
+
+.language__icon:hover + .list_block {
+    display: flex;
+}
+
+.language__item {
+    cursor: pointer;
+}
+
+.language__item:hover {
+    color: var(--color-primary); 
+}
+
+.language__item:hover + .list_block {
+    display: flex;
+}
+
+.list_block {
+    position: absolute;
+    top: -5.06rem;
+    left: -0.68rem;
+    display: none;
+    flex-direction: column;
+    gap: var(--gap);
+    padding: var(--padding-s) var(--padding-s) var(--padding-s) var(--padding-xl);
+    border: 0.1rem solid var(--color-secondary-light);
+    border-radius: var(--border-radius); 
+    background-color: var(--color-white);
+}
+
+.list_language-en:before {
+    content: "";
+    position: absolute;
+    top: 1rem;
+    left: 0.62rem;
+    display: block;
+    width: 0.75rem;
+    height: 0.75rem;
+    background-image: url(../../img/icons/current.svg);
+    background-repeat: no-repeat;
+}
+
