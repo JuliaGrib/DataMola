@@ -252,9 +252,7 @@ const moduleTasks = (function () {
         throw new Error(ERRORS.invalidValue);
       }
 
-      let result = [...tasks].sort(
-        (a, b) => Date.parse(a.createdAt) - Date.parse(b.createdAt)
-      );
+      let result = [...tasks];
 
       for (key in filterConfig) {
         result = result.filter((elem) => {
@@ -282,7 +280,9 @@ const moduleTasks = (function () {
         });
       }
 
-      return result.splice(skip, top);
+      return result
+        .sort((a, b) => Date.parse(a.createdAt) - Date.parse(b.createdAt))
+        .splice(skip, top);
     } catch (error) {
       console.error(error);
       return false;
@@ -294,7 +294,7 @@ const moduleTasks = (function () {
       if (usr === user.name) {
         throw new Error(ERRORS.sameName);
       }
-      if (typeof usr !== "string" || usr.trim().length === 0) {
+      if (typeof usr !== "string" || !usr.trim().length) {
         throw new Error(ERRORS.invalidValue);
       }
 
@@ -348,7 +348,7 @@ const moduleTasks = (function () {
       }
 
       const com = {
-        id: String(new Date().valueOf()),
+        id: String(new Date().getTime()),
         text,
         createdAt: new Date(),
         author: user.name,
