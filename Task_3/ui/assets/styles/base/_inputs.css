@@ -4,6 +4,10 @@
     border-radius: var(--border-radius-s);
 }
 
+.input::placeholder {
+    font-size: var(--font-size-s);
+}
+
 .input:focus-visible {
     outline: none;
 }
@@ -49,8 +53,9 @@
 
 .input_search {
     position: relative;
-    padding: var(--padding-s) var(--padding);
-    border-radius: var(--border-radius);
+    padding: var(--padding-xs) var(--padding);
+    border: 0.01rem solid var(--color-secondary);
+    border-radius: var(--border-radius-s);
     background-color: var(--color-secondary);
 }
 

@@ -10,6 +10,10 @@
     align-items: center;
 }
 
+.header__logo-svg {
+    color: var(--color-white);
+}
+
 .header__nav {
     display: flex;
     align-items: center;
@@ -46,6 +50,12 @@
     display: flex;
     align-items: center;
     gap: var(--gap);
+}
+
+@media screen and (max-width: 930px) {
+    .header__logo-svg {
+        color: var(--color-black);
+    }
 }
 
 @media screen and (max-width: 660px) {

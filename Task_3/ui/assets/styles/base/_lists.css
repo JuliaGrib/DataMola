@@ -12,3 +12,13 @@
     list-style-type: none;
     color: var(--color-secondary-dark)
 }
+
+.list__elem_color {
+    color: var(--color-white);
+}
+
+@media screen and (max-width: 930px) {
+    .list__elem_color {
+        color: var(--color-black);
+    }
+}
