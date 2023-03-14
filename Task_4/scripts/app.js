@@ -203,7 +203,7 @@ const moduleTasks = (function () {
       }
 
       if (assignee) {
-        if (!validateObj.description(assignee)) {
+        if (!validateObj.assignee(assignee)) {
           throw new Error(ERRORS.assigneeEmpty);
         } else {
           task.assignee = assignee;
@@ -211,7 +211,7 @@ const moduleTasks = (function () {
       }
 
       if (status) {
-        if (!validateObj.description(status)) {
+        if (!validateObj.status(status)) {
           throw new Error(ERRORS.statusNotValidate);
         } else {
           task.status = status;
@@ -219,15 +219,15 @@ const moduleTasks = (function () {
       }
 
       if (priority) {
-        if (!validateObj.description(priority)) {
+        if (!validateObj.priority(priority)) {
           throw new Error(ERRORS.priorityNotValidate);
         } else {
           task.priority = priority;
         }
       }
 
-      if (isPrivate) {
-        if (!validateObj.description(isPrivate)) {
+      if (isPrivate !== null) {
+        if (!validateObj.isPrivate(isPrivate)) {
           throw new Error(ERRORS.isPrivateNotValidate);
         } else {
           task.isPrivate = isPrivate;
@@ -272,10 +272,14 @@ const moduleTasks = (function () {
             return elem[key] === filterConfig[key];
           }
           if (key === KEYS.dateFrom) {
-            return Date.parse(elem.createdAt) >= Date.parse(filterConfig[key]);
+            let date = new Date(filterConfig[key]);
+            date.setHours(00, 00, 00);
+            return Date.parse(elem.createdAt) >= Date.parse(date);
           }
           if (key === KEYS.dateTo) {
-            return Date.parse(elem.createdAt) <= Date.parse(filterConfig[key]);
+            let date = new Date(filterConfig[key]);
+            date.setHours(23, 59, 59);
+            return Date.parse(elem.createdAt) <= Date.parse(date);
           }
         });
       }
