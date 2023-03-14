@@ -1,12 +1,17 @@
 "use strict";
 
+const ERROR = {
+  notArray: "Переданное значение не массив",
+  emptyArray: "Массив не может быть пустым",
+};
+
 const findMaxSubArray = (arr) => {
   try {
     if (!Array.isArray(arr)) {
-      throw new Error("Переданное значение не массив");
+      throw new Error(ERROR.notArray);
     }
-    if (arr.length === 0) {
-      throw new Error("Массив не может быть пустым");
+    if (!arr.length) {
+      throw new Error(ERROR.emptyArray);
     }
 
     let current = 0;
