@@ -56,3 +56,12 @@ function div(a, b) {
     return false;
   }
 }
+
+function pipe(...arg) {
+  return function (val) {
+    for (let i = 0; i < arg.length; i++) {
+      val = arg[i](val);
+    }
+    return val;
+  };
+}
