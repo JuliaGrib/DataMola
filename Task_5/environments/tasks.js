@@ -29,7 +29,7 @@ let tasks = [
     assignee: 'Julia',
     status: 'To Do',
     priority: 'Hight',
-    isPrivate: false,
+    isPrivate: true,
     comments: [],
   },
   {
@@ -123,7 +123,7 @@ let tasks = [
     assignee: 'Julia',
     status: 'To Do',
     priority: 'Medium',
-    isPrivate: false,
+    isPrivate: true,
     comments: [],
   },
   {
@@ -189,7 +189,7 @@ let tasks = [
     assignee: 'Julia',
     status: 'Complete',
     priority: 'Medium',
-    isPrivate: false,
+    isPrivate: true,
     comments: [],
   },
   {
@@ -259,7 +259,7 @@ let tasks = [
     assignee: 'Julia',
     status: 'In progress',
     priority: 'Medium',
-    isPrivate: false,
+    isPrivate: true,
     comments: [
       {
         id: '916',
@@ -290,7 +290,7 @@ let tasks = [
     assignee: 'Julia',
     status: 'In progress',
     priority: 'Medium',
-    isPrivate: false,
+    isPrivate: true,
     comments: [],
   },
   {
@@ -326,7 +326,7 @@ let tasks = [
     assignee: 'Julia',
     status: 'In progress',
     priority: 'Low',
-    isPrivate: false,
+    isPrivate: true,
     comments: [
       {
         id: '922',
@@ -357,7 +357,7 @@ let tasks = [
     assignee: 'Julia',
     status: 'In progress',
     priority: 'Low',
-    isPrivate: false,
+    isPrivate: true,
     comments: [],
   },
   {
@@ -380,7 +380,7 @@ let tasks = [
     assignee: 'Julia',
     status: 'In progress',
     priority: 'Hight',
-    isPrivate: false,
+    isPrivate: true,
     comments: [],
   },
   {

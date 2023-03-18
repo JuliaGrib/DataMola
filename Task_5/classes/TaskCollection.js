@@ -114,4 +114,52 @@ class TaskCollection {
       return false;
     }
   }
+
+  getPage(skip = 0, top = 10, filterConfig) {
+    try {
+      if (
+        typeof skip !== 'number' ||
+        typeof top !== 'number' ||
+        !isFinite(skip) ||
+        !isFinite(top)
+      ) {
+        throw new Error(ERRORS.invalidValue);
+      }
+
+      let result = [...this.myCmyCollection].sort(
+        (a, b) => Date.parse(a.createdAt) - Date.parse(b.createdAt)
+      );
+
+      for (const key in filterConfig) {
+        result = result.filter((elem) => {
+          if (key === KEYS.name || key === KEYS.description) {
+            return elem[key]
+              .toLowerCase()
+              .includes(filterConfig[key].toLowerCase());
+          }
+          if (
+            key === KEYS.assignee ||
+            key === KEYS.status ||
+            key === KEYS.priority
+          ) {
+            return elem[key].toLowerCase() === filterConfig[key].toLowerCase();
+          }
+          if (key === KEYS.isPrivate) {
+            return elem[key] === filterConfig[key];
+          }
+          if (key === KEYS.dateFrom) {
+            return Date.parse(elem.createdAt) >= Date.parse(filterConfig[key]);
+          }
+          if (key === KEYS.dateTo) {
+            return Date.parse(elem.createdAt) <= Date.parse(filterConfig[key]);
+          }
+        });
+      }
+
+      return result.splice(skip, top);
+    } catch (error) {
+      console.error(error);
+      return false;
+    }
+  }
 }
