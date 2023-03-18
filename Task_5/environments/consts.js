@@ -28,6 +28,7 @@ const INFO = {
   editSuccess: 'Таск успешно изменен',
   addSuccess: 'Таск успешно добавлен',
   removeSuccess: 'Таск успешно удален',
+  userChange: 'Пользователь успешно изменен',
 };
 
 const TASK_STATUS = {

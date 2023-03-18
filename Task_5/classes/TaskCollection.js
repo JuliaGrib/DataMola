@@ -1,5 +1,5 @@
 class TaskCollection {
-  _user = 'Julia';
+  _user = '';
 
   constructor(db) {
     this._myCollection = db.map(
@@ -33,6 +33,7 @@ class TaskCollection {
       }
 
       this._user = value;
+      Helper.showMessages(INFO.userChange);
     } catch (error) {
       console.error(error);
       return false;
@@ -65,6 +66,10 @@ class TaskCollection {
   clear() {
     this.myCollection = [];
     Helper.showMessages(INFO.clearCollection);
+  }
+
+  _isValidateUser() {
+    return Boolean(this.user);
   }
 
   _findTaskById(id) {
@@ -185,6 +190,9 @@ class TaskCollection {
 
   add(name, description, assignee, status, priority, isPrivate) {
     try {
+      if (!this._isValidateUser()) {
+        throw new Error(ERRORS.userValidation);
+      }
       if (!validateObj.name(name)) {
         throw new Error(ERRORS.nameNotValidate);
       }
@@ -236,6 +244,9 @@ class TaskCollection {
     isPrivate = false
   ) {
     try {
+      if (!this._isValidateUser()) {
+        throw new Error(ERRORS.userValidation);
+      }
       if (arguments.length <= 1) {
         throw new Error(ERRORS.countAgrumentsNotValidate);
       }
@@ -311,6 +322,9 @@ class TaskCollection {
 
   addComment(idTask, text) {
     try {
+      if (!this._isValidateUser()) {
+        throw new Error(ERRORS.userValidation);
+      }
       if (!Helper.isValidTypeId(idTask) || !this._findTaskById(idTask)) {
         throw new Error(ERRORS.taskNotFound);
       }
