@@ -24,7 +24,19 @@ class TaskCollection {
   }
 
   set user(value) {
-    this._user = value;
+    try {
+      if (value === this._user) {
+        throw new Error(ERRORS.sameName);
+      }
+      if (typeof value !== 'string' || value.trim().length === 0) {
+        throw new Error(ERRORS.invalidValue);
+      }
+
+      this._user = value;
+    } catch (error) {
+      console.error(error);
+      return false;
+    }
   }
 
   get myCmyCollection() {
