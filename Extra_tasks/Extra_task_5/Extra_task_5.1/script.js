@@ -101,9 +101,16 @@ class List {
 }
 
 const test = new List(0);
+
 test.addNode(1);
 test.addNode(3);
 test.addNode(5);
 test.addNode(2, 1);
 test.addNode(4, 3);
 test.addNode(6, 5);
+
+test.print();
+
+test.removeNode(2);
+
+test.print();
