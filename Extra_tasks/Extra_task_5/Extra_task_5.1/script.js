@@ -47,7 +47,39 @@ class List {
       }
 
       this.length++;
+
       console.log(INFO.nodeAddSuccess);
+      return true;
+    } catch (error) {
+      console.error(error);
+      return false;
+    }
+  }
+
+  removeNode(position = this.length) {
+    try {
+      if (position === 0) {
+        throw new Error(ERRORS.rootNotDelete);
+      }
+      if (!(position > 0 && position <= this.length) && position !== null) {
+        throw new Error(ERRORS.numberNotValide);
+      }
+      let current = this.root;
+
+      let prev = null;
+      let index = 0;
+
+      while (index < position) {
+        prev = current;
+        current = current.next;
+        index++;
+      }
+
+      prev.next = current.next;
+
+      this.length--;
+
+      console.log(INFO.nodeDelSuccess);
       return true;
     } catch (error) {
       console.error(error);
