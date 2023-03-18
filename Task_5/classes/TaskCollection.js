@@ -63,6 +63,13 @@ class TaskCollection {
     return this.getTask(id).assignee === this.user;
   }
 
+  _generateId() {
+    const taskIds = this._myCollection
+      .map((task) => Number(task.id))
+      .sort((a, b) => a - b);
+    return String(taskIds.at(-1) + 1);
+  }
+
   get(id) {
     try {
       if (!Helper.isValidTypeId(id)) {
@@ -157,6 +164,48 @@ class TaskCollection {
       }
 
       return result.splice(skip, top);
+    } catch (error) {
+      console.error(error);
+      return false;
+    }
+  }
+
+  add(name, description, assignee, status, priority, isPrivate) {
+    try {
+      if (!validateObj.name(name)) {
+        throw new Error(ERRORS.nameNotValidate);
+      }
+      if (!validateObj.description(description)) {
+        throw new Error(ERRORS.descriptionNotValidate);
+      }
+      if (!assignee) {
+        throw new Error(ERRORS.assigneeEmpty);
+      }
+      if (!validateObj.status(status)) {
+        throw new Error(ERRORS.statusNotValidate);
+      }
+      if (!validateObj.priority(priority)) {
+        throw new Error(ERRORS.priorityNotValidate);
+      }
+      if (!validateObj.isPrivate(isPrivate)) {
+        throw new Error(ERRORS.isPrivateNotValidate);
+      }
+
+      const task = new Task(
+        this._generateId(),
+        name,
+        description,
+        new Date(),
+        assignee,
+        status,
+        priority,
+        isPrivate,
+        []
+      );
+
+      this._myCollection.push(task);
+
+      return true;
     } catch (error) {
       console.error(error);
       return false;
