@@ -54,6 +54,18 @@ class List {
       return false;
     }
   }
+
+  print() {
+    const result = [];
+    let current = this.root;
+
+    while (current) {
+      result.push(current.value);
+      current = current.next;
+    }
+
+    console.log(result.join(','));
+  }
 }
 
 const test = new List(0);
