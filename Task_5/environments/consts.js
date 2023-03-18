@@ -1,37 +1,41 @@
 const ERRORS = {
-  invalidValue: "Invalid value",
-  taskNotFound: "Task not found",
-  keyNotFound: "Missing required value",
-  taskNotDel: "Task not removed",
-  taskNotObject: "Value is not an object",
-  emptyObject: "Object cannot be empty",
+  invalidValue: 'Invalid value',
+  taskNotFound: 'Task not found',
+  keyNotFound: 'Missing required value',
+  taskNotDel: 'Task not removed',
+  taskNotObject: 'Value is not an object',
+  emptyObject: 'Object cannot be empty',
   nameNotValidate:
-    "The name must be greater than zero and less than or exactly 100 characters",
+    'The name must be greater than zero and less than or exactly 100 characters',
   descriptionNotValidate:
-    "Description must be greater than zero and less than or exactly 280 characters",
-  assigneeEmpty: "Assignee cannot be empty",
-  statusNotValidate: "Invalid status",
-  priorityNotValidate: "Invalid priority",
-  isPrivateNotValidate: "Invalid private",
+    'Description must be greater than zero and less than or exactly 280 characters',
+  assigneeEmpty: 'Assignee cannot be empty',
+  statusNotValidate: 'Invalid status',
+  priorityNotValidate: 'Invalid priority',
+  isPrivateNotValidate: 'Invalid private',
   lengthNotValidate:
-    "The number of properties in the object is not as expected",
-  keysNotValidate: "Properties not found",
-  valuesNotValidate: "Values not validated",
-  countAgrumentsNotValidate: "Number of expected arguments does not match",
-  sameName: "The entered name must not be the same as the previous one.",
-  userValidation: "No rights to edit (User does not match)",
+    'The number of properties in the object is not as expected',
+  keysNotValidate: 'Properties not found',
+  valuesNotValidate: 'Values not validated',
+  countAgrumentsNotValidate: 'Number of expected arguments does not match',
+  sameName: 'The entered name must not be the same as the previous one.',
+  userValidation: 'No rights to edit (User does not match)',
+};
+
+const INFO = {
+  clearCollection: 'Коллекция успешно очищена',
 };
 
 const TASK_STATUS = {
-  toDo: "To Do",
-  inProgress: "In progress",
-  complete: "Complete",
+  toDo: 'To Do',
+  inProgress: 'In progress',
+  complete: 'Complete',
 };
 
 const TASK_PRIORITY = {
-  hight: "Hight",
-  medium: "Medium",
-  low: "Low",
+  hight: 'Hight',
+  medium: 'Medium',
+  low: 'Low',
 };
 
 const MAX_LENGTH = {
@@ -41,25 +45,25 @@ const MAX_LENGTH = {
 };
 
 const KEYS = {
-  name: "name",
-  description: "description",
-  assignee: "assignee",
-  status: "status",
-  priority: "priority",
-  isPrivate: "isPrivate",
-  dateFrom: "dateFrom",
-  dateTo: "dateTo",
+  name: 'name',
+  description: 'description',
+  assignee: 'assignee',
+  status: 'status',
+  priority: 'priority',
+  isPrivate: 'isPrivate',
+  dateFrom: 'dateFrom',
+  dateTo: 'dateTo',
 };
 
 const HTML_ELEMENTS = {
-  div: "div",
-  span: "span",
-  article: "article",
-  h3: "h3",
-  p: "p",
-  a: "a",
-  hr: "hr",
-  time: "time",
+  div: 'div',
+  span: 'span',
+  article: 'article',
+  h3: 'h3',
+  p: 'p',
+  a: 'a',
+  hr: 'hr',
+  time: 'time',
 };
 
 const ICONS = {
@@ -69,64 +73,64 @@ const ICONS = {
 };
 
 const LINKS = {
-  empty: "#",
+  empty: '#',
 };
 
 const HTML_CLASS = {
   title: {
-    title: "title",
-    card: "title_card",
+    title: 'title',
+    card: 'title_card',
   },
   card: {
-    card: "card",
-    header: "card__header",
-    tools: "card__tools",
-    info: "card__info",
-    descr: "card__descr",
-    additional: "card__additional",
-    assignee: "card__assignee",
-    line: "card__line",
-    privacy: "card__privacy",
-    com: "card__comments",
-    comCount: "card__comment-count",
-    footer: "card__footer",
-    date: "card__date",
-    status: "card__status",
+    card: 'card',
+    header: 'card__header',
+    tools: 'card__tools',
+    info: 'card__info',
+    descr: 'card__descr',
+    additional: 'card__additional',
+    assignee: 'card__assignee',
+    line: 'card__line',
+    privacy: 'card__privacy',
+    com: 'card__comments',
+    comCount: 'card__comment-count',
+    footer: 'card__footer',
+    date: 'card__date',
+    status: 'card__status',
   },
-  priority: "priority",
+  priority: 'priority',
   icon: {
-    icon: "icon",
-    change: "icon_change",
-    del: "icon_del",
+    icon: 'icon',
+    change: 'icon_change',
+    del: 'icon_del',
   },
   line: {
-    line: "line",
-    dashed: "line_dashed",
+    line: 'line',
+    dashed: 'line_dashed',
   },
 };
 
 const validateObj = {
-  _id: (value) => typeof value === "string" && value.length !== 0,
+  _id: (value) => typeof value === 'string' && value.length !== 0,
   name: (value) =>
-    typeof value === "string" &&
+    typeof value === 'string' &&
     value.length !== 0 &&
     value.length <= MAX_LENGTH.name,
   description: (value) =>
-    typeof value === "string" &&
+    typeof value === 'string' &&
     value.length !== 0 &&
     value.length <= MAX_LENGTH.description,
   _createdAt: (value) => value instanceof Date,
-  assignee: (value) => typeof value === "string" && value.length !== 0,
+  assignee: (value) => typeof value === 'string' && value.length !== 0,
   status: (value) =>
-    typeof value === "string" &&
+    typeof value === 'string' &&
     (value === TASK_STATUS.toDo ||
       value === TASK_STATUS.inProgress ||
       value === TASK_STATUS.complete),
   priority: (value) =>
-    typeof value === "string" &&
+    typeof value === 'string' &&
     (value === TASK_PRIORITY.hight ||
       value === TASK_PRIORITY.medium ||
       value === TASK_PRIORITY.low),
-  isPrivate: (value) => typeof value === "boolean",
+  isPrivate: (value) => typeof value === 'boolean',
   comments: (value) => Array.isArray(value),
 };

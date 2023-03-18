@@ -65,7 +65,8 @@ class Task {
 
       for (const key in task) {
         if (!validateObj[key](task[key])) {
-          throw new Error(ERRORS.valuesNotValidate);
+          return false;
+          // throw new Error(ERRORS.valuesNotValidate);
         }
       }
       return true;

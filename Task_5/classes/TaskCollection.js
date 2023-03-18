@@ -16,6 +16,7 @@ class TaskCollection {
           elem.comments
         )
     );
+    this.addAll(this._myCollection);
   }
 
   _findTaskById(id) {
@@ -42,12 +43,23 @@ class TaskCollection {
     }
   }
 
-  addTask() {
-    console.log(this._myCollection);
+  addAll(arr) {
+    const notValidArr = [];
+    this._myCollection = arr.filter((task) => {
+      if (Task.validateTask(task)) {
+        return true;
+      } else {
+        notValidArr.push(task);
+      }
+    });
+
+    console.log(notValidArr);
+    return notValidArr;
   }
 
   clear() {
     this.myCollection = [];
+    Helper.showMessages(INFO.clearCollection);
   }
 
   get user() {
