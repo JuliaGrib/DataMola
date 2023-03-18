@@ -60,7 +60,7 @@ class TaskCollection {
   }
 
   _isValidUserInTask(id) {
-    return this.getTask(id).assignee === this.user;
+    return this.get(id).assignee === this.user;
   }
 
   _generateId() {
@@ -204,6 +204,88 @@ class TaskCollection {
       );
 
       this._myCollection.push(task);
+
+      return true;
+    } catch (error) {
+      console.error(error);
+      return false;
+    }
+  }
+
+  edit(
+    id,
+    name = null,
+    description = null,
+    assignee = null,
+    status = null,
+    priority = null,
+    isPrivate = false
+  ) {
+    try {
+      if (arguments.length <= 1) {
+        throw new Error(ERRORS.countAgrumentsNotValidate);
+      }
+
+      if (!Helper.isValidTypeId(id)) {
+        throw new Error(ERRORS.invalidValue);
+      }
+
+      if (!this._findTaskById(id)) {
+        throw new Error(ERRORS.taskNotFound);
+      }
+
+      if (!this._isValidUserInTask(id)) {
+        throw new Error(ERRORS.userValidation);
+      }
+
+      const task = this.get(id);
+
+      if (name) {
+        if (!validateObj.name(name)) {
+          throw new Error(ERRORS.nameNotValidate);
+        }
+        task.name = name;
+      }
+
+      if (description) {
+        if (!validateObj.description(description)) {
+          throw new Error(ERRORS.descriptionNotValidate);
+        } else {
+          task.description = description;
+        }
+      }
+
+      if (assignee) {
+        if (!validateObj.description(assignee)) {
+          throw new Error(ERRORS.assigneeEmpty);
+        } else {
+          task.assignee = assignee;
+        }
+      }
+
+      if (status) {
+        if (!validateObj.description(status)) {
+          throw new Error(ERRORS.statusNotValidate);
+        } else {
+          task.status = status;
+        }
+      }
+
+      if (priority) {
+        if (!validateObj.description(priority)) {
+          throw new Error(ERRORS.priorityNotValidate);
+        } else {
+          task.priority = priority;
+        }
+      }
+
+      if (isPrivate) {
+        if (!validateObj.description(isPrivate)) {
+          throw new Error(ERRORS.isPrivateNotValidate);
+        } else {
+          task.isPrivate = isPrivate;
+        }
+      }
 
       return true;
     } catch (error) {
