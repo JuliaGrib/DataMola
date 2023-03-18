@@ -35,7 +35,6 @@ class Comment {
   }
 
   static validateComment(com) {
-    console.log(com);
     try {
       if (!Object.keys(com).length) {
         return true;
