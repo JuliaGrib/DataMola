@@ -127,6 +127,7 @@ class TaskCollection {
         throw new Error(ERRORS.taskNotDel);
       }
 
+      Helper.showMessages(INFO.removeSuccess);
       return true;
     } catch (error) {
       console.error(error);
@@ -217,6 +218,7 @@ class TaskCollection {
 
       this._myCollection.push(task);
 
+      Helper.showMessages(INFO.addSuccess);
       return true;
     } catch (error) {
       console.error(error);
@@ -299,6 +301,7 @@ class TaskCollection {
         }
       }
 
+      Helper.showMessages(INFO.editSuccess);
       return true;
     } catch (error) {
       console.error(error);
