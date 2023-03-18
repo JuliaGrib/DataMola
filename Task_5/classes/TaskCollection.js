@@ -59,7 +59,11 @@ class TaskCollection {
     return this._myCollection.find((task) => task.id === id);
   }
 
-  getTask(id) {
+  _isValidUserInTask(id) {
+    return this.getTask(id).assignee === this.user;
+  }
+
+  get(id) {
     try {
       if (!Helper.isValidTypeId(id)) {
         throw new Error(ERRORS.invalidValue);
@@ -79,7 +83,7 @@ class TaskCollection {
     }
   }
 
-  removeTask(taskId) {
+  remove(taskId) {
     try {
       if (!Helper.isValidTypeId(taskId)) {
         throw new Error(ERRORS.invalidValue);
@@ -89,18 +93,18 @@ class TaskCollection {
         throw new Error(ERRORS.taskNotFound);
       }
 
-      if (!isValidUser(taskId)) {
+      if (!this._isValidUserInTask(taskId)) {
         throw new Error(ERRORS.userValidation);
       }
 
-      const initLength = tasks.length;
-      tasks = tasks.filter(({ id, assignee }) => {
-        if (!(taskId === id && assignee === user.name)) {
+      const initLength = this._myCollection.length;
+      this.myCollection = this._myCollection.filter(({ id, assignee }) => {
+        if (!(taskId === id && assignee === this.user)) {
           return true;
         }
       });
 
-      if (initLength === tasks.length) {
+      if (initLength === this._myCollection.length) {
         throw new Error(ERRORS.taskNotDel);
       }
 
