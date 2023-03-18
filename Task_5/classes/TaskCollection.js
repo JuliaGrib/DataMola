@@ -19,6 +19,42 @@ class TaskCollection {
     this.addAll(this._myCollection);
   }
 
+  get user() {
+    return this._user;
+  }
+
+  set user(value) {
+    this._user = value;
+  }
+
+  get myCmyCollection() {
+    return this._myCollection;
+  }
+
+  set myCollection(value) {
+    this._myCollection = value;
+  }
+
+  addAll(arr) {
+    const notValidArr = [];
+    this.myCollection = arr.filter((task) => {
+      if (Task.validateTask(task)) {
+        return true;
+      } else {
+        notValidArr.push(task);
+      }
+    });
+
+    Helper.showMessages(INFO.notValidateTask, String(notValidArr.length));
+    console.log(notValidArr);
+    return notValidArr;
+  }
+
+  clear() {
+    this.myCollection = [];
+    Helper.showMessages(INFO.clearCollection);
+  }
+
   _findTaskById(id) {
     return this._myCollection.find((task) => task.id === id);
   }
@@ -43,38 +79,35 @@ class TaskCollection {
     }
   }
 
-  addAll(arr) {
-    const notValidArr = [];
-    this._myCollection = arr.filter((task) => {
-      if (Task.validateTask(task)) {
-        return true;
-      } else {
-        notValidArr.push(task);
+  removeTask(taskId) {
+    try {
+      if (!Helper.isValidTypeId(taskId)) {
+        throw new Error(ERRORS.invalidValue);
       }
-    });
 
-    console.log(notValidArr);
-    return notValidArr;
-  }
+      if (!this._findTaskById(taskId)) {
+        throw new Error(ERRORS.taskNotFound);
+      }
 
-  clear() {
-    this.myCollection = [];
-    Helper.showMessages(INFO.clearCollection);
-  }
+      if (!isValidUser(taskId)) {
+        throw new Error(ERRORS.userValidation);
+      }
 
-  get user() {
-    return this._user;
-  }
+      const initLength = tasks.length;
+      tasks = tasks.filter(({ id, assignee }) => {
+        if (!(taskId === id && assignee === user.name)) {
+          return true;
+        }
+      });
 
-  set user(value) {
-    this._user = value;
-  }
+      if (initLength === tasks.length) {
+        throw new Error(ERRORS.taskNotDel);
+      }
 
-  get myCmyCollection() {
-    return this._myCollection;
-  }
-
-  set myCollection(value) {
-    this._myCollection = value;
+      return true;
+    } catch (error) {
+      console.error(error);
+      return false;
+    }
   }
 }

@@ -24,6 +24,7 @@ const ERRORS = {
 
 const INFO = {
   clearCollection: 'Коллекция успешно очищена',
+  notValidateTask: 'Количество тасков, не прошедших проверку:',
 };
 
 const TASK_STATUS = {

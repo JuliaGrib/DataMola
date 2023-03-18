@@ -7,7 +7,7 @@ class Helper {
     return typeof id === 'string';
   }
 
-  static showMessages(mes) {
-    console.log('%c%s', 'color: green; font-weight: bold', mes);
+  static showMessages(mes, count = null) {
+    console.log('%c%s', 'color: green; font-weight: bold', mes, count || '');
   }
 }
