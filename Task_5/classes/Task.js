@@ -1,21 +1,27 @@
 class Task {
   _id;
-  _date;
+  _createdAt;
 
-  constructor(name, description, assignee, status, priority, isPrivate) {
-    this.id = this._generateId();
+  constructor(
+    id,
+    name,
+    description,
+    createdAt,
+    assignee,
+    status,
+    priority,
+    isPrivate,
+    comments
+  ) {
+    this._id = id;
     this.name = name;
     this.description = description;
     this.assignee = assignee;
     this.status = status;
     this.priority = priority;
     this.isPrivate = isPrivate;
-    this.date = new Date();
-    this.comment = [];
-  }
-
-  _generateId() {
-    return String(new Date().getTime());
+    this._createdAt = createdAt;
+    this.comments = comments;
   }
 
   get id() {
@@ -26,17 +32,17 @@ class Task {
     this._id = value;
   }
 
-  get date() {
-    return this._date;
+  get createdAt() {
+    return this._createdAt;
   }
 
-  set date(value) {
-    this._date = value;
+  set createdAt(value) {
+    this._createdAt = value;
   }
 
   static validateTask(task) {
     try {
-      if (typeof task !== 'object' && task === null && Array.isArray(task)) {
+      if (Helper.checkerArray(task)) {
         throw new Error(ERRORS.taskNotObject);
       }
 
@@ -57,7 +63,7 @@ class Task {
         }
       }
 
-      for (key in task) {
+      for (const key in task) {
         if (!validateObj[key](task[key])) {
           throw new Error(ERRORS.valuesNotValidate);
         }

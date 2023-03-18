@@ -34,9 +34,9 @@ class Comment {
     this._author = value;
   }
 
-  validateComment(com) {
+  static validateComment(com) {
     try {
-      if (typeof com !== 'object' || com === null || Array.isArray(com)) {
+      if (!Helper.checkerArray(com)) {
         throw new Error(ERRORS.invalidValue);
       }
 
