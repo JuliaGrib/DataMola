@@ -305,4 +305,34 @@ class TaskCollection {
       return false;
     }
   }
+
+  addComment(idTask, text) {
+    try {
+      if (!Helper.isValidTypeId(idTask) || !this._findTaskById(idTask)) {
+        throw new Error(ERRORS.taskNotFound);
+      }
+
+      if (!validateObj.description(text)) {
+        throw new Error(ERRORS.descriptionNotValidate);
+      }
+
+      const com = new Comment(
+        String(new Date().valueOf()),
+        text,
+        new Date(),
+        this.user
+      );
+
+      if (!Comment.validateComment(com)) {
+        throw new Error(ERRORS.valuesNotValidate);
+      }
+
+      this._findTaskById(idTask).comments.push(com);
+
+      return true;
+    } catch (error) {
+      console.error(error);
+      return false;
+    }
+  }
 }

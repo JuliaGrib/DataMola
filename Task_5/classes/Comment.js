@@ -1,13 +1,13 @@
 class Comment {
   _id;
-  _date;
+  _createdAt;
   _author;
 
-  constructor(idTask, text) {
-    this.id = this._generateId();
+  constructor(id, text, date, author) {
+    this.id = id;
     this.text = text;
-    this.date = new Date();
-    this.comment = [];
+    this.createdAt = date;
+    this.author = author;
   }
 
   get id() {
@@ -18,12 +18,12 @@ class Comment {
     this._id = value;
   }
 
-  get date() {
-    return this._date;
+  get createdAt() {
+    return this._createdAt;
   }
 
-  set date(value) {
-    this._date = value;
+  set createdAt(value) {
+    this._createdAt = value;
   }
 
   get author() {
@@ -35,11 +35,8 @@ class Comment {
   }
 
   static validateComment(com) {
+    console.log(com);
     try {
-      if (!Helper.checkerArray(com)) {
-        throw new Error(ERRORS.invalidValue);
-      }
-
       if (!Object.keys(com).length) {
         return true;
       }
@@ -49,12 +46,12 @@ class Comment {
       }
 
       if (
-        !validateObj.id(com.id) ||
+        !validateObj._id(com.id) ||
         !validateObj.description(com.text) ||
-        !validateObj.createdAt(com.createdAt) ||
+        !validateObj._createdAt(com.createdAt) ||
         !validateObj.assignee(com.author)
       ) {
-        throw new Error(ERRORS.valuesNotValidate);
+        return false;
       }
 
       return true;
