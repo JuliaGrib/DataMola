@@ -41,10 +41,10 @@ class Comment {
       }
 
       if (
-        !validateObj._id(com.id) ||
-        !validateObj.description(com.text) ||
-        !validateObj._createdAt(com.createdAt) ||
-        !validateObj.assignee(com.author)
+        Helper.validateCommentValue('_id', com.id) ||
+        Helper.validateCommentValue('description', com.text) ||
+        Helper.validateCommentValue('_createdAt', com.createdAt) ||
+        Helper.validateCommentValue('assignee', com.author)
       ) {
         return false;
       }

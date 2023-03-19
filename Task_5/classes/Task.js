@@ -25,7 +25,7 @@ class Task {
   }
 
   _generateCom(comments) {
-    if (Array.isArray(comments) && comments.length === 0) {
+    if (Array.isArray(comments) && !comments.length) {
       return comments;
     }
     if (Array.isArray(comments) && comments.length > 0) {
@@ -58,8 +58,8 @@ class Task {
         throw new Error(ERRORS.taskNotObject);
       }
 
-      const validateObjKeys = Object.keys(validateObj).sort();
-      const taskKeys = Object.keys(task).sort();
+      const validateObjKeys = Helper.sortKeysInObj(validateObj);
+      const taskKeys = Helper.sortKeysInObj(task);
 
       if (!taskKeys.length) {
         throw new Error(ERRORS.emptyObject);
@@ -78,7 +78,6 @@ class Task {
       for (const key in task) {
         if (!validateObj[key](task[key])) {
           return false;
-          // throw new Error(ERRORS.valuesNotValidate);
         }
       }
       return true;

@@ -16,10 +16,25 @@ class Helper {
       return true;
     }
     if (Array.isArray(arrCom) && arrCom.length > 0) {
-      const commLength = arrCom.length;
-      arrCom = arrCom.filter((com) => Comment.validateComment(com));
+      const initComLength = arrCom.length;
+      const validateCommnets = arrCom.filter((com) =>
+        Comment.validateComment(com)
+      );
 
-      return commLength === arrCom.length ? true : false;
+      return initComLength === validateCommnets.length ? true : false;
     }
+  }
+
+  static generateId(arr) {
+    const taskIds = arr.map((task) => Number(task.id)).sort((a, b) => a - b);
+    return String(taskIds.at(-1) + 1);
+  }
+
+  static sortKeysInObj(obj) {
+    return Object.keys(obj).sort();
+  }
+
+  static validateCommentValue(key, value) {
+    return !validateObj[key](value);
   }
 }

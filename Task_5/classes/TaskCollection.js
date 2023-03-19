@@ -28,7 +28,7 @@ class TaskCollection {
       if (value === this._user) {
         throw new Error(ERRORS.sameName);
       }
-      if (typeof value !== 'string' || value.trim().length === 0) {
+      if (!value.trim().length) {
         throw new Error(ERRORS.invalidValue);
       }
 
@@ -49,18 +49,18 @@ class TaskCollection {
   }
 
   addAll(arr) {
-    const notValidArr = [];
+    const notValidTasks = [];
     this.myCollection = arr.filter((task) => {
       if (Task.validateTask(task)) {
         return true;
       } else {
-        notValidArr.push(task);
+        notValidTasks.push(task);
       }
     });
 
-    Helper.showMessages(INFO.notValidateTask, String(notValidArr.length));
-    console.log(notValidArr);
-    return notValidArr;
+    Helper.showMessages(INFO.notValidateTask, String(notValidTasks.length));
+    console.log(notValidTasks);
+    return notValidTasks;
   }
 
   clear() {
@@ -78,13 +78,6 @@ class TaskCollection {
 
   _isValidUserInTask(id) {
     return this.get(id).assignee === this.user;
-  }
-
-  _generateId() {
-    const taskIds = this._myCollection
-      .map((task) => Number(task.id))
-      .sort((a, b) => a - b);
-    return String(taskIds.at(-1) + 1);
   }
 
   get(id) {
@@ -217,7 +210,7 @@ class TaskCollection {
       }
 
       const task = new Task(
-        this._generateId(),
+        Helper.generateId(this._myCollection),
         name,
         description,
         new Date(),
