@@ -21,7 +21,7 @@ class Helper {
         Comment.validateComment(com)
       );
 
-      return initComLength === validateCommnets.length ? true : false;
+      return initComLength === validateCommnets.length;
     }
   }
 

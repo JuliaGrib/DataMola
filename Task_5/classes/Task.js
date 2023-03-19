@@ -28,7 +28,7 @@ class Task {
     if (Array.isArray(comments) && !comments.length) {
       return comments;
     }
-    if (Array.isArray(comments) && comments.length > 0) {
+    if (Array.isArray(comments) && comments.length) {
       return comments.map(
         ({ id, text, createdAt, author }) =>
           new Comment(id, text, createdAt, author)
