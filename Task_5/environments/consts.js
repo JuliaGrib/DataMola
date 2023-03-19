@@ -137,5 +137,5 @@ const validateObj = {
       value === TASK_PRIORITY.medium ||
       value === TASK_PRIORITY.low),
   isPrivate: (value) => typeof value === 'boolean',
-  comments: (value) => Array.isArray(value),
+  comments: (value) => Helper.checkCommentsArray(value),
 };

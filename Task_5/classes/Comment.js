@@ -36,10 +36,6 @@ class Comment {
 
   static validateComment(com) {
     try {
-      if (!Object.keys(com).length) {
-        return true;
-      }
-
       if (Object.keys(com).length !== MAX_LENGTH.com) {
         throw new Error(ERRORS.lengthNotValidate);
       }

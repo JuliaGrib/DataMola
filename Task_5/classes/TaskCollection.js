@@ -1,5 +1,5 @@
 class TaskCollection {
-  _user = '';
+  _user = 'Julia';
 
   constructor(db) {
     this._myCollection = db.map(

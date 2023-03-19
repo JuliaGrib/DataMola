@@ -10,4 +10,16 @@ class Helper {
   static showMessages(mes, count = null) {
     console.log('%c%s', 'color: green; font-weight: bold', mes, count || '');
   }
+
+  static checkCommentsArray(com) {
+    if (Array.isArray(com) && com.length === 0) {
+      return true;
+    }
+    if (Array.isArray(com) && com.length > 0) {
+      const commLength = com.length;
+      com = com.filter((com) => Comment.validateComment(com));
+
+      return commLength === com.length ? true : false;
+    }
+  }
 }

@@ -13,7 +13,7 @@ let tasks = [
     isPrivate: false,
     comments: [
       {
-        id: '912',
+        id: 5,
         text: 'Just do it!',
         createdAt: new Date('2023-02-11T15:00:00'),
         author: 'Maksim',

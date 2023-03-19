@@ -21,7 +21,19 @@ class Task {
     this.priority = priority;
     this.isPrivate = isPrivate;
     this._createdAt = createdAt;
-    this.comments = comments;
+    this.comments = this._generateCom(comments);
+  }
+
+  _generateCom(comments) {
+    if (Array.isArray(comments) && comments.length === 0) {
+      return comments;
+    }
+    if (Array.isArray(comments) && comments.length > 0) {
+      return comments.map(
+        ({ id, text, createdAt, author }) =>
+          new Comment(id, text, createdAt, author)
+      );
+    }
   }
 
   get id() {
