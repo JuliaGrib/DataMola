@@ -50,6 +50,12 @@ const MAX_LENGTH = {
   com: 4,
 };
 
+const TIME = {
+  dayEndHour: 23,
+  dayEndMin: 59,
+  dayStart: 00,
+};
+
 const KEYS = {
   name: 'name',
   description: 'description',

@@ -174,12 +174,12 @@ class TaskCollection {
           }
           if (key === KEYS.dateFrom) {
             let date = new Date(filterConfig[key]);
-            date.setHours(00, 00, 00);
+            date.setHours(TIME.dayStart, TIME.dayStart, TIME.dayStart);
             return Date.parse(elem.createdAt) >= Date.parse(date);
           }
           if (key === KEYS.dateTo) {
             let date = new Date(filterConfig[key]);
-            date.setHours(23, 59, 59);
+            date.setHours(TIME.dayEndHour, TIME.dayEndMin, TIME.dayEndMin);
             return Date.parse(elem.createdAt) <= Date.parse(date);
           }
         });
