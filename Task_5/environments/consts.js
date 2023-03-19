@@ -29,6 +29,7 @@ const INFO = {
   addSuccess: 'Таск успешно добавлен',
   removeSuccess: 'Таск успешно удален',
   userChange: 'Пользователь успешно изменен',
+  addCommentSuccess: 'Комментарий успешно добавлен',
 };
 
 const TASK_STATUS = {

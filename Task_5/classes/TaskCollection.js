@@ -173,10 +173,14 @@ class TaskCollection {
             return elem[key] === filterConfig[key];
           }
           if (key === KEYS.dateFrom) {
-            return Date.parse(elem.createdAt) >= Date.parse(filterConfig[key]);
+            let date = new Date(filterConfig[key]);
+            date.setHours(00, 00, 00);
+            return Date.parse(elem.createdAt) >= Date.parse(date);
           }
           if (key === KEYS.dateTo) {
-            return Date.parse(elem.createdAt) <= Date.parse(filterConfig[key]);
+            let date = new Date(filterConfig[key]);
+            date.setHours(23, 59, 59);
+            return Date.parse(elem.createdAt) <= Date.parse(date);
           }
         });
       }
@@ -346,6 +350,7 @@ class TaskCollection {
 
       this._findTaskById(idTask).comments.push(com);
 
+      Helper.showMessages(INFO.addCommentSuccess);
       return true;
     } catch (error) {
       console.error(error);

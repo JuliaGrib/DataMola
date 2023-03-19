@@ -13,7 +13,7 @@ let tasks = [
     isPrivate: false,
     comments: [
       {
-        id: 5,
+        id: '5',
         text: 'Just do it!',
         createdAt: new Date('2023-02-11T15:00:00'),
         author: 'Maksim',
@@ -402,5 +402,24 @@ let tasks = [
     priority: 'Low',
     isPrivate: false,
     comments: [],
+  },
+
+  {
+    id: '555',
+    name: 'Таск с невалидным комментом',
+    description: 'Таск с невалидным комментом',
+    createdAt: new Date('2023-02-05T09:10:00'),
+    assignee: 'Julia',
+    status: 'In progress',
+    priority: 'Low',
+    isPrivate: false,
+    comments: [
+      {
+        id: undefined,
+        text: 'This will help you',
+        createdAt: new Date('2023-02-05T09:10:00'),
+        author: 'Maksim',
+      },
+    ],
   },
 ];

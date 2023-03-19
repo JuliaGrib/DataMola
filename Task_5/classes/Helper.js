@@ -11,15 +11,15 @@ class Helper {
     console.log('%c%s', 'color: green; font-weight: bold', mes, count || '');
   }
 
-  static checkCommentsArray(com) {
-    if (Array.isArray(com) && com.length === 0) {
+  static checkCommentsArray(arrCom) {
+    if (Array.isArray(arrCom) && arrCom.length === 0) {
       return true;
     }
-    if (Array.isArray(com) && com.length > 0) {
-      const commLength = com.length;
-      com = com.filter((com) => Comment.validateComment(com));
+    if (Array.isArray(arrCom) && arrCom.length > 0) {
+      const commLength = arrCom.length;
+      arrCom = arrCom.filter((com) => Comment.validateComment(com));
 
-      return commLength === com.length ? true : false;
+      return commLength === arrCom.length ? true : false;
     }
   }
 }
