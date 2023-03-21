@@ -1,0 +1,38 @@
+@import 'variables.css';
+
+html {
+  font-size: 16px;
+}
+
+body {
+  padding: var(--rem-l);
+  background: var(--main-color);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+table {
+  padding: var(--rem-m);
+  border-spacing: 0;
+  border-radius: var(--rem-s);
+  background-color: var(--main-color-light);
+  color: var(--main-color-darker);
+  box-shadow: var(--box-shadow-main);
+}
+
+td,
+th {
+  padding: var(--rem-s);
+  border: 0.0001rem solid var(--main-color-lighter);
+  text-align: center;
+  cursor: pointer;
+}
+
+td:hover,
+th:hover {
+  background-color: var(--main-color);
+  transition: 0.8s;
+}
+
+th {
+  background-color: var(--main-color-dark);
+}
