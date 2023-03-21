@@ -28,7 +28,7 @@ class TaskCollection {
       if (value === this._user) {
         throw new Error(ERRORS.sameName);
       }
-      if (!value.trim().length) {
+      if (!value.trim()) {
         throw new Error(ERRORS.invalidValue);
       }
 
@@ -144,7 +144,7 @@ class TaskCollection {
         throw new Error(ERRORS.invalidValue);
       }
 
-      let result = [...this.myCmyCollection].sort(
+      let result = [...this.myCollection].sort(
         (a, b) => Date.parse(a.createdAt) - Date.parse(b.createdAt)
       );
 
@@ -245,7 +245,7 @@ class TaskCollection {
         throw new Error(ERRORS.userValidation);
       }
       if (arguments.length <= 1) {
-        throw new Error(ERRORS.countAgrumentsNotValidate);
+        throw new Error(ERRORS.countArgumentsNotValidate);
       }
 
       if (!Helper.isValidTypeId(id)) {

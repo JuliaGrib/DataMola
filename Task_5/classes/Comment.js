@@ -40,12 +40,7 @@ class Comment {
         throw new Error(ERRORS.lengthNotValidate);
       }
 
-      if (
-        Helper.validateCommentValue('_id', com.id) ||
-        Helper.validateCommentValue('description', com.text) ||
-        Helper.validateCommentValue('_createdAt', com.createdAt) ||
-        Helper.validateCommentValue('assignee', com.author)
-      ) {
+      if (Helper.validateComment(com)) {
         return false;
       }
 
