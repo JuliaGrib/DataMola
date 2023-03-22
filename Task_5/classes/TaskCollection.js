@@ -3,7 +3,7 @@ class TaskCollection {
 
   constructor(db) {
     try {
-      if (!Array.isArray(db)) {
+      if (!Helper.checkerArray(db)) {
         throw new Error('Нет объекта');
       }
       this._myCollection = db.map(
