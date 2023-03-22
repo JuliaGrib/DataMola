@@ -20,6 +20,7 @@ const ERRORS = {
   countArgumentsNotValidate: 'Number of expected arguments does not match',
   sameName: 'The entered name must not be the same as the previous one.',
   userValidation: 'No rights to edit (User does not match)',
+  emptyDB: 'Database not received',
 };
 
 const INFO = {

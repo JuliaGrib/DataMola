@@ -2,21 +2,29 @@ class TaskCollection {
   _user = 'Julia';
 
   constructor(db) {
-    this._myCollection = db.map(
-      (elem) =>
-        new Task(
-          elem.id,
-          elem.name,
-          elem.description,
-          elem.createdAt,
-          elem.assignee,
-          elem.status,
-          elem.priority,
-          elem.isPrivate,
-          elem.comments
-        )
-    );
-    this.addAll(this._myCollection);
+    try {
+      if (!Array.isArray(db)) {
+        throw new Error('Нет объекта');
+      }
+      this._myCollection = db.map(
+        (elem) =>
+          new Task(
+            elem.id,
+            elem.name,
+            elem.description,
+            elem.createdAt,
+            elem.assignee,
+            elem.status,
+            elem.priority,
+            elem.isPrivate,
+            elem.comments
+          )
+      );
+      this.addAll(this._myCollection);
+    } catch (error) {
+      console.error(ERRORS.emptyDB);
+      return false;
+    }
   }
 
   get user() {
