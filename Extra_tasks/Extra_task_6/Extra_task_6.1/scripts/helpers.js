@@ -1,3 +1,6 @@
+const isValueNumber = (n) => typeof n == 'number' && isFinite(n);
+const isValuePositiveNumber = (n) => n > 0;
+const isCorrectMonth = (month) => month > 0 && month < 13;
 const getMonth = (year, month) => new Date(year, month - 1);
 const getFirstDay = (date) => date.getDate();
 const getLastDay = (year, month) => new Date(year, month, 0).getDate();
