@@ -144,7 +144,7 @@ class TaskCollection {
         throw new Error(ERRORS.invalidValue);
       }
 
-      let result = [...this.myCollection].sort(
+      let result = [...this._myCollection].sort(
         (a, b) => Date.parse(a.createdAt) - Date.parse(b.createdAt)
       );
 
@@ -301,7 +301,7 @@ class TaskCollection {
         }
       }
 
-      if (isPrivate) {
+      if (isPrivate !== null) {
         if (!validateObj.description(isPrivate)) {
           throw new Error(ERRORS.isPrivateNotValidate);
         } else {

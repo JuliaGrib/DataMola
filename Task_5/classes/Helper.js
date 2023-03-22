@@ -46,4 +46,8 @@ class Helper {
       Helper.validateCommentValue('assignee', comment.author)
     );
   }
+
+  static checkerArray(arr) {
+    return Boolean(Array.isArray(arr) && arr.length);
+  }
 }
