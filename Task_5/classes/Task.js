@@ -25,10 +25,10 @@ class Task {
   }
 
   _generateCom(comments) {
-    if (Array.isArray(comments) && !comments.length) {
+    if (!Helper.checkerArray(comments)) {
       return comments;
     }
-    if (Array.isArray(comments) && comments.length > 0) {
+    if (Helper.checkerArray(comments)) {
       return comments.map(
         ({ id, text, createdAt, author }) =>
           new Comment(id, text, createdAt, author)

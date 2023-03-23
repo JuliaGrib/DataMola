@@ -21,7 +21,7 @@ class Helper {
         Comment.validateComment(com)
       );
 
-      return initComLength === validateCommnets.length ? true : false;
+      return initComLength === validateCommnets.length;
     }
   }
 
@@ -36,5 +36,18 @@ class Helper {
 
   static validateCommentValue(key, value) {
     return !validateObj[key](value);
+  }
+
+  static validateComment(comment) {
+    return (
+      Helper.validateCommentValue('_id', comment.id) ||
+      Helper.validateCommentValue('description', comment.text) ||
+      Helper.validateCommentValue('_createdAt', comment.createdAt) ||
+      Helper.validateCommentValue('assignee', comment.author)
+    );
+  }
+
+  static checkerArray(arr) {
+    return Boolean(Array.isArray(arr) && arr.length);
   }
 }

@@ -17,9 +17,11 @@ const ERRORS = {
     'The number of properties in the object is not as expected',
   keysNotValidate: 'Properties not found',
   valuesNotValidate: 'Values not validated',
-  countAgrumentsNotValidate: 'Number of expected arguments does not match',
+  countArgumentsNotValidate: 'Number of expected arguments does not match',
   sameName: 'The entered name must not be the same as the previous one.',
   userValidation: 'No rights to edit (User does not match)',
+  emptyDB: 'Database not received',
+  objectNotFound: 'Object not found',
 };
 
 const INFO = {

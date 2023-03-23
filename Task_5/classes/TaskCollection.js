@@ -2,21 +2,29 @@ class TaskCollection {
   _user = 'Julia';
 
   constructor(db) {
-    this._myCollection = db.map(
-      (elem) =>
-        new Task(
-          elem.id,
-          elem.name,
-          elem.description,
-          elem.createdAt,
-          elem.assignee,
-          elem.status,
-          elem.priority,
-          elem.isPrivate,
-          elem.comments
-        )
-    );
-    this.addAll(this._myCollection);
+    try {
+      if (!Helper.checkerArray(db)) {
+        throw new Error(ERRORS.objectNotFound);
+      }
+      this._myCollection = db.map(
+        (elem) =>
+          new Task(
+            elem.id,
+            elem.name,
+            elem.description,
+            elem.createdAt,
+            elem.assignee,
+            elem.status,
+            elem.priority,
+            elem.isPrivate,
+            elem.comments
+          )
+      );
+      this.addAll(this._myCollection);
+    } catch (error) {
+      console.error(ERRORS.emptyDB);
+      return false;
+    }
   }
 
   get user() {
@@ -28,7 +36,7 @@ class TaskCollection {
       if (value === this._user) {
         throw new Error(ERRORS.sameName);
       }
-      if (!value.trim().length) {
+      if (!value.trim()) {
         throw new Error(ERRORS.invalidValue);
       }
 
@@ -144,7 +152,7 @@ class TaskCollection {
         throw new Error(ERRORS.invalidValue);
       }
 
-      let result = [...this.myCmyCollection].sort(
+      let result = [...this._myCollection].sort(
         (a, b) => Date.parse(a.createdAt) - Date.parse(b.createdAt)
       );
 
@@ -245,7 +253,7 @@ class TaskCollection {
         throw new Error(ERRORS.userValidation);
       }
       if (arguments.length <= 1) {
-        throw new Error(ERRORS.countAgrumentsNotValidate);
+        throw new Error(ERRORS.countArgumentsNotValidate);
       }
 
       if (!Helper.isValidTypeId(id)) {
@@ -301,7 +309,7 @@ class TaskCollection {
         }
       }
 
-      if (isPrivate) {
+      if (isPrivate !== null) {
         if (!validateObj.description(isPrivate)) {
           throw new Error(ERRORS.isPrivateNotValidate);
         } else {

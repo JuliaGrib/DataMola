@@ -1,1 +1,1 @@
-const test = new TaskCollection(tasks);
+const taskCollection = new TaskCollection(tasks);
