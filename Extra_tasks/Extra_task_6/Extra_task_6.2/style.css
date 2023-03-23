@@ -1,0 +1,11 @@
+html {
+  font-size: 20px;
+}
+
+ul:nth-child(1) {
+  font-size: 100%;
+}
+
+ul {
+  font-size: 90%;
+}
