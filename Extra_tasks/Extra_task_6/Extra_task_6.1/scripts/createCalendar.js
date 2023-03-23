@@ -19,16 +19,16 @@ function createCalendar(elem, year, month) {
       throw new Error(ERROR.notCorrectMonth);
     }
 
-    const firstDay = getFirstDay(getMonth(year, month));
-    const lastDay = getLastDay(year, month);
+    const firstMonthDay = getFirstDay(getMonth(year, month));
+    const lastMonthDay = getLastDay(year, month);
     const firstDayWeek = getfirstDayWeek(getMonth(year, month));
     const lastDayWeek = getLastDayWeek(year, month);
     const firstPlugArray = makePlugArray('', firstDayWeek - 1);
-    const lastPlugArray = makePlugArray('', 7 - lastDayWeek);
+    const lastPlugArray = makePlugArray('', DAYS.lastDay - lastDayWeek);
 
     const datesArray = [];
 
-    for (let i = firstDay; i <= lastDay; i++) {
+    for (let i = firstMonthDay; i <= lastMonthDay; i++) {
       datesArray.push(i);
     }
 
@@ -42,7 +42,7 @@ function createCalendar(elem, year, month) {
     let tableCols = '';
 
     for (let i = 0; i <= resultArray.length; i++) {
-      if (i % 7 === 0 && i !== 0) {
+      if (i % DAYS.lastDay === 0 && i !== 0) {
         tableRows += `<tr>${tableCols}</tr>`;
         tableCols = '';
       }
@@ -53,7 +53,7 @@ function createCalendar(elem, year, month) {
     <table class="table">
       <thead class="table__head">
         <tr>
-          <th class="table__title" colspan="7">${MONTH[month]}, ${year}</th>
+          <th class="table__title" colspan="${DAYS.lastDay}">${MONTH[month]}, ${year}</th>
         </tr>
         <tr>
         <th class="table__week">Mo</th>

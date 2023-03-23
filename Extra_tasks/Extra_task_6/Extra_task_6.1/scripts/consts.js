@@ -13,6 +13,11 @@ const MONTH = {
   12: 'December',
 };
 
+const DAYS = {
+  lastDay: 7,
+  maxMonth: 13,
+};
+
 const ERROR = {
   HTMLelementNotValidate: 'Передан не элемент HTML',
   valueNotANumber:

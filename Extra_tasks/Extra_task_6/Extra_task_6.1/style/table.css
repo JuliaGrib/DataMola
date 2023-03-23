@@ -8,7 +8,7 @@
 }
 
 .table__title {
-  padding: 0 0 var(--rem-l) 0;
+  padding-bottom: var(--rem-l);
   border: none;
   text-align: left;
   font-size: 1.25rem;
