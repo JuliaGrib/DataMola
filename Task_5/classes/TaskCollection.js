@@ -4,7 +4,7 @@ class TaskCollection {
   constructor(db) {
     try {
       if (!Helper.checkerArray(db)) {
-        throw new Error('Нет объекта');
+        throw new Error(ERRORS.objectNotFound);
       }
       this._myCollection = db.map(
         (elem) =>
