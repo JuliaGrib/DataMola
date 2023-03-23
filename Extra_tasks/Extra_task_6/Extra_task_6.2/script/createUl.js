@@ -4,24 +4,22 @@ const createUl = (arr) => {
       throw new Error(ERROR.childrenNotvalidate);
     }
 
-    let sum = '';
+    let liElements = '';
 
     arr.forEach((node) => {
       if (!VALIDATE.isValidateStr(node.value)) {
         throw new Error(ERROR.valueListNotValidate);
       }
-      sum += `<li>${node.value}</li>`;
+      liElements += `<li>${node.value}</li>`;
 
       if (!node.children) {
         return node.value;
       }
 
-      sum += createUl(node.children);
+      liElements += createUl(node.children);
     });
 
-    let ul = `<ul>${sum}</ul>`;
-
-    return ul;
+    return `<ul>${liElements}</ul>`;
   } catch (error) {
     console.error(error);
     return false;
