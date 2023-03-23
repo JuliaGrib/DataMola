@@ -4,6 +4,7 @@ const ERROR = {
   valueListNotValidate:
     'Я конечно не эксперт, но по моему тут должны быть только string',
   valueNotValidate: 'value not validate',
+  childrenNotvalidate: 'Children должен быть или [] или null',
 };
 
 const VALIDATE = {

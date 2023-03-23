@@ -1,6 +1,11 @@
 const createUl = (arr) => {
   try {
+    if (!VALIDATE.isValidateList(arr)) {
+      throw new Error(ERROR.childrenNotvalidate);
+    }
+
     let sum = '';
+
     arr.forEach((node) => {
       if (!VALIDATE.isValidateStr(node.value)) {
         throw new Error(ERROR.valueListNotValidate);
