@@ -1,11 +1,6 @@
-class HeaderView {
+class HeaderView extends View {
   constructor(id) {
-    this.containerSelector = id;
-    this.nodeElem = document.querySelector(`.${this.containerSelector}`);
-  }
-
-  showElem() {
-    console.log(this.nodeElem);
+    super(id);
   }
 
   display(user) {
