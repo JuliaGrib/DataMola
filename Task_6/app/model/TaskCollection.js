@@ -48,7 +48,7 @@ class TaskCollection {
     }
   }
 
-  get myCmyCollection() {
+  get myCollection() {
     return this._myCollection;
   }
 

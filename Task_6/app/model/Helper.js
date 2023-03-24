@@ -58,4 +58,8 @@ class Helper {
   static isHtmlNode(node) {
     return node instanceof HTMLElement;
   }
+
+  static isPrivate(value) {
+    return value ? 'Private' : 'Public';
+  }
 }
