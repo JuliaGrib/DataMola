@@ -33,14 +33,14 @@ class TaskCollection {
 
   set user(value) {
     try {
+      if (typeof value !== 'string') {
+        throw new Error(ERRORS.invalidValue);
+      }
       if (value === this._user) {
         throw new Error(ERRORS.sameName);
       }
-      if (!value.trim()) {
-        throw new Error(ERRORS.invalidValue);
-      }
 
-      this._user = value;
+      this._user = value || 'unknown';
       Helper.showMessages(INFO.userChange);
     } catch (error) {
       console.error(error);

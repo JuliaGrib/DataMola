@@ -4,7 +4,13 @@ class HeaderView extends View {
   }
 
   display(user) {
-    this.nodeElem.innerHTML = `
+    user === 'unknown'
+      ? (this.nodeElem.innerHTML = this._unauthorizedUser())
+      : (this.nodeElem.innerHTML = this._authorizedUser(user));
+  }
+
+  _authorizedUser(user) {
+    return `
     <div class="header__user">
     <div class="user-icon">
       <svg
@@ -64,5 +70,16 @@ class HeaderView extends View {
       />
     </svg>
   </div>`;
+  }
+
+  _unauthorizedUser() {
+    return `
+    <div class="header__login">
+    <a class="link" href="./registration.html">Sign up</a>
+    <button class="button button_primary" type="button">
+      Log in
+    </button>
+  </div>
+  `;
   }
 }
