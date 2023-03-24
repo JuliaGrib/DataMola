@@ -1,6 +1,6 @@
 'use sctict';
 
-let tasks = [
+let tasksDB = [
   {
     id: '21',
     name: 'Write well efficient code',
@@ -394,32 +394,5 @@ let tasks = [
     priority: 'Low',
     isPrivate: false,
     comments: [],
-  },
-
-  {
-    id: '222',
-    name: 'Modified some SQL queries',
-    priority: 'Low',
-    isPrivate: false,
-    comments: [],
-  },
-
-  {
-    id: '555',
-    name: 'Таск с невалидным комментом',
-    description: 'Таск с невалидным комментом',
-    createdAt: new Date('2023-02-05T09:10:00'),
-    assignee: 'Julia',
-    status: 'In progress',
-    priority: 'Low',
-    isPrivate: false,
-    comments: [
-      {
-        id: undefined,
-        text: 'This will help you',
-        createdAt: new Date('2023-02-05T09:10:00'),
-        author: 'Maksim',
-      },
-    ],
   },
 ];

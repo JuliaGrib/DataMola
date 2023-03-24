@@ -6,10 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" href="./assets/img/favicon.ico" type="image/x-icon" />
     <link rel="stylesheet" href="./assets/styles/style.css" />
-    <script defer src="../scripts/environments/consts.js"></script>
-    <script defer src="../scripts/environments/tasks.js"></script>
-    <script defer src="../scripts/app.js"></script>
-    <script defer src="../scripts/generateTask.js"></script>
+    <script defer src="../app/environments/consts.js"></script>
+    <script defer src="../app/environments/tasks.js"></script>
+    <script defer src="../app/model/Helper.js"></script>
+    <script defer src="../app/model/Comment.js"></script>
+    <script defer src="../app/model/Task.js"></script>
+    <script defer src="../app/model/TaskCollection.js"></script>
+    <script defer src="../app/view/HeaderView.js"></script>
+    <script defer src="../app/app.js"></script>
     <title>My desk</title>
   </head>
   <body>
@@ -26,7 +30,7 @@
               />
             </a>
             <nav class="header__nav">
-              <div class="header__user">
+              <!-- <div class="header__user">
                 <div class="user-icon">
                   <svg
                     class="user-icon__img"
@@ -84,7 +88,7 @@
                     fill="#333333"
                   />
                 </svg>
-              </div>
+              </div> -->
             </nav>
           </div>
         </div>
