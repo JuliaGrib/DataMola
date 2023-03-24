@@ -7,6 +7,10 @@ class Helper {
     return typeof id === 'string';
   }
 
+  static isEmptyStr(str) {
+    return str.trim() !== '';
+  }
+
   static showMessages(mes, count = null) {
     console.log('%c%s', 'color: green; font-weight: bold', mes, count || '');
   }
@@ -49,5 +53,9 @@ class Helper {
 
   static checkerArray(arr) {
     return Boolean(Array.isArray(arr) && arr.length);
+  }
+
+  static isHtmlNode(node) {
+    return node instanceof HTMLElement;
   }
 }

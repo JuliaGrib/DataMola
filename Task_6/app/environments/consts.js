@@ -22,6 +22,8 @@ const ERRORS = {
   userValidation: 'No rights to edit (User does not match)',
   emptyDB: 'Database not received',
   objectNotFound: 'Object not found',
+  onlyString: 'Use only string value',
+  nodeElemNotFound: 'HTML node not found',
 };
 
 const INFO = {
