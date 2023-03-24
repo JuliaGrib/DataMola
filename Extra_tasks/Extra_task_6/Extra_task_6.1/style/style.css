@@ -1,0 +1,12 @@
+@import 'variables.css';
+@import 'table.css';
+
+html {
+  font-size: 16px;
+}
+
+body {
+  padding: var(--rem-l);
+  background: var(--main-color);
+  font-family: Arial, Helvetica, sans-serif;
+}

@@ -1,0 +1,12 @@
+:root {
+  --main-color: #d9e7ff;
+  --main-color-dark: #d9e7ff6e;
+  --main-color-darker: #628ed2;
+  --main-color-light: #f5f8ff;
+  --main-color-lighter: #d2e6f34a;
+  --box-shadow-main: 0px 5px 10px 2px rgba(98, 142, 210, 0.2);
+  --rem: 1rem;
+  --rem-s: calc(var(--rem) * 0.5);
+  --rem-m: calc(var(--rem) * 1.25);
+  --rem-l: calc(var(--rem) * 1.5);
+}
