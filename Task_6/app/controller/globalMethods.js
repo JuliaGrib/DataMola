@@ -5,7 +5,7 @@ function setCurrentUser(user) {
     }
     tasks.user = user;
     headerView.display(tasks.user);
-    taskFeedView.display(tasks.myCollection, tasks.user);
+    taskFeedView.display(filterController.filterTasks(), tasks.user);
   } catch (error) {
     console.error(error);
   }
@@ -17,7 +17,7 @@ function removeTask(id) {
       throw new Error(ERRORS.onlyString);
     }
     tasks.remove(id);
-    taskFeedView.display(tasks.myCollection);
+    taskFeedView.display(filterController.filterTasks(), tasks.user);
   } catch (error) {
     console.error(error);
   }
@@ -55,7 +55,7 @@ function editTask(id, obj) {
       obj.isPrivate || null
     );
 
-    taskFeedView.display(tasks.myCollection, tasks.user);
+    taskFeedView.display(filterController.filterTasks(), tasks.user);
   } catch (error) {
     console.error(error);
   }
@@ -79,7 +79,7 @@ function addComment(id, text) {
     if (
       document.querySelector('main').classList.contains('main__template_task')
     ) {
-      taskFeedView.display(tasks.myCollection, tasks.user);
+      taskFeedView.display(filterController.filterTasks(), tasks.user);
     }
   } catch (error) {
     console.error(error);
@@ -95,5 +95,20 @@ function addTask(obj) {
     obj.priority,
     obj.isPrivate
   );
-  taskFeedView.display(tasks.myCollection, tasks.user);
+  taskFeedView.display(filterController.filterTasks(), tasks.user);
+}
+
+function showMoreToDo(page) {
+  filterController.pageToDo = page;
+  taskFeedView.display(filterController.filterTasks(), tasks.user);
+}
+
+function showMoreInProgress(page) {
+  filterController.pageInProgress = page;
+  taskFeedView.display(filterController.filterTasks(), tasks.user);
+}
+
+function showMoreComplete(page) {
+  filterController.pageComplete = page;
+  taskFeedView.display(filterController.filterTasks(), tasks.user);
 }

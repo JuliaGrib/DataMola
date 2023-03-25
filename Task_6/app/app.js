@@ -8,8 +8,9 @@ const headerView = new HeaderView('header__nav');
 headerView.display(tasks.user);
 const taskFeedView = new TaskFeedView('desk');
 const taskView = new TaskView('main');
+const filterController = new FilterController();
 
-taskFeedView.display(tasks.myCollection, tasks.user);
+taskFeedView.display(filterController.filterTasks(), tasks.user);
 
 let objTestForAddTask = {
   name: 'Test',

@@ -49,7 +49,9 @@ class TaskCollection {
   }
 
   get myCollection() {
-    return this._myCollection;
+    return this._myCollection.sort(
+      (a, b) => Date.parse(b.createdAt) - Date.parse(a.createdAt)
+    );
   }
 
   set myCollection(value) {
@@ -153,7 +155,7 @@ class TaskCollection {
       }
 
       let result = [...this._myCollection].sort(
-        (a, b) => Date.parse(a.createdAt) - Date.parse(b.createdAt)
+        (a, b) => Date.parse(b.createdAt) - Date.parse(a.createdAt)
       );
 
       for (const key in filterConfig) {
