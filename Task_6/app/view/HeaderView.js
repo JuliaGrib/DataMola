@@ -4,7 +4,7 @@ class HeaderView extends View {
   }
 
   display(user) {
-    user === 'unknown'
+    user === ''
       ? (this.nodeElem.innerHTML = this._unauthorizedUser())
       : (this.nodeElem.innerHTML = this._authorizedUser(user));
   }

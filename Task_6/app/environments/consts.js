@@ -19,7 +19,7 @@ const ERRORS = {
   valuesNotValidate: 'Values not validated',
   countArgumentsNotValidate: 'Number of expected arguments does not match',
   sameName: 'The entered name must not be the same as the previous one.',
-  userValidation: 'No rights to edit (User does not match)',
+  userValidation: 'No rights to edit/show',
   emptyDB: 'Database not received',
   objectNotFound: 'Object not found',
   onlyString: 'Use only string value',

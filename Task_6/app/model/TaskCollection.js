@@ -1,5 +1,5 @@
 class TaskCollection {
-  _user = '';
+  _user = 'Julia';
 
   constructor(db) {
     try {
@@ -40,7 +40,7 @@ class TaskCollection {
         throw new Error(ERRORS.sameName);
       }
 
-      this._user = value || 'unknown';
+      this._user = value || '';
       Helper.showMessages(INFO.userChange);
     } catch (error) {
       console.error(error);

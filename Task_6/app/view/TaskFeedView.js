@@ -3,7 +3,7 @@ class TaskFeedView extends View {
     super(id);
   }
 
-  display(tasks) {
+  display(tasks, user) {
     this.nodeElem.innerHTML = `
     <div class="container">
         <div class="desk__wrap">
@@ -11,7 +11,10 @@ class TaskFeedView extends View {
                 <h2 class="title title_col">To do</h2>
                 <div class="col__content">
                     <div class="col__wrap">
-                    ${this._createTask(this._filterStatusTasks(tasks, 'To Do'))}
+                    ${this._createTask(
+                      this._filterStatusTasks(tasks, 'To Do'),
+                      user
+                    )}
                     </div>
                 </div>
                 <button class="button button_show-more" type="button">
@@ -23,7 +26,8 @@ class TaskFeedView extends View {
                 <div class="col__content">
                     <div class="col__wrap">
                     ${this._createTask(
-                      this._filterStatusTasks(tasks, 'In progress')
+                      this._filterStatusTasks(tasks, 'In progress'),
+                      user
                     )}
                     </div>
                 </div>
@@ -36,7 +40,8 @@ class TaskFeedView extends View {
                 <div class="col__content">
                     <div class="col__wrap">
                     ${this._createTask(
-                      this._filterStatusTasks(tasks, 'Complete')
+                      this._filterStatusTasks(tasks, 'Complete'),
+                      user
                     )}
                     </div>
                 </div>
@@ -53,14 +58,13 @@ class TaskFeedView extends View {
     return tasks.filter(({ status }) => status === statusTask);
   }
 
-  _createTask(tasks) {
+  _createTask(tasks, user) {
     let tasksNode = '';
-    tasks.forEach((task) => (tasksNode += this._makeCard(task)));
+    tasks.forEach((task) => (tasksNode += this._makeCard(task, user)));
     return tasksNode;
   }
 
-  _makeCard(task) {
-    // console.log(String(obj.createdAt).slice(0, 15));
+  _makeCard(task, user) {
     return `
     <article class="card">
     <div class="card__header">
@@ -68,12 +72,7 @@ class TaskFeedView extends View {
             ${task.priority}
         </span>
         <div class="card__tools">
-            <a href="#" class="icon icon_change">
-                ${ICONS.icon_change}
-            </a>
-            <a href="#" class="icon icon_del">
-                ${ICONS.icon_del}
-            </a>
+            ${this._cardTools(user)}
         </div>
     </div>
     <div class="card__info">
@@ -110,5 +109,16 @@ class TaskFeedView extends View {
     </div>
 </article>
       `;
+  }
+
+  _cardTools(user) {
+    return user === ''
+      ? ''
+      : `<a href="#" class="icon icon_change">
+    ${ICONS.icon_change}
+</a>
+<a href="#" class="icon icon_del">
+    ${ICONS.icon_del}
+</a>`;
   }
 }

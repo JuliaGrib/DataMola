@@ -5,6 +5,7 @@ function setCurrentUser(user) {
     }
     tasks.user = user;
     headerView.display(tasks.user);
+    taskFeedView.display(tasks.myCollection, tasks.user);
   } catch (error) {
     console.error(error);
   }
@@ -27,6 +28,11 @@ function showTask(id) {
     if (!Helper.isValidTypeId(id)) {
       throw new Error(ERRORS.onlyString);
     }
+
+    if (tasks.user === '') {
+      throw new Error(ERRORS.userValidation);
+    }
+
     taskView.display(tasks.get(id));
   } catch (error) {
     console.error(error);
@@ -56,18 +62,26 @@ function editTask(id, obj) {
 }
 
 function addComment(id, text) {
-  tasks.addComment(id, text);
+  try {
+    if (!Helper.isValidTypeId(id)) {
+      throw new Error(ERRORS.onlyString);
+    }
 
-  if (
-    document
-      .querySelector('main')
-      .classList.contains('main__template_task-page')
-  ) {
-    showTask(id);
-  }
-  if (
-    document.querySelector('main').classList.contains('main__template_task')
-  ) {
-    taskFeedView.display(tasks.myCollection);
+    tasks.addComment(id, text);
+
+    if (
+      document
+        .querySelector('main')
+        .classList.contains('main__template_task-page')
+    ) {
+      showTask(id);
+    }
+    if (
+      document.querySelector('main').classList.contains('main__template_task')
+    ) {
+      taskFeedView.display(tasks.myCollection);
+    }
+  } catch (error) {
+    console.error(error);
   }
 }
