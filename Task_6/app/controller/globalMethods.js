@@ -79,7 +79,7 @@ function addComment(id, text) {
     if (
       document.querySelector('main').classList.contains('main__template_task')
     ) {
-      taskFeedView.display(tasks.myCollection);
+      taskFeedView.display(tasks.myCollection, tasks.user);
     }
   } catch (error) {
     console.error(error);
