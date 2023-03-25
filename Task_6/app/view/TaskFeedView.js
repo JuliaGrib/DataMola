@@ -59,13 +59,13 @@ class TaskFeedView extends View {
     return tasksNode;
   }
 
-  _makeCard(obj) {
+  _makeCard(task) {
     // console.log(String(obj.createdAt).slice(0, 15));
     return `
     <article class="card">
     <div class="card__header">
-        <span class="priority priority_${obj.priority.toLowerCase()}">
-            ${obj.priority}
+        <span class="priority priority_${task.priority.toLowerCase()}">
+            ${task.priority}
         </span>
         <div class="card__tools">
             <a href="#" class="icon icon_change">
@@ -77,23 +77,23 @@ class TaskFeedView extends View {
         </div>
     </div>
     <div class="card__info">
-        <h3 class="title title_card">${obj.name}</h3>
+        <h3 class="title title_card">${task.name}</h3>
         <p class="card__descr">
-          ${obj.description}
+          ${task.description}
         </p>
         <div class="card__additional">
             <span class="card__assignee">
-              ${obj.assignee}
+              ${task.assignee}
             </span>
             <span class="card__line"></span>
             <span class="card__privacy">
-                ${Helper.isPrivate(obj.isPrivate)}
+                ${Helper.isPrivate(task.isPrivate)}
             </span>
             <span class="card__line"></span>
             <div class="card__comments">
                   ${ICONS.icon_com}
                 <span class="card__comment-count">
-                  ${obj.comments.length}
+                  ${task.comments.length}
                 </span>
             </div>
         </div>
@@ -101,11 +101,11 @@ class TaskFeedView extends View {
     <hr class="line line_dashed">
     <div class="card__footer">
         <span class="card__date">
-            <time datetime="${obj.createdAt}">
-            ${String(obj.createdAt).slice(0, 15)}</time>
+            <time datetime="${task.createdAt}">
+            ${String(task.createdAt).slice(0, 15)}</time>
         </span>
         <span class="card__status">
-            ${obj.status}
+            ${task.status}
         </span>
     </div>
 </article>

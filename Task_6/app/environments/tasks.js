@@ -30,7 +30,14 @@ let tasksDB = [
     status: 'To Do',
     priority: 'Hight',
     isPrivate: true,
-    comments: [],
+    comments: [
+      {
+        id: '5',
+        text: 'Just do it!',
+        createdAt: new Date('2023-02-11T15:00:00'),
+        author: 'Maksim',
+      },
+    ],
   },
   {
     id: '10',
@@ -60,7 +67,14 @@ let tasksDB = [
     status: 'To Do',
     priority: 'Medium',
     isPrivate: false,
-    comments: [],
+    comments: [
+      {
+        id: '5',
+        text: 'Just do it!',
+        createdAt: new Date('2023-02-11T15:00:00'),
+        author: 'Maksim',
+      },
+    ],
   },
   {
     id: '1',
@@ -71,7 +85,14 @@ let tasksDB = [
     status: 'Complete',
     priority: 'Medium',
     isPrivate: false,
-    comments: [],
+    comments: [
+      {
+        id: '5',
+        text: 'Just do it!',
+        createdAt: new Date('2023-02-11T15:00:00'),
+        author: 'Maksim',
+      },
+    ],
   },
   {
     id: '24',
@@ -83,7 +104,14 @@ let tasksDB = [
     status: 'To Do',
     priority: 'Low',
     isPrivate: true,
-    comments: [],
+    comments: [
+      {
+        id: '5',
+        text: 'Just do it!',
+        createdAt: new Date('2023-02-11T15:00:00'),
+        author: 'Maksim',
+      },
+    ],
   },
   {
     id: '25',
@@ -113,7 +141,14 @@ let tasksDB = [
     status: 'In progress',
     priority: 'Hight',
     isPrivate: true,
-    comments: [],
+    comments: [
+      {
+        id: '5',
+        text: 'Just do it!',
+        createdAt: new Date('2023-02-11T15:00:00'),
+        author: 'Maksim',
+      },
+    ],
   },
   {
     id: '26',
@@ -124,7 +159,14 @@ let tasksDB = [
     status: 'To Do',
     priority: 'Medium',
     isPrivate: true,
-    comments: [],
+    comments: [
+      {
+        id: '5',
+        text: 'Just do it!',
+        createdAt: new Date('2023-02-11T15:00:00'),
+        author: 'Maksim',
+      },
+    ],
   },
   {
     id: '27',
@@ -135,7 +177,14 @@ let tasksDB = [
     status: 'To Do',
     priority: 'Hight',
     isPrivate: false,
-    comments: [],
+    comments: [
+      {
+        id: '5',
+        text: 'Just do it!',
+        createdAt: new Date('2023-02-11T15:00:00'),
+        author: 'Maksim',
+      },
+    ],
   },
   {
     id: '28',
@@ -147,7 +196,14 @@ let tasksDB = [
     status: 'To Do',
     priority: 'Hight',
     isPrivate: false,
-    comments: [],
+    comments: [
+      {
+        id: '5',
+        text: 'Just do it!',
+        createdAt: new Date('2023-02-11T15:00:00'),
+        author: 'Maksim',
+      },
+    ],
   },
   {
     id: '2',
@@ -178,7 +234,14 @@ let tasksDB = [
     status: 'Complete',
     priority: 'Low',
     isPrivate: false,
-    comments: [],
+    comments: [
+      {
+        id: '5',
+        text: 'Just do it!',
+        createdAt: new Date('2023-02-11T15:00:00'),
+        author: 'Maksim',
+      },
+    ],
   },
   {
     id: '4',
@@ -190,7 +253,14 @@ let tasksDB = [
     status: 'Complete',
     priority: 'Medium',
     isPrivate: true,
-    comments: [],
+    comments: [
+      {
+        id: '5',
+        text: 'Just do it!',
+        createdAt: new Date('2023-02-11T15:00:00'),
+        author: 'Maksim',
+      },
+    ],
   },
   {
     id: '29',
@@ -202,7 +272,14 @@ let tasksDB = [
     status: 'To Do',
     priority: 'Medium',
     isPrivate: false,
-    comments: [],
+    comments: [
+      {
+        id: '5',
+        text: 'Just do it!',
+        createdAt: new Date('2023-02-11T15:00:00'),
+        author: 'Maksim',
+      },
+    ],
   },
   {
     id: '12',
@@ -214,7 +291,14 @@ let tasksDB = [
     status: 'In progress',
     priority: 'Low',
     isPrivate: false,
-    comments: [],
+    comments: [
+      {
+        id: '5',
+        text: 'Just do it!',
+        createdAt: new Date('2023-02-11T15:00:00'),
+        author: 'Maksim',
+      },
+    ],
   },
   {
     id: '30',
@@ -226,7 +310,14 @@ let tasksDB = [
     status: 'To Do',
     priority: 'Low',
     isPrivate: false,
-    comments: [],
+    comments: [
+      {
+        id: '5',
+        text: 'Just do it!',
+        createdAt: new Date('2023-02-11T15:00:00'),
+        author: 'Maksim',
+      },
+    ],
   },
   {
     id: '5',
@@ -238,7 +329,14 @@ let tasksDB = [
     status: 'Complete',
     priority: 'Hight',
     isPrivate: false,
-    comments: [],
+    comments: [
+      {
+        id: '5',
+        text: 'Just do it!',
+        createdAt: new Date('2023-02-11T15:00:00'),
+        author: 'Maksim',
+      },
+    ],
   },
   {
     id: '13',
@@ -249,7 +347,14 @@ let tasksDB = [
     status: 'In progress',
     priority: 'Medium',
     isPrivate: false,
-    comments: [],
+    comments: [
+      {
+        id: '5',
+        text: 'Just do it!',
+        createdAt: new Date('2023-02-11T15:00:00'),
+        author: 'Maksim',
+      },
+    ],
   },
   {
     id: '14',
@@ -279,7 +384,14 @@ let tasksDB = [
     status: 'Complete',
     priority: 'Low',
     isPrivate: false,
-    comments: [],
+    comments: [
+      {
+        id: '5',
+        text: 'Just do it!',
+        createdAt: new Date('2023-02-11T15:00:00'),
+        author: 'Maksim',
+      },
+    ],
   },
   {
     id: '15',
@@ -291,7 +403,14 @@ let tasksDB = [
     status: 'In progress',
     priority: 'Medium',
     isPrivate: true,
-    comments: [],
+    comments: [
+      {
+        id: '5',
+        text: 'Just do it!',
+        createdAt: new Date('2023-02-11T15:00:00'),
+        author: 'Maksim',
+      },
+    ],
   },
   {
     id: '16',
@@ -303,7 +422,14 @@ let tasksDB = [
     status: 'In progress',
     priority: 'Low',
     isPrivate: false,
-    comments: [],
+    comments: [
+      {
+        id: '5',
+        text: 'Just do it!',
+        createdAt: new Date('2023-02-11T15:00:00'),
+        author: 'Maksim',
+      },
+    ],
   },
   {
     id: '7',
@@ -315,7 +441,14 @@ let tasksDB = [
     status: 'Complete',
     priority: 'Hight',
     isPrivate: false,
-    comments: [],
+    comments: [
+      {
+        id: '5',
+        text: 'Just do it!',
+        createdAt: new Date('2023-02-11T15:00:00'),
+        author: 'Maksim',
+      },
+    ],
   },
   {
     id: '17',
@@ -346,7 +479,14 @@ let tasksDB = [
     status: 'Complete',
     priority: 'Medium',
     isPrivate: false,
-    comments: [],
+    comments: [
+      {
+        id: '5',
+        text: 'Just do it!',
+        createdAt: new Date('2023-02-11T15:00:00'),
+        author: 'Maksim',
+      },
+    ],
   },
   {
     id: '18',
@@ -358,7 +498,14 @@ let tasksDB = [
     status: 'In progress',
     priority: 'Low',
     isPrivate: true,
-    comments: [],
+    comments: [
+      {
+        id: '5',
+        text: 'Just do it!',
+        createdAt: new Date('2023-02-11T15:00:00'),
+        author: 'Maksim',
+      },
+    ],
   },
   {
     id: '9',
@@ -370,7 +517,14 @@ let tasksDB = [
     status: 'Complete',
     priority: 'Low',
     isPrivate: false,
-    comments: [],
+    comments: [
+      {
+        id: '5',
+        text: 'Just do it!',
+        createdAt: new Date('2023-02-11T15:00:00'),
+        author: 'Maksim',
+      },
+    ],
   },
   {
     id: '19',
@@ -381,7 +535,14 @@ let tasksDB = [
     status: 'In progress',
     priority: 'Hight',
     isPrivate: true,
-    comments: [],
+    comments: [
+      {
+        id: '5',
+        text: 'Just do it!',
+        createdAt: new Date('2023-02-11T15:00:00'),
+        author: 'Maksim',
+      },
+    ],
   },
   {
     id: '20',
@@ -393,6 +554,13 @@ let tasksDB = [
     status: 'In progress',
     priority: 'Low',
     isPrivate: false,
-    comments: [],
+    comments: [
+      {
+        id: '5',
+        text: 'Just do it!',
+        createdAt: new Date('2023-02-11T15:00:00'),
+        author: 'Maksim',
+      },
+    ],
   },
 ];

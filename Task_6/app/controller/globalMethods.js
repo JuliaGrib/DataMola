@@ -7,3 +7,7 @@ function removeTask(id) {
   tasks.remove(id);
   taskFeedView.display(tasks.myCollection);
 }
+
+function showTask(id) {
+  taskView.display(tasks.get(id));
+}
