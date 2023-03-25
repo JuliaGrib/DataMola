@@ -68,8 +68,6 @@ class TaskCollection {
       }
     });
 
-    // Helper.showMessages(INFO.notValidateTask, String(notValidTasks.length));
-    // console.log(notValidTasks);
     return notValidTasks;
   }
 

@@ -48,6 +48,11 @@ const TASK_PRIORITY = {
   low: 'Low',
 };
 
+const TASK_PRIVATE = {
+  public: 'Public',
+  private: 'Private',
+};
+
 const MAX_LENGTH = {
   name: 100,
   description: 280,
@@ -102,7 +107,7 @@ const HTML_CLASS = {
     header: 'card__header',
     tools: 'card__tools',
     info: 'card__info',
-    descr: 'card__descr',
+    desc: 'card__desc',
     additional: 'card__additional',
     assignee: 'card__assignee',
     line: 'card__line',
@@ -123,6 +128,7 @@ const HTML_CLASS = {
     line: 'line',
     dashed: 'line_dashed',
   },
+  main: 'main',
 };
 
 const validateObj = {

@@ -53,7 +53,7 @@
   font-weight: var(--font-weight-bold);
 }
 
-.card__descr {
+.card__desc {
   color: var(--color-secondary-dark);
 }
 
@@ -106,7 +106,7 @@
   .title_card {
     font-size: 1rem;
   }
-  .card__descr,
+  .card__desc,
   .card__assignee,
   .card__privacy,
   .card__comments {

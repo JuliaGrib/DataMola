@@ -60,6 +60,6 @@ class Helper {
   }
 
   static isPrivate(value) {
-    return value ? 'Private' : 'Public';
+    return value ? TASK_PRIVATE.private : TASK_PRIVATE.public;
   }
 }

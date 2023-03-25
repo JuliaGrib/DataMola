@@ -71,13 +71,15 @@ function addComment(id, text) {
 
     if (
       document
-        .querySelector('main')
+        .querySelector(HTML_CLASS.main)
         .classList.contains('main__template_task-page')
     ) {
       showTask(id);
     }
     if (
-      document.querySelector('main').classList.contains('main__template_task')
+      document
+        .querySelector(HTML_CLASS.main)
+        .classList.contains('main__template_task')
     ) {
       taskFeedView.display(filterController.filterTasks(), tasks.user);
     }

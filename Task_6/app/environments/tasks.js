@@ -1,4 +1,4 @@
-'use sctict';
+'use strict';
 
 let tasksDB = [
   {
@@ -96,9 +96,9 @@ let tasksDB = [
   },
   {
     id: '24',
-    name: 'Be responsibile for the site',
+    name: 'Be responsible for the site',
     description:
-      'Be responsibile for maintaining, expanding, and scaling the site',
+      'Be responsible for maintaining, expanding, and scaling the site',
     createdAt: new Date('2023-02-25T12:00:00'),
     assignee: 'Julia',
     status: 'To Do',

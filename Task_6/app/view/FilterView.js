@@ -20,7 +20,7 @@ class FilterView extends View {
     </button>
     <div class="filter">
       <div class="filter__elem">
-        <span class="flter__text">Assignee</span>
+        <span class="filter__text">Assignee</span>
         <svg
           width="12"
           height="8"
@@ -35,7 +35,7 @@ class FilterView extends View {
         </svg>
       </div>
       <div class="filter__elem">
-        <span class="flter__text">Date</span>
+        <span class="filter__text">Date</span>
         <svg
           width="12"
           height="8"
@@ -50,7 +50,7 @@ class FilterView extends View {
         </svg>
       </div>
       <div class="filter__elem">
-        <span class="flter__text">Priority</span>
+        <span class="filter__text">Priority</span>
         <svg
           width="12"
           height="8"

@@ -6,8 +6,7 @@ class View {
       if (!(Helper.isValidTypeId(id) && Helper.isEmptyStr(id))) {
         throw new Error(ERRORS.onlyString);
       }
-      this.containerSelector = id;
-      this.nodeElem = document.querySelector(`.${this.containerSelector}`);
+      this.nodeElem = document.querySelector(`.${id}`);
 
       if (!Helper.isHtmlNode(this.nodeElem)) {
         throw new Error(ERRORS.nodeElemNotFound);

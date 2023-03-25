@@ -11,8 +11,8 @@ class TaskFeedView extends View {
                 <h2 class="title title_col">To do</h2>
                 <div class="col__content">
                     <div class="col__wrap">
-                    ${this._createTask(
-                      this._filterStatusTasks(tasks, 'To Do'),
+                    ${this._createTasks(
+                      this._filterStatusTasks(tasks, TASK_STATUS.toDo),
                       user
                     )}
                     </div>
@@ -25,8 +25,8 @@ class TaskFeedView extends View {
                 <h2 class="title title_col">In progress</h2>
                 <div class="col__content">
                     <div class="col__wrap">
-                    ${this._createTask(
-                      this._filterStatusTasks(tasks, 'In progress'),
+                    ${this._createTasks(
+                      this._filterStatusTasks(tasks, TASK_STATUS.inProgress),
                       user
                     )}
                     </div>
@@ -39,8 +39,8 @@ class TaskFeedView extends View {
                 <h2 class="title title_col">Complete</h2>
                 <div class="col__content">
                     <div class="col__wrap">
-                    ${this._createTask(
-                      this._filterStatusTasks(tasks, 'Complete'),
+                    ${this._createTasks(
+                      this._filterStatusTasks(tasks, TASK_STATUS.complete),
                       user
                     )}
                     </div>
@@ -58,7 +58,7 @@ class TaskFeedView extends View {
     return tasks.filter(({ status }) => status === statusTask);
   }
 
-  _createTask(tasks, user) {
+  _createTasks(tasks, user) {
     let tasksNode = '';
     tasks.forEach((task) => (tasksNode += this._makeCard(task, user)));
     return tasksNode;
@@ -77,7 +77,7 @@ class TaskFeedView extends View {
     </div>
     <div class="card__info">
         <h3 class="title title_card">${task.name}</h3>
-        <p class="card__descr">
+        <p class="card__desc">
           ${task.description}
         </p>
         <div class="card__additional">
@@ -101,7 +101,7 @@ class TaskFeedView extends View {
     <div class="card__footer">
         <span class="card__date">
             <time datetime="${task.createdAt}">
-            ${String(task.createdAt).slice(0, 15)}</time>
+            ${new Date(task.createdAt).toDateString()}</time>
         </span>
         <span class="card__status">
             ${task.status}

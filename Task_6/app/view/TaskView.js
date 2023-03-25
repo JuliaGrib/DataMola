@@ -60,10 +60,9 @@ class TaskView extends View {
             <span class="priority priority_${task.priority.toLowerCase()} priority_task">
             ${task.priority}</span>
             <span class="task-block__date">
-            <time datetime="2023.01.14">${String(task.createdAt).slice(
-              0,
-              15
-            )}</time>
+            <time datetime="${task.createdAt}">${new Date(
+      task.createdAt
+    ).toDateString()}</time>
             </span>
             <p class="task-block__text">
             ${task.description}
@@ -71,13 +70,13 @@ class TaskView extends View {
             <div class="task-block__options">
             <div class="task-block__options-elem">
                 <span class="task-block__subtitle">Privacy</span>
-                <span class="task-block__descr">${Helper.isPrivate(
+                <span class="task-block__desc">${Helper.isPrivate(
                   task.isPrivate
                 )}</span>
             </div>
             <div class="task-block__options-elem">
                 <span class="task-block__subtitle">Status</span>
-                <span class="task-block__descr">${task.status}</span>
+                <span class="task-block__desc">${task.status}</span>
             </div>
             <div class="task-block__options-elem">
                 <span class="task-block__subtitle">Assignee</span>
@@ -168,10 +167,7 @@ class TaskView extends View {
                     <span class="user-icon__name">${com.author}</span>
                 </div>
             <div class="comment__time">
-        <time datetime="${com.createdAt}">${String(com.createdAt).slice(
-        0,
-        15
-      )}</time>
+        <time datetime="${new Date(com.createdAt).toDateString()}</time>
             </div>
             </div>
             <div class="comment__message">${com.text}</div>
