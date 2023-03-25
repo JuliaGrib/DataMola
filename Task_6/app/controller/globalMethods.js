@@ -54,3 +54,20 @@ function editTask(id, obj) {
     console.error(error);
   }
 }
+
+function addComment(id, text) {
+  tasks.addComment(id, text);
+
+  if (
+    document
+      .querySelector('main')
+      .classList.contains('main__template_task-page')
+  ) {
+    showTask(id);
+  }
+  if (
+    document.querySelector('main').classList.contains('main__template_task')
+  ) {
+    taskFeedView.display(tasks.myCollection);
+  }
+}

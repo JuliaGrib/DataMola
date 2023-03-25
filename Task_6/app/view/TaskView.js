@@ -4,7 +4,7 @@ class TaskView extends View {
   }
 
   display(task) {
-    this.nodeElem.classList.add('main__template_task-page');
+    this.nodeElem.className = 'main main__template_task-page';
     this.nodeElem.innerHTML = this._createBack() + this._createTask(task);
   }
 
