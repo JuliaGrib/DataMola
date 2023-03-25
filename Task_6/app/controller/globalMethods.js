@@ -55,7 +55,7 @@ function editTask(id, obj) {
       obj.isPrivate || null
     );
 
-    taskFeedView.display(tasks.myCollection);
+    taskFeedView.display(tasks.myCollection, tasks.user);
   } catch (error) {
     console.error(error);
   }
@@ -84,4 +84,16 @@ function addComment(id, text) {
   } catch (error) {
     console.error(error);
   }
+}
+
+function addTask(obj) {
+  tasks.add(
+    obj.name,
+    obj.description,
+    obj.assignee,
+    obj.status,
+    obj.priority,
+    obj.isPrivate
+  );
+  taskFeedView.display(tasks.myCollection, tasks.user);
 }

@@ -10,3 +10,12 @@ const taskView = new TaskView('main');
 
 setCurrentUser('');
 taskFeedView.display(tasks.myCollection, tasks.user);
+
+let objTestForAddTask = {
+  name: 'Test',
+  description: 'TestDescr',
+  assignee: 'Misha',
+  status: 'To Do',
+  priority: 'Hight',
+  isPrivate: true,
+};
