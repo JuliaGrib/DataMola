@@ -1,5 +1,5 @@
 class TaskCollection {
-  _user = 'Julia';
+  _user = '';
 
   constructor(db) {
     try {

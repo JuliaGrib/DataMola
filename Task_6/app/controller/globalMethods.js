@@ -32,3 +32,25 @@ function showTask(id) {
     console.error(error);
   }
 }
+
+function editTask(id, obj) {
+  try {
+    if (!Helper.isValidTypeId(id)) {
+      throw new Error(ERRORS.onlyString);
+    }
+
+    tasks.edit(
+      id,
+      obj.name || null,
+      obj.description || null,
+      obj.assignee || null,
+      obj.status || null,
+      obj.priority || null,
+      obj.isPrivate || null
+    );
+
+    taskFeedView.display(tasks.myCollection);
+  } catch (error) {
+    console.error(error);
+  }
+}

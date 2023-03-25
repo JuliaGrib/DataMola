@@ -3,5 +3,5 @@ const headerView = new HeaderView('header__nav');
 const taskFeedView = new TaskFeedView('desk');
 const taskView = new TaskView('main');
 
-setCurrentUser('');
+setCurrentUser('Julia');
 taskFeedView.display(tasks.myCollection);
