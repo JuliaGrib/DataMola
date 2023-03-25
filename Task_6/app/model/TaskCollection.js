@@ -1,5 +1,5 @@
 class TaskCollection {
-  _user = 'Julia';
+  _user = '';
 
   constructor(db) {
     try {
@@ -66,8 +66,8 @@ class TaskCollection {
       }
     });
 
-    Helper.showMessages(INFO.notValidateTask, String(notValidTasks.length));
-    console.log(notValidTasks);
+    // Helper.showMessages(INFO.notValidateTask, String(notValidTasks.length));
+    // console.log(notValidTasks);
     return notValidTasks;
   }
 
@@ -168,7 +168,14 @@ class TaskCollection {
             key === KEYS.status ||
             key === KEYS.priority
           ) {
-            return elem[key].toLowerCase() === filterConfig[key].toLowerCase();
+            if (Array.isArray(filterConfig[key])) {
+              console.log(filterConfig[key].includes(elem[key]), elem[key]);
+              return filterConfig[key].includes(elem[key]);
+            } else {
+              return (
+                elem[key].toLowerCase() === filterConfig[key].toLowerCase()
+              );
+            }
           }
           if (key === KEYS.isPrivate) {
             return elem[key] === filterConfig[key];
