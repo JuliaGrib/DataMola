@@ -169,7 +169,6 @@ class TaskCollection {
             key === KEYS.priority
           ) {
             if (Array.isArray(filterConfig[key])) {
-              console.log(filterConfig[key].includes(elem[key]), elem[key]);
               return filterConfig[key].includes(elem[key]);
             } else {
               return (

@@ -2,6 +2,8 @@ class FilterController {
   _pageToDO = 0;
   _pageInProgress = 0;
   _pageComplete = 0;
+  _params = {};
+  _filteredTasks = [];
 
   get pageToDo() {
     return this._pageToDO;
@@ -27,22 +29,41 @@ class FilterController {
     this._pageComplete = value;
   }
 
-  _filterToDo(params) {
-    return tasks.getPage(this._pageToDO, 10, params);
+  get params() {
+    return this._params;
   }
 
-  _filterInProgress(params) {
-    return tasks.getPage(this._pageInProgress, 10, params);
+  set params(value) {
+    this._params = value;
   }
 
-  _filterComplete(params) {
-    return tasks.getPage(this._pageComplete, 10, params);
+  get filteredTasks() {
+    return this._filteredTasks;
+  }
+
+  set filteredTasks(value) {
+    this._filteredTasks = value;
+  }
+
+  filterParams() {
+    this._filteredTasks = tasks.getPage(
+      0,
+      tasks.myCollection.length,
+      this._params
+    );
   }
 
   filterTasks() {
-    const toDoArr = this._filterToDo({ status: 'To Do' });
-    const inProgressArr = this._filterInProgress({ status: 'In progress' });
-    const completeArr = this._filterComplete({ status: 'Complete' });
+    this.filterParams();
+    const toDoArr = this._filteredTasks
+      .filter(({ status }) => status === 'To Do')
+      .splice(this._pageToDO, 10);
+    const inProgressArr = this._filteredTasks
+      .filter(({ status }) => status === 'In progress')
+      .splice(this._pageInProgress, 10);
+    const completeArr = this._filteredTasks
+      .filter(({ status }) => status === 'Complete')
+      .splice(this._complete, 10);
     return [...toDoArr, ...inProgressArr, ...completeArr];
   }
 }

@@ -114,3 +114,8 @@ function showMoreComplete(page) {
   filterController.pageComplete = page;
   taskFeedView.display(filterController.filterTasks(), tasks.user);
 }
+
+function getFeed(obj) {
+  filterController.params = obj;
+  taskFeedView.display(filterController.filterTasks(), tasks.user);
+}
