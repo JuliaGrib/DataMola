@@ -1,0 +1,100 @@
+.button {
+    align-self: flex-start;
+    padding: var(--padding-xs) var(--padding);
+    border: none;
+    border-radius: var(--border-radius-s);
+    font-size: 1rem;
+    transition: var(--animation);
+    
+}
+
+.button_primary {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    cursor: pointer;
+}
+
+.button_primary:hover {
+    background-color: var(--color-primary-dark);
+}
+
+.button_secondary {
+    background-color: var(--color-secondary);
+    cursor: pointer;
+}
+
+.button_show-more {
+    margin: 0 auto;
+    padding: var(--padding-xxs) var(--padding);
+    border: 0.1rem solid var(--color-secondary-dark);
+    border-radius: var(--border-radius-s);
+    background-color: var(--color-white);
+    color: var(--color-secondary-dark);
+    font-size: 0.75rem;
+    cursor: pointer;
+}
+
+.button_show-more:hover {
+    border: 0.1rem solid var(--color-primary);
+    background-color: var(--color-primary);
+    color: var(--color-white);
+}
+
+.button_icon {
+    display: flex;
+    align-items: center;
+    gap: var(--gap-xxs);
+    cursor: pointer;
+}
+
+.button_disabled {
+    background-color: var(--color-secondary-dark);
+    color: var(--color-white);
+    pointer-events: default;
+}
+
+.button_inactive {
+    display: none;
+}
+
+.button_active {
+    display: block;
+}
+
+.button_form {
+    justify-self: start;
+}
+
+.button__form_reg {
+    justify-self: start;
+}
+
+.button_filter {
+    display: none;
+}
+
+@media screen and (max-width: 1280px) {
+    .button_filter {
+        display: flex;
+    }
+}
+
+@media screen and (max-width: 820px) {
+    .button_form {
+        justify-self: stretch;
+    }
+}
+
+
+@media screen and (max-width: 660px) {
+    .button_icon {
+        padding: var(--padding-xs);
+    }
+}
+
+
+@media screen and (max-width: 560px) {
+    .button__form_reg {
+        justify-self: stretch;
+    }
+}
