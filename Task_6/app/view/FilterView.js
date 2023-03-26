@@ -35,6 +35,10 @@ class FilterView extends View {
             fill="#333333"
           />
         </svg>
+
+        <div class="filter-popup">
+            ${this._setAssignee()}
+        </div>
       </div>
       <div class="filter__elem">
         <span class="filter__text">Date</span>
@@ -65,6 +69,9 @@ class FilterView extends View {
             fill="#333333"
           />
         </svg>
+        <div class="filter-popup">
+        ${this._setPriotity()}
+        </div>
       </div>
       <div class="filter__elem">
         <span class="flter__text">Privacy</span>
@@ -80,6 +87,9 @@ class FilterView extends View {
             fill="#333333"
           />
         </svg>
+        <div class="filter-popup">
+        ${this._setPrivacy()}
+        </div>
       </div>
     </div>
     <button
@@ -132,6 +142,7 @@ class FilterView extends View {
       ${this._setParamsInInfo()}
     </div>
     `;
+    this._setCheckBox();
   }
 
   _setParamsInInfo() {
@@ -150,6 +161,58 @@ class FilterView extends View {
     <path d="M8.44408 7.86681C8.52037 7.94383 8.56316 8.04786 8.56316 8.15627C8.56316 8.26467 8.52037 8.3687 8.44408 8.44572C8.36643 8.5208 8.26264 8.56277 8.15463 8.56277C8.04661 8.56277 7.94283 8.5208 7.86518 8.44572L4.49838 5.07384L1.13158 8.44572C1.05393 8.5208 0.950143 8.56277 0.842129 8.56277C0.734115 8.56277 0.630327 8.5208 0.552676 8.44572C0.47639 8.3687 0.433594 8.26467 0.433594 8.15627C0.433594 8.04786 0.47639 7.94383 0.552676 7.86681L3.92455 4.50002L0.552676 1.13322C0.487894 1.05429 0.454788 0.954078 0.459797 0.852088C0.464806 0.750098 0.507572 0.653618 0.579777 0.581413C0.651982 0.509208 0.748462 0.466442 0.850452 0.461433C0.952442 0.456424 1.05265 0.48953 1.13158 0.554312L4.49838 3.92619L7.86518 0.554312C7.94411 0.48953 8.04432 0.456424 8.14631 0.461433C8.2483 0.466442 8.34478 0.509208 8.41698 0.581413C8.48919 0.653618 8.53195 0.750098 8.53696 0.852088C8.54197 0.954078 8.50886 1.05429 8.44408 1.13322L5.07221 4.50002L8.44408 7.86681Z" fill="#333333"/>
     </svg>
     </div>`
+    );
+  }
+
+  _setAssignee() {
+    let assigneeNodes = '';
+    const assignees = Array.from(
+      new Set(tasks.myCollection.map(({ assignee }) => assignee))
+    );
+
+    assignees.forEach((elem) => {
+      assigneeNodes += `
+      <div>
+        <input type="checkbox" id="${elem}" name="assignee">
+        <label for="${elem}">${elem}</label>
+      </div>
+      `;
+    });
+    return assigneeNodes;
+  }
+
+  _setPriotity() {
+    let priorityNodes = '';
+    const priorities = Object.values(TASK_PRIORITY);
+    priorities.forEach((elem) => {
+      priorityNodes += `
+      <div>
+        <input type="checkbox" id="${elem}" name="priority">
+        <label for="${elem}">${elem}</label>
+      </div>
+      `;
+    });
+    return priorityNodes;
+  }
+
+  _setPrivacy() {
+    let privacyNodes = '';
+    const privats = Object.values(TASK_PRIVATE);
+    privats.forEach((elem) => {
+      privacyNodes += `
+      <div>
+        <input type="checkbox" id="${elem}" name="priority">
+        <label for="${elem}">${elem}</label>
+      </div>
+      `;
+    });
+    return privacyNodes;
+  }
+
+  _setCheckBox() {
+    const paramsValues = Object.values(filterController.params).flat(Infinity);
+    paramsValues.forEach(
+      (elem) => (document.getElementById(elem).checked = true)
     );
   }
 }
