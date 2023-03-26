@@ -59,6 +59,11 @@ const MAX_LENGTH = {
   com: 4,
 };
 
+const PAGE_LENGTH = {
+  start: 0,
+  count: 10,
+};
+
 const TIME = {
   dayEndHour: 23,
   dayEndMin: 59,

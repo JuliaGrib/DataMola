@@ -1,7 +1,7 @@
 class FilterController {
-  _pageToDO = 0;
-  _pageInProgress = 0;
-  _pageComplete = 0;
+  _pageToDO = PAGE_LENGTH.count;
+  _pageInProgress = PAGE_LENGTH.count;
+  _pageComplete = PAGE_LENGTH.count;
   _params = {};
   _filteredTasks = [];
 
@@ -57,13 +57,13 @@ class FilterController {
     this.filterParams();
     const toDoArr = this._filteredTasks
       .filter(({ status }) => status === 'To Do')
-      .splice(this._pageToDO, 10);
+      .splice(PAGE_LENGTH.start, this._pageToDO);
     const inProgressArr = this._filteredTasks
       .filter(({ status }) => status === 'In progress')
-      .splice(this._pageInProgress, 10);
+      .splice(PAGE_LENGTH.start, this._pageInProgress);
     const completeArr = this._filteredTasks
       .filter(({ status }) => status === 'Complete')
-      .splice(this._complete, 10);
+      .splice(PAGE_LENGTH.start, this._pageComplete);
     return [...toDoArr, ...inProgressArr, ...completeArr];
   }
 }

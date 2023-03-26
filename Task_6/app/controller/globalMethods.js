@@ -100,18 +100,18 @@ function addTask(obj) {
   taskFeedView.display(filterController.filterTasks(), tasks.user);
 }
 
-function showMoreToDo(page) {
-  filterController.pageToDo = page;
+function showMoreToDo() {
+  filterController.pageToDo += PAGE_LENGTH.count;
   taskFeedView.display(filterController.filterTasks(), tasks.user);
 }
 
-function showMoreInProgress(page) {
-  filterController.pageInProgress = page;
+function showMoreInProgress() {
+  filterController.pageInProgress += PAGE_LENGTH.count;
   taskFeedView.display(filterController.filterTasks(), tasks.user);
 }
 
-function showMoreComplete(page) {
-  filterController.pageComplete = page;
+function showMoreComplete() {
+  filterController.pageComplete += PAGE_LENGTH.count;
   taskFeedView.display(filterController.filterTasks(), tasks.user);
 }
 
