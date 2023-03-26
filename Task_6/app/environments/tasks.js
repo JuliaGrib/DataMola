@@ -513,7 +513,7 @@ let tasksDB = [
     description:
       'Created workflow diagrams for a client depicting the their site’s current and planned functionality.',
     createdAt: new Date('2023-01-15T12:10:00'),
-    assignee: 'Julia',
+    assignee: 'Andrei',
     status: 'Complete',
     priority: 'Low',
     isPrivate: false,
@@ -569,7 +569,7 @@ let tasksDB = [
     description:
       'Write well designed, testable, efficient code by using best software development practices',
     createdAt: new Date('2023-02-02T21:10:00'),
-    assignee: 'Julia',
+    assignee: 'Andrei',
     status: 'To Do',
     priority: 'Hight',
     isPrivate: false,
@@ -626,7 +626,7 @@ let tasksDB = [
     description:
       'Write well designed, testable, efficient code by using best software development practices',
     createdAt: new Date('2023-02-02T21:10:00'),
-    assignee: 'Julia',
+    assignee: 'Andrei',
     status: 'To Do',
     priority: 'Low',
     isPrivate: false,
@@ -702,7 +702,7 @@ let tasksDB = [
     description:
       'Write well designed, testable, efficient code by using best software development practices',
     createdAt: new Date('2023-02-11T15:00:00'),
-    assignee: 'Julia',
+    assignee: 'Andrei',
     status: 'To Do',
     priority: 'Low',
     isPrivate: false,
@@ -778,7 +778,7 @@ let tasksDB = [
     description:
       'Write well designed, testable, efficient code by using best software development practices',
     createdAt: new Date('2023-02-11T15:00:00'),
-    assignee: 'Julia',
+    assignee: 'Andrei',
     status: 'Complete',
     priority: 'Low',
     isPrivate: false,
@@ -854,7 +854,7 @@ let tasksDB = [
     description:
       'Write well designed, testable, efficient code by using best software development practices',
     createdAt: new Date('2023-02-11T15:00:00'),
-    assignee: 'Julia',
+    assignee: 'Andrei',
     status: 'Complete',
     priority: 'Medium',
     isPrivate: false,
@@ -911,7 +911,7 @@ let tasksDB = [
     description:
       'Write well designed, testable, efficient code by using best software development practices',
     createdAt: new Date('2023-02-11T15:00:00'),
-    assignee: 'Julia',
+    assignee: 'Andrei',
     status: 'Complete',
     priority: 'Hight',
     isPrivate: false,
@@ -968,10 +968,10 @@ let tasksDB = [
     description:
       'Write well designed, testable, efficient code by using best software development practices',
     createdAt: new Date('2023-02-11T15:00:00'),
-    assignee: 'Julia',
+    assignee: 'Andrei',
     status: 'In progress',
     priority: 'Medium',
-    isPrivate: false,
+    isPrivate: true,
     comments: [
       {
         id: '5',
