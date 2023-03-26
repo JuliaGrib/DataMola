@@ -135,3 +135,15 @@ function getFeed(obj) {
   filterView.display(tasks.user);
   taskFeedView.display(filterController.filterTasks(), tasks.user);
 }
+
+function createKanban() {
+  taskFeedView.position = 'kanban';
+  filterView.display(tasks.user);
+  taskFeedView.display(filterController.filterTasks(), tasks.user);
+}
+
+function createTable() {
+  taskFeedView.position = 'table';
+  filterView.display(tasks.user);
+  taskFeedView.display(filterController.filterTasks(), tasks.user);
+}

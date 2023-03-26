@@ -43,10 +43,10 @@ let tasksDB = [
     id: '10',
     name: 'Integrate data',
     description: 'Integrate data from various back-end services and databases',
-    createdAt: new Date('2023-01-19T12:10:00'),
+    createdAt: new Date('2023-03-19T12:10:00'),
     assignee: 'Andrei',
     status: 'Complete',
-    priority: 'Low',
+    priority: 'Hight',
     isPrivate: false,
     comments: [
       {
@@ -80,7 +80,7 @@ let tasksDB = [
     id: '1',
     name: 'Create documentation',
     description: 'Create and maintain software documentation',
-    createdAt: new Date('2023-01-02T23:59:00'),
+    createdAt: new Date('2023-03-02T23:59:00'),
     assignee: 'Julia',
     status: 'Complete',
     priority: 'Medium',
@@ -210,7 +210,7 @@ let tasksDB = [
     name: 'Debugging',
     description:
       'In hardware development, the debugging process looks for hardware components that are not installed or configured correctly.',
-    createdAt: new Date('2023-01-03T12:10:00'),
+    createdAt: new Date('2023-03-03T12:10:00'),
     assignee: 'Julia',
     status: 'Complete',
     priority: 'Hight',
@@ -229,7 +229,7 @@ let tasksDB = [
     name: 'Being up-to-date',
     description:
       "Being up-to-date with latest technologies that you've interested to build is also plays makor role being a good web developer.",
-    createdAt: new Date('2023-01-04T12:10:00'),
+    createdAt: new Date('2023-03-04T12:10:00'),
     assignee: 'Julia',
     status: 'Complete',
     priority: 'Low',
@@ -286,7 +286,7 @@ let tasksDB = [
     name: 'Writing testing code',
     description:
       'Writing testing code to confirm your project meets the specification.',
-    createdAt: new Date('2023-01-31T19:00:00'),
+    createdAt: new Date('2023-02-31T19:00:00'),
     assignee: 'Julia',
     status: 'In progress',
     priority: 'Low',
@@ -295,7 +295,7 @@ let tasksDB = [
       {
         id: '5',
         text: 'Just do it!',
-        createdAt: new Date('2023-02-11T15:00:00'),
+        createdAt: new Date('2023-03-11T15:00:00'),
         author: 'Maksim',
       },
     ],
@@ -342,7 +342,7 @@ let tasksDB = [
     id: '13',
     name: 'Presentation of the website',
     description: 'Presentation of the website to the customer or bosses.',
-    createdAt: new Date('2023-02-01T09:00:00'),
+    createdAt: new Date('2023-03-01T09:00:00'),
     assignee: 'Julia',
     status: 'In progress',
     priority: 'Medium',
@@ -351,7 +351,7 @@ let tasksDB = [
       {
         id: '5',
         text: 'Just do it!',
-        createdAt: new Date('2023-02-11T15:00:00'),
+        createdAt: new Date('2023-03-11T15:00:00'),
         author: 'Maksim',
       },
     ],
@@ -360,7 +360,7 @@ let tasksDB = [
     id: '14',
     name: 'Find best hosting',
     description: 'Arranging suitable hosting for the website.',
-    createdAt: new Date('2023-02-02T21:10:00'),
+    createdAt: new Date('2023-03-02T21:10:00'),
     assignee: 'Julia',
     status: 'In progress',
     priority: 'Medium',
@@ -398,7 +398,7 @@ let tasksDB = [
     name: 'Master a good debugger',
     description:
       'Master a good debugger. Think of it like solving a detective novel!',
-    createdAt: new Date('2023-02-02T09:10:00'),
+    createdAt: new Date('2023-03-02T09:10:00'),
     assignee: 'Julia',
     status: 'In progress',
     priority: 'Medium',
@@ -417,10 +417,10 @@ let tasksDB = [
     name: 'Test your code',
     description:
       'Do not forget to unit test your code. Your code is always buggy.',
-    createdAt: new Date('2023-02-03T09:10:00'),
+    createdAt: new Date('2023-03-03T09:10:00'),
     assignee: 'Julia',
     status: 'In progress',
-    priority: 'Low',
+    priority: 'Medium',
     isPrivate: false,
     comments: [
       {
@@ -568,10 +568,10 @@ let tasksDB = [
     name: 'Write well efficient code',
     description:
       'Write well designed, testable, efficient code by using best software development practices',
-    createdAt: new Date('2023-02-11T15:00:00'),
+    createdAt: new Date('2023-02-02T21:10:00'),
     assignee: 'Julia',
     status: 'To Do',
-    priority: 'Low',
+    priority: 'Hight',
     isPrivate: false,
     comments: [
       {
@@ -590,7 +590,7 @@ let tasksDB = [
     createdAt: new Date('2023-02-11T15:00:00'),
     assignee: 'Julia',
     status: 'To Do',
-    priority: 'Low',
+    priority: 'Medium',
     isPrivate: false,
     comments: [
       {
@@ -609,7 +609,7 @@ let tasksDB = [
     createdAt: new Date('2023-02-11T15:00:00'),
     assignee: 'Julia',
     status: 'To Do',
-    priority: 'Low',
+    priority: 'Hight',
     isPrivate: false,
     comments: [
       {
@@ -625,7 +625,7 @@ let tasksDB = [
     name: 'Write well efficient code',
     description:
       'Write well designed, testable, efficient code by using best software development practices',
-    createdAt: new Date('2023-02-11T15:00:00'),
+    createdAt: new Date('2023-02-02T21:10:00'),
     assignee: 'Julia',
     status: 'To Do',
     priority: 'Low',
@@ -647,7 +647,7 @@ let tasksDB = [
     createdAt: new Date('2023-02-11T15:00:00'),
     assignee: 'Julia',
     status: 'To Do',
-    priority: 'Low',
+    priority: 'Hight',
     isPrivate: false,
     comments: [
       {
@@ -666,7 +666,7 @@ let tasksDB = [
     createdAt: new Date('2023-02-11T15:00:00'),
     assignee: 'Julia',
     status: 'To Do',
-    priority: 'Low',
+    priority: 'Medium',
     isPrivate: false,
     comments: [
       {
@@ -682,10 +682,10 @@ let tasksDB = [
     name: 'Write well efficient code',
     description:
       'Write well designed, testable, efficient code by using best software development practices',
-    createdAt: new Date('2023-02-11T15:00:00'),
+    createdAt: new Date('2023-02-02T21:10:00'),
     assignee: 'Julia',
     status: 'To Do',
-    priority: 'Low',
+    priority: 'Medium',
     isPrivate: false,
     comments: [
       {
@@ -723,7 +723,7 @@ let tasksDB = [
     createdAt: new Date('2023-02-11T15:00:00'),
     assignee: 'Julia',
     status: 'To Do',
-    priority: 'Low',
+    priority: 'Hight',
     isPrivate: false,
     comments: [
       {
@@ -742,7 +742,7 @@ let tasksDB = [
     createdAt: new Date('2023-02-11T15:00:00'),
     assignee: 'Julia',
     status: 'To Do',
-    priority: 'Low',
+    priority: 'Medium',
     isPrivate: false,
     comments: [
       {
@@ -758,10 +758,10 @@ let tasksDB = [
     name: 'Write well efficient code',
     description:
       'Write well designed, testable, efficient code by using best software development practices',
-    createdAt: new Date('2023-02-11T15:00:00'),
+    createdAt: new Date('2023-02-02T21:10:00'),
     assignee: 'Julia',
     status: 'Complete',
-    priority: 'Low',
+    priority: 'Hight',
     isPrivate: false,
     comments: [
       {
@@ -799,7 +799,7 @@ let tasksDB = [
     createdAt: new Date('2023-02-11T15:00:00'),
     assignee: 'Julia',
     status: 'Complete',
-    priority: 'Low',
+    priority: 'Hight',
     isPrivate: false,
     comments: [
       {
@@ -818,7 +818,7 @@ let tasksDB = [
     createdAt: new Date('2023-02-11T15:00:00'),
     assignee: 'Julia',
     status: 'Complete',
-    priority: 'Low',
+    priority: 'Medium',
     isPrivate: false,
     comments: [
       {
@@ -834,7 +834,7 @@ let tasksDB = [
     name: 'Write well efficient code',
     description:
       'Write well designed, testable, efficient code by using best software development practices',
-    createdAt: new Date('2023-02-11T15:00:00'),
+    createdAt: new Date('2023-02-02T21:10:00'),
     assignee: 'Julia',
     status: 'Complete',
     priority: 'Low',
@@ -856,7 +856,7 @@ let tasksDB = [
     createdAt: new Date('2023-02-11T15:00:00'),
     assignee: 'Julia',
     status: 'Complete',
-    priority: 'Low',
+    priority: 'Medium',
     isPrivate: false,
     comments: [
       {
@@ -875,7 +875,7 @@ let tasksDB = [
     createdAt: new Date('2023-02-11T15:00:00'),
     assignee: 'Julia',
     status: 'Complete',
-    priority: 'Low',
+    priority: 'Hight',
     isPrivate: false,
     comments: [
       {
@@ -891,10 +891,10 @@ let tasksDB = [
     name: 'Write well efficient code',
     description:
       'Write well designed, testable, efficient code by using best software development practices',
-    createdAt: new Date('2023-02-11T15:00:00'),
+    createdAt: new Date('2023-02-02T21:10:00'),
     assignee: 'Julia',
     status: 'Complete',
-    priority: 'Low',
+    priority: 'Medium',
     isPrivate: false,
     comments: [
       {
@@ -913,7 +913,7 @@ let tasksDB = [
     createdAt: new Date('2023-02-11T15:00:00'),
     assignee: 'Julia',
     status: 'Complete',
-    priority: 'Low',
+    priority: 'Hight',
     isPrivate: false,
     comments: [
       {
@@ -948,10 +948,10 @@ let tasksDB = [
     name: 'Write well efficient code',
     description:
       'Write well designed, testable, efficient code by using best software development practices',
-    createdAt: new Date('2023-02-11T15:00:00'),
+    createdAt: new Date('2023-02-02T21:10:00'),
     assignee: 'Julia',
     status: 'In progress',
-    priority: 'Low',
+    priority: 'Hight',
     isPrivate: false,
     comments: [
       {
@@ -970,7 +970,7 @@ let tasksDB = [
     createdAt: new Date('2023-02-11T15:00:00'),
     assignee: 'Julia',
     status: 'In progress',
-    priority: 'Low',
+    priority: 'Medium',
     isPrivate: false,
     comments: [
       {
@@ -989,7 +989,7 @@ let tasksDB = [
     createdAt: new Date('2023-02-11T15:00:00'),
     assignee: 'Julia',
     status: 'In progress',
-    priority: 'Low',
+    priority: 'Hight',
     isPrivate: false,
     comments: [
       {
@@ -1005,10 +1005,10 @@ let tasksDB = [
     name: 'Write well efficient code',
     description:
       'Write well designed, testable, efficient code by using best software development practices',
-    createdAt: new Date('2023-02-11T15:00:00'),
+    createdAt: new Date('2023-02-02T21:10:00'),
     assignee: 'Julia',
     status: 'In progress',
-    priority: 'Low',
+    priority: 'Medium',
     isPrivate: false,
     comments: [
       {
@@ -1027,7 +1027,7 @@ let tasksDB = [
     createdAt: new Date('2023-02-11T15:00:00'),
     assignee: 'Julia',
     status: 'In progress',
-    priority: 'Low',
+    priority: 'Hight',
     isPrivate: false,
     comments: [
       {
@@ -1046,7 +1046,7 @@ let tasksDB = [
     createdAt: new Date('2023-02-11T15:00:00'),
     assignee: 'Julia',
     status: 'In progress',
-    priority: 'Low',
+    priority: 'Medium',
     isPrivate: false,
     comments: [
       {
@@ -1081,10 +1081,10 @@ let tasksDB = [
     name: 'Write well efficient code',
     description:
       'Write well designed, testable, efficient code by using best software development practices',
-    createdAt: new Date('2023-02-11T15:00:00'),
+    createdAt: new Date('2023-02-02T21:10:00'),
     assignee: 'Julia',
     status: 'In progress',
-    priority: 'Low',
+    priority: 'Hight',
     isPrivate: false,
     comments: [
       {
@@ -1103,7 +1103,7 @@ let tasksDB = [
     createdAt: new Date('2023-02-11T15:00:00'),
     assignee: 'Julia',
     status: 'In progress',
-    priority: 'Low',
+    priority: 'Medium',
     isPrivate: false,
     comments: [
       {
@@ -1122,7 +1122,7 @@ let tasksDB = [
     createdAt: new Date('2023-02-11T15:00:00'),
     assignee: 'Julia',
     status: 'In progress',
-    priority: 'Low',
+    priority: 'Hight',
     isPrivate: false,
     comments: [
       {
