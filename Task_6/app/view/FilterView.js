@@ -101,7 +101,11 @@ class FilterView extends View {
       </svg>
     </button>
     <button
-      class="button button__filter-reset button_icon button_disabled"
+      class="button button__filter-reset button_icon ${
+        Object.values(filterController.params).length
+          ? 'button_secondary'
+          : 'button_disabled'
+      }"
       type="reset"
       disabled
     >
