@@ -1,0 +1,33 @@
+.table {
+  padding: var(--rem-m);
+  border-spacing: 0;
+  border-radius: var(--rem-s);
+  background-color: var(--main-color-light);
+  color: var(--main-color-darker);
+  box-shadow: var(--box-shadow-main);
+}
+
+.table__title {
+  padding-bottom: var(--rem-l);
+  border: none;
+  text-align: left;
+  font-size: 1.25rem;
+}
+
+.table__week {
+  background-color: var(--main-color-dark);
+}
+
+.table__week,
+.table__day {
+  padding: var(--rem-s);
+  border: 0.0001rem solid var(--main-color-lighter);
+  text-align: center;
+  cursor: pointer;
+}
+
+.table__week:hover,
+.table__day:hover {
+  background-color: var(--main-color);
+  transition: 0.8s;
+}

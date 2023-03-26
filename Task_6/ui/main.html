@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="./assets/img/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="./assets/styles/style.css" />
+    <script defer src="../app/environments/consts.js"></script>
+    <script defer src="../app/environments/tasks.js"></script>
+    <script defer src="../app/model/Helper.js"></script>
+    <script defer src="../app/model/Comment.js"></script>
+    <script defer src="../app/model/Task.js"></script>
+    <script defer src="../app/model/TaskCollection.js"></script>
+    <script defer src="../app/view/module.js"></script>
+    <script defer src="../app/view/MainView.js"></script>
+    <script defer src="../app/view/HeaderView.js"></script>
+    <script defer src="../app/view/TaskFeedView.js"></script>
+    <script defer src="../app/view/TaskView.js"></script>
+    <script defer src="../app/view/FilterView.js"></script>
+    <script defer src="../app/controller/globalMethods.js"></script>
+    <script defer src="../app/controller/FilterController.js"></script>
+    <script defer src="../app/app.js"></script>
+    <title>My desk</title>
+  </head>
+  <body>
+    <header class="header">
+      <div class="header__wrapper">
+        <div class="container">
+          <div class="header__content">
+            <a class="header__logo" href="main.html">
+              <img
+                class="header__logo-img"
+                src="./assets/img/icons/logo.svg"
+                alt="Logo"
+                loading="lazy"
+              />
+            </a>
+            <nav class="header__nav"></nav>
+          </div>
+        </div>
+      </div>
+    </header>
+    <main class="main"></main>
+    <footer class="footer">
+      <div class="footer__wrapper">
+        <div class="container">
+          <div class="footer__content">
+            <div class="footer__info">
+              <ul class="list list_footer">
+                <li class="list__elem">do.</li>
+                <li class="list__elem">Julia Grib</li>
+                <li class="list__elem">
+                  <a class="link" href="mailto:yulgrib@gmail.com"
+                    >yulgrib@gmail.com</a
+                  >
+                </li>
+                <li class="list__elem">
+                  <time datetime="2023.02.23">23.02.2023</time>
+                </li>
+              </ul>
+            </div>
+            <div class="footer__tools">
+              <div class="theme">
+                <label class="theme__label">
+                  <input
+                    class="theme__radio"
+                    type="radio"
+                    name="test"
+                    checked
+                  />
+                  <span class="theme__cirle"></span>
+                </label>
+                <label class="theme__label">
+                  <input class="theme__radio" type="radio" name="test" />
+                  <span class="theme__cirle theme__cirle_black"></span>
+                </label>
+              </div>
+              <div class="language">
+                <svg
+                  class="language__icon"
+                  width="16"
+                  height="15"
+                  viewBox="0 0 16 15"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M8 14.375C11.7969 14.375 14.875 11.2969 14.875 7.5C14.875 3.70313 11.7969 0.625 8 0.625M8 14.375C4.20313 14.375 1.125 11.2969 1.125 7.5C1.125 3.70313 4.20313 0.625 8 0.625M8 14.375C9.875 14.375 10.5 11.25 10.5 7.5C10.5 3.75 9.875 0.625 8 0.625M8 14.375C6.125 14.375 5.5 11.25 5.5 7.5C5.5 3.75 6.125 0.625 8 0.625M1.75 10H14.25M1.75 5H14.25"
+                    stroke="currentColor"
+                  />
+                </svg>
+                <span class="language__item"> English </span>
+                <ul class="list list_block">
+                  <li class="list_language-en">English</li>
+                  <li class="list_language-ru">Русский</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

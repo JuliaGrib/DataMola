@@ -1,0 +1,40 @@
+.link {
+    color: var(--color-black);
+    text-decoration: none;
+    transition: var(--animation);
+}
+
+.link_menu {
+    color: var(--color-secondary-dark);
+}
+
+.link_icon {
+    position: relative;
+}
+
+.link_icon:after {
+    content: "";
+    display: block;
+    width: 1.75rem;
+    height: 1.5rem;
+    position: absolute;
+    top: -0.15rem;
+    right: -2.18rem;
+}
+
+.link_account:after {
+    background-image: url(../../img/icons/arrow_right.svg);
+}
+
+.link_logout:after {
+    background-image: url(../../img/icons/logout.svg);
+}
+
+
+.link_logout {
+    color: var(--color-red);
+}
+
+.link:hover {
+    color: var(--color-primary);
+}

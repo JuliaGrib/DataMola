@@ -1,0 +1,76 @@
+function createCalendar(elem, year, month) {
+  try {
+    if (!(elem instanceof HTMLElement)) {
+      throw new Error(ERROR.HTMLelementNotValidate);
+    }
+
+    year = parseInt(year);
+    month = parseInt(month);
+
+    if (!(isValueNumber(year) && isValueNumber(month))) {
+      throw new Error(ERROR.valueNotANumber);
+    }
+
+    if (!(isValuePositiveNumber(year) && isValuePositiveNumber(month))) {
+      throw new Error(ERROR.notPositiveNumber);
+    }
+
+    if (!isCorrectMonth(month)) {
+      throw new Error(ERROR.notCorrectMonth);
+    }
+
+    const firstMonthDay = getFirstDay(getMonth(year, month));
+    const lastMonthDay = getLastDay(year, month);
+    const firstDayWeek = getfirstDayWeek(getMonth(year, month));
+    const lastDayWeek = getLastDayWeek(year, month);
+    const firstPlugArray = makePlugArray('', firstDayWeek - 1);
+    const lastPlugArray = makePlugArray('', DAYS.lastDay - lastDayWeek);
+
+    const datesArray = [];
+
+    for (let i = firstMonthDay; i <= lastMonthDay; i++) {
+      datesArray.push(i);
+    }
+
+    const resultArray = generateMonthArray(
+      firstPlugArray,
+      datesArray,
+      lastPlugArray
+    );
+
+    let tableRows = '';
+    let tableCols = '';
+
+    for (let i = 0; i <= resultArray.length; i++) {
+      if (i % DAYS.lastDay === 0 && i !== 0) {
+        tableRows += `<tr>${tableCols}</tr>`;
+        tableCols = '';
+      }
+      tableCols += `<td class="table__day">${resultArray[i]}</td>`;
+    }
+
+    elem.innerHTML = `
+    <table class="table">
+      <thead class="table__head">
+        <tr>
+          <th class="table__title" colspan="${DAYS.lastDay}">${MONTH[month]}, ${year}</th>
+        </tr>
+        <tr>
+        <th class="table__week">Mo</th>
+        <th class="table__week">Tu</th>
+        <th class="table__week">We</th>
+        <th class="table__week">Th</th>
+        <th class="table__week">Fr</th>
+        <th class="table__week">Sa</th>
+        <th class="table__week">Su</th>
+      </tr>
+      </thead>
+      <tbody>
+        ${tableRows}
+        </tbody>
+      </table>
+      `;
+  } catch (error) {
+    console.error(error);
+  }
+}
