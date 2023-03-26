@@ -21,7 +21,7 @@ class FilterView extends View {
       </svg>
     </button>
     <div class="filter">
-      <div class="filter__elem">
+      <div class="filter__elem filter-assingee">
         <span class="filter__text">Assignee</span>
         <svg
           width="12"
@@ -36,7 +36,7 @@ class FilterView extends View {
           />
         </svg>
 
-        <div class="filter-popup">
+        <div class="filter-popup filter-assingee__popup">
             ${this._setAssignee()}
         </div>
       </div>
@@ -55,7 +55,7 @@ class FilterView extends View {
           />
         </svg>
       </div>
-      <div class="filter__elem">
+      <div class="filter__elem filter-priority">
         <span class="filter__text">Priority</span>
         <svg
           width="12"
@@ -69,11 +69,11 @@ class FilterView extends View {
             fill="#333333"
           />
         </svg>
-        <div class="filter-popup">
+        <div class="filter-popup filter-priority__popup">
         ${this._setPriotity()}
         </div>
       </div>
-      <div class="filter__elem">
+      <div class="filter__elem filter-private">
         <span class="flter__text">Privacy</span>
         <svg
           width="12"
@@ -87,7 +87,7 @@ class FilterView extends View {
             fill="#333333"
           />
         </svg>
-        <div class="filter-popup">
+        <div class="filter-popup filter-private__popup">
         ${this._setPrivacy()}
         </div>
       </div>

@@ -40,6 +40,30 @@
   background-color: var(--color-secondary);
 }
 
+.filter-assingee__popup {
+  display: none;
+}
+
+.filter-assingee:hover .filter-assingee__popup {
+  display: block;
+}
+
+.filter-private__popup {
+  display: none;
+}
+
+.filter-private:hover .filter-private__popup {
+  display: block;
+}
+
+.filter-priority__popup {
+  display: none;
+}
+
+.filter-priority:hover .filter-priority__popup {
+  display: block;
+}
+
 @media screen and (max-width: 1280px) {
   .filter,
   .filter-info,

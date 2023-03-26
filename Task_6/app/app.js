@@ -11,11 +11,11 @@ const filterController = new FilterController();
 
 generateFilterAndTask();
 
-// let objTestForAddTask = {
-//   name: 'Test',
-//   description: 'TestDescr',
-//   assignee: 'Misha',
-//   status: 'To Do',
-//   priority: 'Hight',
-//   isPrivate: true,
-// };
+let objTestForAddTask = {
+  name: 'Test',
+  description: 'TestDescr',
+  assignee: 'Misha',
+  status: 'To Do',
+  priority: 'Hight',
+  isPrivate: true,
+};
