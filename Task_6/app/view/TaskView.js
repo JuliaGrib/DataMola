@@ -167,8 +167,10 @@ class TaskView extends View {
                     <span class="user-icon__name">${com.author}</span>
                 </div>
             <div class="comment__time">
-        <time datetime="${new Date(com.createdAt).toDateString()}</time>
-            </div>
+        <time datetime="${new Date(com.createdAt).toDateString()}>${new Date(
+        com.createdAt
+      ).toDateString()}</time>
+
             </div>
             <div class="comment__message">${com.text}</div>
         </div>

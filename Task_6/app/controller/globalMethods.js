@@ -1,3 +1,17 @@
+function generateMainView() {
+  mainView.display();
+}
+
+function generateFilterAndTask() {
+  filterView.display(tasks.user);
+  taskFeedView.display(filterController.filterTasks(), tasks.user);
+}
+
+function generateMain() {
+  generateMainView();
+  generateFilterAndTask();
+}
+
 function setCurrentUser(user) {
   try {
     if (!Helper.isValidTypeId(user)) {
@@ -5,6 +19,7 @@ function setCurrentUser(user) {
     }
     tasks.user = user;
     headerView.display(tasks.user);
+    filterView.display(tasks.user);
     taskFeedView.display(filterController.filterTasks(), tasks.user);
   } catch (error) {
     console.error(error);
@@ -117,5 +132,6 @@ function showMoreComplete() {
 
 function getFeed(obj) {
   filterController.params = obj;
+  filterView.display(tasks.user);
   taskFeedView.display(filterController.filterTasks(), tasks.user);
 }
