@@ -46,7 +46,7 @@ class TaskFeedView extends View {
                   </button>
               </section>
               <section class="col">
-                  <h2 class="title title_col">${TASK_STATUS.comlete}</h2>
+                  <h2 class="title title_col">${TASK_STATUS.complete}</h2>
                   <div class="col__content">
                       <div class="col__wrap">
                       ${this._createTasks(
