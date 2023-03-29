@@ -48,6 +48,10 @@ function showTask(id) {
       throw new Error(ERRORS.userValidation);
     }
 
+    if (tasks.get(id).assignee !== tasks.user) {
+      throw new Error(ERRORS.userValidation);
+    }
+
     taskView.display(tasks.get(id));
   } catch (error) {
     console.error(error);
