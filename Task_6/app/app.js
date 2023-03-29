@@ -11,7 +11,7 @@ const filterController = new FilterController();
 
 generateFilterAndTask();
 
-let objTestForAddTask = {
+const objTestForAddTask = {
   name: 'Test',
   description: 'TestDescr',
   assignee: 'Misha',

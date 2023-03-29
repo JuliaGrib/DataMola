@@ -44,7 +44,7 @@ function showTask(id) {
       throw new Error(ERRORS.onlyString);
     }
 
-    if (tasks.user === '') {
+    if (!tasks.user) {
       throw new Error(ERRORS.userValidation);
     }
 
@@ -82,20 +82,13 @@ function addComment(id, text) {
       throw new Error(ERRORS.onlyString);
     }
 
+    const mainNode = document.querySelector(HTML_CLASS.main);
     tasks.addComment(id, text);
 
-    if (
-      document
-        .querySelector(HTML_CLASS.main)
-        .classList.contains('main__template_task-page')
-    ) {
+    if (mainNode.classList.contains('main__template_task-page')) {
       showTask(id);
     }
-    if (
-      document
-        .querySelector(HTML_CLASS.main)
-        .classList.contains('main__template_task')
-    ) {
+    if (main.classList.contains('main__template_task')) {
       taskFeedView.display(filterController.filterTasks(), tasks.user);
     }
   } catch (error) {
@@ -137,13 +130,13 @@ function getFeed(obj) {
 }
 
 function createKanban() {
-  taskFeedView.position = 'kanban';
+  taskFeedView.position = TASK_VIEW.kanban;
   filterView.display(tasks.user);
   taskFeedView.display(filterController.filterTasks(), tasks.user);
 }
 
 function createTable() {
-  taskFeedView.position = 'table';
+  taskFeedView.position = TASK_VIEW.table;
   filterView.display(tasks.user);
   taskFeedView.display(filterController.filterTasks(), tasks.user);
 }

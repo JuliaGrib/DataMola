@@ -8,7 +8,7 @@ class Helper {
   }
 
   static isEmptyStr(str) {
-    return str.trim() !== '';
+    return str.trim().length;
   }
 
   static showMessages(mes, count = null) {
@@ -16,7 +16,7 @@ class Helper {
   }
 
   static checkCommentsArray(arrCom) {
-    if (Array.isArray(arrCom) && arrCom.length === 0) {
+    if (Array.isArray(arrCom) && !arrCom.length) {
       return true;
     }
     if (Array.isArray(arrCom) && arrCom.length > 0) {
