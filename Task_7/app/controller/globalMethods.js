@@ -14,7 +14,7 @@ function generateMain() {
 
 function setCurrentUser(user) {
   try {
-    if (!Helper.isValidTypeId(user)) {
+    if (!Helper.isString(user)) {
       throw new Error(ERRORS.onlyString);
     }
     tasks.user = user;
@@ -28,7 +28,7 @@ function setCurrentUser(user) {
 
 function removeTask(id) {
   try {
-    if (!Helper.isValidTypeId(id)) {
+    if (!Helper.isString(id)) {
       throw new Error(ERRORS.onlyString);
     }
     tasks.remove(id);
@@ -40,7 +40,7 @@ function removeTask(id) {
 
 function showTask(id) {
   try {
-    if (!Helper.isValidTypeId(id)) {
+    if (!Helper.isString(id)) {
       throw new Error(ERRORS.onlyString);
     }
 
@@ -60,7 +60,7 @@ function showTask(id) {
 
 function editTask(id, obj) {
   try {
-    if (!Helper.isValidTypeId(id)) {
+    if (!Helper.isString(id)) {
       throw new Error(ERRORS.onlyString);
     }
 
@@ -82,7 +82,7 @@ function editTask(id, obj) {
 
 function addComment(id, text) {
   try {
-    if (!Helper.isValidTypeId(id)) {
+    if (!Helper.isString(id)) {
       throw new Error(ERRORS.onlyString);
     }
 

@@ -3,7 +3,7 @@ class View {
   _nodeElem;
   constructor(id) {
     try {
-      if (!(Helper.isValidTypeId(id) && Helper.isEmptyStr(id))) {
+      if (!(Helper.isString(id) && Helper.isEmptyStr(id))) {
         throw new Error(ERRORS.onlyString);
       }
       this.nodeElem = document.querySelector(`.${id}`);

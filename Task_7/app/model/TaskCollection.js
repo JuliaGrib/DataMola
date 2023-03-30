@@ -90,7 +90,7 @@ class TaskCollection {
 
   get(id) {
     try {
-      if (!Helper.isValidTypeId(id)) {
+      if (!Helper.isString(id)) {
         throw new Error(ERRORS.invalidValue);
       }
 
@@ -110,7 +110,7 @@ class TaskCollection {
 
   remove(taskId) {
     try {
-      if (!Helper.isValidTypeId(taskId)) {
+      if (!Helper.isString(taskId)) {
         throw new Error(ERRORS.invalidValue);
       }
 
@@ -262,7 +262,7 @@ class TaskCollection {
         throw new Error(ERRORS.countArgumentsNotValidate);
       }
 
-      if (!Helper.isValidTypeId(id)) {
+      if (!Helper.isString(id)) {
         throw new Error(ERRORS.invalidValue);
       }
 
@@ -336,7 +336,7 @@ class TaskCollection {
       if (!this._isValidateUser()) {
         throw new Error(ERRORS.userValidation);
       }
-      if (!Helper.isValidTypeId(idTask) || !this._findTaskById(idTask)) {
+      if (!Helper.isString(idTask) || !this._findTaskById(idTask)) {
         throw new Error(ERRORS.taskNotFound);
       }
 

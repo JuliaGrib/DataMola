@@ -19,3 +19,6 @@ const objTestForAddTask = {
   priority: 'Hight',
   isPrivate: true,
 };
+
+let user = new User('ds', 'dsdsdfsd', 'vds5s4asddsfdfd');
+console.log(user);

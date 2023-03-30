@@ -3,8 +3,8 @@ class Helper {
     return typeof arr !== 'object' && arr === null && Array.isArray(arr);
   }
 
-  static isValidTypeId(id) {
-    return typeof id === 'string';
+  static isString(str) {
+    return typeof str === 'string';
   }
 
   static isEmptyStr(str) {
@@ -61,5 +61,80 @@ class Helper {
 
   static isPrivate(value) {
     return value ? TASK_PRIVATE.private : TASK_PRIVATE.public;
+  }
+
+  static checkLatinLetters(str) {
+    try {
+      if (!Helper.isString(str)) {
+        throw new Error(ERRORS.onlyString);
+      }
+      return str.split('').filter((letter) => LATIN_LETTERS.includes(letter))
+        .length;
+    } catch (error) {
+      console.error(error);
+      return false;
+    }
+  }
+
+  static checkKirillLetters(str) {
+    try {
+      if (!Helper.isString(str)) {
+        throw new Error(ERRORS.onlyString);
+      }
+      return str.split('').filter((letter) => KIRILL_LETTERS.includes(letter))
+        .length;
+    } catch (error) {
+      console.error(error);
+      return false;
+    }
+  }
+
+  static isValidName(str) {
+    try {
+      if (!Helper.isString(str)) {
+        throw new Error(ERRORS.onlyString);
+      }
+
+      if (!Helper.isEmptyStr(str)) {
+        throw new Error(ERRORS.emptyStr);
+      }
+
+      if (str.length > 101) {
+        throw new Error(ERRORS.notValidNameLength);
+      }
+
+      return Boolean(
+        !str
+          .split('')
+          .filter(
+            (letter) =>
+              !KIRILL_LETTERS.includes(letter) &&
+              !LATIN_LETTERS.includes(letter)
+          ).length
+      );
+    } catch (error) {
+      console.error(error);
+      return false;
+    }
+  }
+
+  static isValidPassword(value) {
+    try {
+      if (!value) {
+        throw new Error(ERRORS.invalidValue);
+      }
+      if (Array.isArray(value)) {
+        throw new Error(ERRORS.invalidValue);
+      }
+
+      if (typeof value === 'object') {
+        throw new Error(ERRORS.invalidValue);
+      }
+
+      return true;
+    } catch (error) {
+      console.error(error);
+      return false;
+    }
   }
 }
