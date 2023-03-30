@@ -68,7 +68,9 @@ class Helper {
       if (!Helper.isString(str)) {
         throw new Error(ERRORS.onlyString);
       }
-      return str.split('').filter((letter) => LATIN_LETTERS.includes(letter))
+      return str
+        .split('')
+        .filter((letter) => LATIN_LETTERS.includes(letter.toLowerCase()))
         .length;
     } catch (error) {
       console.error(error);
@@ -81,7 +83,9 @@ class Helper {
       if (!Helper.isString(str)) {
         throw new Error(ERRORS.onlyString);
       }
-      return str.split('').filter((letter) => KIRILL_LETTERS.includes(letter))
+      return str
+        .split('')
+        .filter((letter) => KIRILL_LETTERS.includes(letter.toLowerCase()))
         .length;
     } catch (error) {
       console.error(error);
@@ -108,8 +112,8 @@ class Helper {
           .split('')
           .filter(
             (letter) =>
-              !KIRILL_LETTERS.includes(letter) &&
-              !LATIN_LETTERS.includes(letter)
+              !KIRILL_LETTERS.includes(letter.toLowerCase()) &&
+              !LATIN_LETTERS.includes(letter.toLowerCase())
           ).length
       );
     } catch (error) {

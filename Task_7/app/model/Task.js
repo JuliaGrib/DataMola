@@ -58,7 +58,7 @@ class Task {
         throw new Error(ERRORS.taskNotObject);
       }
 
-      const validateObjKeys = Helper.sortKeysInObj(USER_VALIDATE);
+      const validateObjKeys = Helper.sortKeysInObj(validateObj);
       const taskKeys = Helper.sortKeysInObj(task);
 
       if (!taskKeys.length) {
