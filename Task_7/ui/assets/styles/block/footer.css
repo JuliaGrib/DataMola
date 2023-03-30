@@ -1,0 +1,28 @@
+.footer {
+    position: relative;
+    align-self: center;
+}
+
+.footer__content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer__tools {
+    display: flex;
+    align-items: center;
+    gap: var(--gap-xxxl);
+}
+
+.language {
+    display: flex;
+    align-items: center;
+    gap: var(--gap-xs);
+}
+
+@media screen and (max-width: 660px) {
+    .footer {
+        display: none;
+    }
+}

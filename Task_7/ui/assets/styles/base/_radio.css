@@ -1,0 +1,45 @@
+
+.task-tools {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: var(--gap-s);
+}
+
+.task-tools__wrapper {
+    display: flex;
+    gap: var(--gap-xxs);
+}
+
+.task-tools__elem {
+    position: relative;
+    appearance: none;
+    cursor: pointer;
+    transition: var(--animation);
+}
+
+.task-tools__default {
+    padding: var(--padding-xxs);
+    border: 0.1rem solid var(--color-secondary);
+    border-radius: var(--border-radius-s);
+}
+
+.task-tools__default_checked {
+    border: 0.1rem solid var(--color-secondary-dark);
+}
+
+.task-tools__default:hover {
+    border: 0.1rem solid var(--color-primary);
+}
+
+.selection {
+    position: relative;
+    padding: var(--padding-xs);
+    background-color: var(--color-secondary-light);
+}
+
+.selection_edit {
+    padding: var(--padding-xxs);
+    border: 0.1rem solid var(--color-black);
+    border-radius: var(--border-radius);
+}

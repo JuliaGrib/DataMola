@@ -1,0 +1,79 @@
+.filter {
+  display: flex;
+  gap: var(--gap-l);
+  padding: var(--padding-xs) var(--padding);
+  border-radius: var(--border-radius-s);
+  background-color: var(--color-secondary);
+}
+
+.filter__elem {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: var(--gap-xs);
+}
+
+.filter-popup {
+  z-index: 1000;
+  width: 90px;
+  left: -1rem;
+  position: absolute;
+  top: 20px;
+  padding: var(--padding-s);
+  border: 0.1rem solid var(--color-secondary-light);
+  border-radius: var(--border-radius);
+  background-color: var(--color-white);
+  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.25);
+}
+
+.filter-info {
+  top: 35px;
+  position: absolute;
+  display: flex;
+  gap: var(--gap-xs);
+}
+
+.filter-info__elem {
+  padding: var(--padding-xxs) var(--padding-xs);
+  border-radius: var(--border-radius-s);
+  font-size: var(--font-size-s);
+  background-color: var(--color-secondary);
+}
+
+.filter-assingee__popup {
+  display: none;
+}
+
+.filter-assingee:hover .filter-assingee__popup {
+  display: block;
+}
+
+.filter-private__popup {
+  display: none;
+}
+
+.filter-private:hover .filter-private__popup {
+  display: block;
+}
+
+.filter-priority__popup {
+  display: none;
+}
+
+.filter-priority:hover .filter-priority__popup {
+  display: block;
+}
+
+@media screen and (max-width: 1280px) {
+  .filter,
+  .filter-info,
+  .filter-info__elem {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .button__text {
+    display: none;
+  }
+}
