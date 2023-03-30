@@ -46,23 +46,31 @@ class FilterController {
   }
 
   filterParams() {
-    this._filteredTasks = tasks.getPage(
-      0,
-      tasks.myCollection.length,
-      this._params
-    );
+    this._filteredTasks = tasks
+      .getPage(0, tasks.myCollection.length, this._params)
+      .filter(({ assignee, isPrivate }) => {
+        if (isPrivate === true && assignee === tasks.user) {
+          return true;
+        }
+        if (isPrivate === true && assignee !== tasks.user) {
+          return false;
+        }
+        if (isPrivate === false) {
+          return true;
+        }
+      });
   }
 
   filterTasks() {
     this.filterParams();
     const toDoArr = this._filteredTasks
-      .filter(({ status }) => status === 'To Do')
+      .filter(({ status }) => status === TASK_STATUS.toDo)
       .splice(PAGE_LENGTH.start, this._pageToDO);
     const inProgressArr = this._filteredTasks
-      .filter(({ status }) => status === 'In progress')
+      .filter(({ status }) => status === TASK_STATUS.inProgress)
       .splice(PAGE_LENGTH.start, this._pageInProgress);
     const completeArr = this._filteredTasks
-      .filter(({ status }) => status === 'Complete')
+      .filter(({ status }) => status === TASK_STATUS.complete)
       .splice(PAGE_LENGTH.start, this._pageComplete);
     return [...toDoArr, ...inProgressArr, ...completeArr];
   }
