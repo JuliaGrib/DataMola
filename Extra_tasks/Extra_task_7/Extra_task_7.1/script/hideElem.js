@@ -1,10 +1,9 @@
-const hideElem = () => {
+const hideElem = (event) => {
   const elem = event.target;
   const sibling = elem.nextSibling;
-  if (!sibling) {
-    return true;
-  }
-  if (sibling.tagName === 'UL') {
+
+  console.log(sibling?.tagName);
+  if (sibling?.tagName === 'UL') {
     sibling.classList.toggle('hide');
   }
 };
