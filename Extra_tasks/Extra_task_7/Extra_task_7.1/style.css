@@ -14,6 +14,12 @@ ul {
 
 li {
   padding: 0.25rem;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+li:hover {
+  color: blue;
 }
 
 .hide {
