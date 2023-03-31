@@ -95,13 +95,13 @@ class UserCollection {
     }
   }
 
-  findUser(obj) {
+  findUser(loginCheck) {
     try {
-      if (!obj) {
+      if (!loginCheck) {
         throw new Error(ERRORS.invalidValue);
       }
 
-      return this._userCollection.filter(({ login }) => login === obj.login);
+      return this._userCollection.filter(({ _login }) => _login === loginCheck);
     } catch (error) {
       console.error(error);
       return false;

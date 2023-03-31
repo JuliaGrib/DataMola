@@ -20,5 +20,6 @@ const objTestForAddTask = {
   isPrivate: true,
 };
 
-let userCollection = new UserCollection(users);
+const userCollection = new UserCollection(users);
+const userController = new UserController();
 console.log(userCollection);

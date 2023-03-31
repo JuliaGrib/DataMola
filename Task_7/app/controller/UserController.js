@@ -5,17 +5,19 @@ class UserController {
         throw new Error(ERRORS.invalidValue);
       }
 
-      if (!findUser(obj.login)) {
-        throw new Error('Пользователь не найден');
-      }
+      // if (!userCollection.findUser(obj.login)) {
+      //   throw new Error('Пользователь не найден');
+      // }
 
-      const user = findUser(obj.login);
+      const user = userCollection.findUser(obj.login);
+      console.log(Object.keys(user));
 
-      if (obj.password === user.password) {
-        tasks.user = obj.login;
-      }
+      // if (obj.password !== user._password) {
+      //   throw new Error('пароль неверный');
+      // }
 
-      console.log('Пользователь успешно изменен');
+      // setCurrentUser(obj.login);
+      // console.log('Пользователь изменен');
     } catch (error) {
       console.error(error);
       return false;
