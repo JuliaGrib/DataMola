@@ -10,7 +10,7 @@ class UserCollection {
 
       this.addAll(this._userCollection);
     } catch (error) {
-      console.error(ERRORS.emptyDB);
+      console.error(error);
       return false;
     }
   }
@@ -32,6 +32,7 @@ class UserCollection {
         notValidUsers.push(user);
       }
     });
+
     return notValidUsers;
   }
 
@@ -69,8 +70,9 @@ class UserCollection {
       );
 
       this._userCollection.push(user);
-
+      this.save();
       Helper.showMessages(INFO.addSuccess);
+
       return true;
     } catch (error) {
       console.error(error);
@@ -94,6 +96,8 @@ class UserCollection {
           user.password = password;
         }
       }
+
+      this.save();
     } catch (error) {
       console.error(error);
       return false;
@@ -126,5 +130,13 @@ class UserCollection {
     return Boolean(
       this._userCollection.filter(({ login }) => login === loginNew).length
     );
+  }
+
+  restore() {
+    localStorage.userLocal = JSON.stringify(userCollection.userCollection);
+  }
+
+  save() {
+    localStorage.userLocal = JSON.stringify(userCollection.userCollection);
   }
 }

@@ -21,7 +21,6 @@ class User {
       }
       const userKeys = Object.keys(user);
       const userValidKeys = Object.keys(USER_VALIDATE);
-      console.log(user);
 
       if (!userKeys.length) {
         throw new Error(ERRORS.emptyObject);
