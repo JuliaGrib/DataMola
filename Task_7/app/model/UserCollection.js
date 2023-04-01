@@ -5,7 +5,7 @@ class UserCollection {
         throw new Error(ERRORS.objectNotFound);
       }
       this._userCollection = db.map(
-        (elem) => new User(elem.login, elem.password, elem.name)
+        (elem) => new User(elem.id, elem.login, elem.password, elem.name)
       );
 
       this.addAll(this._userCollection);
@@ -61,7 +61,12 @@ class UserCollection {
         throw new Error('Имя не комильфо');
       }
 
-      const user = new User(login, password, name);
+      const user = new User(
+        Helper.generateId(this._userCollection),
+        login,
+        password,
+        name
+      );
 
       this._userCollection.push(user);
 
@@ -95,13 +100,22 @@ class UserCollection {
     }
   }
 
-  findUser(loginCheck) {
+  findUser(id) {
     try {
-      if (!loginCheck) {
+      if (!id) {
+        throw new Error(ERRORS.invalidValue);
+      }
+      if (!Helper.isString(id)) {
         throw new Error(ERRORS.invalidValue);
       }
 
-      return this._userCollection.filter(({ _login }) => _login === loginCheck);
+      const user = this._userCollection.filter(({ _id }) => _id === id);
+
+      if (!user.length) {
+        throw new Error(ERRORS.userNotFound);
+      }
+
+      return user;
     } catch (error) {
       console.error(error);
       return false;

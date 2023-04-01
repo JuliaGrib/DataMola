@@ -1,9 +1,11 @@
 class User {
+  _id;
   _login;
   _password;
   _name;
 
-  constructor(login, password, name) {
+  constructor(id, login, password, name) {
+    this._id = id;
     this._login = login;
     this._password = password;
     this._name = name;
@@ -19,6 +21,7 @@ class User {
       }
       const userKeys = Object.keys(user);
       const userValidKeys = Object.keys(USER_VALIDATE);
+      console.log(user);
 
       if (!userKeys.length) {
         throw new Error(ERRORS.emptyObject);
@@ -43,6 +46,14 @@ class User {
     } catch (error) {
       console.error(error);
     }
+  }
+
+  get id() {
+    return this._id;
+  }
+
+  set id(value) {
+    this._id = value;
   }
 
   get login() {

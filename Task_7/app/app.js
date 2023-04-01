@@ -23,3 +23,6 @@ const objTestForAddTask = {
 const userCollection = new UserCollection(users);
 const userController = new UserController();
 console.log(userCollection);
+
+userCollection.add('test', 123, 123, 'sd');
+console.log(userCollection);

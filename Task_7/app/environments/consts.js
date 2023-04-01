@@ -26,6 +26,7 @@ const ERRORS = {
   nodeElemNotFound: 'HTML node not found',
   emptyStr: 'Empty str',
   notValidNameLength: 'Name length cannot be greater than 100',
+  userNotFound: 'User not found',
 };
 
 const INFO = {
@@ -248,6 +249,7 @@ const KIRILL_LETTERS = [
 ];
 
 const USER_VALIDATE = {
+  _id: (value) => typeof value === 'string' && value.length,
   _login: (value) => Helper.checkLatinLetters(value),
   _password: (value) => Helper.isValidPassword(value),
   _name: (value) => Helper.isValidName(value),
