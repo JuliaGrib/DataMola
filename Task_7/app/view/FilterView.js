@@ -67,16 +67,7 @@ class FilterView extends View {
       ${this._setParamsInInfo()}
     </div>
     <div class="position">
-    <a href="main.html" class="icon ${
-      taskFeedView.position === TASK_VIEW.kanban ? 'icon_active' : ''
-    }">
-    ${ICONS.icon_kanban}
-    </a>
-    <a href="main_list.html" class="icon ${
-      taskFeedView.position === TASK_VIEW.table ? 'icon_active' : ''
-    }">    
-    ${ICONS.icon_table}
-    </a>
+
   </div>
     `;
     this._setCheckBox();

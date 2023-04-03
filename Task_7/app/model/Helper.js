@@ -68,10 +68,13 @@ class Helper {
       if (!Helper.isString(str)) {
         throw new Error(ERRORS.onlyString);
       }
-      return str
+
+      const strResult = str
         .split('')
         .filter((letter) => LATIN_LETTERS.includes(letter.toLowerCase()))
-        .length;
+        .join('');
+
+      return strResult === str;
     } catch (error) {
       console.error(error);
       return false;
