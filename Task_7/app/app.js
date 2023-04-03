@@ -22,4 +22,9 @@ const taskController = new TaskController('header__nav', 'main');
 taskController.createHeaderView(tasks.user);
 const filterController = new FilterController();
 // taskController.createMainView();
-taskController.createRegistrationView();
+// taskController.createRegistrationView();
+
+setCurrentUser('Julia');
+localStorage.userCurrent = JSON.stringify(userCollection.userCollection[0]);
+console.log(localStorage.userCurrent);
+taskController.createUserPage();

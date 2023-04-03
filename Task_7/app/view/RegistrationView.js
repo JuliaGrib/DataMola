@@ -99,7 +99,7 @@ class RegistrationView extends View {
                       />
                     </svg>
                   </span>
-                  <div class="input__message input__message-login"></div>
+                  <div class="input__message input__message-password"></div>
                 </div>
                 <div class="form-elem form-elem_user form-elem_icon">
                   <label class="label label_repeat-password" for="repeat_password"

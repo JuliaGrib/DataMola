@@ -4,6 +4,8 @@ class UserPageView extends View {
   }
 
   display() {
+    const user = JSON.parse(localStorage.userCurrent);
+    console.log(user);
     this.nodeElem.className = 'main main__template_user';
     this.nodeElem.innerHTML = `
     <div class="container">
@@ -90,7 +92,7 @@ class UserPageView extends View {
                 class="input input_disabled"
                 type="text"
                 id="login"
-                value="yugrib"
+                value="${user._login}"
                 placeholder="Enter your login"
                 disabled
               />
@@ -108,6 +110,7 @@ class UserPageView extends View {
                   />
                 </svg>
               </span>
+              <div class="input__message input__message-login"></div>
             </div>
             <div class="form-elem form-elem_user form-elem_icon">
               <label class="label" for="name">Name*</label>
@@ -115,7 +118,7 @@ class UserPageView extends View {
                 class="input input_disabled"
                 type="text"
                 id="name"
-                value="Julia"
+                value="${user._name}"
                 placeholder="Enter your name"
                 disabled
               />
@@ -133,6 +136,7 @@ class UserPageView extends View {
                   />
                 </svg>
               </span>
+              <div class="input__message input__message-name"></div>
             </div>
             <div class="form-elem form-elem_user form-elem_icon">
               <label class="label" for="password">Password*</label>
@@ -140,7 +144,7 @@ class UserPageView extends View {
                 class="input input_disabled"
                 type="password"
                 id="password"
-                value="11051994"
+                value="${user._password}"
                 disabled
               />
               <span class="input_icon-svg">
@@ -157,6 +161,7 @@ class UserPageView extends View {
                   />
                 </svg>
               </span>
+              <div class="input__message input__message-password"></div>
             </div>
             <div class="form-elem form-elem_user form-elem_icon">
               <label class="label" for="repeat_password"
@@ -166,7 +171,7 @@ class UserPageView extends View {
                 class="input input_disabled"
                 type="password"
                 id="repeat_password"
-                value="11051994"
+                value="${user._password}"
                 disabled
               />
               <span class="input_icon-svg">
@@ -183,6 +188,7 @@ class UserPageView extends View {
                   />
                 </svg>
               </span>
+              <div class="input__message input__message-repeat-password"></div>
             </div>
             <div class="form__btn">
               <button class="button button_disabled" type="reset">
