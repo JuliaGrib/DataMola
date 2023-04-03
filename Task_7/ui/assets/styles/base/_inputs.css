@@ -82,8 +82,26 @@
 
 .input_icon-svg {
   position: absolute;
-  bottom: 0.5rem;
+  bottom: 1.7rem;
   right: 5%;
+}
+
+.input-messages {
+  display: none;
+  position: absolute;
+  left: -6.4rem;
+  top: -2.3rem;
+  border-radius: var(--border-radius) var(--border-radius) 0
+    var(--border-radius);
+  border: 1px solid var(--color-secondary-dark);
+  padding: var(--padding-xs);
+  color: var(--color-secondary-dark);
+  background-color: var(--color-white);
+  font-size: var(--font-size-s);
+}
+
+.login-info_login:hover + .input-messages {
+  display: block;
 }
 
 .input_icon-error-svg {
@@ -95,6 +113,7 @@
 }
 
 .input_error {
+  color: var(--color-red);
   border: 0.1rem solid var(--color-red);
 }
 
@@ -103,6 +122,7 @@
 }
 
 .input__message {
+  height: 0.9rem;
   color: var(--color-red);
   font-size: 0.75rem;
 }
@@ -112,6 +132,7 @@
 }
 
 .input_validate {
+  color: var(--color-green);
   border: 0.1rem solid var(--color-green);
 }
 

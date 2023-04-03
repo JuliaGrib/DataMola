@@ -12,8 +12,9 @@ class TaskController {
     this.userEditPageView = new UserEditPageView(main);
   }
 
-  createHeaderView() {
-    this.headerView.display(tasks.user);
+  createHeaderView(user) {
+    this.headerView.display(user);
+    this.headerView.addEvents(user);
   }
 
   createMainView() {
@@ -26,6 +27,7 @@ class TaskController {
 
   createLoginView() {
     this.loginView.display(tasks.user);
+    this.loginView.addEvents();
   }
   createRegistrationView() {
     this.registrationView.display();

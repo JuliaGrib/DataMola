@@ -18,9 +18,8 @@ function setCurrentUser(user) {
       throw new Error(ERRORS.onlyString);
     }
     tasks.user = user;
-    headerView.display(tasks.user);
-    filterView.display(tasks.user);
-    taskFeedView.display(filterController.filterTasks(), tasks.user);
+    taskController.createHeaderView(tasks.user);
+    taskController.createMainView();
   } catch (error) {
     console.error(error);
   }

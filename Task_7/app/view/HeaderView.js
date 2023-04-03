@@ -17,14 +17,14 @@ class HeaderView extends View {
       <span class="user-icon__name">${user}</span>
     </div>
     <div class="settings">
-      <a class="settings__link" href="user.html">
+      <a class="settings__link" href="#">
       ${ICONS.icon__settings}
       </a>
     </div>
   </div>
   <span class="header__line"></span>
   <div class="logout">
-    <a href="login.html" class="link"> Log out </a>
+    <a class="link logout-btn" href="#">Log out </a>
   </div>
   <div class="burger">
       ${ICONS.icon__burger}
@@ -34,11 +34,35 @@ class HeaderView extends View {
   _unauthorizedUser() {
     return `
     <div class="header__login">
-    <a class="link" href="./registration.html">Sign up</a>
-    <button class="button button_primary" type="button">
+    <a class="link registration" href="#">Sign up</a>
+    <button class="button button_primary login" type="button">
       Log in
     </button>
   </div>
   `;
+  }
+
+  addEvents(user) {
+    if (user) {
+      const settingsIcon = document.querySelector('.settings__icon');
+      const logoutBtn = document.querySelector('.logout-btn');
+
+      settingsIcon.addEventListener('click', () => {
+        taskController.createUserPage();
+      });
+      logoutBtn.addEventListener('click', () => {
+        setCurrentUser('');
+      });
+    } else {
+      const regBtn = document.querySelector('.registration');
+      const loginBtn = document.querySelector('.login');
+
+      regBtn.addEventListener('click', () => {
+        taskController.createRegistrationView();
+      });
+      loginBtn.addEventListener('click', () => {
+        taskController.createLoginView();
+      });
+    }
   }
 }

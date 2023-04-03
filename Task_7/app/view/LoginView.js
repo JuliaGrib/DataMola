@@ -34,7 +34,7 @@ class LoginView {
                 without authorization
               </p>
             </div>
-            <form onsubmit="loginController.checkUser();return false">
+            <form>
               <div class="container__form-two">
                 <div class="form-elem form-elem_user form-elem_icon">
                   <label class="label label_login" for="login">Login*</label>
@@ -46,7 +46,7 @@ class LoginView {
                     required
                   />
                   <span class="input_icon-svg">
-                    <svg
+                    <svg class="login-info login-info_login" 
                       width="19"
                       height="19"
                       viewBox="0 0 19 19"
@@ -58,7 +58,9 @@ class LoginView {
                         fill="#808080"
                       />
                     </svg>
+                    <div class="input-messages">Only latin letters</div>
                   </span>
+                  <div class="input__message input__message-login"></div>
                 </div>
                 <div class="form-elem form-elem_icon">
                   <label class="label label_password" for="password">Password*</label>
@@ -70,7 +72,7 @@ class LoginView {
                     required
                   />
                   <span class="input_icon-svg">
-                    <svg
+                    <svg class="icon-password" 
                       width="21"
                       height="18"
                       viewBox="0 0 21 18"
@@ -83,7 +85,7 @@ class LoginView {
                       />
                     </svg>
                   </span>
-                  <span class="input__message"></span>
+                  <div class="input__message input__message-password"></div>
                 </div>
                 <button class="button button_disabled button_form" type="submit" disabled >
                   Log in
@@ -95,5 +97,101 @@ class LoginView {
       </div>
 
         `;
+  }
+
+  addEvents() {
+    const form = document.querySelector('form');
+    const loginLabel = document.querySelector('.label_login');
+    const loginInput = document.querySelector('#login');
+    const passwordLabel = document.querySelector('.label_password');
+    const passwordInput = document.querySelector('#password');
+    const buttonSubmit = document.querySelector('.button_form');
+    const errorMessageLogin = document.querySelector('.input__message-login');
+    const errorMessagePassword = document.querySelector(
+      '.input__message-password'
+    );
+    const passwordIcon = document.querySelector('.icon-password');
+
+    passwordIcon.addEventListener('click', () => {
+      if (passwordInput.type === 'password') {
+        passwordInput.type = 'text';
+      } else if (passwordInput.type === 'text') {
+        passwordInput.type = 'password';
+      }
+    });
+
+    loginInput.addEventListener('keyup', () => {
+      errorMessageLogin.innerHTML = '';
+      if (
+        !(loginInput.value.length && Helper.checkLatinLetters(loginInput.value))
+      ) {
+        loginLabel.classList.remove('label_validate');
+        loginInput.classList.remove('input_validate');
+        loginLabel.classList.add('label_error');
+        loginInput.classList.add('input_error');
+      } else {
+        loginLabel.classList.remove('label_error');
+        loginInput.classList.remove('input_error');
+        loginLabel.classList.add('label_validate');
+        loginInput.classList.add('input_validate');
+      }
+    });
+
+    passwordInput.addEventListener('keyup', () => {
+      errorMessagePassword.innerHTML = '';
+      if (
+        !(
+          passwordInput.value.length &&
+          Helper.isValidPassword(passwordInput.value)
+        )
+      ) {
+        passwordLabel.classList.remove('label_validate');
+        passwordInput.classList.remove('input_validate');
+        passwordLabel.classList.add('label_error');
+        passwordInput.classList.add('input_error');
+      } else {
+        passwordLabel.classList.remove('label_error');
+        passwordInput.classList.remove('input_error');
+        passwordLabel.classList.add('label_validate');
+        passwordInput.classList.add('input_validate');
+      }
+    });
+
+    addEventListener('keyup', () => {
+      if (
+        loginInput.classList.contains('input_validate') &&
+        passwordInput.classList.contains('input_validate')
+      ) {
+        buttonSubmit.disabled = false;
+        buttonSubmit.className = 'button button_form button_primary';
+      } else {
+        buttonSubmit.className = 'button button_form button_disabled';
+        buttonSubmit.disabled = true;
+      }
+    });
+
+    form.addEventListener('submit', () => {
+      const loginValues = {
+        login: loginInput.value,
+        password: passwordInput.value,
+      };
+
+      if (userCollection.hasUser(loginValues) instanceof User) {
+        setCurrentUser(loginInput.value);
+      } else {
+        errorMessageLogin.innerHTML = 'Login or password is incorrect';
+        errorMessagePassword.innerHTML = 'Login or password is incorrect';
+        loginLabel.classList.remove('label_validate');
+        loginInput.classList.remove('input_validate');
+        passwordLabel.classList.remove('label_validate');
+        passwordInput.classList.remove('input_validate');
+        loginLabel.classList.add('label_error');
+        loginInput.classList.add('input_error');
+        passwordLabel.classList.add('label_error');
+        passwordInput.classList.add('input_error');
+        buttonSubmit.className = 'button button_form button_disabled';
+        buttonSubmit.disabled = true;
+      }
+    });
   }
 }

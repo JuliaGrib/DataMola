@@ -126,6 +126,12 @@ class UserCollection {
     }
   }
 
+  hasUser(obj) {
+    return this._userCollection.filter(
+      ({ login, password }) => login === obj.login && password === obj.password
+    )[0];
+  }
+
   _hasLogin(loginNew) {
     return Boolean(
       this._userCollection.filter(({ login }) => login === loginNew).length
