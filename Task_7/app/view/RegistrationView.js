@@ -17,17 +17,17 @@ class RegistrationView extends View {
               <h2 class="title title_enter">Sign up</h2>
               <p class="enter__text">
                 Have account?
-                <a class="link link_enter" href="./login.html">Log in</a> or
+                <a class="link link_enter link_enter_login" href="#">Log in</a> or
                 continue
-                <a class="link link_enter" href="./main.html"
+                <a class="link link_enter link_enter_continue" href="#"
                   >without authorization</a
                 >
               </p>
             </div>
-            <form action="/">
+            <form>
               <div class="container__form-four">
                 <div class="form-elem form-elem_user form-elem_icon">
-                  <label class="label" for="login">Login*</label>
+                  <label class="label label_login" for="login">Login*</label>
                   <input
                     class="input input_default"
                     type="text"
@@ -49,11 +49,12 @@ class RegistrationView extends View {
                       />
                     </svg>
                   </span>
+                  <div class="input__message input__message-login"></div>
                 </div>
                 <div class="form-elem form-elem_user form-elem_icon">
-                  <label class="label" for="name">Name*</label>
+                  <label class="label label_name" for="name">Name*</label>
                   <input
-                    class="input input_default"
+                    class="input input_name input_default"
                     type="text"
                     id="name"
                     placeholder="Enter your name"
@@ -73,11 +74,12 @@ class RegistrationView extends View {
                       />
                     </svg>
                   </span>
+                  <div class="input__message input__message-name"></div>
                 </div>
                 <div class="form-elem form-elem_user form-elem_icon">
-                  <label class="label" for="password">Password*</label>
+                  <label class="label label_password" for="password">Password*</label>
                   <input
-                    class="input input_default"
+                    class="input input_default "
                     type="password"
                     id="password"
                     placeholder="Enter your password"
@@ -97,9 +99,10 @@ class RegistrationView extends View {
                       />
                     </svg>
                   </span>
+                  <div class="input__message input__message-login"></div>
                 </div>
                 <div class="form-elem form-elem_user form-elem_icon">
-                  <label class="label" for="repeat_password"
+                  <label class="label label_repeat-password" for="repeat_password"
                     >Repeat password*</label
                   >
                   <input
@@ -123,6 +126,7 @@ class RegistrationView extends View {
                       />
                     </svg>
                   </span>
+                  <div class="input__message input__message-login"></div>
                 </div>
                 <div class="enter__avatar">
                   <span class="enter__subtitle">Choose avatar</span>
@@ -227,7 +231,7 @@ class RegistrationView extends View {
                     </svg>
                   </button>
                 </div>
-                <button class="button button_disabled button__form_reg">
+                <button class="button button_disabled button__form_reg" type="submit">
                   Sign up
                 </button>
               </div>
@@ -236,5 +240,164 @@ class RegistrationView extends View {
         </div>
       </div>
         `;
+  }
+
+  addEvents() {
+    const linkLogin = document.querySelector('.link_enter_login');
+    const linkContinue = document.querySelector('.link_enter_continue');
+    linkLogin.addEventListener('click', () => {
+      taskController.createLoginView();
+    });
+
+    linkContinue.addEventListener('click', () => {
+      taskController.createMainView();
+    });
+
+    const loginLabel = document.querySelector('.label_login');
+    const loginInput = document.querySelector('#login');
+    const errorMessageLogin = document.querySelector('.input__message-login');
+
+    loginInput.addEventListener('keyup', () => {
+      errorMessageLogin.innerHTML = '';
+      if (
+        !(loginInput.value.length && Helper.checkLatinLetters(loginInput.value))
+      ) {
+        Helper.changeStatusInput(
+          loginLabel,
+          loginInput,
+          'label_validate',
+          'input_validate',
+          'label_error',
+          'input_error'
+        );
+      } else {
+        Helper.changeStatusInput(
+          loginLabel,
+          loginInput,
+          'label_error',
+          'input_error',
+          'label_validate',
+          'input_validate'
+        );
+      }
+    });
+
+    const nameLabel = document.querySelector('.label_name');
+    const nameInput = document.querySelector('#name');
+    const errorMessageName = document.querySelector('.input__message-name');
+
+    nameInput.addEventListener('keyup', () => {
+      errorMessageName.innerHTML = '';
+      if (!(nameInput.value.length && Helper.isValidName(nameInput.value))) {
+        Helper.changeStatusInput(
+          nameLabel,
+          nameInput,
+          'label_validate',
+          'input_validate',
+          'label_error',
+          'input_error'
+        );
+      } else {
+        Helper.changeStatusInput(
+          nameLabel,
+          nameInput,
+          'label_error',
+          'input_error',
+          'label_validate',
+          'input_validate'
+        );
+      }
+    });
+
+    const passwordLabel = document.querySelector('.label_password');
+    const passwordInput = document.querySelector('#password');
+
+    passwordInput.addEventListener('keyup', () => {
+      if (
+        !(
+          passwordInput.value.length &&
+          Helper.isValidPassword(passwordInput.value)
+        )
+      ) {
+        Helper.changeStatusInput(
+          passwordLabel,
+          passwordInput,
+          'label_validate',
+          'input_validate',
+          'label_error',
+          'input_error'
+        );
+      } else {
+        Helper.changeStatusInput(
+          passwordLabel,
+          passwordInput,
+          'label_error',
+          'input_error',
+          'label_validate',
+          'input_validate'
+        );
+      }
+    });
+
+    const passwordRepeatLabel = document.querySelector(
+      '.label_repeat-password'
+    );
+    const passwordRepeatInput = document.querySelector('#repeat_password');
+
+    passwordRepeatInput.addEventListener('keyup', () => {
+      if (
+        !(
+          passwordRepeatInput.value.length &&
+          Helper.isValidPassword(passwordRepeatInput.value) &&
+          passwordInput.value === passwordRepeatInput.value
+        )
+      ) {
+        Helper.changeStatusInput(
+          passwordRepeatLabel,
+          passwordRepeatInput,
+          'label_validate',
+          'input_validate',
+          'label_error',
+          'input_error'
+        );
+      } else {
+        Helper.changeStatusInput(
+          passwordRepeatLabel,
+          passwordRepeatInput,
+          'label_error',
+          'input_error',
+          'label_validate',
+          'input_validate'
+        );
+      }
+    });
+
+    const buttonSubmit = document.querySelector('.button__form_reg');
+    addEventListener('keyup', () => {
+      if (
+        loginInput.classList.contains('input_validate') &&
+        passwordInput.classList.contains('input_validate') &&
+        nameInput.classList.contains('input_validate') &&
+        passwordRepeatInput.classList.contains('input_validate')
+      ) {
+        buttonSubmit.disabled = false;
+        buttonSubmit.className = 'button button__form_reg button_primary';
+      } else {
+        buttonSubmit.className = 'button button__form_reg button_disabled';
+        buttonSubmit.disabled = true;
+      }
+    });
+
+    const form = document.querySelector('form');
+
+    form.addEventListener('submit', () => {
+      userCollection.add(
+        loginInput.value,
+        passwordInput.value,
+        passwordRepeatInput.value,
+        nameInput.value
+      );
+      setCurrentUser(loginInput.value);
+    });
   }
 }

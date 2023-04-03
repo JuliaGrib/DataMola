@@ -26,11 +26,11 @@ class LoginView {
               <h2 class="title title_enter">Log in</h2>
               <p class="enter__text">
                 Don’t have an account?
-                <a class="link link_enter" href="./registration.html"
+                <a class="link link_enter link_enter-registration" href="#"
                   >Create your account</a
                 >
                 or
-                <a class="link link_enter" href="./main.html">continue</a>
+                <a class="link link_enter link_enter-continue" href="#">continue</a>
                 without authorization
               </p>
             </div>
@@ -111,6 +111,16 @@ class LoginView {
       '.input__message-password'
     );
     const passwordIcon = document.querySelector('.icon-password');
+    const linkRegistration = document.querySelector('.link_enter-registration');
+    const linkContinue = document.querySelector('.link_enter-continue');
+
+    linkRegistration.addEventListener('click', () => {
+      taskController.createRegistrationView();
+    });
+
+    linkContinue.addEventListener('click', () => {
+      taskController.createMainView();
+    });
 
     passwordIcon.addEventListener('click', () => {
       if (passwordInput.type === 'password') {
@@ -125,39 +135,55 @@ class LoginView {
       if (
         !(loginInput.value.length && Helper.checkLatinLetters(loginInput.value))
       ) {
-        loginLabel.classList.remove('label_validate');
-        loginInput.classList.remove('input_validate');
-        loginLabel.classList.add('label_error');
-        loginInput.classList.add('input_error');
+        Helper.changeStatusInput(
+          loginLabel,
+          loginInput,
+          'label_validate',
+          'input_validate',
+          'label_error',
+          'input_error'
+        );
       } else {
-        loginLabel.classList.remove('label_error');
-        loginInput.classList.remove('input_error');
-        loginLabel.classList.add('label_validate');
-        loginInput.classList.add('input_validate');
+        Helper.changeStatusInput(
+          loginLabel,
+          loginInput,
+          'label_error',
+          'input_error',
+          'label_validate',
+          'input_validate'
+        );
       }
     });
 
     passwordInput.addEventListener('keyup', () => {
-      errorMessagePassword.innerHTML = '';
       if (
         !(
           passwordInput.value.length &&
           Helper.isValidPassword(passwordInput.value)
         )
       ) {
-        passwordLabel.classList.remove('label_validate');
-        passwordInput.classList.remove('input_validate');
-        passwordLabel.classList.add('label_error');
-        passwordInput.classList.add('input_error');
+        Helper.changeStatusInput(
+          passwordLabel,
+          passwordInput,
+          'label_validate',
+          'input_validate',
+          'label_error',
+          'input_error'
+        );
       } else {
-        passwordLabel.classList.remove('label_error');
-        passwordInput.classList.remove('input_error');
-        passwordLabel.classList.add('label_validate');
-        passwordInput.classList.add('input_validate');
+        Helper.changeStatusInput(
+          passwordLabel,
+          passwordInput,
+          'label_error',
+          'input_error',
+          'label_validate',
+          'input_validate'
+        );
       }
     });
 
     addEventListener('keyup', () => {
+      errorMessagePassword.innerHTML = '';
       if (
         loginInput.classList.contains('input_validate') &&
         passwordInput.classList.contains('input_validate')
@@ -179,16 +205,24 @@ class LoginView {
       if (userCollection.hasUser(loginValues) instanceof User) {
         setCurrentUser(loginInput.value);
       } else {
+        Helper.changeStatusInput(
+          passwordLabel,
+          passwordInput,
+          'label_validate',
+          'input_validate',
+          'label_error',
+          'input_error'
+        );
+        Helper.changeStatusInput(
+          loginLabel,
+          loginInput,
+          'label_validate',
+          'input_validate',
+          'label_error',
+          'input_error'
+        );
         errorMessageLogin.innerHTML = 'Login or password is incorrect';
         errorMessagePassword.innerHTML = 'Login or password is incorrect';
-        loginLabel.classList.remove('label_validate');
-        loginInput.classList.remove('input_validate');
-        passwordLabel.classList.remove('label_validate');
-        passwordInput.classList.remove('input_validate');
-        loginLabel.classList.add('label_error');
-        loginInput.classList.add('input_error');
-        passwordLabel.classList.add('label_error');
-        passwordInput.classList.add('input_error');
         buttonSubmit.className = 'button button_form button_disabled';
         buttonSubmit.disabled = true;
       }

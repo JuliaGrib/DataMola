@@ -22,4 +22,4 @@ const taskController = new TaskController('header__nav', 'main');
 taskController.createHeaderView(tasks.user);
 const filterController = new FilterController();
 // taskController.createMainView();
-taskController.createLoginView();
+taskController.createRegistrationView();

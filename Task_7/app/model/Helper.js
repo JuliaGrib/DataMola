@@ -86,10 +86,11 @@ class Helper {
       if (!Helper.isString(str)) {
         throw new Error(ERRORS.onlyString);
       }
-      return str
+      const strResult = str
         .split('')
         .filter((letter) => KIRILL_LETTERS.includes(letter.toLowerCase()))
-        .length;
+        .join('');
+      return strResult === str;
     } catch (error) {
       console.error(error);
       return false;
@@ -110,15 +111,15 @@ class Helper {
         throw new Error(ERRORS.notValidNameLength);
       }
 
-      return Boolean(
-        !str
-          .split('')
-          .filter(
-            (letter) =>
-              !KIRILL_LETTERS.includes(letter.toLowerCase()) &&
-              !LATIN_LETTERS.includes(letter.toLowerCase())
-          ).length
-      );
+      const strResult = str
+        .split('')
+        .filter(
+          (letter) =>
+            KIRILL_LETTERS.includes(letter.toLowerCase()) ||
+            LATIN_LETTERS.includes(letter.toLowerCase())
+        )
+        .join('');
+      return strResult === str;
     } catch (error) {
       console.error(error);
       return false;
@@ -143,5 +144,19 @@ class Helper {
       console.error(error);
       return false;
     }
+  }
+
+  static changeStatusInput(
+    nodeLabel,
+    nodeInput,
+    removeLabel,
+    removeInput,
+    addLabel,
+    addInput
+  ) {
+    nodeLabel.classList.remove(removeLabel);
+    nodeInput.classList.remove(removeInput);
+    nodeLabel.classList.add(addLabel);
+    nodeInput.classList.add(addInput);
   }
 }
