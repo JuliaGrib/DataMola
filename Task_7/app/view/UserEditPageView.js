@@ -4,6 +4,7 @@ class UserEditPageView extends View {
   }
 
   display() {
+    const user = JSON.parse(localStorage.userCurrent);
     this.nodeElem.className = 'main main__template_user';
     this.nodeElem.innerHTML = `
     <div class="container">
@@ -82,7 +83,7 @@ class UserEditPageView extends View {
             </svg>
           </a>
         </div>
-        <form action="/">
+        <form>
           <div class="container__form-four container__form_user">
             <div class="form-elem form-elem_user form-elem_icon">
               <label class="label" for="login">Login*</label>
@@ -90,7 +91,7 @@ class UserEditPageView extends View {
                 class="input input_disabled"
                 type="text"
                 id="login"
-                value="yugrib"
+                value="${user._login}"
                 placeholder="Enter your login"
                 disabled
               />
@@ -108,14 +109,15 @@ class UserEditPageView extends View {
                   />
                 </svg>
               </span>
+              <div class="input__message input__message-login"></div>
             </div>
             <div class="form-elem form-elem_user form-elem_icon">
-              <label class="label" for="name">Name*</label>
+              <label class="label label_name" for="name">Name*</label>
               <input
                 class="input input_user"
                 type="text"
                 id="name"
-                value="Julia"
+                value="${user._name}"
                 placeholder="Enter your name"
                 requared
               />
@@ -133,14 +135,15 @@ class UserEditPageView extends View {
                   />
                 </svg>
               </span>
+              <div class="input__message input__message-password"></div>
             </div>
             <div class="form-elem form-elem_user form-elem_icon">
-              <label class="label" for="password">Password*</label>
+              <label class="label label_password" for="password">Password*</label>
               <input
                 class="input input_user"
                 type="password"
                 id="password"
-                value="11051994"
+                value="${user._password}"
                 requared
               />
               <span class="input_icon-svg">
@@ -157,16 +160,17 @@ class UserEditPageView extends View {
                   />
                 </svg>
               </span>
+              <div class="input__message input__message-password"></div>
             </div>
             <div class="form-elem form-elem_user form-elem_icon">
-              <label class="label" for="repeat_password"
+              <label class="label label_repeat-password" for="repeat_password"
                 >Repeat password*</label
               >
               <input
                 class="input input_user"
                 type="password"
                 id="repeat_password"
-                value="11051994"
+                value="${user._password}"
                 requared
               />
               <span class="input_icon-svg">
@@ -183,12 +187,14 @@ class UserEditPageView extends View {
                   />
                 </svg>
               </span>
+
+              <div class="input__message input__message-repeat-password"></div>
             </div>
             <div class="form__btn">
               <button class="button button_secondary" type="reset">
                 Reset
               </button>
-              <button class="button button_primary" type="submit">
+              <button class="button button_save button_disabled" type="submit" disabled>
                 Save
               </button>
             </div>
@@ -198,5 +204,126 @@ class UserEditPageView extends View {
     </section>
   </div>
           `;
+  }
+
+  addEvents() {
+    const nameLabel = document.querySelector('.label_name');
+    const nameInput = document.querySelector('#name');
+    const errorMessageName = document.querySelector('.input__message-name');
+
+    nameInput.addEventListener('keyup', () => {
+      // errorMessageName.innerHTML = '';
+      if (!(nameInput.value.length && Helper.isValidName(nameInput.value))) {
+        Helper.changeStatusInput(
+          nameLabel,
+          nameInput,
+          'label_validate',
+          'input_validate',
+          'label_error',
+          'input_error'
+        );
+      } else {
+        Helper.changeStatusInput(
+          nameLabel,
+          nameInput,
+          'label_error',
+          'input_error',
+          'label_validate',
+          'input_validate'
+        );
+      }
+    });
+
+    const passwordLabel = document.querySelector('.label_password');
+    const passwordInput = document.querySelector('#password');
+
+    passwordInput.addEventListener('keyup', () => {
+      if (
+        !(
+          passwordInput.value.length &&
+          Helper.isValidPassword(passwordInput.value)
+        )
+      ) {
+        Helper.changeStatusInput(
+          passwordLabel,
+          passwordInput,
+          'label_validate',
+          'input_validate',
+          'label_error',
+          'input_error'
+        );
+      } else {
+        Helper.changeStatusInput(
+          passwordLabel,
+          passwordInput,
+          'label_error',
+          'input_error',
+          'label_validate',
+          'input_validate'
+        );
+      }
+    });
+
+    const passwordRepeatLabel = document.querySelector(
+      '.label_repeat-password'
+    );
+    const passwordRepeatInput = document.querySelector('#repeat_password');
+
+    passwordRepeatInput.addEventListener('keyup', () => {
+      if (
+        !(
+          passwordRepeatInput.value.length &&
+          Helper.isValidPassword(passwordRepeatInput.value) &&
+          passwordInput.value === passwordRepeatInput.value
+        )
+      ) {
+        Helper.changeStatusInput(
+          passwordRepeatLabel,
+          passwordRepeatInput,
+          'label_validate',
+          'input_validate',
+          'label_error',
+          'input_error'
+        );
+      } else {
+        Helper.changeStatusInput(
+          passwordRepeatLabel,
+          passwordRepeatInput,
+          'label_error',
+          'input_error',
+          'label_validate',
+          'input_validate'
+        );
+      }
+    });
+
+    const buttonSubmit = document.querySelector('.button_save');
+    addEventListener('keyup', () => {
+      if (
+        passwordInput.classList.contains('input_validate') &&
+        nameInput.classList.contains('input_validate') &&
+        passwordRepeatInput.classList.contains('input_validate')
+      ) {
+        buttonSubmit.disabled = false;
+        buttonSubmit.className = 'button button__form_reg button_primary';
+      } else {
+        buttonSubmit.className = 'button button__form_reg button_disabled';
+        buttonSubmit.disabled = true;
+      }
+    });
+
+    const form = document.querySelector('form');
+
+    form.addEventListener('submit', () => {
+      const user = JSON.parse(localStorage.userCurrent);
+      userCollection.changeUser(
+        user._id,
+        nameInput.value,
+        passwordInput.value,
+        passwordRepeatInput.value
+      );
+
+      // setCurrentUser(loginInput.value);
+    });
   }
 }

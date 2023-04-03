@@ -26,5 +26,4 @@ const filterController = new FilterController();
 
 setCurrentUser('Julia');
 localStorage.userCurrent = JSON.stringify(userCollection.userCollection[0]);
-console.log(localStorage.userCurrent);
-taskController.createUserPage();
+taskController.createUserEditPage();

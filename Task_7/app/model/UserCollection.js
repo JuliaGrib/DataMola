@@ -80,13 +80,13 @@ class UserCollection {
     }
   }
 
-  changeUser(name = null, password = null, repeatPassword = null) {
+  changeUser(id, name, password, repeatPassword) {
     try {
       if (!arguments) {
         throw new Error(ERRORS.invalidValue);
       }
 
-      const user = findUser({ login: tasks.user });
+      const user = this.findUser(id);
 
       if (USER_VALIDATE._name(name)) {
         user.name = name;

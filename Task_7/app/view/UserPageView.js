@@ -5,7 +5,6 @@ class UserPageView extends View {
 
   display() {
     const user = JSON.parse(localStorage.userCurrent);
-    console.log(user);
     this.nodeElem.className = 'main main__template_user';
     this.nodeElem.innerHTML = `
     <div class="container">
@@ -40,7 +39,7 @@ class UserPageView extends View {
         />
         <div class="user__photo-tools">
           <a href="./user_edit.html" class="icon icon_change">
-            <svg
+            <svg"
               width="24"
               height="24"
               viewBox="0 0 24 24"
@@ -71,7 +70,7 @@ class UserPageView extends View {
         <div class="user__header">
           <h2 class="title title_h2">General information</h2>
           <a href="#" class="icon icon_change">
-            <svg
+            <svg  class="icon-change 
               width="24"
               height="24"
               viewBox="0 0 24 24"
@@ -204,5 +203,12 @@ class UserPageView extends View {
     </section>
   </div>
           `;
+  }
+
+  addEvents() {
+    const iconChange = document.querySelector('.icon-change');
+    iconChange.addEventListener('click', () => {
+      taskController.createUserEditPage();
+    });
   }
 }

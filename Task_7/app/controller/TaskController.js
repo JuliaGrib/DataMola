@@ -60,9 +60,11 @@ class TaskController {
 
   createUserPage() {
     this.userPageView.display();
+    this.userPageView.addEvents();
   }
 
   createUserEditPage() {
     this.userEditPageView.display();
+    this.userEditPageView.addEvents();
   }
 }
