@@ -1,18 +1,17 @@
 class TaskCollection {
-  _user = '';
-
-  constructor(db) {
+  _user = this.restoreUser();
+  _myCollection;
+  constructor() {
     try {
-      if (!Helper.checkerArray(db)) {
-        throw new Error(ERRORS.objectNotFound);
-      }
+      const db = this.restore();
+
       this._myCollection = db.map(
         (elem) =>
           new Task(
-            elem.id,
+            elem.id || elem._id,
             elem.name,
             elem.description,
-            elem.createdAt,
+            elem.createdAt || elem._createdAt,
             elem.assignee,
             elem.status,
             elem.priority,
@@ -20,10 +19,39 @@ class TaskCollection {
             elem.comments
           )
       );
+
       this.addAll(this._myCollection);
     } catch (error) {
-      console.error(ERRORS.emptyDB);
+      console.error(error);
       return false;
+    }
+  }
+
+  restore() {
+    try {
+      if (!localStorage.getItem('taskCollection')) {
+        return tasksDB;
+      } else {
+        return JSON.parse(localStorage.taskCollection);
+      }
+    } catch (error) {
+      console.error(error);
+      return false;
+    }
+  }
+
+  save() {
+    localStorage.taskCollection = JSON.stringify(this._myCollection);
+  }
+
+  restoreUser() {
+    if (
+      !localStorage.getItem('user') ||
+      localStorage.getItem('user') === 'undefined'
+    ) {
+      return '';
+    } else {
+      return JSON.parse(localStorage.user).login;
     }
   }
 
@@ -36,12 +64,11 @@ class TaskCollection {
       if (typeof value !== 'string') {
         throw new Error(ERRORS.invalidValue);
       }
-      if (value === this._user) {
+      if (value === this._user && value !== '') {
         throw new Error(ERRORS.sameName);
       }
 
       this._user = value || '';
-      Helper.showMessages(INFO.userChange);
     } catch (error) {
       console.error(error);
       return false;
@@ -60,20 +87,19 @@ class TaskCollection {
 
   addAll(arr) {
     const notValidTasks = [];
-    this.myCollection = arr.filter((task) => {
-      if (Task.validateTask(task)) {
-        return true;
-      } else {
-        notValidTasks.push(task);
-      }
-    });
 
+    // this.myCollection = arr.filter((task) => {
+    //   if (Task.validateTask(task)) {
+    //     return true;
+    //   } else {
+    //     notValidTasks.push(task);
+    //   }
+    // });
     return notValidTasks;
   }
 
   clear() {
     this.myCollection = [];
-    Helper.showMessages(INFO.clearCollection);
   }
 
   _isValidateUser() {
@@ -133,7 +159,6 @@ class TaskCollection {
         throw new Error(ERRORS.taskNotDel);
       }
 
-      Helper.showMessages(INFO.removeSuccess);
       return true;
     } catch (error) {
       console.error(error);
@@ -166,18 +191,17 @@ class TaskCollection {
           if (
             key === KEYS.assignee ||
             key === KEYS.status ||
-            key === KEYS.priority
+            key === KEYS.priority ||
+            key === KEYS.isPrivate
           ) {
-            if (Array.isArray(filterConfig[key])) {
+            if (Array.isArray(filterConfig[key]) && filterConfig[key].length) {
               return filterConfig[key].includes(elem[key]);
-            } else {
-              return (
-                elem[key].toLowerCase() === filterConfig[key].toLowerCase()
-              );
+            } else if (
+              Array.isArray(filterConfig[key]) &&
+              !filterConfig[key].length
+            ) {
+              return elem;
             }
-          }
-          if (key === KEYS.isPrivate) {
-            return elem[key] === filterConfig[key];
           }
           if (key === KEYS.dateFrom) {
             let date = new Date(filterConfig[key]);
@@ -237,7 +261,6 @@ class TaskCollection {
 
       this._myCollection.push(task);
 
-      Helper.showMessages(INFO.addSuccess);
       return true;
     } catch (error) {
       console.error(error);
@@ -323,7 +346,6 @@ class TaskCollection {
         }
       }
 
-      Helper.showMessages(INFO.editSuccess);
       return true;
     } catch (error) {
       console.error(error);
@@ -357,7 +379,6 @@ class TaskCollection {
 
       this._findTaskById(idTask).comments.push(com);
 
-      Helper.showMessages(INFO.addCommentSuccess);
       return true;
     } catch (error) {
       console.error(error);

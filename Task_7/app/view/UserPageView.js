@@ -4,7 +4,7 @@ class UserPageView extends View {
   }
 
   display() {
-    const user = JSON.parse(localStorage.userCurrent);
+    const user = JSON.parse(localStorage.user);
     this.nodeElem.className = 'main main__template_user';
     this.nodeElem.innerHTML = `
     <div class="container">
@@ -23,7 +23,7 @@ class UserPageView extends View {
             fill="#333333"
           />
         </svg>
-        <a href="./main.html" class="link back__text"> My tasks </a>
+        <a  class="link back__text" href="#"> My tasks </a>
       </div>
       <h1 class="title title_h1">Account settings</h1>
     </div>
@@ -91,7 +91,7 @@ class UserPageView extends View {
                 class="input input_disabled"
                 type="text"
                 id="login"
-                value="${user._login}"
+                value="${user.login}"
                 placeholder="Enter your login"
                 disabled
               />
@@ -117,7 +117,7 @@ class UserPageView extends View {
                 class="input input_disabled"
                 type="text"
                 id="name"
-                value="${user._name}"
+                value="${user.name}"
                 placeholder="Enter your name"
                 disabled
               />
@@ -143,7 +143,7 @@ class UserPageView extends View {
                 class="input input_disabled"
                 type="password"
                 id="password"
-                value="${user._password}"
+                value="${user.password}"
                 disabled
               />
               <span class="input_icon-svg">
@@ -170,7 +170,7 @@ class UserPageView extends View {
                 class="input input_disabled"
                 type="password"
                 id="repeat_password"
-                value="${user._password}"
+                value="${user.password}"
                 disabled
               />
               <span class="input_icon-svg">
@@ -209,6 +209,13 @@ class UserPageView extends View {
     const iconChange = document.querySelector('.icon-change');
     iconChange.addEventListener('click', () => {
       taskController.createUserEditPage();
+    });
+
+    const backMain = document.querySelector('.back');
+    backMain.addEventListener('click', (event) => {
+      if (event.target.className === 'link back__text') {
+        taskController.createMainView();
+      }
     });
   }
 }

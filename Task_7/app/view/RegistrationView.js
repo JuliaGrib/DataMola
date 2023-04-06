@@ -4,6 +4,16 @@ class RegistrationView extends View {
   }
 
   display() {
+    const header = document.querySelector('.header');
+
+    if (!document.querySelector('.background')) {
+      console.log(document.querySelector('.background'));
+      header.insertAdjacentHTML(
+        'beforebegin',
+        '<div class="background"></div>'
+      );
+    }
+
     this.nodeElem.className = 'main';
     this.nodeElem.innerHTML = `
       <div class="container">
@@ -36,7 +46,7 @@ class RegistrationView extends View {
                     required
                   />
                   <span class="input_icon-svg">
-                    <svg
+                    <svg class="login-info_login"
                       width="19"
                       height="19"
                       viewBox="0 0 19 19"
@@ -48,6 +58,7 @@ class RegistrationView extends View {
                         fill="#808080"
                       />
                     </svg>
+                    <div class="input-messages">Only latin letters</div>
                   </span>
                   <div class="input__message input__message-login"></div>
                 </div>
@@ -61,7 +72,7 @@ class RegistrationView extends View {
                     required
                   />
                   <span class="input_icon-svg">
-                    <svg
+                    <svg class="login-info_name"
                       width="19"
                       height="19"
                       viewBox="0 0 19 19"
@@ -73,6 +84,7 @@ class RegistrationView extends View {
                         fill="#808080"
                       />
                     </svg>
+                    <div class="input-messages-name">Max length 100</div>
                   </span>
                   <div class="input__message input__message-name"></div>
                 </div>
@@ -86,7 +98,7 @@ class RegistrationView extends View {
                     required
                   />
                   <span class="input_icon-svg">
-                    <svg
+                    <svg class="password"
                       width="21"
                       height="18"
                       viewBox="0 0 21 18"
@@ -113,7 +125,7 @@ class RegistrationView extends View {
                     required
                   />
                   <span class="input_icon-svg">
-                    <svg
+                    <svg class="password-repeat"
                       width="21"
                       height="18"
                       viewBox="0 0 21 18"
@@ -247,10 +259,12 @@ class RegistrationView extends View {
     const linkContinue = document.querySelector('.link_enter_continue');
     linkLogin.addEventListener('click', () => {
       taskController.createLoginView();
+      background.remove();
     });
 
     linkContinue.addEventListener('click', () => {
       taskController.createMainView();
+      background.remove();
     });
 
     const loginLabel = document.querySelector('.label_login');
@@ -391,13 +405,90 @@ class RegistrationView extends View {
     const form = document.querySelector('form');
 
     form.addEventListener('submit', () => {
-      userCollection.add(
+      let addUser = taskController.userCollection.add(
         loginInput.value,
         passwordInput.value,
         passwordRepeatInput.value,
         nameInput.value
       );
-      setCurrentUser(loginInput.value);
+      if (addUser) {
+        taskController.userCollection.saveUser(
+          taskController.userCollection.userCollection.at(-1)
+        );
+        taskController.userCollection.save(
+          taskController.userCollection.userCollection
+        );
+        setCurrentUser(loginInput.value);
+        background.remove();
+      } else {
+        Helper.changeStatusInput(
+          loginLabel,
+          loginInput,
+          'label_validate',
+          'input_validate',
+          'label_error',
+          'input_error'
+        );
+        errorMessageLogin.innerHTML = ERRORS.userAlreadyExists;
+        buttonSubmit.className = 'button button__form_reg button_disabled';
+        buttonSubmit.disabled = true;
+      }
+    });
+
+    const passwordIcon = document.querySelector('.password');
+    const passwordRepeat = document.querySelector('.password-repeat');
+    passwordIcon.addEventListener('click', () => {
+      if (passwordInput.type === 'password') {
+        passwordInput.type = 'text';
+        passwordIcon.innerHTML = `
+        <svg class="icon-password" width="21" height="18" viewBox="0 0 21 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M10.5 14.0769C14.5541 14.0769 18.0608 12.0277 19.8649 9C18.0608 5.97231 14.5541 3.92308 10.5 3.92308C6.44595 3.92308 2.93919 5.97231 1.13514 9C2.93919 12.0277 6.44595 14.0769 10.5 14.0769ZM10.5 3C15.1216 3 19.1149 5.44615 21 9C19.1149 12.5538 15.1216 15 10.5 15C5.87838 15 1.88514 12.5538 0 9C1.88514 5.44615 5.87838 3 10.5 3ZM10.5 4.84615C13.0338 4.84615 15.0608 6.69231 15.0608 9C15.0608 11.3077 13.0338 13.1538 10.5 13.1538C7.96622 13.1538 5.93919 11.3077 5.93919 9C5.93919 6.69231 7.96622 4.84615 10.5 4.84615ZM10.5 5.76923C9.5592 5.76923 8.65693 6.10961 7.99168 6.7155C7.32643 7.32139 6.9527 8.14315 6.9527 9C6.9527 9.85685 7.32643 10.6786 7.99168 11.2845C8.65693 11.8904 9.5592 12.2308 10.5 12.2308C11.4408 12.2308 12.3431 11.8904 13.0083 11.2845C13.6736 10.6786 14.0473 9.85685 14.0473 9C14.0473 8.14315 13.6736 7.32139 13.0083 6.7155C12.3431 6.10961 11.4408 5.76923 10.5 5.76923Z" fill="#808080"/>
+      </svg>
+        `;
+      } else if (passwordInput.type === 'text') {
+        passwordInput.type = 'password';
+        passwordIcon.innerHTML = `
+        <svg class="icon-password" 
+        width="21"
+        height="18"
+        viewBox="0 0 21 18"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M1.54014 0.71L2.25014 0L19.0001 16.75L18.2901 17.46L14.9501 14.11C13.5801 14.68 12.0801 15 10.5001 15C5.94014 15 2.00014 12.35 0.140137 8.5C1.11014 6.5 2.63014 4.83 4.50014 3.68L1.54014 0.71ZM10.5001 14C11.7901 14 13.0301 13.77 14.1701 13.34L13.0501 12.21C12.3201 12.71 11.4501 13 10.5001 13C8.00014 13 6.00014 11 6.00014 8.5C6.00014 7.55 6.29014 6.68 6.79014 5.95L5.24014 4.41C3.56578 5.38547 2.18961 6.79968 1.26014 8.5C3.04014 11.78 6.50014 14 10.5001 14ZM19.7401 8.5C17.9601 5.22 14.5001 3 10.5001 3C9.35014 3 8.23014 3.19 7.19014 3.53L6.41014 2.75C7.68014 2.26 9.06014 2 10.5001 2C15.0601 2 19.0001 4.65 20.8601 8.5C19.9514 10.3858 18.5439 11.987 16.7901 13.13L16.0701 12.4C17.6001 11.44 18.8701 10.1 19.7401 8.5ZM10.5001 4C13.0001 4 15.0001 6 15.0001 8.5C15.0001 9.32 14.7801 10.08 14.4001 10.74L13.6601 10C13.8801 9.54 14.0001 9.04 14.0001 8.5C14.0001 7.57174 13.6314 6.6815 12.975 6.02513C12.3186 5.36875 11.4284 5 10.5001 5C9.96014 5 9.46014 5.12 9.00014 5.34L8.26014 4.6C8.92014 4.22 9.68014 4 10.5001 4ZM7.00014 8.5C7.00014 9.42826 7.36889 10.3185 8.02526 10.9749C8.68164 11.6313 9.57188 12 10.5001 12C11.1701 12 11.7901 11.81 12.3201 11.5L7.50014 6.68C7.19014 7.21 7.00014 7.83 7.00014 8.5Z"
+          fill="#808080"
+        />
+      </svg>
+        `;
+      }
+    });
+
+    passwordRepeat.addEventListener('click', () => {
+      if (passwordRepeatInput.type === 'password') {
+        passwordRepeatInput.type = 'text';
+        passwordRepeat.innerHTML = `
+        <svg class="icon-password" width="21" height="18" viewBox="0 0 21 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M10.5 14.0769C14.5541 14.0769 18.0608 12.0277 19.8649 9C18.0608 5.97231 14.5541 3.92308 10.5 3.92308C6.44595 3.92308 2.93919 5.97231 1.13514 9C2.93919 12.0277 6.44595 14.0769 10.5 14.0769ZM10.5 3C15.1216 3 19.1149 5.44615 21 9C19.1149 12.5538 15.1216 15 10.5 15C5.87838 15 1.88514 12.5538 0 9C1.88514 5.44615 5.87838 3 10.5 3ZM10.5 4.84615C13.0338 4.84615 15.0608 6.69231 15.0608 9C15.0608 11.3077 13.0338 13.1538 10.5 13.1538C7.96622 13.1538 5.93919 11.3077 5.93919 9C5.93919 6.69231 7.96622 4.84615 10.5 4.84615ZM10.5 5.76923C9.5592 5.76923 8.65693 6.10961 7.99168 6.7155C7.32643 7.32139 6.9527 8.14315 6.9527 9C6.9527 9.85685 7.32643 10.6786 7.99168 11.2845C8.65693 11.8904 9.5592 12.2308 10.5 12.2308C11.4408 12.2308 12.3431 11.8904 13.0083 11.2845C13.6736 10.6786 14.0473 9.85685 14.0473 9C14.0473 8.14315 13.6736 7.32139 13.0083 6.7155C12.3431 6.10961 11.4408 5.76923 10.5 5.76923Z" fill="#808080"/>
+      </svg>
+        `;
+      } else if (passwordRepeatInput.type === 'text') {
+        passwordRepeatInput.type = 'password';
+        passwordRepeat.innerHTML = `
+        <svg class="icon-password" 
+        width="21"
+        height="18"
+        viewBox="0 0 21 18"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M1.54014 0.71L2.25014 0L19.0001 16.75L18.2901 17.46L14.9501 14.11C13.5801 14.68 12.0801 15 10.5001 15C5.94014 15 2.00014 12.35 0.140137 8.5C1.11014 6.5 2.63014 4.83 4.50014 3.68L1.54014 0.71ZM10.5001 14C11.7901 14 13.0301 13.77 14.1701 13.34L13.0501 12.21C12.3201 12.71 11.4501 13 10.5001 13C8.00014 13 6.00014 11 6.00014 8.5C6.00014 7.55 6.29014 6.68 6.79014 5.95L5.24014 4.41C3.56578 5.38547 2.18961 6.79968 1.26014 8.5C3.04014 11.78 6.50014 14 10.5001 14ZM19.7401 8.5C17.9601 5.22 14.5001 3 10.5001 3C9.35014 3 8.23014 3.19 7.19014 3.53L6.41014 2.75C7.68014 2.26 9.06014 2 10.5001 2C15.0601 2 19.0001 4.65 20.8601 8.5C19.9514 10.3858 18.5439 11.987 16.7901 13.13L16.0701 12.4C17.6001 11.44 18.8701 10.1 19.7401 8.5ZM10.5001 4C13.0001 4 15.0001 6 15.0001 8.5C15.0001 9.32 14.7801 10.08 14.4001 10.74L13.6601 10C13.8801 9.54 14.0001 9.04 14.0001 8.5C14.0001 7.57174 13.6314 6.6815 12.975 6.02513C12.3186 5.36875 11.4284 5 10.5001 5C9.96014 5 9.46014 5.12 9.00014 5.34L8.26014 4.6C8.92014 4.22 9.68014 4 10.5001 4ZM7.00014 8.5C7.00014 9.42826 7.36889 10.3185 8.02526 10.9749C8.68164 11.6313 9.57188 12 10.5001 12C11.1701 12 11.7901 11.81 12.3201 11.5L7.50014 6.68C7.19014 7.21 7.00014 7.83 7.00014 8.5Z"
+          fill="#808080"
+        />
+      </svg>
+        `;
+      }
     });
   }
 }

@@ -1,9 +1,8 @@
 class UserCollection {
-  constructor(db) {
+  constructor() {
     try {
-      if (!Helper.checkerArray(db)) {
-        throw new Error(ERRORS.objectNotFound);
-      }
+      const db = this.restore();
+
       this._userCollection = db.map(
         (elem) => new User(elem.id, elem.login, elem.password, elem.name)
       );
@@ -20,7 +19,9 @@ class UserCollection {
   }
 
   set userCollection(value) {
-    this._userCollection = value;
+    this._userCollection = value.map(
+      (elem) => new User(elem.id, elem.login, elem.password, elem.name)
+    );
   }
 
   addAll(arr) {
@@ -42,7 +43,7 @@ class UserCollection {
         throw new Error(ERRORS.invalidValue);
       }
 
-      if (!USER_VALIDATE._login(login)) {
+      if (!USER_VALIDATE.login(login)) {
         throw new Error('Логин не тот');
       }
 
@@ -50,7 +51,7 @@ class UserCollection {
         throw new Error('Такой пользователь уже существует!');
       }
 
-      if (!USER_VALIDATE._password(password)) {
+      if (!USER_VALIDATE.password(password)) {
         throw new Error('Пароль пустой');
       }
 
@@ -58,7 +59,7 @@ class UserCollection {
         throw new Error('Пароль не совпадает');
       }
 
-      if (!USER_VALIDATE._name(name)) {
+      if (!USER_VALIDATE.name(name)) {
         throw new Error('Имя не комильфо');
       }
 
@@ -71,7 +72,6 @@ class UserCollection {
 
       this._userCollection.push(user);
       this.save();
-      Helper.showMessages(INFO.addSuccess);
 
       return true;
     } catch (error) {
@@ -80,42 +80,43 @@ class UserCollection {
     }
   }
 
-  changeUser(id, name, password, repeatPassword) {
+  changeUser(id, nameVal, password, repeatPassword) {
     try {
       if (!arguments) {
         throw new Error(ERRORS.invalidValue);
       }
 
-      const user = this.findUser(id);
-
-      if (USER_VALIDATE._name(name)) {
-        user.name = name;
+      const userCurrent = this.findUser(id);
+      if (USER_VALIDATE.name(nameVal)) {
+        userCurrent.name = nameVal;
       }
-      if (USER_VALIDATE._password(password)) {
+      if (USER_VALIDATE.password(password)) {
         if (password === repeatPassword) {
-          user.password = password;
+          userCurrent.password = password;
         }
       }
 
-      this.save();
+      return true;
     } catch (error) {
       console.error(error);
       return false;
     }
   }
 
-  findUser(id) {
+  findUser(idCur) {
     try {
-      if (!id) {
+      if (!idCur) {
         throw new Error(ERRORS.invalidValue);
       }
-      if (!Helper.isString(id)) {
+      if (!Helper.isString(idCur)) {
         throw new Error(ERRORS.invalidValue);
       }
 
-      const user = this._userCollection.filter(({ _id }) => _id === id);
+      const user = this._userCollection.find(({ id }) => {
+        return id === idCur;
+      });
 
-      if (!user.length) {
+      if (!user) {
         throw new Error(ERRORS.userNotFound);
       }
 
@@ -139,10 +140,32 @@ class UserCollection {
   }
 
   restore() {
-    localStorage.userLocal = JSON.stringify(userCollection.userCollection);
+    try {
+      if (!localStorage.getItem('userCollection')) {
+        localStorage.userCollection = JSON.stringify(usersDB);
+        return usersDB;
+      } else {
+        return JSON.parse(localStorage.userCollection);
+      }
+    } catch (error) {
+      console.error(error);
+      return false;
+    }
   }
 
   save() {
-    localStorage.userLocal = JSON.stringify(userCollection.userCollection);
+    localStorage.userCollection = JSON.stringify(this._userCollection);
+  }
+
+  saveUser(objUser) {
+    try {
+      if (!objUser) {
+        localStorage.removeItem('user');
+        taskController.tasks.user = '';
+      }
+      localStorage.user = JSON.stringify(objUser);
+    } catch (error) {
+      console.error(error);
+    }
   }
 }

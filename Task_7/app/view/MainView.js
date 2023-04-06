@@ -10,9 +10,7 @@ class MainView extends View {
     <div class="main__tools">
       <div class="main__title">
         <h1 class="title title_main">My tasks</h1>
-        <a href="#" class="icon icon_change">
-          ${ICONS.icon_change}
-        </a>
+
       </div>
       <div class="main__wrapper">
         </div>
@@ -20,6 +18,7 @@ class MainView extends View {
     </div>
   </div>
   <div class="desk"></div>
+
     `;
   }
 }

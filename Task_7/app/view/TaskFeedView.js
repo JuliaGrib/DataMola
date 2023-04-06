@@ -27,7 +27,7 @@ class TaskFeedView extends View {
                       )}
                       </div>
                   </div>
-                  <button class="button button_show-more" type="button">
+                  <button class="button button_show-more button_show-more-to-do" type="button">
                   Show more
                   </button>
               </section>
@@ -41,7 +41,7 @@ class TaskFeedView extends View {
                       )}
                       </div>
                   </div>
-                  <button class="button button_show-more" type="button">
+                  <button class="button button_show-more button_show-more-in-progress" type="button">
                   Show more
                   </button>
               </section>
@@ -55,13 +55,14 @@ class TaskFeedView extends View {
                       )}
                       </div>
                   </div>
-                  <button class="button button_show-more" type="button">
+                  <button class="button button_show-more button_show-more-complete" type="button">
                   Show more
                   </button>
               </section>
           </div>
       </div>
       `;
+      this._addEvents();
     }
     if (this._position === 'table') {
       this.nodeElem.innerHTML = `
@@ -88,7 +89,7 @@ class TaskFeedView extends View {
 
               </div>
             </div>
-            <button class="button button_show-more" type="button">
+            <button class="button button_show-more button_show-more-to-do" type="button">
             Show more
           </button>
           </div>
@@ -110,7 +111,7 @@ class TaskFeedView extends View {
                 ${this._createTableCard(tasks, TASK_STATUS.inProgress, user)}
               </div>
             </div>
-            <button class="button button_show-more" type="button">
+            <button class="button button_show-more button_show-more-in-progress" type="button">
             Show more
           </button>
           </div>
@@ -129,25 +130,28 @@ class TaskFeedView extends View {
             <span class="table__header table__comments">Comments</span>
             <span class="table__header table__privacy">Privacy</span>
             <span class="table__header table__tools">Tools</span>
-            ${this._createTableCard(tasks, TASK_STATUS.comlete, user)}
+            ${this._createTableCard(tasks, TASK_STATUS.complete, user)}
           </div>
             </div>
-            <button class="button button_show-more" type="button">
+            <button class="button button_show-more button_show-more-complete" type="button">
             Show more
           </button>
           </div>
         </div>
       </div>
       `;
+      this._addEventsTable();
     }
   }
 
   _createTableCard(tasks, statusTask, user) {
+    console.log(statusTask);
     let cardNodes = '';
     tasks
       .filter(({ status }) => status === statusTask)
       .forEach(
         ({
+          id,
           name,
           description,
           createdAt,
@@ -176,7 +180,7 @@ class TaskFeedView extends View {
               <span class="table__elem table__status">${status}</span>
               <div class="table__elem table__comments">
                 <div class="card__comments">
-                  ${ICONS.icon_com};
+                  ${ICONS.icon_com}
                   <span class="card__comment-count">${comments.length}</span>
                 </div>
               </div>
@@ -184,16 +188,15 @@ class TaskFeedView extends View {
                 isPrivate
               )}</span>
               <div class="table__elem table__tools">
-                <div class="card__tools">
+                <div class="card__tools" id="${id}">
                   <a href="#" class="icon icon_change">
-                  ${ICONS.icon_change};
+                  ${ICONS.icon_change}
                   </a>
                   <a href="#" class="icon icon_del">
-                  ${ICONS.icon_del};
+                  ${ICONS.icon_del}
                   </a>
                 </div>
               </div>
-          
           `;
         }
       );
@@ -208,18 +211,19 @@ class TaskFeedView extends View {
   _createTasks(tasks, user) {
     let tasksNode = '';
     tasks.forEach((task) => (tasksNode += this._makeCard(task, user)));
+
     return tasksNode;
   }
 
   _makeCard(task, user) {
     return `
-    <article class="card">
+    <article class="card" >
     <div class="card__header">
         <span class="priority priority_${task.priority.toLowerCase()}">
             ${task.priority}
         </span>
-        <div class="card__tools">
-            ${this._cardTools(user)}
+        <div class="card__tools" id="${task.id}">
+            ${this._cardTools(user, task)}
         </div>
     </div>
     <div class="card__info">
@@ -258,9 +262,69 @@ class TaskFeedView extends View {
       `;
   }
 
-  _cardTools(user) {
+  _cardTools(user, task) {
     return !user
       ? ''
-      : `<a href="#" class="icon icon_change"> ${ICONS.icon_change} </a> <a href="#" class="icon icon_del"> ${ICONS.icon_del} </a>`;
+      : `<a href="#" class="icon icon_change"> ${ICONS.icon_change} </a> ${
+          taskController.tasks.user === task.assignee
+            ? `<a href="#" class="icon icon_del"> ${ICONS.icon_del} </a>`
+            : ''
+        }`;
+  }
+
+  _addEvents() {
+    const showMoreToDo = document.querySelector('.button_show-more-to-do');
+    showMoreToDo.addEventListener('click', () => {
+      taskController.showMoreToDo();
+    });
+
+    const showMoreInProgress = document.querySelector(
+      '.button_show-more-in-progress'
+    );
+    showMoreInProgress.addEventListener('click', () => {
+      taskController.showMoreInProgress();
+    });
+
+    const showMoreComplete = document.querySelector(
+      '.button_show-more-complete'
+    );
+    showMoreComplete.addEventListener('click', () => {
+      taskController.showMoreComplete();
+    });
+
+    const deskNode = document.querySelector('.desk__wrap');
+    deskNode.addEventListener('click', (event) => {
+      if (
+        event.target.className.animVal === 'icon-change' ||
+        event.target.className === 'icon icon_change'
+      ) {
+        taskController.showTask(event.target.parentNode.parentNode.id);
+      }
+      if (
+        event.target.className.animVal === 'icon-del' ||
+        event.target.className === 'icon icon_del'
+      ) {
+        taskController.removeTask(event.target.parentNode.parentNode.id);
+      }
+    });
+  }
+
+  _addEventsTable() {
+    const desk = document.querySelector('.desk');
+    desk.addEventListener('click', (event) => {
+      console.log(event.target);
+      if (
+        event.target.className.animVal === 'icon-change' ||
+        event.target.className === 'icon icon_change'
+      ) {
+        taskController.showTask(event.target.parentNode.parentNode.id);
+      }
+      if (
+        event.target.className.animVal === 'icon-del' ||
+        event.target.className === 'icon icon_del'
+      ) {
+        taskController.removeTask(event.target.parentNode.parentNode.id);
+      }
+    });
   }
 }

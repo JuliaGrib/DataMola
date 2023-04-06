@@ -56,8 +56,4 @@ class LoginController {
       }
     });
   }
-
-  checkUser() {
-    console.log(userCollection._hasLogin(loginInput.value));
-  }
 }

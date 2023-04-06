@@ -51,6 +51,7 @@ class HeaderView extends View {
         taskController.createUserPage();
       });
       logoutBtn.addEventListener('click', () => {
+        taskController.saveUser();
         setCurrentUser('');
       });
     } else {

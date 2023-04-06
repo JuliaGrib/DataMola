@@ -1,4 +1,4 @@
-const users = [
+const usersDB = [
   {
     id: '1',
     login: 'Julia',

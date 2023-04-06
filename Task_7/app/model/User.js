@@ -1,14 +1,14 @@
 class User {
-  _id;
-  _login;
-  _password;
-  _name;
+  id;
+  login;
+  password;
+  name;
 
   constructor(id, login, password, name) {
-    this._id = id;
-    this._login = login;
-    this._password = password;
-    this._name = name;
+    this.id = id;
+    this.login = login;
+    this.password = password;
+    this.name = name;
   }
 
   static validateUser(user) {
@@ -48,34 +48,34 @@ class User {
   }
 
   get id() {
-    return this._id;
+    return this.id;
   }
 
   set id(value) {
-    this._id = value;
+    this.id = value;
   }
 
   get login() {
-    return this._login;
+    return this.login;
   }
 
   set login(value) {
-    this._login = value;
+    this.login = value;
   }
 
   get password() {
-    return this._password;
+    return this.password;
   }
 
   set password(value) {
-    this._password = value;
+    this.password = value;
   }
 
   get name() {
-    return this._name;
+    return this.name;
   }
 
   set name(value) {
-    this._name = value;
+    this.name = value;
   }
 }

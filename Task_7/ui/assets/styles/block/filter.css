@@ -11,6 +11,7 @@
   display: flex;
   align-items: center;
   gap: var(--gap-xs);
+  cursor: pointer;
 }
 
 .filter-popup {
@@ -44,23 +45,27 @@
   display: none;
 }
 
-.filter-assingee:hover .filter-assingee__popup {
+/* .filter-assingee:hover .filter-assingee__popup {
   display: block;
-}
+} */
 
 .filter-private__popup {
   display: none;
 }
 
-.filter-private:hover .filter-private__popup {
+/* .filter-private:hover .filter-private__popup {
   display: block;
-}
+} */
 
 .filter-priority__popup {
   display: none;
 }
 
-.filter-priority:hover .filter-priority__popup {
+/* .filter-priority:hover .filter-priority__popup {
+  display: block;
+} */
+
+.filter_block {
   display: block;
 }
 

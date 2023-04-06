@@ -46,13 +46,13 @@ class FilterController {
   }
 
   filterParams() {
-    this._filteredTasks = tasks
-      .getPage(0, tasks.myCollection.length, this._params)
+    this._filteredTasks = taskController.tasks
+      .getPage(0, taskController.tasks.myCollection.length, this._params)
       .filter(({ assignee, isPrivate }) => {
-        if (isPrivate === true && assignee === tasks.user) {
+        if (isPrivate === true && assignee === taskController.tasks.user) {
           return true;
         }
-        if (isPrivate === true && assignee !== tasks.user) {
+        if (isPrivate === true && assignee !== taskController.tasks.user) {
           return false;
         }
         if (isPrivate === false) {

@@ -11,10 +11,6 @@ class Helper {
     return str.trim().length;
   }
 
-  static showMessages(mes, count = null) {
-    console.log('%c%s', 'color: green; font-weight: bold', mes, count || '');
-  }
-
   static checkCommentsArray(arrCom) {
     if (Array.isArray(arrCom) && !arrCom.length) {
       return true;
@@ -27,6 +23,10 @@ class Helper {
 
       return initComLength === validateCommnets.length;
     }
+  }
+
+  static isEmptyArray(arr) {
+    return Array.isArray(arr) && !arr.length;
   }
 
   static generateId(arr) {
@@ -157,6 +157,10 @@ class Helper {
     nodeLabel.classList.remove(removeLabel);
     nodeInput.classList.remove(removeInput);
     nodeLabel.classList.add(addLabel);
+    nodeInput.classList.add(addInput);
+  }
+  static changeStatusInputOnly(nodeInput, removeInput, addInput) {
+    nodeInput.classList.remove(removeInput);
     nodeInput.classList.add(addInput);
   }
 }

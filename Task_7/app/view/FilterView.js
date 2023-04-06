@@ -6,7 +6,7 @@ class FilterView extends View {
   display(user) {
     this.nodeElem.innerHTML = `
     <div class="main__filter">
-    <button class="button ${
+    <button class="button button_add ${
       user === '' ? 'button_disabled' : 'button_primary'
     } button_icon" type="button">
       <span class="button__text">Add Task</span>
@@ -47,13 +47,8 @@ class FilterView extends View {
     ${ICONS.icon_filter_reset}
     </button>
     <button
-      class="button button__filter-reset button_icon ${
-        Object.values(filterController.params).length
-          ? 'button_secondary'
-          : 'button_disabled'
-      }"
+      class="button button__filter-reset button_icon button_disabled"
       type="reset"
-      disabled
     >
     ${ICONS.icon_filter_reset_mob}
     </button>
@@ -63,43 +58,40 @@ class FilterView extends View {
       placeholder="Search"
       id="search"
     />
-    <div class="filter-info">
-      ${this._setParamsInInfo()}
-    </div>
     <div class="position">
+      <a href="#" class="icon ${
+        taskController.taskFeedView.position === TASK_VIEW.kanban
+          ? 'icon_active'
+          : ''
+      }">
+      ${ICONS.icon_kanban}
+      </a>
+      <a href="#" class="icon ${
+        taskController.taskFeedView.position === TASK_VIEW.table
+          ? 'icon_active'
+          : ''
+      }">    
+      ${ICONS.icon_table}
+      </a>
+    </div>
 
   </div>
     `;
-    this._setCheckBox();
-  }
 
-  _setParamsInInfo() {
-    let paramsNodes = '';
-    const paramsValues = Object.values(filterController.params).flat(Infinity);
-    if (!paramsValues.length) {
-      return paramsNodes;
-    }
-
-    paramsValues.forEach((elem) => {
-      paramsNodes += `<div class="filter-info__elem">${elem}</div>`;
-    });
-    return (
-      paramsNodes +
-      `<div class="filter-info__elem">Reset ${ICONS.icon_filter_x}
-    </div>`
-    );
+    this._setDisabled(user);
+    this._addEvents();
   }
 
   _setAssignee() {
     let assigneeNodes = '';
-    const assignees = Array.from(
-      new Set(tasks.myCollection.map(({ assignee }) => assignee))
-    );
 
+    const assignees = JSON.parse(localStorage.userCollection).map(
+      ({ login }) => login
+    );
     assignees.forEach((elem) => {
       assigneeNodes += `
       <div>
-        <input type="checkbox" id="${elem}" name="assignee">
+        <input type="checkbox" id="${elem}" name="assignee" class="input_filter-assignee" value="${elem}">
         <label for="${elem}">${elem}</label>
       </div>
       `;
@@ -113,7 +105,7 @@ class FilterView extends View {
     priorities.forEach((elem) => {
       priorityNodes += `
       <div>
-        <input type="checkbox" id="${elem}" name="priority">
+        <input class="input_filter-priority" type="checkbox" id="${elem}" name="priority" value="${elem}">
         <label for="${elem}">${elem}</label>
       </div>
       `;
@@ -127,7 +119,7 @@ class FilterView extends View {
     privats.forEach((elem) => {
       privacyNodes += `
       <div>
-        <input type="checkbox" id="${elem}" name="priority">
+        <input class="input_filter-priority" type="checkbox" id="${elem}" name="priority" value="${elem}">
         <label for="${elem}">${elem}</label>
       </div>
       `;
@@ -135,10 +127,108 @@ class FilterView extends View {
     return privacyNodes;
   }
 
-  _setCheckBox() {
-    const paramsValues = Object.values(filterController.params).flat(Infinity);
-    paramsValues.forEach(
-      (elem) => (document.getElementById(elem).checked = true)
+  _setDisabled(user) {
+    const buttonAdd = document.querySelector('.button_add');
+    user === '' ? (buttonAdd.disabled = true) : (buttonAdd.disabled = false);
+  }
+
+  _addEvents() {
+    const buttonAdd = document.querySelector('.button_add');
+    buttonAdd.addEventListener('click', () => {
+      this._showPopup();
+    });
+  }
+
+  _showPopup() {
+    return `
+    
+    
+  </div>
+    `;
+  }
+
+  _addEvents() {
+    const addBtn = document.querySelector('.button_add');
+    addBtn.addEventListener('click', () => {
+      taskController.createPopupView();
+    });
+    const settings = {};
+    const filterAssignee = document.querySelector('.filter-assingee');
+    const filterAssigneeMenu = document.querySelector(
+      '.filter-assingee__popup'
     );
+    const filterAssigneeValues = document.querySelectorAll(
+      '.input_filter-assignee'
+    );
+
+    filterAssignee.addEventListener('click', () => {
+      filterAssigneeMenu.classList.toggle('filter_block');
+    });
+
+    let assigneeChecked = [];
+
+    filterAssigneeValues.forEach((elem) => {
+      elem.addEventListener('click', () => {
+        if (elem.checked === true) {
+          assigneeChecked.push(elem.value);
+        } else if (elem.checked === false) {
+          assigneeChecked.splice(assigneeChecked.indexOf(elem.value), 1);
+        }
+        settings.assignee = assigneeChecked;
+        taskController.getFeed(settings);
+      });
+    });
+
+    const filterPriority = document.querySelector('.filter-priority');
+    const filterPriorityMenu = document.querySelector(
+      '.filter-priority__popup'
+    );
+    filterPriority.addEventListener('click', () => {
+      filterPriorityMenu.classList.toggle('filter_block');
+    });
+
+    const filterPrivate = document.querySelector('.filter-private');
+    const filterPrivateMenu = document.querySelector('.filter-private__popup');
+    filterPrivate.addEventListener('click', () => {
+      filterPrivateMenu.classList.toggle('filter_block');
+    });
+
+    const filterPrivateValues = document.querySelectorAll(
+      '.input_filter-priority'
+    );
+
+    let privacyChecked = [];
+
+    filterPrivateValues.forEach((elem) => {
+      elem.addEventListener('click', () => {
+        if (elem.checked === true) {
+          privacyChecked.push(elem.value === 'Public' ? false : true);
+        } else if (elem.checked === false) {
+          privacyChecked.splice(
+            privacyChecked.indexOf(elem.value === 'Public' ? false : true),
+            1
+          );
+        }
+        settings.isPrivate = privacyChecked;
+        taskController.getFeed(settings);
+      });
+    });
+
+    const tableBtn = document.querySelector('.table-view');
+    tableBtn.addEventListener('click', () => {
+      taskController.createTable();
+    });
+
+    const kanbanBtn = document.querySelector('.kanban-view');
+    kanbanBtn.addEventListener('click', () => {
+      taskController.createKanban();
+    });
+
+    // const resetFilter = document.querySelector('.button__filter-reset');
+    // resetFilter.addEventListener('click', () => {
+    //   (settings.assignee = []), (settings.priority = []);
+    // });
   }
 }
+
+// button button__filter-reset button_icon button_disabled
