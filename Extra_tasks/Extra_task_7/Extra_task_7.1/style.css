@@ -1,0 +1,28 @@
+html {
+  font-size: 20px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+ul:nth-child(1) {
+  font-size: 100%;
+}
+
+ul {
+  display: block;
+  font-size: 90%;
+}
+
+li {
+  display: inline-block;
+  padding: 0.25rem;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+li:hover {
+  color: blue;
+}
+
+.hide {
+  display: none;
+}

@@ -1,0 +1,38 @@
+.theme {
+    display: flex; 
+    gap: var(--gap-l);
+}
+
+.theme__radio {
+    position: relative;
+    width: 0.1rem;
+    height: 0.1rem;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    padding-left: 1.4rem;
+}
+
+.theme__cirle {
+    position: absolute;
+    width: 1.14rem;
+    height: 1.14rem;
+    border: 0.14rem solid var(--color-black);
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.theme__cirle_black {
+    background-color: var(--color-black);
+}
+  
+.theme__radio:checked + .theme__cirle::before {
+    content: '';
+    width: 0.57rem;
+    height: 0.57rem;
+    background-color: var(--color-primary);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+}
