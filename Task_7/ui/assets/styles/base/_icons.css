@@ -1,0 +1,17 @@
+.icon {
+  color: var(--color-black);
+  text-decoration: none;
+  transition: var(--animation);
+}
+
+.icon:hover {
+  color: var(--color-primary);
+}
+
+.icon_active {
+  color: var(--color-primary);
+}
+
+.icon-password {
+  cursor: pointer;
+}
