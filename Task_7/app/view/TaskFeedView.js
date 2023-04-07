@@ -145,7 +145,6 @@ class TaskFeedView extends View {
   }
 
   _createTableCard(tasks, statusTask, user) {
-    console.log(statusTask);
     let cardNodes = '';
     tasks
       .filter(({ status }) => status === statusTask)
@@ -312,7 +311,6 @@ class TaskFeedView extends View {
   _addEventsTable() {
     const desk = document.querySelector('.desk');
     desk.addEventListener('click', (event) => {
-      console.log(event.target);
       if (
         event.target.className.animVal === 'icon-change' ||
         event.target.className === 'icon icon_change'

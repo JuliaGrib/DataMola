@@ -183,10 +183,23 @@ class TaskCollection {
 
       for (const key in filterConfig) {
         result = result.filter((elem) => {
-          if (key === KEYS.name || key === KEYS.description) {
-            return elem[key]
-              .toLowerCase()
-              .includes(filterConfig[key].toLowerCase());
+          if (key === KEYS.name) {
+            if (elem[key] === '') {
+              return elem;
+            } else {
+              return elem[key]
+                .toLowerCase()
+                .includes(filterConfig[key].toLowerCase());
+            }
+          }
+          if (key === KEYS.description) {
+            if (elem[key] === '') {
+              return elem;
+            } else {
+              return elem[key]
+                .toLowerCase()
+                .includes(filterConfig[key].toLowerCase());
+            }
           }
           if (
             key === KEYS.assignee ||
@@ -204,14 +217,22 @@ class TaskCollection {
             }
           }
           if (key === KEYS.dateFrom) {
-            let date = new Date(filterConfig[key]);
-            date.setHours(TIME.dayStart, TIME.dayStart, TIME.dayStart);
-            return Date.parse(elem.createdAt) >= Date.parse(date);
+            if (isNaN(filterConfig[key])) {
+              return elem;
+            } else {
+              let date = new Date(filterConfig[key]);
+              date.setHours(TIME.dayStart, TIME.dayStart, TIME.dayStart);
+              return Date.parse(elem.createdAt) >= Date.parse(date);
+            }
           }
           if (key === KEYS.dateTo) {
-            let date = new Date(filterConfig[key]);
-            date.setHours(TIME.dayEndHour, TIME.dayEndMin, TIME.dayEndMin);
-            return Date.parse(elem.createdAt) <= Date.parse(date);
+            if (isNaN(filterConfig[key])) {
+              return elem;
+            } else {
+              let date = new Date(filterConfig[key]);
+              date.setHours(TIME.dayEndHour, TIME.dayEndMin, TIME.dayEndMin);
+              return Date.parse(elem.createdAt) <= Date.parse(date);
+            }
           }
         });
       }
