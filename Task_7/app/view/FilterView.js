@@ -20,9 +20,15 @@ class FilterView extends View {
             ${this._setAssignee()}
         </div>
       </div>
-      <div class="filter__elem">
+      <div class="filter__elem filter-date">
         <span class="filter__text">Date</span>
         ${ICONS.icon_filter_arrow}
+        <div class="filter-popup filter-date__popup">
+        <span class="filter__title">Date from</span>
+        <input class="day-from" type="date" />
+        <span class="filter__title">Date to</span>
+        <input class="day-to" type="date" />
+    </div>
       </div>
       <div class="filter__elem filter-priority">
         <span class="filter__text">Priority</span>
@@ -48,7 +54,7 @@ class FilterView extends View {
     </button>
     <button
       class="button button__filter-reset button_icon button_disabled"
-      type="reset"
+      type="reset" disabled
     >
     ${ICONS.icon_filter_reset_mob}
     </button>
@@ -119,7 +125,7 @@ class FilterView extends View {
     privats.forEach((elem) => {
       privacyNodes += `
       <div>
-        <input class="input_filter-priority" type="checkbox" id="${elem}" name="priority" value="${elem}">
+        <input class="input_filter-private" type="checkbox" id="${elem}" name="priority" value="${elem}">
         <label for="${elem}">${elem}</label>
       </div>
       `;
@@ -136,6 +142,7 @@ class FilterView extends View {
     const buttonAdd = document.querySelector('.button_add');
     buttonAdd.addEventListener('click', () => {
       this._showPopup();
+      this._closeAllpopup();
     });
   }
 
@@ -187,6 +194,24 @@ class FilterView extends View {
       filterPriorityMenu.classList.toggle('filter_block');
     });
 
+    const filterPriorityValues = document.querySelectorAll(
+      '.input_filter-priority'
+    );
+
+    let priorityChecked = [];
+
+    filterPriorityValues.forEach((elem) => {
+      elem.addEventListener('click', () => {
+        if (elem.checked === true) {
+          priorityChecked.push(elem.value);
+        } else if (elem.checked === false) {
+          priorityChecked.splice(priorityChecked.indexOf(elem.value), 1);
+        }
+        settings.priority = priorityChecked;
+        taskController.getFeed(settings);
+      });
+    });
+
     const filterPrivate = document.querySelector('.filter-private');
     const filterPrivateMenu = document.querySelector('.filter-private__popup');
     filterPrivate.addEventListener('click', () => {
@@ -194,7 +219,7 @@ class FilterView extends View {
     });
 
     const filterPrivateValues = document.querySelectorAll(
-      '.input_filter-priority'
+      '.input_filter-private'
     );
 
     let privacyChecked = [];
@@ -214,6 +239,13 @@ class FilterView extends View {
       });
     });
 
+    const searchInput = document.querySelector('.input_search');
+    searchInput.addEventListener('input', () => {
+      settings.name = searchInput.value;
+      settings.description = searchInput.value;
+      taskController.getFeed(settings);
+    });
+
     const tableBtn = document.querySelector('.table-view');
     tableBtn.addEventListener('click', () => {
       taskController.createTable();
@@ -224,11 +256,57 @@ class FilterView extends View {
       taskController.createKanban();
     });
 
-    // const resetFilter = document.querySelector('.button__filter-reset');
-    // resetFilter.addEventListener('click', () => {
-    //   (settings.assignee = []), (settings.priority = []);
-    // });
+    const dayFrom = document.querySelector('.day-from');
+    dayFrom.addEventListener('input', () => {
+      settings.dateFrom = new Date(dayFrom.value).getTime();
+      taskController.getFeed(settings);
+    });
+
+    const dayTo = document.querySelector('.day-to');
+    dayTo.addEventListener('input', () => {
+      settings.dateTo = new Date(dayTo.value).getTime();
+      taskController.getFeed(settings);
+    });
+
+    const filterDate = document.querySelector('.filter-date');
+    const filterDateMenu = document.querySelector('.filter-date__popup');
+
+    filterDate.addEventListener('click', (event) => {
+      if (
+        event.target.className === 'filter-text' ||
+        event.target.className === 'filter__elem filter-date' ||
+        event.target.className === 'filter__text'
+      ) {
+        filterDateMenu.classList.toggle('filter_block');
+      }
+    });
+
+    const resetBtn = document.querySelector('.button__filter-reset');
+
+    addEventListener('click', () => {
+      if (Object.values(filterController.params).flat().length) {
+        resetBtn.disabled = false;
+        resetBtn.classList =
+          'button button__filter-reset button_icon button_secondary';
+      } else {
+        resetBtn.disabled = true;
+        resetBtn.classList =
+          'button button__filter-reset button_icon button_disabled';
+      }
+    });
+
+    resetBtn.addEventListener('click', () => {
+      filterController.params = {};
+      taskController.taskFeedView.display(
+        filterController.filterTasks(),
+        taskController.tasks.user
+      );
+      this._closeAllpopup();
+    });
+  }
+
+  _closeAllpopup() {
+    const popups = document.querySelectorAll('.filter-popup');
+    popups.forEach((elem) => elem.classList.remove('filter_block'));
   }
 }
-
-// button button__filter-reset button_icon button_disabled

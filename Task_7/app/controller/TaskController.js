@@ -166,6 +166,7 @@ class TaskController {
 
       this.tasks.addComment(id, text);
       this.showTask(id);
+      this.tasks.save();
     } catch (error) {
       console.error(error);
     }

@@ -7,7 +7,6 @@ class RegistrationView extends View {
     const header = document.querySelector('.header');
 
     if (!document.querySelector('.background')) {
-      console.log(document.querySelector('.background'));
       header.insertAdjacentHTML(
         'beforebegin',
         '<div class="background"></div>'
