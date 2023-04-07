@@ -1,7 +1,7 @@
 class Comment {
-  _id;
-  _createdAt;
-  _author;
+  id;
+  createdAt;
+  author;
 
   constructor(id, text, date, author) {
     this.id = id;
@@ -11,27 +11,27 @@ class Comment {
   }
 
   get id() {
-    return this._id;
+    return this.id;
   }
 
   set id(value) {
-    this._id = value;
+    this.id = value;
   }
 
   get createdAt() {
-    return this._createdAt;
+    return thiscreatedAt;
   }
 
   set createdAt(value) {
-    this._createdAt = value;
+    thiscreatedAt = value;
   }
 
   get author() {
-    return this._author;
+    return this.author;
   }
 
   set author(value) {
-    this._author = value;
+    this.author = value;
   }
 
   static validateComment(com) {

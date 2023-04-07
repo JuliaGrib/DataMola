@@ -7,10 +7,6 @@
   border-radius: var(--border-radius);
 }
 
-.task-block_edit {
-  grid-template-rows: 72vh;
-}
-
 .task-block__content {
   display: flex;
   flex-direction: column;
