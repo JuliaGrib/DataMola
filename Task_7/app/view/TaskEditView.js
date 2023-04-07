@@ -37,19 +37,20 @@ class TaskEditView extends View {
           <span class="task-tools__title">Priority*</span>
           <div class="task-tools__wrapper">
           <input
-          class="radio_priority"
+          class="radio_priority radio_input"
           type="radio"
           name="priority"
           id="hight"
           value="Hight"
+          checked
         />
         <label
           for="hight"
-          class=""
+          class="radio_label"
           >Hight</label
         >
         <input
-          class="radio_priority"
+          class="radio_priority radio_input"
           type="radio"
           name="priority"
           id="medium"
@@ -57,17 +58,19 @@ class TaskEditView extends View {
         />
         <label
           for="medium"
-          class=""
+          class="radio_label"
           >Medium</label
         >
         <input
-          class="radio_priority"
+          class="radio_priority radio_input"
           type="radio"
           name="priority"
           id="low"
           value="Low"
         />
-        <label for="complete" class=""
+        <label
+          for="low"
+          class="radio_label"
           >Low</label
         >
           </div>
@@ -109,68 +112,71 @@ class TaskEditView extends View {
           <span class="task-tools__title">Privacy</span>
           <div class="task-tools__wrapper">
             <input
-              class="radio_privacy"
+              class="radio_privacy radio_input"
               type="radio"
               name="privacy"
               id="piblic"
               value="Public"
+              checked
             />
             <label
               for="piblic"
-              class=""
+              class="radio_label"
               >Public</label
             >
             <input
-              class="radio_privacy"
+              class="radio_privacy radio_input"
               type="radio"
               name="privacy"
               id="privacy"
               value="Privacy"
             />
-            <label for="privacy" class=""
+            <label for="privacy" class="radio_label"
               >Privacy</label
             >
           </div>
         </div>
         <div class="task-tools">
-          <span class="task-tools__title">Status</span>
-          <div class="task-tools__wrapper">
-            <input
-              class="radio_status"
-              type="radio"
-              name="status"
-              id="to_do"
-              value="To Do"
-            />
-            <label
-              for="to_do"
-              class=""
-              >To Do</label
-            >
-            <input
-              class="radio_status"
-              type="radio"
-              name="status"
-              id="in_progress"
-              value="In progress"
-            />
-            <label
-              for="in_progress"
-              class=""
-              >In progress</label
-            >
-            <input
-              class="radio_status"
-              type="radio"
-              name="status"
-              id="complete"
-              value="Complete"
-            />
-            <label for="complete" class=""
-              >Complete</label
-            >
-          </div>
+        <span class="task-tools__title">Status</span>
+        <div class="task-tools__wrapper">
+          <input
+            class="radio_status radio_input"
+            type="radio"
+            name="status"
+            id="to_do"
+            value="To Do"
+            checked
+          />
+          <label
+            for="to_do"
+            class="radio_label"
+            >To Do</label
+          >
+          <input
+            class="radio_status radio_input"
+            type="radio"
+            name="status"
+            id="in_progress"
+            value="In progress"
+          />
+          <label
+            for="in_progress"
+            class="radio_label"
+            >In progress</label
+          >
+          <input
+            class="radio_status radio_input"
+            type="radio"
+            name="status"
+            id="complete"
+            value="Complete"
+          />
+          <label for="complete" class="radio_label"
+            >Complete</label
+          >
         </div>
+      </div>
+
         <div class="task-tools">
           <span class="task-tools__title">Assignee*</span>
           <div class="task-tools__wrapper">
@@ -182,7 +188,7 @@ class TaskEditView extends View {
             </div>
           </div>
         </div>
-
+        </div>
         </div>
         <div class="task-block__btn">
           <button class="button button_reset button_disabled" type="reset" disabled>
@@ -190,7 +196,7 @@ class TaskEditView extends View {
           </button>
           <button class="button button_secondary button_submit button_disabled" type="submit" disabled>Save</button>
         </div>
-        </form>
+
     </section>
   </div>
       `;
@@ -199,6 +205,7 @@ class TaskEditView extends View {
     this._setChecked('.radio_status', task, 'status');
     this._setAssignee(task);
     this._addEvents(id);
+    this._setCheckedStyle();
   }
 
   _setOptions() {
@@ -303,15 +310,12 @@ class TaskEditView extends View {
     const resetBtn = document.querySelector('.button_reset');
 
     addEventListener('input', () => {
+      this._setCheckedStyle();
       resetBtn.disabled = false;
       resetBtn.className = 'button button_reset button_primary';
       if (
-        (taskNameInput.classList.contains('input_validate') &&
-          taskDescInput.classList.contains('input_validate')) ||
-        (taskNameInput.classList.contains('input_validate') &&
-          !taskDescInput.classList.contains('input_error')) ||
-        (!taskNameInput.classList.contains('input_error') &&
-          taskDescInput.classList.contains('input_validate'))
+        !taskDescInput.classList.contains('input_error') &&
+        !taskNameInput.classList.contains('input_error')
       ) {
         buttonSubmit.className = 'button button_primary button_submit';
         buttonSubmit.disabled = false;
@@ -365,6 +369,19 @@ class TaskEditView extends View {
 
       taskController.editTaskInPage(id, editTask);
       taskController.tasks.save();
+    });
+  }
+
+  _setCheckedStyle() {
+    const radioNodes = document.querySelectorAll('.radio_input');
+
+    radioNodes.forEach((elem) => {
+      if (elem.checked === true) {
+        console.log(elem.nextElementSibling);
+        elem.nextElementSibling.classList.add('radio_label-checked');
+      } else {
+        elem.nextElementSibling.classList.remove('radio_label-checked');
+      }
     });
   }
 }

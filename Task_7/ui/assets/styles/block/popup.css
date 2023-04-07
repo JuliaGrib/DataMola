@@ -32,6 +32,21 @@
   padding: var(--padding) var(--padding-z) var(--padding-z) var(--padding-z);
 }
 
+.radio_input {
+  appearance: none;
+}
+
+.radio_label {
+  padding: var(--padding-xxs);
+  border: 1px solid var(--color-secondary);
+  border-radius: var(--border-radius-s);
+  cursor: pointer;
+}
+
+.radio_label-checked {
+  border: 1px solid var(--color-secondary-dark);
+}
+
 @media screen and (max-width: 1370px) {
   .popup {
     width: 50vw;

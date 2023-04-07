@@ -62,7 +62,7 @@ class PopView extends View {
           <span class="task-tools__title">Privacy</span>
           <div class="task-tools__wrapper">
             <input
-              class="radio_privacy"
+              class="radio_privacy radio_input"
               type="radio"
               name="privacy"
               id="piblic"
@@ -71,17 +71,17 @@ class PopView extends View {
             />
             <label
               for="piblic"
-              class=""
+              class="radio_label"
               >Public</label
             >
             <input
-              class="radio_privacy"
+              class="radio_privacy radio_input"
               type="radio"
               name="privacy"
               id="privacy"
               value="Privacy"
             />
-            <label for="privacy" class=""
+            <label for="privacy" class="radio_label"
               >Privacy</label
             >
           </div>
@@ -90,7 +90,7 @@ class PopView extends View {
           <span class="task-tools__title">Priority*</span>
           <div class="task-tools__wrapper">
           <input
-          class="radio_priority"
+          class="radio_priority radio_input"
           type="radio"
           name="priority"
           id="hight"
@@ -99,11 +99,11 @@ class PopView extends View {
         />
         <label
           for="hight"
-          class=""
+          class="radio_label"
           >Hight</label
         >
         <input
-          class="radio_priority"
+          class="radio_priority radio_input"
           type="radio"
           name="priority"
           id="medium"
@@ -111,17 +111,19 @@ class PopView extends View {
         />
         <label
           for="medium"
-          class=""
+          class="radio_label"
           >Medium</label
         >
         <input
-          class="radio_priority"
+          class="radio_priority radio_input"
           type="radio"
           name="priority"
           id="low"
           value="Low"
         />
-        <label for="complete" class=""
+        <label
+          for="low"
+          class="radio_label"
           >Low</label
         >
           </div>
@@ -130,7 +132,7 @@ class PopView extends View {
           <span class="task-tools__title">Status</span>
           <div class="task-tools__wrapper">
             <input
-              class="radio_status"
+              class="radio_status radio_input"
               type="radio"
               name="status"
               id="to_do"
@@ -139,11 +141,11 @@ class PopView extends View {
             />
             <label
               for="to_do"
-              class=""
+              class="radio_label"
               >To Do</label
             >
             <input
-              class="radio_status"
+              class="radio_status radio_input"
               type="radio"
               name="status"
               id="in_progress"
@@ -151,17 +153,17 @@ class PopView extends View {
             />
             <label
               for="in_progress"
-              class=""
+              class="radio_label"
               >In progress</label
             >
             <input
-              class="radio_status"
+              class="radio_status radio_input"
               type="radio"
               name="status"
               id="complete"
               value="Complete"
             />
-            <label for="complete" class=""
+            <label for="complete" class="radio_label"
               >Complete</label
             >
           </div>
@@ -177,6 +179,7 @@ class PopView extends View {
     `
     );
     this._addEvents();
+    this._setCheckedStyle();
   }
 
   _addEvents() {
@@ -250,6 +253,7 @@ class PopView extends View {
     const buttonSubmit = document.querySelector('.button_form');
 
     addEventListener('input', () => {
+      this._setCheckedStyle();
       if (
         taskNameInput.classList.contains('input_validate') &&
         taskDescInput.classList.contains('input_validate')
@@ -317,5 +321,18 @@ class PopView extends View {
         (options += `<option class="option_assignee" value="${elem}">${elem}</option>`)
     );
     return options;
+  }
+
+  _setCheckedStyle() {
+    const radioNodes = document.querySelectorAll('.radio_input');
+
+    radioNodes.forEach((elem) => {
+      if (elem.checked === true) {
+        console.log(elem.nextElementSibling);
+        elem.nextElementSibling.classList.add('radio_label-checked');
+      } else {
+        elem.nextElementSibling.classList.remove('radio_label-checked');
+      }
+    });
   }
 }
