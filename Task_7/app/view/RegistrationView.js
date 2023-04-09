@@ -5,13 +5,7 @@ class RegistrationView extends View {
 
   display() {
     const header = document.querySelector('.header');
-
-    if (!document.querySelector('.background')) {
-      header.insertAdjacentHTML(
-        'beforebegin',
-        '<div class="background"></div>'
-      );
-    }
+    Helper.setBackgroundRegistration(header, '.background');
 
     this.nodeElem.className = 'main';
     this.nodeElem.innerHTML = `
@@ -254,11 +248,11 @@ class RegistrationView extends View {
   }
 
   addEvents() {
+    const background = document.querySelector('.background');
     const linkLogin = document.querySelector('.link_enter_login');
     const linkContinue = document.querySelector('.link_enter_continue');
     linkLogin.addEventListener('click', () => {
       taskController.createLoginView();
-      background.remove();
     });
 
     linkContinue.addEventListener('click', () => {

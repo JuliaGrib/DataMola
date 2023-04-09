@@ -163,4 +163,32 @@ class Helper {
     nodeInput.classList.remove(removeInput);
     nodeInput.classList.add(addInput);
   }
+
+  static changePasswordIcon(nodeElem, nodeIconElem) {
+    if (nodeElem.type === 'password') {
+      nodeElem.type = 'text';
+      nodeIconElem.innerHTML = `<svg class="icon-password" ${ICONS.icon__form_show_pqssword}</svg>`;
+    } else if (nodeElem.type === 'text') {
+      nodeElem.type = 'password';
+      nodeIconElem.innerHTML = `<svg class="icon-password" ${ICONS.icon__form_password}</svg>`;
+    }
+  }
+
+  static setBackgroundRegistration(node, classNode) {
+    if (!document.querySelector(classNode)) {
+      node.insertAdjacentHTML('beforebegin', '<div class="background"></div>');
+    }
+  }
+
+  static addInputView(...args) {
+    args.forEach((elem) => elem[0].classList.add(elem[1]));
+  }
+
+  static removeInputView(...args) {
+    args.forEach((elem) => elem[0].classList.remove(elem[1]));
+  }
+
+  static addInputMessage(...args) {
+    args.forEach((elem) => (elem[0].innerHTML = elem[1]));
+  }
 }
