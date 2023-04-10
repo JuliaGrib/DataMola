@@ -61,7 +61,6 @@ class TaskController {
   }
   createRegistrationView() {
     this.registrationView.display();
-    this.registrationView.addEvents();
   }
 
   showTask(id) {

@@ -9,6 +9,7 @@ class RegistrationView extends View {
 
     this.nodeElem.className = 'main';
     this.nodeElem.innerHTML = this._setHTML();
+    this.addEvents();
   }
 
   _setHTML() {
