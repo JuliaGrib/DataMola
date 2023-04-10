@@ -31,8 +31,10 @@ const ERRORS = {
   userAlreadyExists: 'User already exists',
   userCollectionNotFound: 'User Collection Not Found',
   loginValidateMessage: 'Only latin & not empty',
+  nameValidateMessage: 'Only letters, max lenght 100',
   emptyMessage: '',
   emptyPassword: ' Not empty',
+  passwordNotValidate: 'Passwords do not match or are empty',
 };
 
 const INFO = {
@@ -159,6 +161,18 @@ const HTML_CLASS = {
     dashed: 'line_dashed',
   },
   main: 'main',
+  input: {
+    inputValidate: 'input_validate',
+    inputError: 'input_error',
+    labelValidate: 'label_validate',
+    labelError: 'label_error',
+  },
+  button: {
+    buttonLoginActive: 'button button_form button_primary',
+    buttonLoginDisabled: 'button button_form button_disabled',
+    buttonRegActive: 'button button__form_reg button_primary',
+    buttonRegDisabled: 'button button__form_reg button_disabled',
+  },
 };
 
 const TASK_VIEW = {

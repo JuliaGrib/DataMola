@@ -191,4 +191,8 @@ class Helper {
   static addInputMessage(...args) {
     args.forEach((elem) => (elem[0].innerHTML = elem[1]));
   }
+
+  static removeSpaceInput(...args) {
+    args.forEach((elem) => (elem.value = elem.value.replace(/\s/, '')));
+  }
 }

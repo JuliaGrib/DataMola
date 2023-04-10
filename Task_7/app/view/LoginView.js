@@ -109,13 +109,14 @@ class LoginView {
     });
 
     loginInput.addEventListener('input', () => {
+      Helper.removeSpaceInput(loginInput);
       Helper.addInputMessage([errorMessageLogin, ERRORS.emptyMessage]);
       if (
         !(loginInput.value.length && Helper.checkLatinLetters(loginInput.value))
       ) {
         Helper.addInputView(
-          [loginLabel, 'label_error'],
-          [loginInput, 'input_error']
+          [loginLabel, HTML_CLASS.input.labelError],
+          [loginInput, HTML_CLASS.input.inputError]
         );
         Helper.addInputMessage([
           errorMessageLogin,
@@ -123,14 +124,15 @@ class LoginView {
         ]);
       } else {
         Helper.removeInputView(
-          [loginLabel, 'label_error'],
-          [loginInput, 'input_error']
+          [loginLabel, HTML_CLASS.input.labelError],
+          [loginInput, HTML_CLASS.input.inputError]
         );
         Helper.addInputMessage([errorMessageLogin, ERRORS.emptyMessage]);
       }
     });
 
     passwordInput.addEventListener('input', () => {
+      Helper.removeSpaceInput(passwordInput);
       if (
         !(
           passwordInput.value.length &&
@@ -138,14 +140,14 @@ class LoginView {
         )
       ) {
         Helper.addInputView(
-          [passwordLabel, 'label_error'],
-          [passwordInput, 'input_error']
+          [passwordLabel, HTML_CLASS.input.labelError],
+          [passwordInput, HTML_CLASS.input.inputError]
         );
         Helper.addInputMessage([errorMessagePassword, ERRORS.emptyPassword]);
       } else {
         Helper.removeInputView(
-          [passwordLabel, 'label_error'],
-          [passwordInput, 'input_error']
+          [passwordLabel, HTML_CLASS.input.labelError],
+          [passwordInput, HTML_CLASS.input.inputError]
         );
         Helper.addInputMessage([errorMessagePassword, ERRORS.emptyMessage]);
       }
@@ -163,9 +165,9 @@ class LoginView {
         Helper.checkLatinLetters(loginInput.value)
       ) {
         buttonSubmit.disabled = false;
-        buttonSubmit.className = 'button button_form button_primary';
+        buttonSubmit.className = HTML_CLASS.button.buttonLoginActive;
       } else {
-        buttonSubmit.className = 'button button_form button_disabled';
+        buttonSubmit.className = HTML_CLASS.button.buttonLoginDisabled;
         buttonSubmit.disabled = true;
       }
     });
@@ -186,33 +188,33 @@ class LoginView {
         background.remove();
       } else {
         Helper.addInputView(
-          [loginLabel, 'label_error'],
-          [loginInput, 'input_error'],
-          [passwordLabel, 'label_error'],
-          [passwordInput, 'input_error']
+          [loginLabel, HTML_CLASS.input.labelError],
+          [loginInput, HTML_CLASS.input.inputError],
+          [passwordLabel, HTML_CLASS.input.labelError],
+          [passwordInput, HTML_CLASS.input.inputError]
         );
         Helper.addInputMessage(
           [errorMessageLogin, ERRORS.loginError],
           [errorMessagePassword, ERRORS.loginError]
         );
-        buttonSubmit.className = 'button button_form button_disabled';
+        buttonSubmit.className = HTML_CLASS.button.buttonLoginDisabled;
         buttonSubmit.disabled = true;
 
         addEventListener(
           'input',
           () => {
             Helper.removeInputView(
-              [loginLabel, 'label_error'],
-              [loginInput, 'input_error'],
-              [passwordLabel, 'label_error'],
-              [passwordInput, 'input_error']
+              [loginLabel, HTML_CLASS.input.labelError],
+              [loginInput, HTML_CLASS.input.inputError],
+              [passwordLabel, HTML_CLASS.input.labelError],
+              [passwordInput, HTML_CLASS.input.inputError]
             );
             Helper.addInputMessage(
               [errorMessageLogin, ERRORS.emptyMessage],
               [errorMessagePassword, ERRORS.emptyMessage]
             );
             buttonSubmit.disabled = false;
-            buttonSubmit.className = 'button button_form button_primary';
+            buttonSubmit.className = HTML_CLASS.button.buttonLoginActive;
           },
           { once: true }
         );
