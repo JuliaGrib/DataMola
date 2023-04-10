@@ -23,3 +23,7 @@
 .table-view {
   color: var(--color-background-secondary);
 }
+
+.back__icon {
+  color: var(--color-background-secondary);
+}

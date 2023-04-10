@@ -10,6 +10,10 @@
   gap: var(--gap-xxs);
 }
 
+.task-tools__title {
+  color: var(--color-background-secondary);
+}
+
 .task-tools__elem {
   position: relative;
   appearance: none;
@@ -25,6 +29,7 @@
 
 .task-tools__default_checked {
   border: 0.1rem solid var(--color-secondary-dark);
+  color: var(--color-background-secondary);
 }
 
 .task-tools__default:hover {
