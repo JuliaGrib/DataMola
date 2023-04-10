@@ -68,6 +68,7 @@ const MAX_LENGTH = {
   name: 100,
   description: 280,
   com: 4,
+  invalidName: 101,
 };
 
 const PAGE_LENGTH = {

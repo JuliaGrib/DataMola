@@ -107,7 +107,7 @@ class Helper {
         throw new Error(ERRORS.emptyStr);
       }
 
-      if (str.length > 101) {
+      if (str.length > MAX_LENGTH.invalidName) {
         throw new Error(ERRORS.notValidNameLength);
       }
 
