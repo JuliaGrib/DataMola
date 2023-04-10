@@ -5,7 +5,7 @@
   gap: var(--gap-s);
   padding: var(--padding) var(--padding-m);
   border-radius: var(--border-radius);
-  background-color: var(--color-secondary-light);
+  background-color: var(--color-card);
 }
 
 .card__header {
@@ -54,7 +54,7 @@
 }
 
 .card__desc {
-  color: var(--color-secondary-dark);
+  color: var(--color-card-desc);
 }
 
 .card__additional {
@@ -64,19 +64,21 @@
 }
 
 .card__assignee {
+  color: var(--color-text-main);
   font-weight: var(--font-weight-bold);
 }
 
 .card__line {
   width: 0.1rem;
   height: 1rem;
-  background-color: var(--color-black);
+  background-color: var(--color-text-main);
 }
 
 .card__comments {
   display: flex;
   align-items: center;
   gap: var(--gap-xxs);
+  color: var(--color-text-main);
 }
 
 .line_dashed {
@@ -90,13 +92,17 @@
 }
 
 .card__date {
-  color: var(--color-secondary-dark);
+  color: var(--color-card-desc);
   font-size: 0.75rem;
 }
 
 .card__status {
+  color: var(--color-text-main);
   font-size: 0.75rem;
   font-weight: var(--font-weight-bold);
+}
+.card__privacy {
+  color: var(--color-text-main);
 }
 
 @media screen and (max-width: 1240px) {

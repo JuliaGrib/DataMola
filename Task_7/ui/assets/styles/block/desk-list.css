@@ -14,8 +14,8 @@
   overflow: scroll;
   overflow-x: hidden;
   height: 100%;
-  background-color: var(--color-secondary-light);
   border-radius: var(--border-radius);
+  background-color: var(--color-card);
 }
 
 .table::-webkit-scrollbar {
@@ -39,15 +39,18 @@
   grid-row-gap: var(--gap);
   height: 40vh;
   padding: var(--padding);
+  background-color: var(--color-card);
 }
 
 .table__header {
   font-weight: 600;
   padding: var(--padding-z) var(--padding-z) var(--padding-m) var(--padding-z);
+  color: var(--color-text-main);
 }
 
 .table__elem {
   padding: var(--padding-z) var(--padding-z) var(--padding) var(--padding-z);
+  color: var(--color-text-main);
 }
 
 @media screen and (max-width: 1050px) {

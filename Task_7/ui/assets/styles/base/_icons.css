@@ -1,5 +1,5 @@
 .icon {
-  color: var(--color-black);
+  color: var(--color-background-secondary);
   text-decoration: none;
   transition: var(--animation);
 }
@@ -14,4 +14,12 @@
 
 .icon-password {
   cursor: pointer;
+}
+
+.kanban-view {
+  color: var(--color-background-secondary);
+}
+
+.table-view {
+  color: var(--color-background-secondary);
 }

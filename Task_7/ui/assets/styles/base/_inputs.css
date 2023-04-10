@@ -6,6 +6,7 @@
 
 .input::placeholder {
   font-size: var(--font-size-s);
+  color: var(--color-text-thirty);
 }
 
 .input:focus-visible {
@@ -143,6 +144,10 @@
   height: 0.9rem;
   color: var(--color-red);
   font-size: 0.75rem;
+}
+
+.label {
+  color: var(--color-text-main);
 }
 
 .label_validate {

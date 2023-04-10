@@ -3,7 +3,7 @@
   grid-template-rows: 62vh 10vh;
   width: 100%;
   padding: var(--padding-m);
-  background-color: var(--color-secondary-light);
+  background-color: var(--color-card);
   border-radius: var(--border-radius);
 }
 
@@ -48,7 +48,7 @@
 .task-block__date,
 .task-block__subtitle,
 .task-block__comments {
-  color: var(--color-secondary-dark);
+  color: var(--color-card-desc);
 }
 
 .task-block__options-elem {
@@ -102,6 +102,14 @@
   align-self: end;
   gap: var(--gap-xs);
   padding: var(--padding-s);
+}
+
+.task-block__text,
+.task-block__desc,
+.user-icon__name,
+.comment__message,
+.comment__time {
+  color: var(--color-text-main);
 }
 
 @media screen and (max-width: 900px) {
