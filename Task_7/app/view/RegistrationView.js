@@ -57,12 +57,12 @@ class RegistrationView extends View {
                   id="name"
                   placeholder="Enter your name"
                   required
-                  maxlength="100"
+                  maxlength="${MAX_LENGTH.name}"
                 />
                 <span class="input_icon-svg">
                   <svg class="login-info_name"${ICONS.icon__form_info}</svg>
                   </svg>
-                  <div class="input-messages-name">Max length 100</div>
+                  <div class="input-messages-name">Max length ${MAX_LENGTH.name}</div>
                 </span>
                 <div class="input__message input__message-name"></div>
               </div>
@@ -253,9 +253,7 @@ class RegistrationView extends View {
     loginInput.addEventListener('input', () => {
       Helper.removeSpaceInput(loginInput);
       Helper.addInputMessage([errorMessageLogin, ERRORS.emptyMessage]);
-      if (
-        !(loginInput.value.length && Helper.checkLatinLetters(loginInput.value))
-      ) {
+      if (!(loginInput.value && Helper.checkLatinLetters(loginInput.value))) {
         Helper.addInputView(
           [loginLabel, HTML_CLASS.input.labelError],
           [loginInput, HTML_CLASS.input.inputError]
@@ -268,17 +266,17 @@ class RegistrationView extends View {
           errorMessageLogin,
           ERRORS.loginValidateMessage,
         ]);
-      } else {
-        Helper.addInputView(
-          [loginLabel, HTML_CLASS.input.labelValidate],
-          [loginInput, HTML_CLASS.input.inputValidate]
-        );
-        Helper.removeInputView(
-          [loginLabel, HTML_CLASS.input.labelError],
-          [loginInput, HTML_CLASS.input.inputError]
-        );
-        Helper.addInputMessage([errorMessageLogin, ERRORS.emptyMessage]);
+        return;
       }
+      Helper.addInputView(
+        [loginLabel, HTML_CLASS.input.labelValidate],
+        [loginInput, HTML_CLASS.input.inputValidate]
+      );
+      Helper.removeInputView(
+        [loginLabel, HTML_CLASS.input.labelError],
+        [loginInput, HTML_CLASS.input.inputError]
+      );
+      Helper.addInputMessage([errorMessageLogin, ERRORS.emptyMessage]);
     });
 
     nameInput.addEventListener('input', () => {
@@ -294,17 +292,17 @@ class RegistrationView extends View {
           [nameInput, HTML_CLASS.input.inputValidate]
         );
         Helper.addInputMessage([errorMessageName, ERRORS.nameValidateMessage]);
-      } else {
-        Helper.addInputView(
-          [nameLabel, HTML_CLASS.input.labelValidate],
-          [nameInput, HTML_CLASS.input.inputValidate]
-        );
-        Helper.removeInputView(
-          [nameLabel, HTML_CLASS.input.Error],
-          [nameInput, HTML_CLASS.input.Error]
-        );
-        Helper.addInputMessage([errorMessageName, ERRORS.emptyMessage]);
+        return;
       }
+      Helper.addInputView(
+        [nameLabel, HTML_CLASS.input.labelValidate],
+        [nameInput, HTML_CLASS.input.inputValidate]
+      );
+      Helper.removeInputView(
+        [nameLabel, HTML_CLASS.input.Error],
+        [nameInput, HTML_CLASS.input.Error]
+      );
+      Helper.addInputMessage([errorMessageName, ERRORS.emptyMessage]);
     });
 
     passwordIcon.addEventListener('click', () => {
@@ -370,7 +368,7 @@ class RegistrationView extends View {
 
     addEventListener('keyup', () => {
       if (
-        loginInput.value.length &&
+        loginInput.value &&
         Helper.checkLatinLetters(loginInput.value) &&
         nameInput.value.length &&
         Helper.isValidName(nameInput.value) &&
@@ -380,10 +378,10 @@ class RegistrationView extends View {
       ) {
         buttonSubmit.disabled = false;
         buttonSubmit.className = HTML_CLASS.button.buttonRegActive;
-      } else {
-        buttonSubmit.className = HTML_CLASS.button.buttonRegDisabled;
-        buttonSubmit.disabled = true;
+        return;
       }
+      buttonSubmit.className = HTML_CLASS.button.buttonRegDisabled;
+      buttonSubmit.disabled = true;
     });
 
     form.addEventListener('submit', () => {
@@ -402,19 +400,19 @@ class RegistrationView extends View {
         );
         setCurrentUser(loginInput.value);
         background.remove();
-      } else {
-        Helper.addInputView(
-          [loginLabel, HTML_CLASS.input.labelError],
-          [loginInput, HTML_CLASS.input.inputError]
-        );
-        Helper.removeInputView(
-          [loginLabel, HTML_CLASS.input.labelValidate],
-          [loginInput, HTML_CLASS.input.inputValidate]
-        );
-        Helper.addInputMessage([errorMessageLogin, ERRORS.userAlreadyExists]);
-        buttonSubmit.className = HTML_CLASS.button.buttonRegDisabled;
-        buttonSubmit.disabled = true;
+        return;
       }
+      Helper.addInputView(
+        [loginLabel, HTML_CLASS.input.labelError],
+        [loginInput, HTML_CLASS.input.inputError]
+      );
+      Helper.removeInputView(
+        [loginLabel, HTML_CLASS.input.labelValidate],
+        [loginInput, HTML_CLASS.input.inputValidate]
+      );
+      Helper.addInputMessage([errorMessageLogin, ERRORS.userAlreadyExists]);
+      buttonSubmit.className = HTML_CLASS.button.buttonRegDisabled;
+      buttonSubmit.disabled = true;
     });
   }
 }

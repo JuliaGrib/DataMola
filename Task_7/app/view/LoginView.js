@@ -122,13 +122,13 @@ class LoginView {
           errorMessageLogin,
           ERRORS.loginValidateMessage,
         ]);
-      } else {
-        Helper.removeInputView(
-          [loginLabel, HTML_CLASS.input.labelError],
-          [loginInput, HTML_CLASS.input.inputError]
-        );
-        Helper.addInputMessage([errorMessageLogin, ERRORS.emptyMessage]);
+        return;
       }
+      Helper.removeInputView(
+        [loginLabel, HTML_CLASS.input.labelError],
+        [loginInput, HTML_CLASS.input.inputError]
+      );
+      Helper.addInputMessage([errorMessageLogin, ERRORS.emptyMessage]);
     });
 
     passwordInput.addEventListener('input', () => {
@@ -144,13 +144,13 @@ class LoginView {
           [passwordInput, HTML_CLASS.input.inputError]
         );
         Helper.addInputMessage([errorMessagePassword, ERRORS.emptyPassword]);
-      } else {
-        Helper.removeInputView(
-          [passwordLabel, HTML_CLASS.input.labelError],
-          [passwordInput, HTML_CLASS.input.inputError]
-        );
-        Helper.addInputMessage([errorMessagePassword, ERRORS.emptyMessage]);
+        return;
       }
+      Helper.removeInputView(
+        [passwordLabel, HTML_CLASS.input.labelError],
+        [passwordInput, HTML_CLASS.input.inputError]
+      );
+      Helper.addInputMessage([errorMessagePassword, ERRORS.emptyMessage]);
     });
 
     passwordIcon.addEventListener('click', () => {
@@ -166,10 +166,10 @@ class LoginView {
       ) {
         buttonSubmit.disabled = false;
         buttonSubmit.className = HTML_CLASS.button.buttonLoginActive;
-      } else {
-        buttonSubmit.className = HTML_CLASS.button.buttonLoginDisabled;
-        buttonSubmit.disabled = true;
+        return;
       }
+      buttonSubmit.className = HTML_CLASS.button.buttonLoginDisabled;
+      buttonSubmit.disabled = true;
     });
 
     form.addEventListener('submit', () => {
@@ -186,39 +186,39 @@ class LoginView {
           taskController.userCollection.hasUser(loginValues).login
         );
         background.remove();
-      } else {
-        Helper.addInputView(
-          [loginLabel, HTML_CLASS.input.labelError],
-          [loginInput, HTML_CLASS.input.inputError],
-          [passwordLabel, HTML_CLASS.input.labelError],
-          [passwordInput, HTML_CLASS.input.inputError]
-        );
-        Helper.addInputMessage(
-          [errorMessageLogin, ERRORS.loginError],
-          [errorMessagePassword, ERRORS.loginError]
-        );
-        buttonSubmit.className = HTML_CLASS.button.buttonLoginDisabled;
-        buttonSubmit.disabled = true;
-
-        addEventListener(
-          'input',
-          () => {
-            Helper.removeInputView(
-              [loginLabel, HTML_CLASS.input.labelError],
-              [loginInput, HTML_CLASS.input.inputError],
-              [passwordLabel, HTML_CLASS.input.labelError],
-              [passwordInput, HTML_CLASS.input.inputError]
-            );
-            Helper.addInputMessage(
-              [errorMessageLogin, ERRORS.emptyMessage],
-              [errorMessagePassword, ERRORS.emptyMessage]
-            );
-            buttonSubmit.disabled = false;
-            buttonSubmit.className = HTML_CLASS.button.buttonLoginActive;
-          },
-          { once: true }
-        );
+        return;
       }
+      Helper.addInputView(
+        [loginLabel, HTML_CLASS.input.labelError],
+        [loginInput, HTML_CLASS.input.inputError],
+        [passwordLabel, HTML_CLASS.input.labelError],
+        [passwordInput, HTML_CLASS.input.inputError]
+      );
+      Helper.addInputMessage(
+        [errorMessageLogin, ERRORS.loginError],
+        [errorMessagePassword, ERRORS.loginError]
+      );
+      buttonSubmit.className = HTML_CLASS.button.buttonLoginDisabled;
+      buttonSubmit.disabled = true;
+
+      addEventListener(
+        'input',
+        () => {
+          Helper.removeInputView(
+            [loginLabel, HTML_CLASS.input.labelError],
+            [loginInput, HTML_CLASS.input.inputError],
+            [passwordLabel, HTML_CLASS.input.labelError],
+            [passwordInput, HTML_CLASS.input.inputError]
+          );
+          Helper.addInputMessage(
+            [errorMessageLogin, ERRORS.emptyMessage],
+            [errorMessagePassword, ERRORS.emptyMessage]
+          );
+          buttonSubmit.disabled = false;
+          buttonSubmit.className = HTML_CLASS.button.buttonLoginActive;
+        },
+        { once: true }
+      );
     });
   }
 }

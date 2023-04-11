@@ -165,12 +165,15 @@ class Helper {
   }
 
   static changePasswordIcon(nodeElem, nodeIconElem) {
-    if (nodeElem.type === 'password') {
-      nodeElem.type = 'text';
-      nodeIconElem.innerHTML = `<svg class="icon-password" ${ICONS.icon__form_show_pqssword}</svg>`;
-    } else if (nodeElem.type === 'text') {
-      nodeElem.type = 'password';
-      nodeIconElem.innerHTML = `<svg class="icon-password" ${ICONS.icon__form_password}</svg>`;
+    switch (nodeElem.type) {
+      case PASSWORD_TYPES.password:
+        nodeElem.type = PASSWORD_TYPES.text;
+        nodeIconElem.innerHTML = `<svg class="icon-password" ${ICONS.icon__form_show_pqssword}</svg>`;
+        break;
+      case PASSWORD_TYPES.text:
+        nodeElem.type = PASSWORD_TYPES.password;
+        nodeIconElem.innerHTML = `<svg class="icon-password" ${ICONS.icon__form_password}</svg>`;
+        break;
     }
   }
 

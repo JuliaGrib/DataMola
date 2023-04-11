@@ -79,13 +79,13 @@ class UserEditPageView extends View {
                 value="${user.name}"
                 placeholder="Enter your name"
                 requared
-                maxlenght="100"
+                maxlenght="${MAX_LENGTH.name}"
               />
               <span class="input_icon-svg">
                 <svg class="login-info_name"
                   ${ICONS.icon__form_info}
                 </svg>
-                <div class="input-messages-name">Max length 100</div>
+                <div class="input-messages-name">Max length ${MAX_LENGTH.name}</div>
               </span>
               
               <div class="input__message input__message-name"></div>
@@ -169,7 +169,7 @@ class UserEditPageView extends View {
     nameInput.addEventListener('input', () => {
       Helper.removeSpaceInput(nameInput);
       Helper.addInputMessage([errorMessageName, ERRORS.emptyMessage]);
-      if (!(nameInput.value.length && Helper.isValidName(nameInput.value))) {
+      if (!(nameInput.value && Helper.isValidName(nameInput.value))) {
         Helper.addInputView(
           [nameLabel, HTML_CLASS.input.labelError],
           [nameInput, HTML_CLASS.input.inputError]
@@ -179,17 +179,17 @@ class UserEditPageView extends View {
           [nameInput, HTML_CLASS.input.inputValidate]
         );
         Helper.addInputMessage([errorMessageName, ERRORS.nameValidateMessage]);
-      } else {
-        Helper.addInputView(
-          [nameLabel, HTML_CLASS.input.labelValidate],
-          [nameInput, HTML_CLASS.input.inputValidate]
-        );
-        Helper.removeInputView(
-          [nameLabel, HTML_CLASS.input.Error],
-          [nameInput, HTML_CLASS.input.Error]
-        );
-        Helper.addInputMessage([errorMessageName, ERRORS.emptyMessage]);
+        return;
       }
+      Helper.addInputView(
+        [nameLabel, HTML_CLASS.input.labelValidate],
+        [nameInput, HTML_CLASS.input.inputValidate]
+      );
+      Helper.removeInputView(
+        [nameLabel, HTML_CLASS.input.Error],
+        [nameInput, HTML_CLASS.input.Error]
+      );
+      Helper.addInputMessage([errorMessageName, ERRORS.emptyMessage]);
     });
 
     addEventListener('keyup', () => {
@@ -203,10 +203,10 @@ class UserEditPageView extends View {
       ) {
         buttonSubmit.disabled = false;
         buttonSubmit.className = HTML_CLASS.button.buttonChangeUserInfoActive;
-      } else {
-        buttonSubmit.className = HTML_CLASS.button.buttonChangeUserInfoDisabled;
-        buttonSubmit.disabled = true;
+        return;
       }
+      buttonSubmit.className = HTML_CLASS.button.buttonChangeUserInfoDisabled;
+      buttonSubmit.disabled = true;
     });
 
     addEventListener('input', (event) => {
