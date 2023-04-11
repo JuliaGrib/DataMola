@@ -35,6 +35,11 @@
   align-self: flex-start;
 }
 
+.priority_radio {
+  color: var(--color-white);
+  font-size: 1rem;
+}
+
 .card__tools {
   display: flex;
   justify-content: space-between;

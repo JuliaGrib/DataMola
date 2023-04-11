@@ -56,6 +56,7 @@
   --color-text-thirty: #808080;
   --color-card: #f1f3f6;
   --color-card-desc: #808080;
+  --color-popup: #fff;
 
   --color-secondary: #d9d9d9;
   --color-secondary-light: #f1f3f6;
@@ -73,14 +74,16 @@
   --background-image: url(../../img/images/background_dark.webp);
   --color-background-main: #26003d;
   --color-background-secondary: #fff;
-  --color-background-show-more: #9300ed;
+  --color-background-show-more: #b237ff;
   --color-text-main: #fff;
-  --color-primary: #9300ed;
-  --color-primary-dark: #b237ff;
+  --color-primary: #b237ff;
+  --color-primary-dark: #9300ed;
   --color-text-secondary: #fff;
   --color-text-thirty: #333333;
   --color-card: #600e92;
   --color-card-desc: #fff;
+  --color-popup: #600e92;
+  --color-secondary-light: #f3e1ff;
   --color-secondary: #f3e1ff;
   --color-secondary-dark: #a380b8;
   --color-priority-hight: #f143a0;

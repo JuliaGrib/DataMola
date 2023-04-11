@@ -46,7 +46,7 @@ class TaskEditView extends View {
         />
         <label
           for="hight"
-          class="radio_label"
+          class="priority priority_hight radio_label priority_radio"
           >Hight</label
         >
         <input
@@ -58,7 +58,7 @@ class TaskEditView extends View {
         />
         <label
           for="medium"
-          class="radio_label"
+          class="priority priority_medium radio_label priority_radio"
           >Medium</label
         >
         <input
@@ -70,7 +70,7 @@ class TaskEditView extends View {
         />
         <label
           for="low"
-          class="radio_label"
+          class="priority priority_low radio_label priority_radio"
           >Low</label
         >
           </div>
