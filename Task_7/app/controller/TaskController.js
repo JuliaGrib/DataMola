@@ -58,11 +58,9 @@ class TaskController {
 
   createLoginView() {
     this.loginView.display(taskController.tasks.user);
-    this.loginView.addEvents();
   }
   createRegistrationView() {
     this.registrationView.display();
-    this.registrationView.addEvents();
   }
 
   showTask(id) {

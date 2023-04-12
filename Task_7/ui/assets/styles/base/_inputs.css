@@ -136,8 +136,8 @@
   border: 0.1rem solid var(--color-red);
 }
 
-.input_error[type='password'] {
-  color: var(--color-red);
+.input_error:-webkit-autofill {
+  -webkit-text-fill-color: var(--color-red);
 }
 
 .input__message {
@@ -157,6 +157,10 @@
 .input_validate {
   color: var(--color-green);
   border: 0.1rem solid var(--color-green);
+}
+
+.input_validate:-webkit-autofill {
+  -webkit-text-fill-color: var(--color-green);
 }
 
 .input_validate:not(:placeholder-shown) {
