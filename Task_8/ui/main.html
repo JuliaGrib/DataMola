@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en" class="theme-light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="./assets/img/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="./assets/styles/style.css" />
+    <script defer src="../app/environments/consts.js"></script>
+    <script defer src="../app/environments/tasks.js"></script>
+    <script defer src="../app/environments/users.js"></script>
+    <script defer src="../app/model/Helper.js"></script>
+    <script defer src="../app/model/Comment.js"></script>
+    <script defer src="../app/model/Task.js"></script>
+    <script defer src="../app/model/TaskCollection.js"></script>
+    <script defer src="../app/model/UserCollection.js"></script>
+    <script defer src="../app/view/View.js"></script>
+    <script defer src="../app/view/MainView.js"></script>
+    <script defer src="../app/view/HeaderView.js"></script>
+    <script defer src="../app/view/TaskFeedView.js"></script>
+    <script defer src="../app/view/TaskView.js"></script>
+    <script defer src="../app/view/TaskEditView.js"></script>
+    <script defer src="../app/view/FilterView.js"></script>
+    <script defer src="../app/view/LoginView.js"></script>
+    <script defer src="../app/view/RegistrationView.js"></script>
+    <script defer src="../app/view/PopView.js"></script>
+    <script defer src="../app/view/UserPageView.js"></script>
+    <script defer src="../app/view/UserEditPageView.js"></script>
+    <script defer src="../app/controller/globalMethods.js"></script>
+    <script defer src="../app/model/User.js"></script>
+    <script defer src="../app/controller/FilterController.js"></script>
+    <script defer src="../app/controller/UserController.js"></script>
+    <script defer src="../app/controller/LoginController.js"></script>
+    <script defer src="../app/controller/TaskController.js"></script>
+    <script defer src="../app/theme.js"></script>
+    <script defer src="../app/app.js"></script>
+    <title>My desk</title>
+  </head>
+  <body>
+    <header class="header">
+      <div class="header__wrapper">
+        <div class="container">
+          <div class="header__content">
+            <a class="header__logo" href="main.html">
+              <svg
+                class="logo"
+                width="47"
+                height="27"
+                viewBox="0 0 47 27"
+                fill="currentColor"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <g clip-path="url(#clip0_1062_5959)">
+                  <path
+                    d="M12.9692 1.38221C13.1452 1.05221 13.4422 0.821212 13.8602 0.689212C14.2782 0.557211 14.8282 0.491211 15.5102 0.491211C16.2142 0.491211 16.7752 0.557211 17.1932 0.689212C17.6112 0.821212 17.8972 1.05221 18.0512 1.38221C18.2272 1.71221 18.3262 2.00921 18.3482 2.27321C18.3922 2.51521 18.4142 2.88921 18.4142 3.39521V23.0962C18.4142 23.6022 18.3922 23.9872 18.3482 24.2512C18.3262 24.4932 18.2272 24.7682 18.0512 25.0762C17.7212 25.6702 16.7862 25.9672 15.2462 25.9672C13.7282 25.9672 12.8812 25.4282 12.7052 24.3502C11.7812 25.4062 10.4942 25.9342 8.84423 25.9342C6.86423 25.9342 5.06023 25.0762 3.43223 23.3602C1.80423 21.6222 0.990234 19.6092 0.990234 17.3212C0.990234 15.0112 1.80423 12.9872 3.43223 11.2492C5.08223 9.51121 6.88623 8.64221 8.84423 8.64221C10.4722 8.64221 11.7372 9.19221 12.6392 10.2922V3.36221C12.6392 2.85621 12.6502 2.48221 12.6722 2.24021C12.7162 1.97621 12.8152 1.69021 12.9692 1.38221ZM7.62323 19.3012C8.19523 19.8952 8.88823 20.1922 9.70223 20.1922C10.5162 20.1922 11.1872 19.8952 11.7152 19.3012C12.2652 18.7072 12.5402 18.0582 12.5402 17.3542C12.5402 16.6282 12.2762 15.9572 11.7482 15.3412C11.2422 14.7252 10.5492 14.4172 9.66923 14.4172C8.78923 14.4172 8.08523 14.7252 7.55723 15.3412C7.02923 15.9352 6.76523 16.5952 6.76523 17.3212C6.76523 18.0472 7.05123 18.7072 7.62323 19.3012ZM20.5479 17.3212C20.5479 14.6812 21.4719 12.5032 23.3199 10.7872C25.1679 9.07121 27.2799 8.21321 29.6559 8.21321C32.0319 8.21321 34.1329 9.07121 35.9589 10.7872C37.7849 12.4812 38.6979 14.6482 38.6979 17.2882C38.6979 19.1142 38.2249 20.7422 37.2789 22.1722C36.3329 23.5802 35.1779 24.6252 33.8139 25.3072C32.4719 25.9672 31.0749 26.2972 29.6229 26.2972C28.1709 26.2972 26.7629 25.9452 25.3989 25.2412C24.0349 24.5152 22.8799 23.4592 21.9339 22.0732C21.0099 20.6652 20.5479 19.0812 20.5479 17.3212ZM27.4449 19.6972C28.1489 20.2252 28.8639 20.4892 29.5899 20.4892C30.3159 20.4892 31.0419 20.2142 31.7679 19.6642C32.4939 19.1142 32.8569 18.3002 32.8569 17.2222C32.8569 16.1442 32.5159 15.3412 31.8339 14.8132C31.1519 14.2852 30.4149 14.0212 29.6229 14.0212C28.8309 14.0212 28.0939 14.2962 27.4119 14.8462C26.7299 15.3962 26.3889 16.2102 26.3889 17.2882C26.3889 18.3442 26.7409 19.1472 27.4449 19.6972Z"
+                  />
+                  <path
+                    d="M45.945 20.5548C46.319 20.9288 46.506 21.6988 46.506 22.8648V22.9968C46.506 23.5248 46.484 23.9208 46.44 24.1848C46.418 24.4268 46.308 24.7238 46.11 25.0758C45.78 25.7138 44.944 26.0328 43.602 26.0328C42.282 26.0328 41.402 25.8238 40.962 25.4058C40.544 24.9878 40.335 24.1958 40.335 23.0298V22.8978C40.335 22.3918 40.346 22.0068 40.368 21.7428C40.412 21.4788 40.522 21.1818 40.698 20.8518C41.028 20.1918 41.853 19.8618 43.173 19.8618C44.515 19.8618 45.439 20.0928 45.945 20.5548Z"
+                    fill="#9300ED"
+                  />
+                </g>
+                <defs>
+                  <clipPath id="clip0_1062_5959">
+                    <rect width="47" height="27" fill="white" />
+                  </clipPath>
+                </defs>
+              </svg>
+            </a>
+            <nav class="header__nav"></nav>
+          </div>
+        </div>
+      </div>
+    </header>
+    <main class="main"></main>
+    <footer class="footer">
+      <div class="footer__wrapper">
+        <div class="container">
+          <div class="footer__content">
+            <div class="footer__info">
+              <ul class="list list_footer">
+                <li class="list__elem">do.</li>
+                <li class="list__elem">Julia Grib</li>
+                <li class="list__elem">
+                  <a class="link" href="mailto:yulgrib@gmail.com"
+                    >yulgrib@gmail.com</a
+                  >
+                </li>
+                <li class="list__elem">
+                  <time datetime="2023.02.23">23.02.2023</time>
+                </li>
+              </ul>
+            </div>
+            <div class="footer__tools">
+              <div class="theme">
+                <label class="theme__label">
+                  <input
+                    class="theme__radio theme-light"
+                    type="radio"
+                    name="theme"
+                    value="theme-light"
+                    checked
+                  />
+                  <span class="theme__cirle theme__cirle_white"></span>
+                </label>
+                <label class="theme__label">
+                  <input
+                    class="theme__radio theme-dark"
+                    type="radio"
+                    name="theme"
+                    value="theme-dark"
+                  />
+                  <span class="theme__cirle theme__cirle_black"></span>
+                </label>
+              </div>
+              <div class="language">
+                <svg
+                  class="language__icon"
+                  width="16"
+                  height="15"
+                  viewBox="0 0 16 15"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M8 14.375C11.7969 14.375 14.875 11.2969 14.875 7.5C14.875 3.70313 11.7969 0.625 8 0.625M8 14.375C4.20313 14.375 1.125 11.2969 1.125 7.5C1.125 3.70313 4.20313 0.625 8 0.625M8 14.375C9.875 14.375 10.5 11.25 10.5 7.5C10.5 3.75 9.875 0.625 8 0.625M8 14.375C6.125 14.375 5.5 11.25 5.5 7.5C5.5 3.75 6.125 0.625 8 0.625M1.75 10H14.25M1.75 5H14.25"
+                    stroke="currentColor"
+                  />
+                </svg>
+                <span class="language__item"> English </span>
+                <ul class="list list_block">
+                  <li class="list_language-en">English</li>
+                  <li class="list_language-ru">Русский</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

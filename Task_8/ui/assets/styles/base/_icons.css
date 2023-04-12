@@ -1,0 +1,29 @@
+.icon {
+  color: var(--color-background-secondary);
+  text-decoration: none;
+  transition: var(--animation);
+}
+
+.icon:hover {
+  color: var(--color-primary);
+}
+
+.icon_active {
+  color: var(--color-primary);
+}
+
+.icon-password {
+  cursor: pointer;
+}
+
+.kanban-view {
+  color: var(--color-background-secondary);
+}
+
+.table-view {
+  color: var(--color-background-secondary);
+}
+
+.back__icon {
+  color: var(--color-background-secondary);
+}

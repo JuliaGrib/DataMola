@@ -1,0 +1,17 @@
+.background {
+  position: absolute;
+  top: 0;
+  z-index: 0;
+  width: 45vw;
+  height: 100%;
+  background-image: var(--background-image);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+@media screen and (max-width: 930px) {
+  .background {
+    display: none;
+  }
+}
