@@ -87,14 +87,6 @@ class TaskCollection {
 
   addAll(arr) {
     const notValidTasks = [];
-
-    // this.myCollection = arr.filter((task) => {
-    //   if (Task.validateTask(task)) {
-    //     return true;
-    //   } else {
-    //     notValidTasks.push(task);
-    //   }
-    // });
     return notValidTasks;
   }
 
