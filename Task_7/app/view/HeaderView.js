@@ -95,38 +95,7 @@ class HeaderView extends View {
           </nav>
           <hr class="line line_dashed" />
         </div>
-        <div class="menu__tools">
-          <div class="language">
-            <svg
-              class="language__icon"
-              width="16"
-              height="15"
-              viewBox="0 0 16 15"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M8 14.375C11.7969 14.375 14.875 11.2969 14.875 7.5C14.875 3.70313 11.7969 0.625 8 0.625M8 14.375C4.20313 14.375 1.125 11.2969 1.125 7.5C1.125 3.70313 4.20313 0.625 8 0.625M8 14.375C9.875 14.375 10.5 11.25 10.5 7.5C10.5 3.75 9.875 0.625 8 0.625M8 14.375C6.125 14.375 5.5 11.25 5.5 7.5C5.5 3.75 6.125 0.625 8 0.625M1.75 10H14.25M1.75 5H14.25"
-                stroke="currentColor"
-              />
-            </svg>
-            <span class="language__item"> English </span>
-            <ul class="list list_block">
-              <li class="list_language-en">English</li>
-              <li class="list_language-ru">Русский</li>
-            </ul>
-          </div>
-          <div class="theme">
-            <label class="theme__label">
-              <input class="theme__radio" type="radio" name="theme" checked />
-              <span class="theme__cirle"></span>
-            </label>
-            <label class="theme__label">
-              <input class="theme__radio" type="radio" name="theme" />
-              <span class="theme__cirle theme__cirle_black"></span>
-            </label>
-          </div>
-        </div>
+
       </div>
       <div class="menu__footer">
         <div class="menu__wrapper">
