@@ -4,7 +4,9 @@ class TaskFeedApiService {
   }
 
   getTasks(status) {
-    return fetch(`${this.url}/api/tasks?status=${status}`);
+    return fetch(`${this.url}/api/tassks?status=${status}`).then((response) =>
+      response.json()
+    );
   }
 }
 

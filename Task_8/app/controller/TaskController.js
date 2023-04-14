@@ -54,28 +54,10 @@ class TaskController {
     this.filterView.display(this.tasks.user);
   }
 
-  // createToDoColumn() {
-  //   this.tasksToDoView = new TaskFeedView('to-do');
-  //   async function getResponse() {
-  //     let response = await fetch('https://jsonplaceholder.typicode.com/photos');
-  //     let content = await response.json();
-  //     console.log(content);
-  //     this.tasksToDoView.display(content);
-  //   }
-  //   getResponse();
-  // }
-
-  createToDoColumn() {
+  async createToDoColumn() {
     this.tasksToDoView = new TaskFeedView('to-do');
-    this.tasksToDoView.display('taskList');
-    // let taskList;
-    // async function getResponse() {
-    //   let response = await api.getTasks(1);
-    //   taskList = await response.json();
-    //   await this.tasksToDoView.display(taskList);
-    // }
-
-    // getResponse();
+    const tasks = await api.getTasks(1);
+    this.tasksToDoView.display(tasks);
   }
 
   createLoginView() {
