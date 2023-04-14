@@ -11,6 +11,7 @@ class HeaderView extends View {
 
   _authorizedUser(user) {
     return `
+    <div class="background-burger"></div>
     <div class="header__user">
     <div class="user-icon">
       ${ICONS.icon_user}
@@ -61,7 +62,7 @@ class HeaderView extends View {
               <span class="user-icon__name">Julia Grib</span>
             </div>
             <span class="menu__close">
-              <svg
+              <svg class="close-burger"
                 width="24"
                 height="24"
                 viewBox="0 0 24 24"
@@ -165,12 +166,42 @@ class HeaderView extends View {
       const settingsIcon = document.querySelector('.settings__icon');
       const logoutBtn = document.querySelector('.logout-btn');
       const burgerBtn = document.querySelector('.burger');
-      console.log(burgerBtn);
+      const burgerMenu = document.querySelector('.menu');
+      const settingsBurger = document.querySelector('.link_account');
+      const logoutBurger = document.querySelector('.link_logout');
+      const closeBurger = document.querySelector('.close-burger');
+      const backgroundBurger = document.querySelector('.background-burger');
 
       settingsIcon.addEventListener('click', () => {
         taskController.createUserPage();
       });
       logoutBtn.addEventListener('click', () => {
+        taskController.saveUser();
+        setCurrentUser('');
+      });
+
+      burgerBtn.addEventListener('click', () => {
+        backgroundBurger.classList.toggle('background-burger_active');
+        burgerMenu.classList.toggle('menu_active');
+      });
+
+      backgroundBurger.addEventListener('click', () => {
+        this._closeBurger(backgroundBurger, burgerMenu);
+      });
+
+      closeBurger.addEventListener('click', () => {
+        this._closeBurger(backgroundBurger, burgerMenu);
+      });
+
+      settingsBurger.addEventListener('click', (event) => {
+        event.preventDefault();
+        this._closeBurger(backgroundBurger, burgerMenu);
+        taskController.createUserPage();
+      });
+
+      logoutBurger.addEventListener('click', (event) => {
+        this._closeBurger(backgroundBurger, burgerMenu);
+        event.preventDefault();
         taskController.saveUser();
         setCurrentUser('');
       });
@@ -185,5 +216,10 @@ class HeaderView extends View {
         taskController.createLoginView();
       });
     }
+  }
+
+  _closeBurger(background, menu) {
+    background.classList.remove('background-burger_active');
+    menu.classList.remove('menu_active');
   }
 }
