@@ -199,9 +199,10 @@ class UserEditPageView extends View {
     </section>
   </div>
           `;
+    this._addEvents();
   }
 
-  addEvents() {
+  _addEvents() {
     const nameLabel = document.querySelector('.label_name');
     const nameInput = document.querySelector('#name');
     const errorMessageName = document.querySelector('.input__message-name');
@@ -326,8 +327,9 @@ class UserEditPageView extends View {
       }
     });
 
-    resetBtn.addEventListener('click', () => {
-      taskController.createUserEditPage();
+    resetBtn.addEventListener('click', (event) => {
+      event.preventDefault();
+      taskController.createResetView('editUser');
     });
 
     const form = document.querySelector('form');

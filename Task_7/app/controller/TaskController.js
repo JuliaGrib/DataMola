@@ -16,6 +16,7 @@ class TaskController {
     this.userPageView = new UserPageView(main);
     this.userEditPageView = new UserEditPageView(main);
     this.popView = new PopView(main);
+    this.resetView = new ResetView(main);
   }
 
   set userCollection(value) {
@@ -99,7 +100,6 @@ class TaskController {
 
   createUserEditPage() {
     this.userEditPageView.display();
-    this.userEditPageView.addEvents();
   }
 
   createPopupView() {
@@ -197,5 +197,9 @@ class TaskController {
     } catch (error) {
       console.error(error);
     }
+  }
+
+  createResetView(elem, id = null) {
+    this.resetView.display(elem, id);
   }
 }
