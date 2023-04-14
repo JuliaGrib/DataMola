@@ -199,7 +199,7 @@ class TaskController {
     }
   }
 
-  createResetView(elem, id = null) {
-    this.resetView.display(elem, id);
+  createResetView(elem, id = null, del = false) {
+    this.resetView.display(elem, id, del);
   }
 }
