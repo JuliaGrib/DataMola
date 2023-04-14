@@ -64,12 +64,28 @@ class FilterView extends View {
       placeholder="Search"
       id="search"
     />
-
+    <div class="position">
+      <a href="#" class="icon ${
+        taskController.taskFeedView.position === TASK_VIEW.kanban
+          ? 'icon_active'
+          : ''
+      }">
+      ${ICONS.icon_kanban}
+      </a>
+      <a href="#" class="icon ${
+        taskController.taskFeedView.position === TASK_VIEW.table
+          ? 'icon_active'
+          : ''
+      }">    
+      ${ICONS.icon_table}
+      </a>
+    </div>
 
   </div>
     `;
 
     this._setDisabled(user);
+    this._addEvents();
   }
 
   _setAssignee() {
