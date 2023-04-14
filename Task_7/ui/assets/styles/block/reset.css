@@ -1,0 +1,38 @@
+.reset__background {
+  position: absolute;
+  z-index: 20000;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(241, 243, 246, 0.8);
+}
+
+.reset {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 40vw;
+  padding: 50px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-m);
+  justify-content: center;
+  align-items: center;
+  background: #ffffff;
+  border: 1px solid #d9d9d9;
+  border-radius: 8px;
+}
+
+.reset__mes {
+  font-weight: 700;
+  font-size: 26px;
+  line-height: 30px;
+  letter-spacing: -0.02em;
+  color: #333333;
+}
+
+.reset__btns {
+  display: flex;
+  gap: var(--gap-m);
+}

@@ -72,3 +72,11 @@
     padding: var(--padding-m);
   }
 }
+
+.popup__background {
+  position: absolute;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(241, 243, 246, 0.8);
+}

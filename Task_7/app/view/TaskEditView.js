@@ -327,7 +327,7 @@ class TaskEditView extends View {
     });
 
     resetBtn.addEventListener('click', () => {
-      taskController.editTask(id);
+      taskController.createResetView('editTask', id);
     });
 
     const form = document.querySelector('form');
