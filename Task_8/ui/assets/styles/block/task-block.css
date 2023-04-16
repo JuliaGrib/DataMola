@@ -1,0 +1,145 @@
+.task-block {
+  display: grid;
+  grid-template-rows: 62vh 10vh;
+  width: 100%;
+  padding: var(--padding-m);
+  background-color: var(--color-card);
+  border-radius: var(--border-radius);
+}
+
+.task-block__content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-m);
+  height: 100%;
+  padding: var(--padding-s);
+  overflow: scroll;
+  overflow-x: hidden;
+}
+
+.task-block__content::-webkit-scrollbar {
+  width: 0.25rem;
+}
+
+.task-block__content::-webkit-scrollbar-thumb {
+  background-color: var(--color-secondary);
+  border-radius: var(--border-radius);
+}
+
+.task-block__header {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap-reverse;
+  gap: var(--gap-xxs);
+}
+
+.task-block__tools {
+  display: flex;
+  align-content: flex-end;
+  gap: var(--gap-s);
+}
+
+.task-block__options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--gap-xxxl);
+}
+
+.task-block__date,
+.task-block__subtitle,
+.task-block__comments {
+  color: var(--color-card-desc);
+}
+
+.task-block__options-elem {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-s);
+}
+
+.task-block__subtitle_edit {
+  color: var(--color-black);
+}
+
+.file {
+  display: flex;
+  align-items: center;
+  gap: var(--gap-xs);
+  padding: var(--padding-xxs);
+  border: 0.1rem solid var(--color-black);
+  border-radius: var(--border-radius);
+}
+.close-edit {
+  cursor: pointer;
+}
+
+.task-block__btn {
+  display: flex;
+  justify-content: end;
+  gap: var(--gap);
+}
+
+.task-block__comment-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-m);
+}
+
+.comment__header {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--gap-s);
+}
+
+.comment__time {
+  color: var(--color-secondary-dark);
+}
+
+.comment__message {
+  padding: 0 0 0 var(--padding-xxl);
+}
+
+.task-block__send {
+  display: flex;
+  align-self: end;
+  gap: var(--gap-xs);
+  padding: var(--padding-s);
+}
+
+.task-block__text,
+.task-block__desc,
+.user-icon__name,
+.comment__message,
+.comment__time {
+  color: var(--color-text-main);
+}
+
+@media screen and (max-width: 900px) {
+  .task-block__btn {
+    padding: var(--padding-m) var(--padding-z);
+    justify-content: center;
+  }
+}
+
+@media screen and (max-width: 580px) {
+  .task-block {
+    grid-template-rows: 68vh 10vh;
+    padding: var(--padding-s);
+  }
+
+  .task-block__content {
+    gap: var(--gap);
+  }
+
+  .task-block__options {
+    gap: var(--gap-m);
+  }
+
+  .comment__header {
+    gap: var(--gap-xs);
+  }
+  .comment__time {
+    font-size: 0.75rem;
+  }
+}

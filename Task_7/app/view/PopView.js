@@ -5,7 +5,8 @@ class PopView extends View {
   display() {
     this.nodeElem.insertAdjacentHTML(
       'beforeend',
-      `<div class="popup">
+      `<div class="popup__background">
+      <div class="popup">
     <div class="popup__header">
         <h4 class="title title_popup">Add task</h4>
         <a class="settings__link" href="#">
@@ -170,11 +171,12 @@ class PopView extends View {
         </div>
       </div>
       <div class="popup__btns">
-        <button class="button button_disabled" type="reset">Reset</button>
+        <button class="button button_disabled button_reset" disabled>Reset</button>
         <button class="button button_form button_disabled" type="submit" disabled>
           Add task
         </button>
         </form>
+        </div>
       </div>
     `
     );
@@ -187,7 +189,14 @@ class PopView extends View {
     const taskNameInput = document.querySelector('.input_task-name');
     const nameSubtext = document.querySelector('.editor__subtext-name');
     const iconClose = document.querySelector('.icon_close');
-    const popup = document.querySelector('.popup');
+    const popup = document.querySelector('.popup__background');
+    const taskDescLabel = document.querySelector('.label_task-desc');
+    const taskDescInput = document.querySelector('.editor_task-desc');
+    const descSubtext = document.querySelector('.editor_subtext-desc');
+    const buttonSubmit = document.querySelector('.button_form');
+    const resetBtn = document.querySelector('.button_reset');
+    const form = document.querySelector('form');
+
     iconClose.addEventListener('click', () => {
       popup.remove();
     });
@@ -219,10 +228,6 @@ class PopView extends View {
       }
     });
 
-    const taskDescLabel = document.querySelector('.label_task-desc');
-    const taskDescInput = document.querySelector('.editor_task-desc');
-    const descSubtext = document.querySelector('.editor_subtext-desc');
-
     taskDescInput.addEventListener('input', () => {
       descSubtext.innerHTML = `${taskDescInput.value.length}/280`;
       if (taskDescInput.value.length <= 280) {
@@ -250,10 +255,15 @@ class PopView extends View {
       }
     });
 
-    const buttonSubmit = document.querySelector('.button_form');
-
     addEventListener('input', () => {
       this._setCheckedStyle();
+      if (
+        taskNameInput.classList.contains('input_validate') ||
+        taskDescInput.classList.contains('input_validate')
+      ) {
+        resetBtn.className = 'button button_primary button_submit';
+        resetBtn.disabled = false;
+      }
       if (
         taskNameInput.classList.contains('input_validate') &&
         taskDescInput.classList.contains('input_validate')
@@ -266,8 +276,6 @@ class PopView extends View {
         buttonSubmit.disabled = true;
       }
     });
-
-    const form = document.querySelector('form');
 
     form.addEventListener('submit', () => {
       const radioPriority = document.querySelectorAll('.radio_priority');
@@ -308,6 +316,11 @@ class PopView extends View {
       popup.remove();
       taskController.addTask(newTask);
       taskController.tasks.save();
+    });
+
+    resetBtn.addEventListener('click', (event) => {
+      event.preventDefault();
+      taskController.createResetView('addTask');
     });
   }
 

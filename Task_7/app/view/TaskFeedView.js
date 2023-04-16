@@ -303,7 +303,11 @@ class TaskFeedView extends View {
         event.target.className.animVal === 'icon-del' ||
         event.target.className === 'icon icon_del'
       ) {
-        taskController.removeTask(event.target.parentNode.parentNode.id);
+        taskController.createResetView(
+          'delTaskDesk',
+          event.target.parentNode.parentNode.id,
+          true
+        );
       }
     });
   }

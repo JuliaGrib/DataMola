@@ -92,10 +92,9 @@ class TaskView extends View {
                     <span class="user-icon__name">${com.author}</span>
                 </div>
             <div class="comment__time">
-        <time datetime="${new Date(com.createdAt).toDateString()}>${new Date(
+        <time datetime="${new Date(com.createdAt).toDateString()}">${new Date(
         com.createdAt
       ).toDateString()}</time>
-
             </div>
             <div class="comment__message">${com.text}</div>
         </div>
@@ -139,7 +138,11 @@ class TaskView extends View {
           event.target.className.animVal === 'icon-del' ||
           event.target.className === 'icon icon_del'
         ) {
-          taskController.removeTask(event.target.parentNode.parentNode.id);
+          taskController.createResetView(
+            'delTaskDesk',
+            event.target.parentNode.parentNode.id,
+            true
+          );
         }
       });
     }
