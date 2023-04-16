@@ -1,0 +1,139 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  width: 98%;
+  gap: var(--gap-s);
+  padding: var(--padding) var(--padding-m);
+  border-radius: var(--border-radius);
+  background-color: var(--color-card);
+}
+
+.card__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.priority {
+  display: inline-block;
+  padding: var(--padding-xxs) var(--padding-xs);
+  border-radius: var(--border-radius-s);
+  color: var(--color-white);
+  font-size: 0.75rem;
+}
+
+.priority_high {
+  background-color: var(--color-priority-high);
+}
+.priority_medium {
+  background-color: var(--color-priority-medium);
+}
+.priority_low {
+  background-color: var(--color-priority-low);
+}
+.priority_task {
+  align-self: flex-start;
+}
+
+.priority_radio {
+  color: var(--color-white);
+  font-size: 1rem;
+}
+
+.card__tools {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--gap-xs);
+}
+
+.card__info {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap);
+  padding: var(--padding-z) var(--padding);
+}
+
+.title_card {
+  font-size: 1.25rem;
+  font-weight: var(--font-weight-bold);
+}
+
+.card__desc {
+  color: var(--color-card-desc);
+}
+
+.card__additional {
+  display: flex;
+  align-items: center;
+  gap: var(--gap-xs);
+}
+
+.card__assignee {
+  color: var(--color-text-main);
+  font-weight: var(--font-weight-bold);
+}
+
+.card__line {
+  width: 0.1rem;
+  height: 1rem;
+  background-color: var(--color-text-main);
+}
+
+.card__comments {
+  display: flex;
+  align-items: center;
+  gap: var(--gap-xxs);
+  color: var(--color-text-main);
+}
+
+.line_dashed {
+  border: 0.1rem dashed var(--color-secondary);
+}
+
+.card__footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card__date {
+  color: var(--color-card-desc);
+  font-size: 0.75rem;
+}
+
+.card__status {
+  color: var(--color-text-main);
+  font-size: 0.75rem;
+  font-weight: var(--font-weight-bold);
+}
+.card__privacy {
+  color: var(--color-text-main);
+}
+
+@media screen and (max-width: 1240px) {
+  .card__info {
+    padding: var(--padding-z);
+  }
+  .title_card {
+    font-size: 1rem;
+  }
+  .card__desc,
+  .card__assignee,
+  .card__privacy,
+  .card__comments {
+    font-size: 0.85rem;
+  }
+}
+
+@media screen and (max-width: 760px) {
+  .card__info {
+    gap: var(--gap-s);
+    padding: var(--padding-z) var(--padding);
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .card__info {
+    padding: var(--padding-z);
+  }
+}

@@ -16,6 +16,7 @@ class TaskController {
     this.userPageView = new UserPageView(main);
     this.userEditPageView = new UserEditPageView(main);
     this.popView = new PopView(main);
+    this.resetView = new ResetView(main);
   }
 
   set userCollection(value) {
@@ -58,11 +59,9 @@ class TaskController {
 
   createLoginView() {
     this.loginView.display(taskController.tasks.user);
-    this.loginView.addEvents();
   }
   createRegistrationView() {
     this.registrationView.display();
-    this.registrationView.addEvents();
   }
 
   showTask(id) {
@@ -99,7 +98,6 @@ class TaskController {
 
   createUserEditPage() {
     this.userEditPageView.display();
-    this.userEditPageView.addEvents();
   }
 
   createPopupView() {
@@ -198,5 +196,9 @@ class TaskController {
     } catch (error) {
       console.error(error);
     }
+  }
+
+  createResetView(elem, id = null, del = false) {
+    this.resetView.display(elem, id, del);
   }
 }
