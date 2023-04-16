@@ -30,16 +30,7 @@ class MainView extends View {
               Show more
             </button>
           </section>
-          <section class="col">
-            <h2 class="title title_col">${TASK_STATUS.complete}</h2>
-            <div class="col__content">
-                <div class="col__wrap complete">
-                </div>
-            </div>
-            <button class="button button_show-more button_show-more-complete" type="button">
-              Show more
-            </button>
-          </section>
+
           <section class="col">
           <h2 class="title title_col">${TASK_STATUS.inProgress}</h2>
             <div class="col__content">
@@ -50,6 +41,16 @@ class MainView extends View {
               Show more
             </button>
           </section>
+          <section class="col">
+          <h2 class="title title_col">${TASK_STATUS.complete}</h2>
+          <div class="col__content">
+              <div class="col__wrap complete">
+              </div>
+          </div>
+          <button class="button button_show-more button_show-more-complete" type="button">
+            Show more
+          </button>
+        </section>
       </div>
     </div>
 

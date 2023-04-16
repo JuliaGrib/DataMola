@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Concert+One&display=swap');
 @import './base/_default.css';
 @import './base/_variables.css';
 @import './block/containers.css';
@@ -33,3 +34,6 @@
 @import './block/desk-list.css';
 @import './block/filter.css';
 @import './block/reset.css';
+@import './block/error.css';
+@import './block/game.css';
+@import './block/loader.css';

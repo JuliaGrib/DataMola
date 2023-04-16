@@ -6,10 +6,11 @@ class TaskView extends View {
   display(task) {
     this.nodeElem.className = 'main main__template_task-page';
     this.nodeElem.innerHTML = this._createBack() + this._createTask(task);
-    this._addEvents();
+    this._addEvents(task);
   }
 
   _createTask(task) {
+    const user = localStorage.getItem('login');
     return `
         <div class="container">
         <section class="task-block">
@@ -18,8 +19,8 @@ class TaskView extends View {
             <h1 class="title title_h1 title_task">${task.name}</h1>
 
             ${
-              taskController.tasks.user === task.assignee
-                ? `            <div class="task-block__tools" id="${task._id}">
+              task.creator.login === user
+                ? `            <div class="task-block__tools" id="${task.id}">
             <a href="#" class="icon icon_change">
             ${ICONS.icon_change}
             </a>
@@ -56,7 +57,7 @@ class TaskView extends View {
                 <span class="task-block__subtitle">Assignee</span>
                 <div class="user-icon">
                 ${ICONS.icon_user}
-                <span class="user-icon__name">${task.assignee}</span>
+                <span class="user-icon__name">${task.assignee.userName}</span>
                 </div>
             </div>
 
@@ -64,6 +65,7 @@ class TaskView extends View {
             <hr class="line line_dashed" />
             <span class="task-block__comments">Comments</span>
             <div class="task-block__comment-wrap">
+            
                     ${this._createComment(task.comments)}
             </div>
         </div>
@@ -89,7 +91,7 @@ class TaskView extends View {
             <div class="comment__header">
                 <div class="user-icon">
                 ${ICONS.icon_user}
-                    <span class="user-icon__name">${com.author}</span>
+                    <span class="user-icon__name">${com.creator.userName}</span>
                 </div>
             <div class="comment__time">
         <time datetime="${new Date(com.createdAt).toDateString()}">${new Date(
@@ -117,7 +119,7 @@ class TaskView extends View {
     `;
   }
 
-  _addEvents() {
+  _addEvents(task) {
     const backMain = document.querySelector('.back');
     backMain.addEventListener('click', (event) => {
       if (event.target.className === 'link back__text') {
@@ -132,7 +134,7 @@ class TaskView extends View {
           event.target.className.animVal === 'icon-change' ||
           event.target.className === 'icon icon_change'
         ) {
-          taskController.editTask(event.target.parentNode.parentNode.id);
+          taskController.editTask(task.id);
         }
         if (
           event.target.className.animVal === 'icon-del' ||
@@ -166,8 +168,7 @@ class TaskView extends View {
 
     const form = document.querySelector('form');
     form.addEventListener('submit', () => {
-      taskController.addComment(form.id, inputSend.value);
-      taskController.task.save();
+      taskController.addComment(task.id, inputSend.value);
     });
 
     addEventListener('input', () => {

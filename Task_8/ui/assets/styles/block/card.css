@@ -22,8 +22,8 @@
   font-size: 0.75rem;
 }
 
-.priority_hight {
-  background-color: var(--color-priority-hight);
+.priority_high {
+  background-color: var(--color-priority-high);
 }
 .priority_medium {
   background-color: var(--color-priority-medium);

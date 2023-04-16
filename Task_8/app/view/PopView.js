@@ -2,7 +2,7 @@ class PopView extends View {
   constructor(id) {
     super(id);
   }
-  display() {
+  display(tasks) {
     this.nodeElem.insertAdjacentHTML(
       'beforeend',
       `<div class="popup__background">
@@ -54,7 +54,7 @@ class PopView extends View {
             <div class="selection">
     
             <select class="task_assignee">
-            ${this._setOptions()}
+            ${this._setOptions(tasks)}
             </select>
             </div>
           </div>
@@ -94,14 +94,14 @@ class PopView extends View {
           class="radio_priority radio_input"
           type="radio"
           name="priority"
-          id="hight"
-          value="Hight"
+          id="high"
+          value="High"
           checked
         />
         <label
-          for="hight"
+          for="high"
           class="radio_label"
-          >Hight</label
+          >High</label
         >
         <input
           class="radio_priority radio_input"
@@ -307,15 +307,15 @@ class PopView extends View {
       const newTask = {
         name: taskNameInput.value,
         description: taskDescInput.value,
-        assignee: optionsAssignee,
+        assignee: '15',
         status: status,
         priority: priority,
         isPrivate: privacy === 'Public' ? false : true,
       };
 
+      taskController.addTaskPopup(newTask);
       popup.remove();
-      taskController.addTask(newTask);
-      taskController.tasks.save();
+      taskController.createMainView();
     });
 
     resetBtn.addEventListener('click', (event) => {
@@ -324,9 +324,9 @@ class PopView extends View {
     });
   }
 
-  _setOptions() {
-    const usersNames = JSON.parse(localStorage.userCollection).map(
-      ({ login }) => login
+  _setOptions(tasks) {
+    const usersNames = Array.from(
+      new Set(tasks.map(({ assignee }) => assignee.userName))
     );
     let options = '';
     usersNames.forEach(
@@ -341,7 +341,6 @@ class PopView extends View {
 
     radioNodes.forEach((elem) => {
       if (elem.checked === true) {
-        console.log(elem.nextElementSibling);
         elem.nextElementSibling.classList.add('radio_label-checked');
       } else {
         elem.nextElementSibling.classList.remove('radio_label-checked');

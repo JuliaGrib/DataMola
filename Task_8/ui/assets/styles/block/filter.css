@@ -42,7 +42,24 @@
 }
 
 .filter-assingee__popup {
+  width: 150px;
+  height: 150px;
+  overflow-y: scroll;
   display: none;
+}
+
+.filter-assingee__popup::-webkit-scrollbar {
+  width: 0.5rem;
+  background-color: none;
+}
+
+.filter-assingee__popup::-webkit-scrollbar-thumb {
+  background-color: var(--color-secondary-light);
+  border-radius: var(--border-radius);
+}
+
+.filter-assignee__elem {
+  padding-bottom: var(--padding-xxs);
 }
 
 .filter-date__popup {
@@ -64,6 +81,15 @@
 
 .filter__title {
   font-size: var(--font-size-s);
+}
+
+.mob-filter {
+  position: absolute;
+  right: 0;
+  top: 35px;
+  width: 30vw;
+  height: 100vh;
+  background-color: var(--color-secondary-light);
 }
 
 @media screen and (max-width: 1280px) {

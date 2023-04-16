@@ -3,8 +3,7 @@ class UserEditPageView extends View {
     super(id);
   }
 
-  display() {
-    const user = JSON.parse(localStorage.user);
+  display(user) {
     this.nodeElem.className = 'main main__template_user';
     this.nodeElem.innerHTML = this._setHTML(user);
   }
@@ -76,7 +75,7 @@ class UserEditPageView extends View {
                 class="input input_user"
                 type="text"
                 id="name"
-                value="${user.name}"
+                value="${user.userName}"
                 placeholder="Enter your name"
                 requared
                 maxlenght="${MAX_LENGTH.name}"

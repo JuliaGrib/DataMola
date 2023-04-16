@@ -3,6 +3,8 @@ class TaskController {
   _tasks;
   filterView;
   tasksToDoView;
+  tasksCompleteView;
+  tasksInProgressView;
 
   constructor(header, main) {
     this.userCollection = new UserCollection();
@@ -17,6 +19,7 @@ class TaskController {
     this.userEditPageView = new UserEditPageView(main);
     this.popView = new PopView(main);
     this.resetView = new ResetView(main);
+    this.errorPageView = new ErrorPageView(main);
   }
 
   set userCollection(value) {
@@ -44,21 +47,60 @@ class TaskController {
     this.tasks.restore();
   }
 
-  createHeaderView(user) {
-    this.headerView.display(user);
-    this.headerView.addEvents(user);
+  createHeaderView() {
+    this.headerView.display();
+    this.headerView.addEvents();
   }
 
-  createMainView() {
+  async createMainView() {
     this.mainView.display();
     this.filterView = new FilterView('main__wrapper');
-    this.filterView.display(this.tasks.user);
+    const tasksAll = await api.getAllTasks();
+    this.filterView.display(tasksAll);
+    this.createColumns();
   }
 
-  async createToDoColumn() {
+  createColumns() {
+    this.createToDoColumn(0, 10);
+    this.createInProgressColumn(0, 10);
+    this.createCompleteColumn(0, 10);
+  }
+
+  async createToDoColumn(skip, top) {
     this.tasksToDoView = new TaskFeedView('to-do');
-    const tasks = await api.getTasks(1);
-    this.tasksToDoView.display(tasks);
+    const tasks = await api.getTasks(skip, top, 1);
+    this.tasksToDoView.display(
+      filterController.setFilter(tasks),
+      '.button_show-more-to-do'
+    );
+  }
+
+  async createInProgressColumn(skip, top) {
+    this.tasksInProgressView = new TaskFeedView('in-progress');
+    const tasks = await api.getTasks(skip, top, 2);
+    this.tasksInProgressView.display(
+      filterController.setFilter(tasks),
+      '.button_show-more-in-progress'
+    );
+  }
+
+  async createCompleteColumn(skip, top) {
+    this.tasksCompleteView = new TaskFeedView('complete');
+    const tasks = await api.getTasks(skip, top, 3);
+    this.tasksCompleteView.display(
+      filterController.setFilter(tasks),
+      '.button_show-more-complete'
+    );
+  }
+
+  async makeLogin(login, password) {
+    const response = await api.setLogin(login, password);
+    if (response.login) {
+      Helper.setUserLocal(response.login, response.token);
+      return true;
+    } else {
+      return false;
+    }
   }
 
   createLoginView() {
@@ -68,86 +110,85 @@ class TaskController {
     this.registrationView.display();
   }
 
-  showTask(id) {
-    try {
-      if (!Helper.isString(id)) {
-        throw new Error(ERRORS.onlyString);
-      }
-
-      if (!this.tasks.user) {
-        throw new Error(ERRORS.userValidation);
-      }
-
-      this.taskView.display(this.tasks.get(id));
-    } catch (error) {
-      console.error(error);
-    }
+  async showTask(id) {
+    const task = await api.getTask(id);
+    this.taskView.display(task);
   }
 
-  editTask(id) {
-    try {
-      if (!id) {
-        throw new Error(ERRORS.invalidValue);
-      }
-      this.taskEditView.display(id);
-    } catch (error) {
-      console.error(error);
-    }
+  async editTask(id) {
+    const task = await api.getTask(id);
+    this.taskEditView.display(task);
   }
 
-  createUserPage() {
-    this.userPageView.display(taskController.tasks.user);
-    this.userPageView.addEvents(taskController.tasks.user);
+  async createUserPage() {
+    const user = await api.getUserProfile();
+    this.userPageView.display(user);
+    this.userPageView.addEvents(user);
   }
 
-  createUserEditPage() {
-    this.userEditPageView.display();
-    this.userEditPageView.addEvents();
+  async createUserEditPage() {
+    const user = await api.getUserProfile();
+    this.userEditPageView.display(user);
+    this.userEditPageView.addEvents(user);
   }
 
-  createPopupView() {
-    this.popView.display();
+  async createPopupView() {
+    const tasksAll = await api.getAllTasks();
+    this.popView.display(tasksAll);
   }
 
-  showMoreToDo() {
-    filterController.pageToDo += PAGE_LENGTH.count;
-    this.taskFeedView.display(filterController.filterTasks(), this.tasks.user);
+  async addTaskPopup(task) {
+    const response = await api.addTask(task);
   }
 
-  showMoreComplete() {
-    filterController.pageComplete += PAGE_LENGTH.count;
-    this.taskFeedView.display(filterController.filterTasks(), this.tasks.user);
+  async saveTask(id, task) {
+    const response = await api.saveEditTask(id, task);
   }
 
-  showMoreInProgress() {
-    filterController.pageInProgress += PAGE_LENGTH.count;
-    this.taskFeedView.display(filterController.filterTasks(), this.tasks.user);
+  async addComment(id, text) {
+    const response = await api.addTaskComment(id, text);
+    taskController.showTask(id);
   }
 
-  addTask(obj) {
-    this.tasks.add(
-      obj.name,
-      obj.description,
-      obj.assignee,
-      obj.status,
-      obj.priority,
-      obj.isPrivate
-    );
+  // showMoreToDo() {
+  //   filterController.pageToDo += PAGE_LENGTH.count;
+  //   this.taskFeedView.display(filterController.filterTasks(), this.tasks.user);
+  // }
 
-    this.createMainView();
-  }
+  // showMoreComplete() {
+  //   filterController.pageComplete += PAGE_LENGTH.count;
+  //   this.taskFeedView.display(filterController.filterTasks(), this.tasks.user);
+  // }
 
-  removeTask(id) {
-    try {
-      if (!Helper.isString(id)) {
-        throw new Error(ERRORS.onlyString);
-      }
-      this.tasks.remove(id);
-      this.createMainView();
-    } catch (error) {
-      console.error(error);
-    }
-  }
+  // showMoreInProgress() {
+  //   filterController.pageInProgress += PAGE_LENGTH.count;
+  //   this.taskFeedView.display(filterController.filterTasks(), this.tasks.user);
+  // }
+
+  // addTask(obj) {
+  //   this.tasks.add(
+  //     obj.name,
+  //     obj.description,
+  //     obj.assignee,
+  //     obj.status,
+  //     obj.priority,
+  //     obj.isPrivate
+  //   );
+
+  //   this.createMainView();
+  // }
+
+  // removeTask(id) {
+  //   try {
+  //     if (!Helper.isString(id)) {
+  //       throw new Error(ERRORS.onlyString);
+  //     }
+  //     this.tasks.remove(id);
+  //     this.createMainView();
+  //   } catch (error) {
+  //     console.error(error);
+  //   }
+  // }
 
   createKanban() {
     this.taskFeedView.position = TASK_VIEW.kanban;
@@ -161,49 +202,48 @@ class TaskController {
     this.taskFeedView.display(filterController.filterTasks(), this.tasks.user);
   }
 
-  addComment(id, text) {
-    try {
-      if (!Helper.isString(id)) {
-        throw new Error(ERRORS.onlyString);
-      }
+  // addComment(id, text) {
+  //   try {
+  //     if (!Helper.isString(id)) {
+  //       throw new Error(ERRORS.onlyString);
+  //     }
 
-      this.tasks.addComment(id, text);
-      this.showTask(id);
-      this.tasks.save();
-    } catch (error) {
-      console.error(error);
-    }
-  }
+  //     this.tasks.addComment(id, text);
+  //     this.showTask(id);
+  //     this.tasks.save();
+  //   } catch (error) {
+  //     console.error(error);
+  //   }
+  // }
 
-  getFeed(obj) {
-    filterController.params = obj;
-    this.taskFeedView.display(filterController.filterTasks(), this.tasks.user);
-  }
+  // editTaskInPage(id, obj) {
+  //   try {
+  //     if (!Helper.isString(id)) {
+  //       throw new Error(ERRORS.onlyString);
+  //     }
 
-  editTaskInPage(id, obj) {
-    try {
-      if (!Helper.isString(id)) {
-        throw new Error(ERRORS.onlyString);
-      }
+  //     this.tasks.edit(
+  //       id,
+  //       obj.name || null,
+  //       obj.description || null,
+  //       obj.assignee || null,
+  //       obj.status || null,
+  //       obj.priority || null,
+  //       obj.isPrivate || null
+  //     );
 
-      this.tasks.edit(
-        id,
-        obj.name || null,
-        obj.description || null,
-        obj.assignee || null,
-        obj.status || null,
-        obj.priority || null,
-        obj.isPrivate || null
-      );
-
-      this.tasks.save();
-      this.showTask(id);
-    } catch (error) {
-      console.error(error);
-    }
-  }
+  //     this.tasks.save();
+  //     this.showTask(id);
+  //   } catch (error) {
+  //     console.error(error);
+  //   }
+  // }
 
   createResetView(elem, id = null, del = false) {
     this.resetView.display(elem, id, del);
+  }
+
+  createErrorPageView() {
+    this.errorPageView.display();
   }
 }

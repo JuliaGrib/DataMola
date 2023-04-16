@@ -3,9 +3,7 @@ class TaskEditView extends View {
     super(id);
   }
 
-  display(id) {
-    const task = taskController.tasks.get(id);
-
+  display(task) {
     this.nodeElem.className = 'main main__template_task-page';
     this.nodeElem.innerHTML = `
     <div class="container">
@@ -40,14 +38,14 @@ class TaskEditView extends View {
           class="radio_priority radio_input"
           type="radio"
           name="priority"
-          id="hight"
-          value="Hight"
+          id="high"
+          value="High"
           checked
         />
         <label
-          for="hight"
-          class="priority priority_hight radio_label priority_radio"
-          >Hight</label
+          for="high"
+          class="priority priority_high radio_label priority_radio"
+          >High</label
         >
         <input
           class="radio_priority radio_input"
@@ -204,7 +202,7 @@ class TaskEditView extends View {
     this._setChecked('.radio_privacy', task, 'isPrivate');
     this._setChecked('.radio_status', task, 'status');
     this._setAssignee(task);
-    this._addEvents(id);
+    this._addEvents(task);
     this._setCheckedStyle();
   }
 
@@ -238,10 +236,10 @@ class TaskEditView extends View {
     document.querySelectorAll('.task_assignee').value = task.assingee;
   }
 
-  _addEvents(id) {
+  _addEvents(task) {
     const closeBtn = document.querySelector('.close-edit');
     closeBtn.addEventListener('click', () => {
-      taskController.showTask(id);
+      taskController.showTask(task.id);
     });
 
     const taskNameLabel = document.querySelector('.label_task-name');
@@ -327,11 +325,12 @@ class TaskEditView extends View {
     });
 
     resetBtn.addEventListener('click', () => {
-      taskController.editTask(id);
+      taskController.editTask(task.id);
     });
 
     const form = document.querySelector('form');
-    form.addEventListener('submit', () => {
+    form.addEventListener('submit', (event) => {
+      event.preventDefault();
       const radioPriority = document.querySelectorAll('.radio_priority');
       let priority;
       for (let i = 0; i < radioPriority.length; i++) {
@@ -361,14 +360,14 @@ class TaskEditView extends View {
       const editTask = {
         name: taskNameInput.value,
         description: taskDescInput.value,
-        assignee: optionsAssignee,
+        assignee: '15',
         status: status,
         priority: priority,
         isPrivate: privacy === 'Public' ? false : true,
       };
 
-      taskController.editTaskInPage(id, editTask);
-      taskController.tasks.save();
+      taskController.saveTask(task.id, editTask);
+      taskController.showTask(task.id);
     });
   }
 

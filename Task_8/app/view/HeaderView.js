@@ -3,10 +3,11 @@ class HeaderView extends View {
     super(id);
   }
 
-  display(user) {
-    user === ''
-      ? (this.nodeElem.innerHTML = this._unauthorizedUser())
-      : (this.nodeElem.innerHTML = this._authorizedUser(user));
+  display() {
+    const user = localStorage.getItem('login');
+    user
+      ? (this.nodeElem.innerHTML = this._authorizedUser(user))
+      : (this.nodeElem.innerHTML = this._unauthorizedUser());
   }
 
   _authorizedUser(user) {
@@ -130,7 +131,8 @@ class HeaderView extends View {
   `;
   }
 
-  addEvents(user) {
+  addEvents() {
+    const user = localStorage.getItem('login');
     if (user) {
       const settingsIcon = document.querySelector('.settings__icon');
       const logoutBtn = document.querySelector('.logout-btn');
@@ -145,8 +147,9 @@ class HeaderView extends View {
         taskController.createUserPage();
       });
       logoutBtn.addEventListener('click', () => {
-        taskController.saveUser();
-        setCurrentUser('');
+        localStorage.clear();
+        taskController.createHeaderView();
+        taskController.createMainView();
       });
 
       burgerBtn.addEventListener('click', () => {

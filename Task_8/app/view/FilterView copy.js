@@ -186,58 +186,58 @@ class FilterView extends View {
       });
     });
 
-    const filterPriority = document.querySelector('.filter-priority');
-    const filterPriorityMenu = document.querySelector(
-      '.filter-priority__popup'
-    );
-    filterPriority.addEventListener('click', () => {
-      filterPriorityMenu.classList.toggle('filter_block');
-    });
+    // const filterPriority = document.querySelector('.filter-priority');
+    // const filterPriorityMenu = document.querySelector(
+    //   '.filter-priority__popup'
+    // );
+    // filterPriority.addEventListener('click', () => {
+    //   filterPriorityMenu.classList.toggle('filter_block');
+    // });
 
-    const filterPriorityValues = document.querySelectorAll(
-      '.input_filter-priority'
-    );
+    // const filterPriorityValues = document.querySelectorAll(
+    //   '.input_filter-priority'
+    // );
 
-    let priorityChecked = [];
+    // let priorityChecked = [];
 
-    filterPriorityValues.forEach((elem) => {
-      elem.addEventListener('click', () => {
-        if (elem.checked === true) {
-          priorityChecked.push(elem.value);
-        } else if (elem.checked === false) {
-          priorityChecked.splice(priorityChecked.indexOf(elem.value), 1);
-        }
-        settings.priority = priorityChecked;
-        taskController.getFeed(settings);
-      });
-    });
+    // filterPriorityValues.forEach((elem) => {
+    //   elem.addEventListener('click', () => {
+    //     if (elem.checked === true) {
+    //       priorityChecked.push(elem.value);
+    //     } else if (elem.checked === false) {
+    //       priorityChecked.splice(priorityChecked.indexOf(elem.value), 1);
+    //     }
+    //     settings.priority = priorityChecked;
+    //     taskController.getFeed(settings);
+    //   });
+    // });
 
-    const filterPrivate = document.querySelector('.filter-private');
-    const filterPrivateMenu = document.querySelector('.filter-private__popup');
-    filterPrivate.addEventListener('click', () => {
-      filterPrivateMenu.classList.toggle('filter_block');
-    });
+    // const filterPrivate = document.querySelector('.filter-private');
+    // const filterPrivateMenu = document.querySelector('.filter-private__popup');
+    // filterPrivate.addEventListener('click', () => {
+    //   filterPrivateMenu.classList.toggle('filter_block');
+    // });
 
-    const filterPrivateValues = document.querySelectorAll(
-      '.input_filter-private'
-    );
+    // const filterPrivateValues = document.querySelectorAll(
+    //   '.input_filter-private'
+    // );
 
-    let privacyChecked = [];
+    // let privacyChecked = [];
 
-    filterPrivateValues.forEach((elem) => {
-      elem.addEventListener('click', () => {
-        if (elem.checked === true) {
-          privacyChecked.push(elem.value === 'Public' ? false : true);
-        } else if (elem.checked === false) {
-          privacyChecked.splice(
-            privacyChecked.indexOf(elem.value === 'Public' ? false : true),
-            1
-          );
-        }
-        settings.isPrivate = privacyChecked;
-        taskController.getFeed(settings);
-      });
-    });
+    // filterPrivateValues.forEach((elem) => {
+    //   elem.addEventListener('click', () => {
+    //     if (elem.checked === true) {
+    //       privacyChecked.push(elem.value === 'Public' ? false : true);
+    //     } else if (elem.checked === false) {
+    //       privacyChecked.splice(
+    //         privacyChecked.indexOf(elem.value === 'Public' ? false : true),
+    //         1
+    //       );
+    //     }
+    //     settings.isPrivate = privacyChecked;
+    //     taskController.getFeed(settings);
+    //   });
+    // });
 
     const searchInput = document.querySelector('.input_search');
     searchInput.addEventListener('input', () => {
@@ -256,30 +256,30 @@ class FilterView extends View {
       taskController.createKanban();
     });
 
-    const dayFrom = document.querySelector('.day-from');
-    dayFrom.addEventListener('input', () => {
-      settings.dateFrom = new Date(dayFrom.value).getTime();
-      taskController.getFeed(settings);
-    });
+    // const dayFrom = document.querySelector('.day-from');
+    // dayFrom.addEventListener('input', () => {
+    //   settings.dateFrom = new Date(dayFrom.value).getTime();
+    //   taskController.getFeed(settings);
+    // });
 
-    const dayTo = document.querySelector('.day-to');
-    dayTo.addEventListener('input', () => {
-      settings.dateTo = new Date(dayTo.value).getTime();
-      taskController.getFeed(settings);
-    });
+    // const dayTo = document.querySelector('.day-to');
+    // dayTo.addEventListener('input', () => {
+    //   settings.dateTo = new Date(dayTo.value).getTime();
+    //   taskController.getFeed(settings);
+    // });
 
-    const filterDate = document.querySelector('.filter-date');
-    const filterDateMenu = document.querySelector('.filter-date__popup');
+    // const filterDate = document.querySelector('.filter-date');
+    // const filterDateMenu = document.querySelector('.filter-date__popup');
 
-    filterDate.addEventListener('click', (event) => {
-      if (
-        event.target.className === 'filter-text' ||
-        event.target.className === 'filter__elem filter-date' ||
-        event.target.className === 'filter__text'
-      ) {
-        filterDateMenu.classList.toggle('filter_block');
-      }
-    });
+    // filterDate.addEventListener('click', (event) => {
+    //   if (
+    //     event.target.className === 'filter-text' ||
+    //     event.target.className === 'filter__elem filter-date' ||
+    //     event.target.className === 'filter__text'
+    //   ) {
+    //     filterDateMenu.classList.toggle('filter_block');
+    //   }
+    // });
 
     const resetBtn = document.querySelector('.button__filter-reset');
 

@@ -54,7 +54,7 @@ const TASK_STATUS = {
 };
 
 const TASK_PRIORITY = {
-  hight: 'Hight',
+  high: 'High',
   medium: 'Medium',
   low: 'Low',
 };
@@ -209,7 +209,7 @@ const validateObj = {
       value === TASK_STATUS.complete),
   priority: (value) =>
     typeof value === 'string' &&
-    (value === TASK_PRIORITY.hight ||
+    (value === TASK_PRIORITY.high ||
       value === TASK_PRIORITY.medium ||
       value === TASK_PRIORITY.low),
   isPrivate: (value) => typeof value === 'boolean',

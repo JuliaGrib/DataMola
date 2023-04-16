@@ -2,11 +2,10 @@ const html = document.querySelector('html');
 const theme = document.querySelector('.theme');
 
 function setTheme() {
-  if (!localStorage.getItem('theme')) {
-    localStorage.setItem('theme', 'theme-light');
-  } else {
-    html.classList.add(localStorage.getItem('theme'));
-  }
+  !localStorage.getItem('theme')
+    ? localStorage.setItem('theme', 'theme-light')
+    : html.classList.add(localStorage.getItem('theme'));
+
   document.querySelectorAll(
     `.${localStorage.getItem('theme')}`
   )[1].checked = true;

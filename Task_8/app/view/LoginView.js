@@ -172,34 +172,30 @@ class LoginView {
       buttonSubmit.disabled = true;
     });
 
-    form.addEventListener('submit', () => {
-      const loginValues = {
-        login: loginInput.value,
-        password: passwordInput.value,
-      };
-
-      if (taskController.userCollection.hasUser(loginValues) instanceof User) {
-        taskController.saveUser(
-          taskController.userCollection.hasUser(loginValues)
-        );
-        setCurrentUser(
-          taskController.userCollection.hasUser(loginValues).login
-        );
-        background.remove();
-        return;
-      }
-      Helper.addInputView(
-        [loginLabel, HTML_CLASS.input.labelError],
-        [loginInput, HTML_CLASS.input.inputError],
-        [passwordLabel, HTML_CLASS.input.labelError],
-        [passwordInput, HTML_CLASS.input.inputError]
-      );
-      Helper.addInputMessage(
-        [errorMessageLogin, ERRORS.loginError],
-        [errorMessagePassword, ERRORS.loginError]
-      );
-      buttonSubmit.className = HTML_CLASS.button.buttonLoginDisabled;
-      buttonSubmit.disabled = true;
+    form.addEventListener('submit', (event) => {
+      event.preventDefault();
+      taskController
+        .makeLogin(loginInput.value, passwordInput.value)
+        .then((response) => {
+          if (response) {
+            background.remove();
+            taskController.createHeaderView();
+            taskController.createMainView();
+          } else {
+            Helper.addInputView(
+              [loginLabel, HTML_CLASS.input.labelError],
+              [loginInput, HTML_CLASS.input.inputError],
+              [passwordLabel, HTML_CLASS.input.labelError],
+              [passwordInput, HTML_CLASS.input.inputError]
+            );
+            Helper.addInputMessage(
+              [errorMessageLogin, ERRORS.loginError],
+              [errorMessagePassword, ERRORS.loginError]
+            );
+            buttonSubmit.className = HTML_CLASS.button.buttonLoginDisabled;
+            buttonSubmit.disabled = true;
+          }
+        });
 
       addEventListener(
         'input',

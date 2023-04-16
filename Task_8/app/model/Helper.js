@@ -198,4 +198,9 @@ class Helper {
   static removeSpaceInput(...args) {
     args.forEach((elem) => (elem.value = elem.value.replace(/\s/, '')));
   }
+
+  static setUserLocal(login, token) {
+    localStorage.setItem('login', login);
+    localStorage.setItem('token', token);
+  }
 }

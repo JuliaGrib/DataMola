@@ -3,11 +3,11 @@ class FilterView extends View {
     super(id);
   }
 
-  display(user) {
+  display(tasks) {
     this.nodeElem.innerHTML = `
     <div class="main__filter">
     <button class="button button_add ${
-      user === '' ? 'button_disabled' : 'button_primary'
+      localStorage.getItem('login') ? 'button_primary' : 'button_disabled'
     } button_icon" type="button">
       <span class="button__text">Add Task</span>
       ${ICONS.icon_add_task}
@@ -16,9 +16,7 @@ class FilterView extends View {
       <div class="filter__elem filter-assingee">
         <span class="filter__text">Assignee</span>
         ${ICONS.icon_filter_arrow}
-        <div class="filter-popup filter-assingee__popup">
-            ${this._setAssignee()}
-        </div>
+        ${this._filterAssignnee(tasks)}
       </div>
       <div class="filter__elem filter-date">
         <span class="filter__text">Date</span>
@@ -47,8 +45,7 @@ class FilterView extends View {
     </div>
     <button
       class="button button_secondary button_icon button_filter"
-      type="reset"
-      disabled
+
     >
     ${ICONS.icon_filter_reset}
     </button>
@@ -64,29 +61,190 @@ class FilterView extends View {
       placeholder="Search"
       id="search"
     />
-
-
   </div>
     `;
-
-    this._setDisabled(user);
+    this._addEvent();
+    this._setDisabled();
   }
 
-  _setAssignee() {
+  _setDisabled() {
+    const user = localStorage.getItem('login');
+    const buttonAdd = document.querySelector('.button_add');
+    user ? (buttonAdd.disabled = false) : (buttonAdd.disabled = true);
+  }
+
+  _filterAssignnee(tasks) {
+    return `
+    <div class="filter-popup filter-assingee__popup">
+    ${this._setAssignee(tasks)}
+      </div>
+    `;
+  }
+
+  _setAssignee(tasks) {
     let assigneeNodes = '';
 
-    const assignees = JSON.parse(localStorage.userCollection).map(
-      ({ login }) => login
+    const assignees = Array.from(
+      new Set(tasks.map(({ assignee }) => assignee.userName))
     );
     assignees.forEach((elem) => {
       assigneeNodes += `
-      <div>
+      <div class="filter-assignee__elem">
         <input type="checkbox" id="${elem}" name="assignee" class="input_filter-assignee" value="${elem}">
         <label for="${elem}">${elem}</label>
       </div>
       `;
     });
     return assigneeNodes;
+  }
+
+  _addEvent() {
+    const mobFilter = document.querySelector('.button_filter');
+    const filterAssignee = document.querySelector('.filter-assingee');
+    const filterAssigneeMenu = document.querySelector(
+      '.filter-assingee__popup'
+    );
+    const filterAssigneeValues = document.querySelectorAll(
+      '.input_filter-assignee'
+    );
+
+    const dayFrom = document.querySelector('.day-from');
+    const dayTo = document.querySelector('.day-to');
+    const filterDate = document.querySelector('.filter-date');
+    const filterDateMenu = document.querySelector('.filter-date__popup');
+    const filterPriority = document.querySelector('.filter-priority');
+    const filterPriorityMenu = document.querySelector(
+      '.filter-priority__popup'
+    );
+    filterPriority.addEventListener('click', () => {
+      filterPriorityMenu.classList.toggle('filter_block');
+    });
+
+    const filterPriorityValues = document.querySelectorAll(
+      '.input_filter-priority'
+    );
+    const filterPrivate = document.querySelector('.filter-private');
+    const filterPrivateMenu = document.querySelector('.filter-private__popup');
+    const filterPrivateValues = document.querySelectorAll(
+      '.input_filter-private'
+    );
+    const addBtn = document.querySelector('.button_add');
+    let settings = {};
+    let assigneeChecked = [];
+    let priorityChecked = [];
+    let privacyChecked = [];
+
+    filterDate.addEventListener('click', (event) => {
+      if (
+        event.target.className === 'filter-text' ||
+        event.target.className === 'filter__elem filter-date' ||
+        event.target.className === 'filter__text'
+      ) {
+        filterDateMenu.classList.toggle('filter_block');
+      }
+    });
+
+    filterAssignee.addEventListener('click', () => {
+      filterAssigneeMenu.classList.toggle('filter_block');
+    });
+
+    mobFilter.addEventListener('click', () => {
+      filterAssigneeMenu.classList.toggle('filter_block');
+    });
+
+    filterAssigneeValues.forEach((elem) => {
+      elem.addEventListener('click', () => {
+        if (elem.checked === true) {
+          assigneeChecked.push(elem.value);
+        } else if (elem.checked === false) {
+          assigneeChecked.splice(assigneeChecked.indexOf(elem.value), 1);
+        }
+        settings.assignee = assigneeChecked;
+        console.log(settings);
+        filterController.params = settings;
+        taskController.createColumns();
+      });
+    });
+    console.log(settings);
+
+    dayFrom.addEventListener('input', () => {
+      settings.dateFrom = new Date(dayFrom.value).getTime();
+      filterController.params = settings;
+      taskController.createColumns();
+    });
+
+    dayTo.addEventListener('input', () => {
+      settings.dateTo = new Date(dayTo.value).getTime();
+      filterController.params = settings;
+      taskController.createColumns();
+    });
+
+    filterPriorityValues.forEach((elem) => {
+      elem.addEventListener('click', () => {
+        if (elem.checked === true) {
+          priorityChecked.push(elem.value);
+        } else if (elem.checked === false) {
+          priorityChecked.splice(priorityChecked.indexOf(elem.value), 1);
+        }
+        settings.priority = priorityChecked;
+        filterController.params = settings;
+        taskController.createColumns();
+      });
+    });
+
+    filterPrivate.addEventListener('click', () => {
+      filterPrivateMenu.classList.toggle('filter_block');
+    });
+
+    filterPrivateValues.forEach((elem) => {
+      elem.addEventListener('click', () => {
+        if (elem.checked === true) {
+          privacyChecked.push(elem.value === 'Public' ? false : true);
+        } else if (elem.checked === false) {
+          privacyChecked.splice(
+            privacyChecked.indexOf(elem.value === 'Public' ? false : true),
+            1
+          );
+        }
+        settings.isPrivate = privacyChecked;
+        filterController.params = settings;
+        taskController.createColumns();
+      });
+    });
+
+    const resetBtn = document.querySelector('.button__filter-reset');
+
+    addEventListener('click', () => {
+      if (Object.values(filterController.params).flat().length) {
+        resetBtn.disabled = false;
+        resetBtn.classList =
+          'button button__filter-reset button_icon button_secondary';
+      } else {
+        resetBtn.disabled = true;
+        resetBtn.classList =
+          'button button__filter-reset button_icon button_disabled';
+      }
+    });
+
+    resetBtn.addEventListener('click', () => {
+      document
+        .querySelectorAll(`input[type="checkbox"]`)
+        .forEach((elem) => (elem.checked = false));
+      filterController.params = {};
+      settings = {};
+      console.log(settings);
+      taskController.createColumns();
+      this._closeAllpopup();
+    });
+
+    addBtn.addEventListener('click', () => {
+      taskController.createPopupView();
+    });
+  }
+
+  _closeAllpopup() {
+    const popups = document.querySelectorAll('.filter-popup');
+    popups.forEach((elem) => elem.classList.remove('filter_block'));
   }
 
   _setPriotity() {
@@ -115,182 +273,5 @@ class FilterView extends View {
       `;
     });
     return privacyNodes;
-  }
-
-  _setDisabled(user) {
-    const buttonAdd = document.querySelector('.button_add');
-    user === '' ? (buttonAdd.disabled = true) : (buttonAdd.disabled = false);
-  }
-
-  _addEvents() {
-    const buttonAdd = document.querySelector('.button_add');
-    buttonAdd.addEventListener('click', () => {
-      this._showPopup();
-      this._closeAllpopup();
-    });
-  }
-
-  _showPopup() {
-    return `
-    
-    
-  </div>
-    `;
-  }
-
-  _addEvents() {
-    const addBtn = document.querySelector('.button_add');
-    addBtn.addEventListener('click', () => {
-      taskController.createPopupView();
-    });
-    const settings = {};
-    const filterAssignee = document.querySelector('.filter-assingee');
-    const filterAssigneeMenu = document.querySelector(
-      '.filter-assingee__popup'
-    );
-    const filterAssigneeValues = document.querySelectorAll(
-      '.input_filter-assignee'
-    );
-
-    filterAssignee.addEventListener('click', () => {
-      filterAssigneeMenu.classList.toggle('filter_block');
-    });
-
-    let assigneeChecked = [];
-
-    filterAssigneeValues.forEach((elem) => {
-      elem.addEventListener('click', () => {
-        if (elem.checked === true) {
-          assigneeChecked.push(elem.value);
-        } else if (elem.checked === false) {
-          assigneeChecked.splice(assigneeChecked.indexOf(elem.value), 1);
-        }
-        settings.assignee = assigneeChecked;
-        taskController.getFeed(settings);
-      });
-    });
-
-    const filterPriority = document.querySelector('.filter-priority');
-    const filterPriorityMenu = document.querySelector(
-      '.filter-priority__popup'
-    );
-    filterPriority.addEventListener('click', () => {
-      filterPriorityMenu.classList.toggle('filter_block');
-    });
-
-    const filterPriorityValues = document.querySelectorAll(
-      '.input_filter-priority'
-    );
-
-    let priorityChecked = [];
-
-    filterPriorityValues.forEach((elem) => {
-      elem.addEventListener('click', () => {
-        if (elem.checked === true) {
-          priorityChecked.push(elem.value);
-        } else if (elem.checked === false) {
-          priorityChecked.splice(priorityChecked.indexOf(elem.value), 1);
-        }
-        settings.priority = priorityChecked;
-        taskController.getFeed(settings);
-      });
-    });
-
-    const filterPrivate = document.querySelector('.filter-private');
-    const filterPrivateMenu = document.querySelector('.filter-private__popup');
-    filterPrivate.addEventListener('click', () => {
-      filterPrivateMenu.classList.toggle('filter_block');
-    });
-
-    const filterPrivateValues = document.querySelectorAll(
-      '.input_filter-private'
-    );
-
-    let privacyChecked = [];
-
-    filterPrivateValues.forEach((elem) => {
-      elem.addEventListener('click', () => {
-        if (elem.checked === true) {
-          privacyChecked.push(elem.value === 'Public' ? false : true);
-        } else if (elem.checked === false) {
-          privacyChecked.splice(
-            privacyChecked.indexOf(elem.value === 'Public' ? false : true),
-            1
-          );
-        }
-        settings.isPrivate = privacyChecked;
-        taskController.getFeed(settings);
-      });
-    });
-
-    const searchInput = document.querySelector('.input_search');
-    searchInput.addEventListener('input', () => {
-      settings.name = searchInput.value;
-      settings.description = searchInput.value;
-      taskController.getFeed(settings);
-    });
-
-    const tableBtn = document.querySelector('.table-view');
-    tableBtn.addEventListener('click', () => {
-      taskController.createTable();
-    });
-
-    const kanbanBtn = document.querySelector('.kanban-view');
-    kanbanBtn.addEventListener('click', () => {
-      taskController.createKanban();
-    });
-
-    const dayFrom = document.querySelector('.day-from');
-    dayFrom.addEventListener('input', () => {
-      settings.dateFrom = new Date(dayFrom.value).getTime();
-      taskController.getFeed(settings);
-    });
-
-    const dayTo = document.querySelector('.day-to');
-    dayTo.addEventListener('input', () => {
-      settings.dateTo = new Date(dayTo.value).getTime();
-      taskController.getFeed(settings);
-    });
-
-    const filterDate = document.querySelector('.filter-date');
-    const filterDateMenu = document.querySelector('.filter-date__popup');
-
-    filterDate.addEventListener('click', (event) => {
-      if (
-        event.target.className === 'filter-text' ||
-        event.target.className === 'filter__elem filter-date' ||
-        event.target.className === 'filter__text'
-      ) {
-        filterDateMenu.classList.toggle('filter_block');
-      }
-    });
-
-    const resetBtn = document.querySelector('.button__filter-reset');
-
-    addEventListener('click', () => {
-      if (Object.values(filterController.params).flat().length) {
-        resetBtn.disabled = false;
-        resetBtn.classList =
-          'button button__filter-reset button_icon button_secondary';
-      } else {
-        resetBtn.disabled = true;
-        resetBtn.classList =
-          'button button__filter-reset button_icon button_disabled';
-      }
-    });
-
-    resetBtn.addEventListener('click', () => {
-      filterController.params = {};
-      taskController.taskFeedView.display(
-        filterController.filterTasks(),
-        taskController.tasks.user
-      );
-      this._closeAllpopup();
-    });
-  }
-
-  _closeAllpopup() {
-    const popups = document.querySelectorAll('.filter-popup');
-    popups.forEach((elem) => elem.classList.remove('filter_block'));
   }
 }
