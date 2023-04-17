@@ -6,12 +6,3 @@ taskController.createHeaderView();
 taskController.createMainView();
 
 setTheme();
-
-function showLoader() {
-  const main = document.querySelector('main');
-  main.insertAdjacentHTML('beforebegin', '<div class="lds-dual-ring"></div>');
-}
-
-function removeLoader() {
-  document.querySelector('.lds-dual-ring').remove();
-}

@@ -8,6 +8,7 @@ class HeaderView extends View {
     user
       ? (this.nodeElem.innerHTML = this._authorizedUser(user))
       : (this.nodeElem.innerHTML = this._unauthorizedUser());
+    console.log(user);
   }
 
   _authorizedUser(user) {

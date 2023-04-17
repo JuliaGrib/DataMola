@@ -95,7 +95,7 @@ class UserEditPageView extends View {
                 class="input input_user"
                 type="password"
                 id="password"
-                value="${user.password}"
+
                 requared
               />
               <span class="input_icon-svg">
@@ -113,7 +113,7 @@ class UserEditPageView extends View {
                 class="input input_user"
                 type="password"
                 id="repeat_password"
-                value="${user.password}"
+
                 requared
               />
               <span class="input_icon-svg">
@@ -270,21 +270,14 @@ class UserEditPageView extends View {
     });
 
     form.addEventListener('submit', () => {
-      const userLocal = JSON.parse(localStorage.user);
-      const isUserChange = taskController.userCollection.changeUser(
-        userLocal.id,
-        nameInput.value,
-        passwordInput.value,
-        passwordRepeatInput.value
-      );
+      const info = {
+        userName: nameInput.value,
+        password: passwordInput.value,
+        retypedPassword: passwordRepeatInput.value,
+        photo: logoBase64,
+      };
 
-      if (isUserChange) {
-        localStorage.user = JSON.stringify(
-          taskController.userCollection.findUser(userLocal.id)
-        );
-        taskController.userCollection.save();
-        taskController.createUserPage();
-      }
+      taskController.saveUserInfo('15', info);
     });
 
     backMain.addEventListener('click', (event) => {

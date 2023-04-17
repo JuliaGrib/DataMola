@@ -3,7 +3,7 @@ class TaskEditView extends View {
     super(id);
   }
 
-  display(task) {
+  display(task, users) {
     this.nodeElem.className = 'main main__template_task-page';
     this.nodeElem.innerHTML = `
     <div class="container">
@@ -181,7 +181,7 @@ class TaskEditView extends View {
             <div class="selection">
     
             <select class="task_assignee">
-            ${this._setOptions()}
+            ${this._setOptions(users)}
             </select>
             </div>
           </div>
@@ -206,15 +206,12 @@ class TaskEditView extends View {
     this._setCheckedStyle();
   }
 
-  _setOptions() {
-    const usersNames = JSON.parse(localStorage.userCollection).map(
-      ({ login }) => login
-    );
+  _setOptions(users) {
     let options = '';
-    usersNames.forEach(
-      (elem) =>
-        (options += `<option class="option_assignee" value="${elem}">${elem}</option>`)
-    );
+    users.forEach(({ id, userName }) => {
+      options += `<option class="option_assignee" value="${id}">${userName}</option>`;
+    });
+
     return options;
   }
 
@@ -360,7 +357,7 @@ class TaskEditView extends View {
       const editTask = {
         name: taskNameInput.value,
         description: taskDescInput.value,
-        assignee: '15',
+        assignee: optionsAssignee,
         status: status,
         priority: priority,
         isPrivate: privacy === 'Public' ? false : true,

@@ -2,7 +2,7 @@ class PopView extends View {
   constructor(id) {
     super(id);
   }
-  display(tasks) {
+  display(users) {
     this.nodeElem.insertAdjacentHTML(
       'beforeend',
       `<div class="popup__background">
@@ -54,7 +54,7 @@ class PopView extends View {
             <div class="selection">
     
             <select class="task_assignee">
-            ${this._setOptions(tasks)}
+            ${this._setOptions(users)}
             </select>
             </div>
           </div>
@@ -307,7 +307,7 @@ class PopView extends View {
       const newTask = {
         name: taskNameInput.value,
         description: taskDescInput.value,
-        assignee: '15',
+        assignee: optionsAssignee,
         status: status,
         priority: priority,
         isPrivate: privacy === 'Public' ? false : true,
@@ -324,15 +324,12 @@ class PopView extends View {
     });
   }
 
-  _setOptions(tasks) {
-    const usersNames = Array.from(
-      new Set(tasks.map(({ assignee }) => assignee.userName))
-    );
+  _setOptions(users) {
     let options = '';
-    usersNames.forEach(
-      (elem) =>
-        (options += `<option class="option_assignee" value="${elem}">${elem}</option>`)
-    );
+    users.forEach(({ id, userName }) => {
+      options += `<option class="option_assignee" value="${id}">${userName}</option>`;
+    });
+
     return options;
   }
 
