@@ -45,7 +45,6 @@ class FilterView extends View {
     </div>
     <button
       class="button button_secondary button_icon button_filter"
-
     >
     ${ICONS.icon_filter_reset}
     </button>
@@ -207,6 +206,13 @@ class FilterView extends View {
         filterController.params = settings;
         taskController.createColumns();
       });
+    });
+
+    const searchInput = document.querySelector('.input_search');
+    searchInput.addEventListener('input', () => {
+      settings.name = searchInput.value;
+      filterController.params = settings;
+      taskController.createColumns();
     });
 
     const resetBtn = document.querySelector('.button__filter-reset');

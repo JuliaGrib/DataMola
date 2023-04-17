@@ -15,3 +15,16 @@
     display: none;
   }
 }
+
+body {
+  top: 0 !important;
+}
+.goog-te-banner-frame {
+  display: none;
+  height: 0 !important;
+  visibility: hidden;
+}
+
+#google_translate_element {
+  display: none;
+}

@@ -84,17 +84,30 @@ class TaskFeedView extends View {
 
   _addEvents(showNode) {
     const showMore = document.querySelector(showNode);
+    const showMoreToDo = document.querySelector('.button_show-more-to-do');
+    const showMoreInProgress = document.querySelector(
+      '.button_show-more-in-progress'
+    );
+    const showMoreComplete = document.querySelector(
+      '.button_show-more-complete'
+    );
     showMore.addEventListener('click', () => {
-      let num = 10;
       switch (showNode) {
         case '.button_show-more-to-do':
-          taskController.createToDoColumn(0, num + 10);
+          showMoreToDo.dataset.show = +showMoreToDo.dataset.show + 10;
+          taskController.createToDoColumn(0, showMoreToDo.dataset.show);
           break;
         case '.button_show-more-in-progress':
-          taskController.createInProgressColumn(0, num + 10);
+          showMoreInProgress.dataset.show =
+            +showMoreInProgress.dataset.show + 10;
+          taskController.createInProgressColumn(
+            0,
+            showMoreInProgress.dataset.show
+          );
           break;
         case '.button_show-more-complete':
-          taskController.createCompleteColumn(0, num + 10);
+          showMoreComplete.dataset.show = +showMoreComplete.dataset.show + 10;
+          taskController.createCompleteColumn(0, showMoreComplete.dataset.show);
           break;
       }
     });

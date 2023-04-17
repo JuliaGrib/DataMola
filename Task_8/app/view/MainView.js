@@ -26,7 +26,7 @@ class MainView extends View {
                 <div class="col__wrap to-do">
                 </div>
             </div>
-            <button class="button button_show-more button_show-more-to-do" type="button">
+            <button class="button button_show-more button_show-more-to-do" type="button" data-show="10">
               Show more
             </button>
           </section>
@@ -37,7 +37,7 @@ class MainView extends View {
                 <div class="col__wrap in-progress">
                 </div>
             </div>
-            <button class="button button_show-more button_show-more-in-progress" type="button">
+            <button class="button button_show-more button_show-more-in-progress" type="button" data-show="10">
               Show more
             </button>
           </section>
@@ -47,7 +47,7 @@ class MainView extends View {
               <div class="col__wrap complete">
               </div>
           </div>
-          <button class="button button_show-more button_show-more-complete" type="button">
+          <button class="button button_show-more button_show-more-complete" type="button" data-show="10">
             Show more
           </button>
         </section>
