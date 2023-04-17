@@ -140,7 +140,8 @@ class TaskView extends View {
           event.target.className.animVal === 'icon-del' ||
           event.target.className === 'icon icon_del'
         ) {
-          taskController.removeTask(event.target.parentNode.parentNode.id);
+          taskController.delTask(event.target.parentNode.parentNode.id);
+          taskController.createMainView();
         }
       });
     }

@@ -112,11 +112,8 @@ class TaskFeedView extends View {
         event.target.className.animVal === 'icon-del' ||
         event.target.className === 'icon icon_del'
       ) {
-        taskController.createResetView(
-          'delTaskDesk',
-          event.target.parentNode.parentNode.id,
-          true
-        );
+        taskController.delTask(event.target.parentNode.parentNode.id);
+        taskController.createMainView();
       }
     });
   }

@@ -55,8 +55,8 @@ class TaskController {
   async createMainView() {
     this.mainView.display();
     this.filterView = new FilterView('main__wrapper');
-    const tasksAll = await api.getAllTasks();
-    this.filterView.display(tasksAll);
+    const users = await api.getAllUsers();
+    this.filterView.display(users);
     this.createColumns();
   }
 
@@ -117,7 +117,8 @@ class TaskController {
 
   async editTask(id) {
     const task = await api.getTask(id);
-    this.taskEditView.display(task);
+    const users = await api.getAllUsers();
+    this.taskEditView.display(task, users);
   }
 
   async createUserPage() {
@@ -133,8 +134,8 @@ class TaskController {
   }
 
   async createPopupView() {
-    const tasksAll = await api.getAllTasks();
-    this.popView.display(tasksAll);
+    const users = await api.getAllUsers();
+    this.popView.display(users);
   }
 
   async addTaskPopup(task) {
@@ -150,45 +151,18 @@ class TaskController {
     taskController.showTask(id);
   }
 
-  // showMoreToDo() {
-  //   filterController.pageToDo += PAGE_LENGTH.count;
-  //   this.taskFeedView.display(filterController.filterTasks(), this.tasks.user);
-  // }
+  async saveUserInfo(id, info) {
+    await api.saveEditUser(id, info);
+  }
 
-  // showMoreComplete() {
-  //   filterController.pageComplete += PAGE_LENGTH.count;
-  //   this.taskFeedView.display(filterController.filterTasks(), this.tasks.user);
-  // }
+  async regUser(info, password) {
+    const response = await api.registerUser(info);
+    const user = await api.setLogin(response.login, password);
+    Helper.setUserLocal(user.login, user.token);
+    this.createHeaderView();
 
-  // showMoreInProgress() {
-  //   filterController.pageInProgress += PAGE_LENGTH.count;
-  //   this.taskFeedView.display(filterController.filterTasks(), this.tasks.user);
-  // }
-
-  // addTask(obj) {
-  //   this.tasks.add(
-  //     obj.name,
-  //     obj.description,
-  //     obj.assignee,
-  //     obj.status,
-  //     obj.priority,
-  //     obj.isPrivate
-  //   );
-
-  //   this.createMainView();
-  // }
-
-  // removeTask(id) {
-  //   try {
-  //     if (!Helper.isString(id)) {
-  //       throw new Error(ERRORS.onlyString);
-  //     }
-  //     this.tasks.remove(id);
-  //     this.createMainView();
-  //   } catch (error) {
-  //     console.error(error);
-  //   }
-  // }
+    this.createMainView();
+  }
 
   createKanban() {
     this.taskFeedView.position = TASK_VIEW.kanban;
@@ -202,48 +176,16 @@ class TaskController {
     this.taskFeedView.display(filterController.filterTasks(), this.tasks.user);
   }
 
-  // addComment(id, text) {
-  //   try {
-  //     if (!Helper.isString(id)) {
-  //       throw new Error(ERRORS.onlyString);
-  //     }
-
-  //     this.tasks.addComment(id, text);
-  //     this.showTask(id);
-  //     this.tasks.save();
-  //   } catch (error) {
-  //     console.error(error);
-  //   }
-  // }
-
-  // editTaskInPage(id, obj) {
-  //   try {
-  //     if (!Helper.isString(id)) {
-  //       throw new Error(ERRORS.onlyString);
-  //     }
-
-  //     this.tasks.edit(
-  //       id,
-  //       obj.name || null,
-  //       obj.description || null,
-  //       obj.assignee || null,
-  //       obj.status || null,
-  //       obj.priority || null,
-  //       obj.isPrivate || null
-  //     );
-
-  //     this.tasks.save();
-  //     this.showTask(id);
-  //   } catch (error) {
-  //     console.error(error);
-  //   }
-  // }
-
   createResetView(elem, id = null, del = false) {
     this.resetView.display(elem, id, del);
   }
 
   createErrorPageView() {
     this.errorPageView.display();
+  }
+
+  async delTask(id) {
+    const response = await api.removeTask(id);
+    console.log(response);
   }
 }

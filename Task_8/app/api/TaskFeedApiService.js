@@ -14,9 +14,7 @@ class TaskFeedApiService {
     };
 
     return fetch(`${this.url}/api/user/myProfile`, opt)
-      .finally(() => showLoader())
       .then((response) => {
-        removeLoader();
         if (response.status >= 200 && response.status <= 299) {
           return response.json();
         } else {
@@ -56,9 +54,7 @@ class TaskFeedApiService {
     return fetch(
       `${this.url}/api/tasks?skip=${skip}&top=${top}&status=${status}`
     )
-      .finally(() => showLoader())
       .then((response) => {
-        removeLoader();
         if (response.status >= 200 && response.status <= 299) {
           return response.json();
         } else {
@@ -66,7 +62,6 @@ class TaskFeedApiService {
         }
       })
       .catch((error) => {
-        removeLoader();
         taskController.createErrorPageView();
       });
   }
@@ -86,11 +81,9 @@ class TaskFeedApiService {
       });
   }
 
-  getAllUsers() {
-    return fetch(`${this.url}/api/user/allUsers`)
-      .finally(() => showLoader())
+  getAllTasks() {
+    return fetch(`${this.url}/api/tasks`)
       .then((response) => {
-        removeLoader();
         if (response.status >= 200 && response.status <= 299) {
           return response.json();
         } else {
@@ -98,16 +91,13 @@ class TaskFeedApiService {
         }
       })
       .catch((error) => {
-        removeLoader();
         taskController.createErrorPageView();
       });
   }
 
-  getAllTasks() {
-    return fetch(`${this.url}/api/tasks`)
-      .finally(() => showLoader())
+  getAllUsers() {
+    return fetch(`${this.url}/api/user/allUsers`)
       .then((response) => {
-        removeLoader();
         if (response.status >= 200 && response.status <= 299) {
           return response.json();
         } else {
@@ -115,7 +105,6 @@ class TaskFeedApiService {
         }
       })
       .catch((error) => {
-        removeLoader();
         taskController.createErrorPageView();
       });
   }
@@ -176,6 +165,34 @@ class TaskFeedApiService {
       });
   }
 
+  saveEditUser(id, userInfo) {
+    const method = 'PATCH';
+    const headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    headers.append('Authorization', `Bearer ${localStorage.getItem('token')}`);
+
+    const opt = {
+      method,
+      headers,
+      body: JSON.stringify(userInfo),
+    };
+
+    return fetch(`${this.url}/api/user/${id}`, opt)
+      .finally(() => console.log('задержка'))
+      .then((response) => {
+        if (response.status >= 200 && response.status <= 299) {
+          return response.json();
+        } else {
+          console.log(response);
+          taskController.createErrorPageView();
+        }
+      })
+      .catch((error) => {
+        console.error(error);
+        taskController.createErrorPageView();
+      });
+  }
+
   removeTask(id) {
     const method = 'DELETE';
     const headers = new Headers();
@@ -217,6 +234,33 @@ class TaskFeedApiService {
     };
 
     return fetch(`${this.url}/api/tasks/${id}/comments`, opt)
+      .finally(() => console.log('задержка'))
+      .then((response) => {
+        if (response.status >= 200 && response.status <= 299) {
+          return response.json();
+        } else {
+          console.log(response);
+          taskController.createErrorPageView();
+        }
+      })
+      .catch((error) => {
+        console.error(error);
+        taskController.createErrorPageView();
+      });
+  }
+
+  registerUser(info) {
+    const method = 'POST';
+    const headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+
+    const opt = {
+      method,
+      headers,
+      body: JSON.stringify(info),
+    };
+
+    return fetch(`${this.url}/api/user/register`, opt)
       .finally(() => console.log('задержка'))
       .then((response) => {
         if (response.status >= 200 && response.status <= 299) {

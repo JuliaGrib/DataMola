@@ -3,7 +3,7 @@ class FilterView extends View {
     super(id);
   }
 
-  display(tasks) {
+  display(users) {
     this.nodeElem.innerHTML = `
     <div class="main__filter">
     <button class="button button_add ${
@@ -16,7 +16,7 @@ class FilterView extends View {
       <div class="filter__elem filter-assingee">
         <span class="filter__text">Assignee</span>
         ${ICONS.icon_filter_arrow}
-        ${this._filterAssignnee(tasks)}
+        ${this._filterAssignnee(users)}
       </div>
       <div class="filter__elem filter-date">
         <span class="filter__text">Date</span>
@@ -73,25 +73,22 @@ class FilterView extends View {
     user ? (buttonAdd.disabled = false) : (buttonAdd.disabled = true);
   }
 
-  _filterAssignnee(tasks) {
+  _filterAssignnee(users) {
     return `
     <div class="filter-popup filter-assingee__popup">
-    ${this._setAssignee(tasks)}
+    ${this._setAssignee(users)}
       </div>
     `;
   }
 
-  _setAssignee(tasks) {
+  _setAssignee(users) {
     let assigneeNodes = '';
 
-    const assignees = Array.from(
-      new Set(tasks.map(({ assignee }) => assignee.userName))
-    );
-    assignees.forEach((elem) => {
+    users.forEach(({ id, userName }) => {
       assigneeNodes += `
       <div class="filter-assignee__elem">
-        <input type="checkbox" id="${elem}" name="assignee" class="input_filter-assignee" value="${elem}">
-        <label for="${elem}">${elem}</label>
+        <input type="checkbox" id="${id}" name="assignee" class="input_filter-assignee" value="${userName}">
+        <label for="${userName}">${userName}</label>
       </div>
       `;
     });

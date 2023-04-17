@@ -1,7 +1,7 @@
 .game {
   width: 600px;
   height: 200px;
-  border-bottom: 1px solid #333333;
+  border-bottom: 1px solid var(--color-text-main);
   margin: auto;
 }
 
@@ -14,7 +14,7 @@
   top: 150px;
 }
 
-#cactus {
+.cactus {
   width: 20px;
   height: 40px;
   background-image: url(../../img/images/cactus.png);
@@ -22,7 +22,21 @@
   position: relative;
   top: 110px;
   left: 580px;
-  /* animation: cactusMov 2s linear; */
+}
+
+.cactus_move {
+  animation: cactusMov 2.5s infinite linear;
+}
+.cactus_pause {
+  animation-play-state: paused;
+}
+.result-game {
+  color: var(--color-text-main);
+  padding-top: var(--padding-s);
+}
+.error__text {
+  color: var(--color-text-main);
+  padding-top: var(--padding-s);
 }
 
 @keyframes cactusMov {
@@ -35,7 +49,7 @@
 }
 
 .jump {
-  /* animation: jump 0.3s linear; */
+  animation: jump 0.3s linear;
 }
 
 @keyframes jump {
