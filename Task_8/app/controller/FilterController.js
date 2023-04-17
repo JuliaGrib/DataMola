@@ -64,6 +64,21 @@ class FilterController {
             return elem;
           }
         }
+        if (key === KEYS.name) {
+          console.log(key);
+          if (elem[key] === '') {
+            return elem;
+          } else {
+            return (
+              elem[key]
+                .toLowerCase()
+                .includes(this.params[key].toLowerCase()) ||
+              elem.description
+                .toLowerCase()
+                .includes(this.params[key].toLowerCase())
+            );
+          }
+        }
       });
     }
     return tasks;
